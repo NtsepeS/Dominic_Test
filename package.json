@@ -1,0 +1,21 @@
+{
+  "name": "COPS",
+  "version": "0.0.0",
+  "description": "COPS meta project",
+  "scripts": {
+    "test": "echo \"Error: no test specified\"  && exit 1",
+    "start": "foreman start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/InternetSolutions/COPS.git"
+  },
+  "author": "IS System Integrators",
+  "bugs": {
+    "url": "https://github.com/InternetSolutions/COPS/issues"
+  },
+  "homepage": "https://github.com/InternetSolutions/COPS",
+  "dependencies": {
+    "http-proxy": "^1.7.0"
+  }
+}
