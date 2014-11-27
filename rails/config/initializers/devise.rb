@@ -233,6 +233,19 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :isoauth2,
+    Rails.application.secrets.SSO_CONSUMER_KEY,
+    Rails.application.secrets.SSO_CONSUMER_SECRET,
+    scope: 'openid profile address email phone siebel alias ddad other',
+    client_options: {
+      site: Rails.application.secrets.SSO_SITE,
+      authorize_url: '/oidc/auth',
+      token_url: '/oidc/token',
+      ssl: { verify: false }
+      },
+    authorize_params: {
+      prompt: :select_account
+    }
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
@@ -256,4 +269,5 @@ Devise.setup do |config|
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+
 end
