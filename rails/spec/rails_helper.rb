@@ -53,4 +53,7 @@ RSpec.configure do |config|
   # Use Rspec 3 syntax
   config.include FactoryGirl::Syntax::Methods
 
+  # Include support helpers
+  config.include JsonHelpers
+
 end
