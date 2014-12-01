@@ -6,4 +6,9 @@ Rails.application.routes.draw do
     get 'auth/sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session
   end
 
+  namespace :api do
+    namespace :v1 do
+      get 'me', to: 'user_info#user', as: :user
+    end
+  end
 end
