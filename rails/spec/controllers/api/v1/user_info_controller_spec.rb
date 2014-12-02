@@ -12,6 +12,7 @@ RSpec.describe Api::V1::UserInfoController do
         expect(response).to be_ok
         expect(json[:name]).to eq user.name
         expect(json[:email]).to eq user.email
+        expect(json[:ad_username]).to eq user.ad_username
       end
     end
   end

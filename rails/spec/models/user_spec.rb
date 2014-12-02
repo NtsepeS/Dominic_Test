@@ -14,6 +14,7 @@ RSpec.describe User do
           expect(user.email).to eq(auth_hash.info.email)
           expect(user.provider).to eq(auth_hash.provider)
           expect(user.uid).to eq(auth_hash.uid)
+          expect(user.ad_username).to eq(auth_hash.info.aliases[0].provider_id)
         end
       end
 

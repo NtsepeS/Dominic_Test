@@ -19,10 +19,9 @@ class User < ActiveRecord::Base
     def update_user_info user, auth
       user.name = auth.info.name
       user.email = auth.info.email
-
-      # auth.info.aliases.each do |provider_alias|
-      #   user.ad_username = provider_alias.provider_id if provider_alias.provider == 'ddad'
-      # end
+      auth.info.aliases.each do |provider_alias|
+        user.ad_username = provider_alias.provider_id if provider_alias.provider == 'ddad'
+      end
       user.save
     end
   end

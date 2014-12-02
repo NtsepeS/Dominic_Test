@@ -11,6 +11,7 @@ RSpec.describe UserPresenter do
       expect(user_info).to eq({
         name: user.name,
         email: user.email,
+        ad_username: user.ad_username
       })
     end
   end

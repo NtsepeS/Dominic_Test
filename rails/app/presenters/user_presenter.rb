@@ -7,6 +7,7 @@ class UserPresenter < SimpleDelegator
     {
       name: name,
       email: email,
+      ad_username: ad_username
     }
   end
 end
