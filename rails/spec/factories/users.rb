@@ -5,5 +5,6 @@ FactoryGirl.define do
     provider "isoauth2"
     sequence(:uid) { |i| "flsadhglskdhgalf#{i}" }
     ad_username "test.guy"
+    role "admin"
   end
 end
