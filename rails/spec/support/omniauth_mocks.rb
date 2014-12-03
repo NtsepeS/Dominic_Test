@@ -11,7 +11,15 @@ module OmniauthMocks
       uid: 'jdhghsdgagdasjgmdshgd',
       info: {
         name: 'New Test Guy',
-        email: 'testguy@example.com'
+        email: 'testguy@example.com',
+        aliases: [{
+          provider_id: 'test.guy',
+          provider: 'ddad',
+        },
+        { provider_id: 'siebel.test.guy',
+          provider: 'siebel',
+        }
+        ]
       },
       credentials: {
         token: 'kdlsgjhpdasgjnsdlkghads',
