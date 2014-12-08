@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
     end
 
     def determine_role
-      return :admin if groups.include? "IS.OPT_Admin" or groups.include? "IS.System Integrators"
+      return :admin if groups.any? { |g| /IS.System Integrators/ =~ g }
     end
 
     def username
