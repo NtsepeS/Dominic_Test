@@ -1,0 +1,7 @@
+{{#if session.isAuthenticated}}
+  User profile
+  <a {{ action 'logout' }}>Logout</a>
+{{else}}
+  User Profile
+  <a id='Login' href = '/users/auth/isoauth2'> Login</a>
+{{/if}}

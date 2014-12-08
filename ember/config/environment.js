@@ -5,6 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'cops',
     environment: environment,
     baseURL: '/',
+    isidLoginURL: '/users/auth/isoauth2',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
