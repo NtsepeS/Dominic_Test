@@ -13,7 +13,6 @@ gem 'puma'
 gem 'rest-client', '~> 1.7.2'
 gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.3'
-gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
 group :development do
