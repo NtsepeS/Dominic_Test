@@ -1,7 +1,9 @@
 {{#if session.isAuthenticated}}
-  User profile
-  <a {{ action 'logout' }}>Logout</a>
+  <h2>User Profile</h2>
+  Name of user
+  <a {{ action 'logout' }} class="btn btn-default">Logout</a>
 {{else}}
   User Profile
-  <a id='Login' href = '/users/auth/isoauth2'> Login</a>
+  Name of user
+  <a id='Login' href='/users/auth/isoauth2' class="btn btn-default">Login</a>
 {{/if}}
