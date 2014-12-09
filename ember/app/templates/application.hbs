@@ -1,6 +1,27 @@
-<h2 id='title'>Welcome to Ember.js</h2>
-<br>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+ <!--      <a class="navbar-brand" href="#">
+        <img class="img-responsive" src="http://www.is.co.za/Themes/IS.Web.Main/Styles/img/logo-block.png">
+      </a> -->
+    </div>
+  </div>
+</nav>
+
 {{render "user-profile" session.content}}
 
 {{outlet}}
 
+<div class="navbar navbar-inverse navbar-fixed-bottom footerbar">
+  <div class="container">
+    <div class="row">
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <p class="navbar-text">&#169; 2014 Internet Solutions. All Rights Reserved.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
