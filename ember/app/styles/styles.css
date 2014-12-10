@@ -94,6 +94,9 @@ section.row h2{
   text-align: center;
 }
 
+.user-info li{
+  text-align: center;
+}
 .main-content{
   margin-top: 110px;
   margin-bottom: 70px;

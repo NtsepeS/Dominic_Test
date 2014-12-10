@@ -2,10 +2,10 @@
   <ul class="nav navbar-nav navbar-right">
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-        <span class="caret"></span> <span class="glyphicon glyphicon-user"></span> Name of Person
+        <span class="caret"></span> <span class="glyphicon glyphicon-user"></span> {{name}}
       </a>
-      <ul class="dropdown-menu">
-        <li><span class="glyphicon glyphicon-home"></span> Title of Person</li>
+      <ul class="dropdown-menu user-info">
+        <li>{{role}}</li>
         <li class="divider"></li>
         <li><button type="button" {{ action 'logout' }} class="btn btn-default">Logout</button></li>
       </ul>
