@@ -93,3 +93,27 @@ section.row h2{
 #pictures .row{
   text-align: center;
 }
+
+.main-content{
+  margin-top: 110px;
+  margin-bottom: 70px;
+}
+
+.navbar-nav > li > a {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.footerbar {
+  padding: 0px;
+}
+
+.navbar-brand img{
+  width: 100px;
+}
+
+@media screen and (max-width: 767px) {
+  .navbar-brand img{
+    width: 50px;
+  }
+}
