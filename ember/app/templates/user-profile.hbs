@@ -1,9 +1,17 @@
 {{#if session.isAuthenticated}}
-  <h2>User Profile</h2>
-  Name of user
-  <a {{ action 'logout' }} class="btn btn-default">Logout</a>
+  <ul class="nav navbar-nav navbar-right">
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <span class="caret"></span> <span class="glyphicon glyphicon-user"></span> Name of Person
+      </a>
+      <ul class="dropdown-menu">
+        <li><span class="glyphicon glyphicon-home"></span> Title of Person</li>
+        <li class="divider"></li>
+        <li><button type="button" {{ action 'logout' }} class="btn btn-default">Logout</button></li>
+      </ul>
+  </ul>
 {{else}}
-  User Profile
-  Name of user
-  <a id='Login' href='/users/auth/isoauth2' class="btn btn-default">Login</a>
+  <ul class="nav navbar-nav navbar-right">
+    <li><a id='Login' href='/users/auth/isoauth2' class="btn btn-default">Login</a>
+  </ul>
 {{/if}}
