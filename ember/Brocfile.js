@@ -23,6 +23,14 @@ app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.t
 app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.eot', {
   destDir: 'fonts'
 });
+app.import('bower_components/datatables/media/js/jquery.dataTables.js');
+app.import('bower_components/datatables/media/css/jquery.dataTables.css');
+app.import('bower_components/datatables/media/images/sort_asc.png', {
+  destDir: 'images'
+});
+app.import('bower_components/datatables/media/images/sort_both.png', {
+  destDir: 'images'
+});
 //
 // If you need to use different assets in different
 // environments, specify an object as the first parameter. That
