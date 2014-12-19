@@ -11,10 +11,114 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141203100154) do
+ActiveRecord::Schema.define(version: 20141211183506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "antennas", force: true do |t|
+    t.string   "size"
+    t.integer  "serial_number"
+    t.integer  "is_asset_tag"
+    t.string   "latitude"
+    t.string   "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "base_station_sectors", force: true do |t|
+    t.string   "name"
+    t.integer  "status_id"
+    t.integer  "base_station_unit_id"
+    t.integer  "sector"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "base_station_sectors", ["base_station_unit_id"], name: "index_base_station_sectors_on_base_station_unit_id", using: :btree
+  add_index "base_station_sectors", ["status_id"], name: "index_base_station_sectors_on_status_id", using: :btree
+
+  create_table "base_station_units", force: true do |t|
+    t.string   "name"
+    t.integer  "status_id"
+    t.integer  "core_node_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "base_station_units", ["status_id"], name: "index_base_station_units_on_status_id", using: :btree
+
+  create_table "cities", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "client_links", force: true do |t|
+    t.string   "name"
+    t.string   "branch"
+    t.string   "circuit_number"
+    t.string   "MSAD_number"
+    t.date     "activation_date"
+    t.string   "MAC_address"
+    t.string   "distance"
+    t.integer  "client_id"
+    t.integer  "status_id"
+    t.integer  "network_operator_id"
+    t.integer  "link_type_id"
+    t.integer  "base_station_sector_id"
+    t.integer  "antenna_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "solution_identifier"
+    t.string   "billing_account"
+    t.string   "service_account"
+    t.string   "service_account_site"
+  end
+
+  add_index "client_links", ["antenna_id"], name: "index_client_links_on_antenna_id", using: :btree
+  add_index "client_links", ["base_station_sector_id"], name: "index_client_links_on_base_station_sector_id", using: :btree
+  add_index "client_links", ["client_id"], name: "index_client_links_on_client_id", using: :btree
+  add_index "client_links", ["link_type_id"], name: "index_client_links_on_link_type_id", using: :btree
+  add_index "client_links", ["network_operator_id"], name: "index_client_links_on_network_operator_id", using: :btree
+  add_index "client_links", ["status_id"], name: "index_client_links_on_status_id", using: :btree
+
+  create_table "clients", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "core_nodes", force: true do |t|
+    t.string   "name"
+    t.integer  "status_id"
+    t.integer  "city_id"
+    t.string   "latitude"
+    t.string   "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "core_nodes", ["city_id"], name: "index_core_nodes_on_city_id", using: :btree
+  add_index "core_nodes", ["status_id"], name: "index_core_nodes_on_status_id", using: :btree
+
+  create_table "link_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "network_operators", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "statuses", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
