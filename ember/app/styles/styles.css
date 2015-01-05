@@ -3,6 +3,8 @@ body{
   font-family: 'Lato', sans-serif;
 }
 
+
+/* LOGIN */
 .login-box {
   float: left;
   display: block;
@@ -15,10 +17,6 @@ body{
   margin-top: 3rem;
 }
 
-.btn-default {
-  background: #00aeef;
-}
-
 div.login-box h1{
   padding: 2rem 0;
   border-bottom: 1px solid #cecece;
@@ -26,12 +24,12 @@ div.login-box h1{
 
 
 .login-box .logo {
-width: 30%;
-display: inline-block;
+  width: 30%;
+  display: inline-block;
 }
 
 .login-box .logo img {
-width: 100%;
+  width: 100%;
 }
 
 /*form */
