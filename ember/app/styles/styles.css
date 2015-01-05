@@ -107,4 +107,9 @@ section.row h2 {
   .navbar-brand img {
     width: 50px;
   }
+
+  .navbar-nav li a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 }
