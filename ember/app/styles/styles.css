@@ -32,18 +32,18 @@ div.login-box h1{
   width: 100%;
 }
 
-/*form */
+/* FORM */
 .row.row_element {
   margin-bottom: 14px;
   margin-top: 14px;
 }
 
 .row.row_element select {
-  min-width: 100%;
+  width: 100%;
 }
 
 .row.row_element input {
-  min-width: 100%;
+  width: 100%;
 }
 
 section.row h2{
