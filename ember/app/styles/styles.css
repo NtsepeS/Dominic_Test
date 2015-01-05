@@ -1,8 +1,7 @@
-body{
+body {
   font-size: 15px;
   font-family: 'Lato', sans-serif;
 }
-
 
 /* LOGIN */
 .login-box {
@@ -17,11 +16,10 @@ body{
   margin-top: 3rem;
 }
 
-div.login-box h1{
+div.login-box h1 {
   padding: 2rem 0;
   border-bottom: 1px solid #cecece;
 }
-
 
 .login-box .logo {
   width: 30%;
@@ -33,6 +31,7 @@ div.login-box h1{
 }
 
 /* FORM */
+
 .row.row_element {
   margin-bottom: 14px;
   margin-top: 14px;
@@ -46,56 +45,47 @@ div.login-box h1{
   width: 100%;
 }
 
-section.row h2{
+section.row h2 {
   text-align: center;
   margin-bottom: 25px;
   margin-top: 25px;
 }
 
-#notes textarea{
+.tab-pane section.row .row {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+#notes textarea {
   width: 100%;
 }
 
-#rf_performance td input{
+/* to-do: fix so that mobile responsive*/
+#rf_performance td input {
   width: 100px;
 }
 
-#physical_ports section.row .row{
-  margin-bottom: 15px;
-  margin-top: 15px;
-}
-
-#service_fragments section.row .row{
-  margin-bottom: 15px;
-  margin-top: 15px;
-}
-
-#predicted_modulation{
-  margin-bottom: 15px;
-  margin-top: 15px;
-}
-
-#configured_modulation{
-  margin-bottom: 15px;
-  margin-top: 15px;
-}
-
-#addPort{
+.js-add-port {
   float: right;
 }
 
-#addFragment{
+.js-add-fragment {
   float: right;
 }
 
-#pictures .row{
+#pictures .row {
   text-align: center;
 }
 
-.user-info li{
+
+/* USER-PROFILE */
+.user-info li {
   text-align: center;
 }
-.main-content{
+
+
+/* APPLICATION */
+.main-content {
   margin-top: 110px;
   margin-bottom: 70px;
 }
@@ -109,12 +99,12 @@ section.row h2{
   padding: 0px;
 }
 
-.navbar-brand img{
+.navbar-brand img {
   width: 100px;
 }
 
 @media screen and (max-width: 767px) {
-  .navbar-brand img{
+  .navbar-brand img {
     width: 50px;
   }
 }
