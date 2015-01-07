@@ -3,10 +3,8 @@ module Api
     class StatusesController < AuthenticatedController
 
       def history
-        @versions = PaperTrail::Version.order('created_at DESC')
-        puts @versions
-        binding.pry
-        version_history = @versions.map do |v|
+        versions = PaperTrail::Version.order('created_at DESC')
+        version_history = versions.map do |v|
           {
             item_type: v.item_type,
             id:        v.id,
