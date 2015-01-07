@@ -1,4 +1,5 @@
 class ClientLink < ActiveRecord::Base
+  has_paper_trail
   belongs_to :client
   belongs_to :status
   belongs_to :network_operator
