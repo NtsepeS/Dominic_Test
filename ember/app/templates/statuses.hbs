@@ -4,20 +4,24 @@
   <table class="table table-striped display js-client-links" cellspacing="0" width="100%">
     <thead>
       <tr>
+        <th>Field Name</th>
+        <th>Event</th>
+        <th>Change From</th>
+        <th>Change To</th>
         <th>Date</th>
         <th>Person</th>
-        <th>Event</th>
-        <th>Change</th>
     </thead>
 
     <tbody>
 
-      {{#each}}
+      {{#each itemController="status"}}
         <tr>
           <td>{{item_type}}</td>
-          <td>{{person}}</td>
           <td>{{event}}</td>
-          <td>{{item_type}}
+          <td>{{from}}</td>
+          <td>{{to}}</td>
+          <td>{{date}}</td>
+          <td>{{person}}</td>
         </tr>
       {{/each}}
     </tbody>
