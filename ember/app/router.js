@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('links');
   this.route('login');
   this.route('form');
+  this.route('statuses');
 });
 
 export default Router;

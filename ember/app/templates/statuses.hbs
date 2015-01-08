@@ -1,0 +1,25 @@
+<h2 class="sub-header">Audit History</h2>
+
+{{#data-table}}
+  <table class="table table-striped display js-client-links" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Person</th>
+        <th>Event</th>
+        <th>Change</th>
+    </thead>
+
+    <tbody>
+
+      {{#each}}
+        <tr>
+          <td>{{item_type}}</td>
+          <td>{{person}}</td>
+          <td>{{event}}</td>
+          <td>{{item_type}}
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{/data-table}}
