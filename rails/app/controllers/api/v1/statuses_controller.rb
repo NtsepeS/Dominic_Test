@@ -15,7 +15,7 @@ module Api
           }
         end
 
-        render json: {statuses: version_history}
+        render json: version_history
       end
 
       private
