@@ -9,8 +9,14 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get 'me', to: 'user_info#user', as: :user
-      get 'statuses/history', to: 'statuses#history', as: :statuses_history
-      resources :statuses
+      # get 'statuses/history', to: 'statuses#history', as: :statuses_history
+
+      resources :statuses do
+        member do
+          get 'history'
+        end
+      end
+
     end
   end
 end
