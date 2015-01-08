@@ -2,7 +2,6 @@ module History
   extend ActiveSupport::Concern
 
     def history
-      print "jhfdvhgsfcagfs"
       puts params[:id]
       status = Status.find(params[:id])
 
@@ -20,8 +19,10 @@ module History
           item_type: v.item_type,
           id:        v.id,
           event:     v.event,
-          person:    v.whodunnit,
-          date:      changeset_date(v.changeset),
+          person:    'André-Marthin',
+          # person:    v.whodunnit,
+          date:      v.changeset['updated_at'][1],
+          # date:      changeset_date(v.changeset),
           changes:   serialize_changes(v.changeset)
         }
       end
