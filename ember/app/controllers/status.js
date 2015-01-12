@@ -5,6 +5,6 @@ export default Ember.ObjectController.extend({
     return this.get('changes.firstObject.from');
   }.property('changes.[]'),
   to: function(){
-    return this.get('changes.firstObject.to')
+    return this.get('changes.firstObject.to');
   }.property('changes.[]')
-})
+});
