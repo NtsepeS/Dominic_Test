@@ -8,6 +8,7 @@ module Api
         render json: {client_links: client_link}
       end
 
+      # GET /api/v1/client_links/:id
       def show
         client_link = ClientLink.find(params[:id])
         render json: {client_link: client_link}
