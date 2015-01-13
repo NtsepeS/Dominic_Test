@@ -1,0 +1,29 @@
+<h2 class="sub-header">Client Links</h2>
+
+{{#data-table}}
+  <table class="table table-striped display js-client-links" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>MSAD Number</th>
+        <th>Solution ID</th>
+        <th>Status</th>
+    </thead>
+    <tbody>
+    {{#each}}
+        {{#link-to 'client-link' this tagName="tr"}}
+          <td>{{name}}</td>
+          <td>{{name}}</td>
+          <td>{{name}}</td>
+          <td>{{name}}</td>
+      {{/link-to}}
+
+    {{/each}}
+    </tbody>
+  </table>
+{{/data-table}}
+
+{{#link-to "client-links" class="btn btn-primary" role="button"}}
+Add Client Link
+{{/link-to}}
+

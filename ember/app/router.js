@@ -8,6 +8,8 @@ var Router = Ember.Router.extend({
 Router.map(function() {
   this.route('login');
   this.route('statuses');
+  this.resource('client-links');
+  this.resource('client-link', { path: 'client-links/:client_link_id' });
 });
 
 export default Router;

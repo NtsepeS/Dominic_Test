@@ -21,7 +21,11 @@
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li><a href="/links">Client Links</a></li>
+            <li>
+              {{#link-to 'client-links'}}
+                Client Links
+              {{/link-to}}
+            </li>
           </ul>
         </li>
         <li><a href="#"> Fibre</a></li>
