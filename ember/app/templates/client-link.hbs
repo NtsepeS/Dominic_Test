@@ -1,6 +1,3 @@
-{{name}} {{circuit_number}}
-
-
 <div role="tabpanel">
 
   <!-- Nav tabs -->
@@ -55,7 +52,7 @@
               Branch Name
             </div>
             <div class="col-md-3">
-              <input type="text" name="firstname">
+              {{input value=branch focus-out="acceptChanges"}}
             </div>
           </div>
 
@@ -79,8 +76,7 @@
               Circuit Number
             </div>
             <div class="col-md-3">
-              <input type="text" name="circuitnumber">
-              {{circuit_number}}
+              {{input value=circuit_number focus-out="acceptChanges"}}
             </div>
           </div>
 
@@ -96,11 +92,10 @@
             </div>
             <div class="col-md-2"></div>
             <div class="col-md-2">
-              MSAD Number
+              MSAD Number {{MSAD_number}}
             </div>
             <div class="col-md-3">
-              <input type="text" name="msad">
-              {{MSAD_number}}
+              {{input value="fix"}}
             </div>
           </div>
 
