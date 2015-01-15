@@ -21,7 +21,7 @@ module Api
         render json: {client_link: client_link}
       end
 
-      #DELETE /api/v1/client_links/:id
+      # DELETE /api/v1/client_links/:id
       def destroy
         client_link = ClientLink.find(params[:id])
         client_link.destroy
