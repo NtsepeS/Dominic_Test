@@ -14,6 +14,19 @@ module Api
         render json: {client_link: client_link}
       end
 
+      # PUT /api/v1/client_links/:id
+      def update
+        client_link = ClientLink.find(params[:id])
+        client_link.update_attributes(client_link_params)
+        render json: {client_link: client_link}
+      end
+
+      private
+
+      def client_link_params
+        params["clientLink"].fetch(:client_link, params['clientLink']).permit(:name, :branch, :circuit_number, :MSAD_number)
+      end
+
     end
   end
 end
