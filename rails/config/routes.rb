@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       get 'me', to: 'user_info#user', as: :user
 
       resources :client_links
-      # get 'statuses/history', to: 'statuses#history', as: :statuses_history
+      resources :link_types
 
       resources :statuses do
         member do
