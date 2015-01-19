@@ -4,9 +4,9 @@ class CreateClientLinks < ActiveRecord::Migration
       t.string :name
       t.string :branch
       t.string :circuit_number
-      t.string :MSAD_number
+      t.string :msad_number
       t.date :activation_date
-      t.string :MAC_address
+      t.string :mac_address
       t.string :distance
       t.references :client, index: true
       t.references :status, index: true
