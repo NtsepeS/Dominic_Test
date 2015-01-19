@@ -1,5 +1,5 @@
 class ClientLinkSerializer < ApplicationSerializer
-  attributes :id, :name, :branch, :circuit_number, :MAC_address, :MSAD_number,
+  attributes :id, :name, :branch, :circuit_number, :mac_address, :msad_number,
   :activation_date, :distance, :client, :status,
   :network_operator, :base_station_sector, :antenna, :created_at,
   :updated_at, :solution_identifier, :billing_account, :service_account, :service_account_site
