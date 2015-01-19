@@ -1,4 +1,4 @@
-class ClientLinkSerializer < ApplicationSerializer
+class ClientLinkSerializer < ActiveModel::Serializer
   attributes :id, :name, :branch, :circuit_number, :mac_address, :msad_number,
   :activation_date, :distance, :client, :status,
   :network_operator, :base_station_sector, :antenna, :created_at,
