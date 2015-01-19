@@ -11,7 +11,8 @@ var ClientLink = DS.Model.extend({
   solution_identifier:  DS.attr('string'),
   billing_account:      DS.attr('string'),
   service_account:      DS.attr('string'),
-  service_account_site: DS.attr('string')
+  service_account_site: DS.attr('string'),
+  link_type:            DS.belongsTo('link-type')
 });
 
 export default ClientLink;
