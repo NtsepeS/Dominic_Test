@@ -76,7 +76,7 @@
               Circuit Number
             </div>
             <div class="col-md-3">
-              {{input value=circuit_number focus-out="acceptChanges"}}
+              {{input value=circuitNumber focus-out="acceptChanges"}}
             </div>
           </div>
 
@@ -95,13 +95,14 @@
               MSAD Number
             </div>
             <div class="col-md-3">
-              {{input value="MSAD_number"}}
+              {{input value=msadNumber}}
             </div>
           </div>
 
           <div class="row row_element">
             <div class="col-md-2">
               Link Type
+              {{linkType.name}}
             </div>
             <div class="col-md-3">
               <select>
@@ -118,7 +119,7 @@
             </div>
             <div class="col-md-3">
               <!-- make a calendar popup -->
-              {{input value=activation_date}}
+              {{input value=activationDate}}
             </div>
           </div>
 
@@ -142,7 +143,7 @@
               Mac Address
             </div>
             <div class="col-md-3">
-              {{input value="MAC_address"}}
+              {{input value="macAddress"}}
             </div>
           </div>
 
@@ -179,14 +180,14 @@
               Solution ID
             </div>
             <div class="col-md-3">
-              {{input value=solution_identifier}}
+              {{input value=solutionIdentifier}}
             </div>
             <div class="col-md-2"></div>
             <div class="col-md-2">
               Billing Account
             </div>
             <div class="col-md-3">
-              {{input value=billing_account}}
+              {{input value=billingAccount}}
             </div>
           </div>
 
@@ -195,14 +196,14 @@
               Service Account
             </div>
             <div class="col-md-3">
-              {{input value=service_account}}
+              {{input value=serviceAccount}}
             </div>
             <div class="col-md-2"></div>
             <div class="col-md-2">
               Service Account Site
             </div>
             <div class="col-md-3">
-              {{input value=service_account_site}}
+              {{input value=serviceAccountSite}}
             </div>
           </div>
         </section>
