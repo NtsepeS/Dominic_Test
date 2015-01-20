@@ -31,7 +31,7 @@ module Api
       private
 
       def link_type_params
-        params['linkType'].fetch(:link_type, params['linkType']).permit(:name)
+        params.fetch(:link_type, params).permit(:name)
       end
 
     end
