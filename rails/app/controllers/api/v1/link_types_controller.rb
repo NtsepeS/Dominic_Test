@@ -5,27 +5,27 @@ module Api
       # GET /api/v1/link_types
       def index
         link_type = LinkType.all
-        render json: {link_types: link_type}
+        render json: link_type
       end
 
       # GET /api/v1/link_types/:id
       def show
         link_type = LinkType.find(params[:id])
-        render json: {link_type: link_type}
+        render json: link_type
       end
 
       # PUT /api/v1/link_types/:id
       def update
         link_type = LinkType.find(params[:id])
         link_type.update_attributes(link_type_params)
-        render json: {link_type: link_type}
+        render json: link_type
       end
 
       # DELETE /api/v1/link_types/:id
       def destroy
         link_type = LinkType.find(params[:id])
         link_type.destroy
-        render json: {link_type: link_type}
+        render json: link_type
       end
 
       private
