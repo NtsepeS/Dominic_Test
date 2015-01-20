@@ -52,7 +52,7 @@
               Branch Name
             </div>
             <div class="col-md-3">
-              {{input value=clientLink.branch focus-out="acceptChanges"}}
+              {{input value=branch}}
             </div>
           </div>
 
@@ -76,7 +76,7 @@
               Circuit Number
             </div>
             <div class="col-md-3">
-              {{input value=clientLink.circuitNumber focus-out="acceptChanges"}}
+              {{input value=circuitNumber}}
             </div>
           </div>
 
@@ -95,7 +95,7 @@
               MSAD Number
             </div>
             <div class="col-md-3">
-              {{input value=clientLink.msadNumber}}
+              {{input value=msadNumber}}
             </div>
           </div>
 
@@ -104,7 +104,12 @@
               Link Type
             </div>
             <div class="col-md-3">
-              {{view "Ember.Select" content=linkTypes optionValuePath="content.id" optionLabelPath="content.name" value=clientLink.linkType.id}}
+              {{view "Ember.Select"
+                      contentBinding="linkTypes"
+                      optionValuePath="content"
+                      optionLabelPath="content.name"
+                      valueBinding="linkType.content"
+                    }}
             </div>
             <div class="col-md-2"></div>
             <div class="col-md-2">
@@ -112,7 +117,7 @@
             </div>
             <div class="col-md-3">
               <!-- make a calendar popup -->
-              {{input value=clientLink.activationDate}}
+              {{input value=activationDate}}
             </div>
           </div>
 
@@ -136,7 +141,7 @@
               Mac Address
             </div>
             <div class="col-md-3">
-              {{input value=clientLink.macAddress}}
+              {{input value=macAddress}}
             </div>
           </div>
 
@@ -156,7 +161,7 @@
               Distance
             </div>
             <div class="col-md-3">
-              {{input value=clientLink.distance}}
+              {{input value=distance}}
             </div>
           </div>
         </section>
@@ -173,14 +178,14 @@
               Solution ID
             </div>
             <div class="col-md-3">
-              {{input value=clientLink.solutionIdentifier}}
+              {{input value=solutionIdentifier}}
             </div>
             <div class="col-md-2"></div>
             <div class="col-md-2">
               Billing Account
             </div>
             <div class="col-md-3">
-              {{input value=clientLink.billingAccount}}
+              {{input value=billingAccount}}
             </div>
           </div>
 
@@ -189,14 +194,14 @@
               Service Account
             </div>
             <div class="col-md-3">
-              {{input value=clientLink.serviceAccount}}
+              {{input value=serviceAccount}}
             </div>
             <div class="col-md-2"></div>
             <div class="col-md-2">
               Service Account Site
             </div>
             <div class="col-md-3">
-              {{input value=clientLink.serviceAccountSite}}
+              {{input value=serviceAccountSite}}
             </div>
           </div>
         </section>
@@ -521,5 +526,8 @@
 </div>
 
 <button type="button" class="btn btn-default" {{action "removeClientLink"}}>Destroy</button>
+
+
+<button type="button" class="btn btn-default" {{action "acceptChanges"}}>Save</button>
 
 {{outlet}}
