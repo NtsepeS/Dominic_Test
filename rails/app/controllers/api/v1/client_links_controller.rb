@@ -40,7 +40,11 @@ module Api
           :activation_date,
           :mac_address,
           :distance,
-          :link_type_id
+          :link_type_id,
+          :solution_identifier,
+          :billing_account,
+          :service_account,
+          :service_account_site,
         )
 
       end
