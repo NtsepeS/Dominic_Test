@@ -25,26 +25,12 @@
               Client
             </div>
             <div class="col-md-3">
-              <select>
-                <option selected="selected"></option>
-                <option value="1Stream Managed Technology Solutions">1Stream Managed Technology Solutions</option>
-                <option value="2Go Interactive">2Go Interactive</option>
-                <option value="Actom">Actom</option>
-                <option value="Actvest">Actvest</option>
-                <option value="Adcock Ingram Healthcare">Adcock Ingram Healthcare</option>
-                <option value="Adcorp">Adcorp</option>
-                <option value="Adcorp Shared Services">Adcorp Shared Services</option>
-                <option value="Adcorp Shared Services Centre">Adcorp Shared Services Centre</option>
-                <option value="ADT">ADT</option>
-                <option value="Advtech">Advtech</option>
-                <option value="Advtech Resourcing">Advtech Resourcing</option>
-                <option value="AECI Limited">AECI Limited</option>
-                <option value="Aegis Media Central Services">Aegis Media Central Services</option>
-                <option value="African Sales Company">African Sales Company</option>
-                <option value="Aidan Francis Casserley - Castlerock">Aidan Francis Casserley - Castlerock</option>
-                <option value="Air Products">Air Products</option>
-                <option value="Akacia">Akacia</option>
-              </select>
+              {{view "Ember.Select"
+                      contentBinding="clients"
+                      optionValuePath="content"
+                      optionLabelPath="content.name"
+                      valueBinding="client.content"
+                    }}
             </div>
             <div class="col-md-2"></div>
 

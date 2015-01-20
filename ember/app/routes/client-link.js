@@ -12,5 +12,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     controller.set('antennas', this.store.find('antenna'));
     controller.set('networkOperators', this.store.find('network-operator'));
     controller.set('baseStationSectors', this.store.find('base-station-sector'));
+    controller.set('clients', this.store.find('client'));
   }
 });
