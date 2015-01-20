@@ -10,5 +10,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     controller.set('content', model);
     controller.set('linkTypes', this.store.find('link-type'));
     controller.set('antennas', this.store.find('antenna'));
+    controller.set('networkOperators', this.store.find('network-operator'));
   }
 });

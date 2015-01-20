@@ -85,10 +85,12 @@
               Network Operator
             </div>
             <div class="col-md-3">
-              <select>
-                <option selected="selected"></option>
-                <option value="Internet Solutions">Internet Solutions</option>
-              </select>
+              {{view "Ember.Select"
+                      contentBinding="networkOperators"
+                      optionValuePath="content"
+                      optionLabelPath="content.name"
+                      valueBinding="networkOperator.content"
+                    }}
             </div>
             <div class="col-md-2"></div>
             <div class="col-md-2">

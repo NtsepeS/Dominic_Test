@@ -42,6 +42,7 @@ module Api
           :distance,
           :link_type_id,
           :antenna_id,
+          :network_operator_id,
           :solution_identifier,
           :billing_account,
           :service_account,
