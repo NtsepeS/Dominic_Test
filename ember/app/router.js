@@ -9,7 +9,7 @@ Router.map(function() {
   this.route('login');
   this.route('statuses');
   this.resource('client-links');
-  this.resource('client-link', { path: 'client-links/:client_link_id' });
+  this.resource('client-link', { path: 'client-links/:clientLinkId' });
 });
 
 export default Router;
