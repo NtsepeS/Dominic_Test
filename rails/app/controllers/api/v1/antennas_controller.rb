@@ -4,30 +4,30 @@ module Api
 
       def index
         antenna = Antenna.all
-        render json: {antennas: antenna}
+        render json: antenna
       end
 
       def show
         antenna = Antenna.find(params[:id])
-        render json: {antenna: antenna}
+        render json: antenna
       end
 
       def update
         antenna = Antenna.find(params[:id])
         antenna.update_attributes(antenna_params)
-        render json: {antenna: antenna}
+        render json: antenna
       end
 
       def destroy
         antenna = Antenna.find(params[:id])
         antenna.destroy
-        render json: {antenna: antenna}
+        render json: antenna
       end
 
       private
 
       def antenna_params
-        params['antenna'].fetch(:antenna, params['antenna']).permit(:name)
+        params.fetch(:antenna, params).permit(:name)
       end
 
     end

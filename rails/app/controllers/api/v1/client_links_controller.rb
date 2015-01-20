@@ -41,6 +41,7 @@ module Api
           :mac_address,
           :distance,
           :link_type_id,
+          :antenna_id,
           :solution_identifier,
           :billing_account,
           :service_account,

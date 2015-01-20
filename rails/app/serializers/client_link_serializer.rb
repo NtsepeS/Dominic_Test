@@ -6,5 +6,5 @@ class ClientLinkSerializer < ActiveModel::Serializer
 
   embed :ids, include: true
 
-  has_one :link_type
+  has_one :link_type, :antenna
 end
