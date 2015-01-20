@@ -19,12 +19,13 @@ Rails.application.routes.draw do
       resources :core_nodes
       resources :link_types
       resources :network_operators
+      resources :statuses
 
-      resources :statuses do
-        member do
-          get 'history'
-        end
-      end
+      # resources :statuses do
+      #   member do
+      #     get 'history'
+      #   end
+      # end
 
     end
   end

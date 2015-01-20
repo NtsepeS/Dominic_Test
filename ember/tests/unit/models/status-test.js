@@ -3,10 +3,9 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForModel('client-link', 'ClientLink', {
+moduleForModel('status', 'Status', {
   // Specify the other units that are required for this test.
-  needs: ['model:link-type', 'model:antenna', 'model:network-operator',
-  'model:base-station-sector', 'model:client', 'model:status']
+  needs: []
 });
 
 test('it exists', function() {

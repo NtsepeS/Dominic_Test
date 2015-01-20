@@ -47,15 +47,12 @@
               Status
             </div>
             <div class="col-md-3">
-              <select>
-                <option selected="selected"></option>
-                <option value="Commissioning">Commissioning</option>
-                <option value="Deactived">Deactived</option>
-                <option value="To Be Decommissioned">To Be Decommissioned</option>
-                <option value="Decommissioned">Decommissioned</option>
-                <option value="AUDIT IN PROCESS">AUDIT IN PROCESS</option>
-                <option value="AUDIT DONE">AUDIT DONE</option>
-              </select>
+              {{view "Ember.Select"
+                      contentBinding="statuses"
+                      optionValuePath="content"
+                      optionLabelPath="content.name"
+                      valueBinding="status.content"
+                    }}
             </div>
             <div class="col-md-2"></div>
             <div class="col-md-2">

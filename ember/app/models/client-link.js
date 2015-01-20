@@ -16,7 +16,8 @@ var ClientLink = DS.Model.extend({
   antenna:            DS.belongsTo('antenna', {async: true}),
   networkOperator:    DS.belongsTo('network-operator', {async: true}),
   baseStationSector:  DS.belongsTo('base-station-sector', {async:true}),
-  client:             DS.belongsTo('client', {async:true})
+  client:             DS.belongsTo('client', {async:true}),
+  status:             DS.belongsTo('status', {async:true})
 });
 
 export default ClientLink;

@@ -41,6 +41,7 @@ module Api
           :mac_address,
           :distance,
           :client_id,
+          :status_id,
           :link_type_id,
           :antenna_id,
           :network_operator_id,
