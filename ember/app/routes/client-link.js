@@ -9,5 +9,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   setupController: function(controller, model) {
     controller.set('content', model);
     controller.set('linkTypes', this.store.find('link-type'));
+    controller.set('antennas', this.store.find('antenna'));
   }
 });

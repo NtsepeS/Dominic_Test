@@ -5,7 +5,7 @@ import {
 
 moduleForModel('client-link', 'ClientLink', {
   // Specify the other units that are required for this test.
-  needs: ['model:link-type']
+  needs: ['model:link-type', 'model:antenna']
 });
 
 test('it exists', function() {

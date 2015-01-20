@@ -150,11 +150,12 @@
               Antenna Size
             </div>
             <div class="col-md-3">
-              <select>
-                <option selected="selected"></option>
-                <option value="30cm">30cm</option>
-                <option value="60cm">60cm</option>
-              </select>
+              {{view "Ember.Select"
+                      contentBinding="antennas"
+                      optionValuePath="content"
+                      optionLabelPath="content.size"
+                      valueBinding="antenna.content"
+                    }}
             </div>
             <div class="col-md-2"></div>
             <div class="col-md-2">

@@ -12,7 +12,8 @@ var ClientLink = DS.Model.extend({
   billingAccount:     DS.attr('string'),
   serviceAccount:     DS.attr('string'),
   serviceAccountSite: DS.attr('string'),
-  linkType:           DS.belongsTo('link-type', { async: true })
+  linkType:           DS.belongsTo('link-type', { async: true }),
+  antenna:            DS.belongsTo('antenna', {async: true})
 });
 
 export default ClientLink;
