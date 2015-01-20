@@ -31,7 +31,18 @@ module Api
       private
 
       def client_link_params
-        params.fetch(:client_link, params).permit(:name, :branch, :circuit_number, :msad_number)
+
+        params.fetch(:client_link, params).permit(
+          :name,
+          :branch,
+          :circuit_number,
+          :msad_number,
+          :activation_date,
+          :mac_address,
+          :distance,
+          :link_type_id
+        )
+
       end
 
     end
