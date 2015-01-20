@@ -128,15 +128,12 @@
               Sector Name
             </div>
             <div class="col-md-3">
-              <select>
-                <option selected="selected"></option>
-                <option value="w-carlton-bsu1 Sector 1">w-carlton-bsu1 Sector 1</option>
-                <option value="w-carlton-bsu1 Sector 2">w-carlton-bsu1 Sector 2</option>
-                <option value="w-carlton-bsu1 Sector 3">w-carlton-bsu1 Sector 3</option>
-                <option value="w-carlton-bsu1 Sector 4">w-carlton-bsu1 Sector 4</option>
-                <option value="w-caxton-bsu1 Sector 1">w-caxton-bsu1 Sector 1</option>
-                <option value="w-caxton-bsu1 Sector 3">w-caxton-bsu1 Sector 3</option>
-              </select>
+              {{view "Ember.Select"
+                      contentBinding="baseStationSectors"
+                      optionValuePath="content"
+                      optionLabelPath="content.name"
+                      valueBinding="baseStationSector.content"
+                    }}
             </div>
             <div class="col-md-2"></div>
             <div class="col-md-2">

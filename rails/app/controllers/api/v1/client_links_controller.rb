@@ -43,6 +43,7 @@ module Api
           :link_type_id,
           :antenna_id,
           :network_operator_id,
+          :base_station_sector_id,
           :solution_identifier,
           :billing_account,
           :service_account,

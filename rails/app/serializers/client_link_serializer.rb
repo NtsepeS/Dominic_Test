@@ -1,10 +1,10 @@
 class ClientLinkSerializer < ActiveModel::Serializer
-  attributes :id, :name, :branch, :circuit_number, :mac_address,
-    :msad_number, :activation_date, :distance, :client, :status,
-    :base_station_sector, :solution_identifier,
-    :billing_account, :service_account, :service_account_site, :created_at, :updated_at
+  attributes :id, :name, :branch, :circuit_number, :mac_address, :msad_number,
+    :activation_date, :distance, :client, :status, :solution_identifier,
+    :billing_account, :service_account, :service_account_site, :created_at,
+    :updated_at
 
   embed :ids, include: true
 
-  has_one :link_type, :antenna, :network_operator
+  has_one :link_type, :antenna, :network_operator, :base_station_sector
 end
