@@ -10,8 +10,15 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'me', to: 'user_info#user', as: :user
 
+      resources :antennas
+      resources :base_station_units
+      resources :base_station_sectors
+      resources :cities
+      resources :clients
       resources :client_links
+      resources :core_nodes
       resources :link_types
+      resources :network_operators
 
       resources :statuses do
         member do
