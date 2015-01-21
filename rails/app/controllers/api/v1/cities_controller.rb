@@ -4,24 +4,24 @@ module Api
 
       def index
         city = City.all
-        render json: {cities: city}
+        render json: city
       end
 
       def show
         city = City.find(params[:id])
-        render json: {city: city}
+        render json: city
       end
 
       def update
         city = City.find(params[:id])
         city.update_attributes(city_params)
-        render json: {city: city}
+        render json: city
       end
 
       def destroy
         city = City.find(params[:id])
         city.destroy
-        render json: {city: city}
+        render json: city
       end
 
       private
