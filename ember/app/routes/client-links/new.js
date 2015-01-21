@@ -6,7 +6,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     return this.store.createRecord('clientLink');
   },
   renderTemplate: function(){
-    this.render('clientLink', {
+    this.render('clientLink.edit', {
       controller: 'client-links.new'
     })
   },
