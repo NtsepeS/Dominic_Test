@@ -14,6 +14,12 @@ module Api
         render json: client_link
       end
 
+      def create
+        client_link = ClientLink.new(client_link_params)
+        client_link.save
+        render json: client_link
+      end
+
       # PUT /api/v1/client_links/:id
       def update
         client_link = ClientLink.find(params[:id])
