@@ -1,7 +1,13 @@
-<h2 class="sub-header">Client Links</h2>
-
+<h2 class="sub-header">
+  Client Links
+  {{#link-to "client-links.new" class="btn btn-default btn-xs js-new-client-link" role="button"}}
+  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+  Add Client Link
+  {{/link-to}}
+</h2>
+<br>
 {{#data-table}}
-  <table class="table table-striped display js-client-links" cellspacing="0" width="100%">
+  <table class="table table-striped display js-client-links-table" cellspacing="0" width="100%">
     <thead>
       <tr>
         <th>Title</th>
@@ -21,8 +27,3 @@
     </tbody>
   </table>
 {{/data-table}}
-
-{{#link-to "client-links.new" class="btn btn-primary" role="button"}}
-Add Client Link
-{{/link-to}}
-

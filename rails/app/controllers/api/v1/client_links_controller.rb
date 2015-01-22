@@ -1,6 +1,7 @@
 module Api
   module V1
     class ClientLinksController < AuthenticatedController
+      include History
 
       # GET /api/v1/client_links
       def index
@@ -32,6 +33,14 @@ module Api
         client_link = ClientLink.find(params[:id])
         client_link.destroy
         render json: client_link
+      end
+
+      # GET /api/v1/client_links/:id/audit
+      def audit
+        client_link     = ClientLink.find(params[:id])
+        version_history = papertrail_for(client_link)
+
+        render json: version_history
       end
 
       private

@@ -7,7 +7,7 @@ export default Ember.Component.extend({
   },
 
   initializeTable: function() {
-    var table = this.$('.js-client-links').DataTable();
+    var table = this.$('.js-client-links-table').DataTable();
     this.set('table', table);
   },
 
