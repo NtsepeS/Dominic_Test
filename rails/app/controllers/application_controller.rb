@@ -7,4 +7,7 @@ class ApplicationController < ActionController::Base
     new_user_session_path
   end
 
+  def user_for_paper_trail
+    current_user ? current_user.name : 'test user'
+  end
 end
