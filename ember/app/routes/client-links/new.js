@@ -8,7 +8,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   renderTemplate: function(){
     this.render('clientLink.edit', {
       controller: 'client-links.new'
-    })
+    });
   },
   setupController: function(controller, model) {
     controller.set('content', model);

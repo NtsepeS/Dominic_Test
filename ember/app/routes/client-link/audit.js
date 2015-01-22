@@ -2,9 +2,9 @@ import Ember from 'ember';
 import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
-  model: function(params) {
+  model: function() {
     var clientLinkModel = this.modelFor('client-link');
-    var modelId         =  clientLinkModel.id
+    var modelId         =  clientLinkModel.id;
     return Ember.$.getJSON("/api/v1/client_links/"+ modelId + "/history");
   },
   setupController: function(controller, model) {
