@@ -4,8 +4,8 @@
   <table class="table table-striped display js-client-links" cellspacing="0" width="100%">
     <thead>
       <tr>
-        <th>Field Name</th>
         <th>Event</th>
+        <th>Field Name</th>
         <th>Change From</th>
         <th>Change To</th>
         <th>Date</th>
@@ -14,15 +14,17 @@
 
     <tbody>
 
-      {{#each itemController="status"}}
-        <tr>
-          <td>{{item_type}}</td>
-          <td>{{event}}</td>
-          <td>{{from}}</td>
-          <td>{{to}}</td>
-          <td>{{date}}</td>
-          <td>{{person}}</td>
-        </tr>
+      {{#each content}}
+          {{#each changes}}
+          <tr>
+            <td>{{../event}}</td>
+            <td>{{field_name}}</td>
+            <td>{{from}}</td>
+            <td>{{to}}</td>
+            <td>{{../date}}</td>
+            <td>{{../person}}</td>
+          </tr>
+          {{/each}}
       {{/each}}
     </tbody>
   </table>
