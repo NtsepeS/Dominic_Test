@@ -1,28 +1,14 @@
 module History
   extend ActiveSupport::Concern
 
-    def history
-      puts params[:id]
-      status = Status.find(params[:id])
-
-      version_history = papertrail_for(status)
-
-      render json:  version_history
-    end
-
-    private
-
     def papertrail_for( model )
-      # versions = PaperTrail::Version.order('created_at DESC')
       model.versions.map do |v|
         {
           item_type: v.item_type,
           id:        v.id,
           event:     v.event,
-          person:    'André-Marthin',
-          # person:    v.whodunnit,
-          date:      v.changeset['updated_at'][1],
-          # date:      changeset_date(v.changeset),
+          person:    v.whodunnit,
+          date:      v.created_at,
           changes:   serialize_changes(v.changeset)
         }
       end
@@ -37,15 +23,4 @@ module History
         }
       end
     end
-
-    def changeset_date changeset
-      if changeset.has_key? 'updated_at'
-        changeset['updated_at'][0]
-      elsif changeset.has_key? 'created_at'
-        changeset['created_at'][0]
-      else
-        ''
-      end
-    end
-
 end
