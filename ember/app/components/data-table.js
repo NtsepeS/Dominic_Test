@@ -7,7 +7,9 @@ export default Ember.Component.extend({
   },
 
   initializeTable: function() {
-    var table = this.$('.js-client-links-table').DataTable();
+    var table = this.$('.js-client-links-table').DataTable({
+      "aaSorting": [[ 0, "desc" ]]
+    });
     this.set('table', table);
   },
 
