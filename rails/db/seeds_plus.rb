@@ -24,6 +24,7 @@ Status.where(name: "Operational").first_or_create
 Status.where(name: "Audit Done").first_or_create
 Status.where(name: "Audit In Progress").first_or_create
 Status.where(name: "Decommissioned").first_or_create
+Status.where(name: "AUDIT IN PROCESS").first_or_create
 
 CoreNode.where(name: "Afgri Isando", status_id: 1, city_id: 1, latitude: "-26.147333", longitude: "28.206883").first_or_create
 CoreNode.where(name: "Bryanston Towers", status_id: 1, city_id: 1, latitude: "-26.043517", longitude: "28.023899").first_or_create
@@ -114,7 +115,7 @@ doc.css('Item').each do |node|
          branch: get_text(node, 'branch'),
          circuit_number: get_text(node, 'circuit_number'),
          msad_number: get_text(node, 'msad_number'),
-         activation_date: get_text(node, 'activation_date'), # @@@ Split off the time
+         # activation_date: get_text(node, 'activation_date'), # @@@ Split off the time
          mac_address: get_text(node, 'mac_address'),
          distance: get_text(node, 'distance'),
          service_account: get_text(node, 'siebel_service_account'),
@@ -126,10 +127,10 @@ doc.css('Item').each do |node|
          antenna: Antenna.where(
                                 size: get_text(node, 'antenna_size'),
                                 serial_number: get_text(node, 'antenna_sn'),
-                                is_asset_tag: get_text(node, 'antenna_asset_tag'),
+                                # is_asset_tag: get_text(node, 'antenna_asset_tag'),
                                 latitude: get_text(node, 'latitude'), # @@@ ??
                                 longitude: get_text(node, 'longitude'), # @@@ ??
-                  ).first_or_create, 
+                  ).first_or_create,
          solution_identifier: get_text(node, 'solution_id'),
          billing_account: get_text(node, 'siebel_billing_account'),
          service_account: get_text(node, 'siebel_service_account'),
@@ -137,4 +138,3 @@ doc.css('Item').each do |node|
   ).first_or_create
 
 end
-
