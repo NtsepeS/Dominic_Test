@@ -3,8 +3,8 @@ module Api
     class CoreNodesController < AuthenticatedController
 
       def index
-        core_node = CoreNode.all
-        render json: core_node
+        core_nodes = CoreNode.all
+        render json: core_nodes
       end
 
       def show

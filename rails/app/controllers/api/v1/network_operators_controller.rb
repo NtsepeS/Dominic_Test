@@ -3,8 +3,8 @@ module Api
     class NetworkOperatorsController < AuthenticatedController
 
       def index
-        network_operator = NetworkOperator.all
-        render json: network_operator
+        network_operators = NetworkOperator.all
+        render json: network_operators
       end
 
       def show

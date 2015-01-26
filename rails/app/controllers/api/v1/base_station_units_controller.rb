@@ -3,8 +3,8 @@ module Api
     class BaseStationUnitsController < AuthenticatedController
 
       def index
-        base_station_unit = BaseStationUnit.all
-        render json: base_station_unit
+        base_station_units = BaseStationUnit.all
+        render json: base_station_units
       end
 
       def show

@@ -3,8 +3,8 @@ module Api
     class ClientsController < AuthenticatedController
 
       def index
-        client = Client.all
-        render json: client
+        clients = Client.all
+        render json: clients
       end
 
       def show

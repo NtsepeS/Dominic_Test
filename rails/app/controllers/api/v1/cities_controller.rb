@@ -3,8 +3,8 @@ module Api
     class CitiesController < AuthenticatedController
 
       def index
-        city = City.all
-        render json: city
+        cities = City.all
+        render json: cities
       end
 
       def show

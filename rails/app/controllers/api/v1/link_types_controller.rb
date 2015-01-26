@@ -4,8 +4,8 @@ module Api
 
       # GET /api/v1/link_types
       def index
-        link_type = LinkType.all
-        render json: link_type
+        link_types = LinkType.all
+        render json: link_types
       end
 
       # GET /api/v1/link_types/:id

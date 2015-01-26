@@ -5,8 +5,8 @@ module Api
 
       # GET /api/v1/client_links
       def index
-        client_link = ClientLink.all
-        render json: client_link
+        client_links = ClientLink.all
+        render json: client_links
       end
 
       # GET /api/v1/client_links/:id

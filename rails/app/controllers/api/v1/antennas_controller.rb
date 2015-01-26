@@ -3,8 +3,8 @@ module Api
     class AntennasController < AuthenticatedController
 
       def index
-        antenna = Antenna.all
-        render json: antenna
+        antennas = Antenna.all
+        render json: antennas
       end
 
       def show

@@ -3,8 +3,8 @@ module Api
     class StatusesController < AuthenticatedController
 
       def index
-        status = Status.all
-        render json: status
+        statuses = Status.all
+        render json: statuses
       end
 
       def show
