@@ -6,9 +6,14 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('links');
   this.route('login');
-  this.route('form');
+  this.resource('client-links', function(){
+    this.route('new');
+  });
+  this.resource('client-link', { path: 'client-links/:clientLinkId' }, function(){
+    this.route('edit');
+    this.route('audit');
+  });
 });
 
 export default Router;

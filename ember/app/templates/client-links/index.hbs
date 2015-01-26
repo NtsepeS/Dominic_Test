@@ -1,0 +1,29 @@
+<h2 class="sub-header">
+  Client Links
+  {{#link-to "client-links.new" class="btn btn-default btn-xs js-new-client-link" role="button"}}
+  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+  Add Client Link
+  {{/link-to}}
+</h2>
+<br>
+{{#data-table}}
+  <table class="table table-striped display js-client-links-table" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>MSAD Number</th>
+        <th>Solution ID</th>
+        <th>Status</th>
+    </thead>
+    <tbody>
+    {{#each}}
+      {{#link-to 'client-link.index' id tagName="tr"}}
+        <td>{{name}}</td>
+        <td>{{msadNumber}}</td>
+        <td>{{solutionIdentifier}}</td>
+        <td>{{status.name}}</td>
+      {{/link-to}}
+    {{/each}}
+    </tbody>
+  </table>
+{{/data-table}}

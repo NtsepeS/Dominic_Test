@@ -1,0 +1,33 @@
+{{ partial "actions"}}
+
+<h2 class="sub-header">Audit History</h2>
+
+{{#data-table}}
+  <table class="table table-striped display js-client-links-table" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Field Name</th>
+        <th>Change From</th>
+        <th>Change To</th>
+        <th>Date</th>
+        <th>Person</th>
+    </thead>
+
+    <tbody>
+
+      {{#each content}}
+          {{#each changes}}
+          <tr>
+            <td>{{../event}}</td>
+            <td>{{field_name}}</td>
+            <td>{{from}}</td>
+            <td>{{to}}</td>
+            <td>{{../date}}</td>
+            <td>{{../person}}</td>
+          </tr>
+          {{/each}}
+      {{/each}}
+    </tbody>
+  </table>
+{{/data-table}}

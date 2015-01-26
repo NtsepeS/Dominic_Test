@@ -86,7 +86,6 @@ section.row h2 {
 
 /* APPLICATION */
 .main-content {
-  margin-top: 110px;
   margin-bottom: 70px;
 }
 
@@ -112,4 +111,37 @@ section.row h2 {
     padding-top: 10px;
     padding-bottom: 10px;
   }
+}
+
+.js-new-client-link{
+  border: 1px solid #cacaca;
+  margin: 0px 30px 0px 30px;
+}
+
+.glyphicon {
+  font-size: 1.2em;
+}
+
+.actions{
+  float: right;
+}
+
+.nav.nav-tabs{
+  clear: both;
+}
+
+.js-actions {
+  padding: 10px;
+  cursor: pointer;
+  cursor: hand;
+  transition: all .2s ease-in-out;
+}
+
+.js-actions:hover {
+  transform: scale(1.5);
+}
+
+.js-client-links-table tr {
+  cursor: pointer;
+  cursor: hand;
 }

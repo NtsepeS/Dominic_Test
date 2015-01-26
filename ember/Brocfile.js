@@ -25,6 +25,9 @@ app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.e
 });
 app.import('bower_components/datatables/media/js/jquery.dataTables.js');
 app.import('bower_components/datatables/media/css/jquery.dataTables.css');
+app.import('bower_components/datatables/media/images/sort_desc.png', {
+  destDir: 'images'
+});
 app.import('bower_components/datatables/media/images/sort_asc.png', {
   destDir: 'images'
 });
