@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Api::V1::UserInfoController do
   describe '#user' do
     context 'when the user is logged in' do
-    
+
       let(:user) {create(:user)}
       before(:each) {sign_in(user)}
 
