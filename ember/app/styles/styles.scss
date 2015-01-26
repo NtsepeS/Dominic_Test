@@ -126,6 +126,11 @@ section.row h2 {
   padding:10px;
   cursor: pointer;
   cursor: hand;
+  transition: all .2s ease-in-out;
+}
+
+.js-actions:hover {
+  transform: scale(1.5);
 }
 
 .js-client-links-table tr {
