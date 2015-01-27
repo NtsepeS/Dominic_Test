@@ -80,17 +80,16 @@ RSpec.describe Api::V1::ClientLinksController do
       let :non_existent_id do
         id = client_link.id
         client_link.destroy
-        puts "hsghsdghdsv", id
         id
       end
 
       before do
-        get :show, id: non_existent_id
+          get :show, id: non_existent_id
       end
 
-      # it 'returns http not found status' do
-      #   expect(response).to raise_error(ActiveRecord::RecordNotFound)
-      # end
+       it 'returns http not found status' do
+        expect(response.status).to be 404
+      end
 
     end
   end
