@@ -14,7 +14,7 @@ module Api
         client_link = ClientLink.find(params[:id])
         render json: client_link
       rescue => e
-          render json: "Not Found", status: :not_found
+        render json: "Not Found", status: :not_found
       end
 
       def create

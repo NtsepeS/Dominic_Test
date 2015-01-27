@@ -63,15 +63,6 @@ RSpec.describe Api::V1::ClientLinksController do
         )
       end
 
-      # it 'returns the hash of foreign keys in the outer hash' do
-      #   @data['client_link'].keys.each do |key|
-      #     if key=~ /_id$/
-      #       puts common = key.partition('_').first
-      #       expect(@data.keys).to include(common)
-      #     end
-      #   end
-      # end
-
     end
 
     context 'for an invalid id' do
