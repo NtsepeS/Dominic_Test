@@ -75,6 +75,23 @@ RSpec.describe Api::V1::ClientLinksController do
     end
 
     context 'for an invalid id' do
+
+      let(:client_link) {create(:client_link)}
+      let :non_existent_id do
+        id = client_link.id
+        client_link.destroy
+        puts "hsghsdghdsv", id
+        id
+      end
+
+      before do
+        get :show, id: non_existent_id
+      end
+
+      # it 'returns http not found status' do
+      #   expect(response).to raise_error(ActiveRecord::RecordNotFound)
+      # end
+
     end
   end
 
