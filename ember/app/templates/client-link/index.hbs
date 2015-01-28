@@ -1,4 +1,11 @@
-{{ partial "actions"}}
+<div class="actions">
+  {{#link-to 'client-link.edit'}}
+    <span class="glyphicon glyphicon-pencil js-actions edit" aria-hidden="true"></span>
+  {{/link-to}}
+  {{#link-to 'client-link.audit'}}
+    <span class="glyphicon glyphicon-list-alt js-actions audit" aria-hidden="true"></span>
+  {{/link-to}}
+</div>
 
 <div role="tabpanel">
 

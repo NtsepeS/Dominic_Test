@@ -2,6 +2,14 @@
 
 COPS is an online platform that allows IS and its vendors an easy and efficient way to store and retrieve data related to the IS Carrier network, enabling engineers and management to make the correct decision at the correct time, leading to improved network availibility and decreased costs.
 
+## Prerequisites
+
+You will need the following installed:
+
+* Foreman ([https://github.com/ddollar/foreman](https://github.com/ddollar/foreman))
+
+* Please upgrade Sass locally to the latest version or a version > 3.4.4
+
 ## Setup
 
 COPS relies on the `cops.dev` development domain. To run this, install pow from `get.pow.cx`

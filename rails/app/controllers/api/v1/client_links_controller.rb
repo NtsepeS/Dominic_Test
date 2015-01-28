@@ -14,13 +14,18 @@ module Api
         client_link = ClientLink.find(params[:id])
         render json: client_link
       rescue => e
-          render json: "Not Found", status: :not_found
+        render json: "Not Found", status: :not_found
       end
 
       def create
         client_link = ClientLink.new(client_link_params)
-        client_link.save
-        render json: client_link
+
+        if client_link.save
+          render json: client_link, status: :created
+        else
+          render json: client_link.errors.to_json, status: :unprocessable_entity
+        end
+
       end
 
       # PUT /api/v1/client_links/:id
