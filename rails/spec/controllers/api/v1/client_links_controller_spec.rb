@@ -85,4 +85,30 @@ RSpec.describe Api::V1::ClientLinksController do
     end
   end
 
+  describe "#post" do
+
+    context 'with valid attributes' do
+
+      let(:client_link_attributes) {attributes_for(:client_link)}
+
+      before do
+        post :create, client_link: client_link_attributes
+        @data = JSON.parse(response.body)
+      end
+
+      it 'returns http created status' do
+        expect(response.status).to be 201
+      end
+
+      it 'creates a new client_link object' do
+
+        expect do
+          ClientLink.find(@data['client_link']['id'])
+        end.to_not raise_error
+      end
+
+    end
+
+  end
+
 end
