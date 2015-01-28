@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150106092301) do
+ActiveRecord::Schema.define(version: 20150128125203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "antennas", force: true do |t|
+  create_table "antennas", force: :cascade do |t|
     t.string   "size"
     t.integer  "serial_number"
     t.integer  "is_asset_tag"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20150106092301) do
     t.datetime "updated_at"
   end
 
-  create_table "base_station_sectors", force: true do |t|
+  create_table "base_station_sectors", force: :cascade do |t|
     t.string   "name"
     t.integer  "status_id"
     t.integer  "base_station_unit_id"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20150106092301) do
   add_index "base_station_sectors", ["base_station_unit_id"], name: "index_base_station_sectors_on_base_station_unit_id", using: :btree
   add_index "base_station_sectors", ["status_id"], name: "index_base_station_sectors_on_status_id", using: :btree
 
-  create_table "base_station_units", force: true do |t|
+  create_table "base_station_units", force: :cascade do |t|
     t.string   "name"
     t.integer  "status_id"
     t.integer  "core_node_id"
@@ -48,13 +48,13 @@ ActiveRecord::Schema.define(version: 20150106092301) do
 
   add_index "base_station_units", ["status_id"], name: "index_base_station_units_on_status_id", using: :btree
 
-  create_table "cities", force: true do |t|
+  create_table "cities", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "client_links", force: true do |t|
+  create_table "client_links", force: :cascade do |t|
     t.string   "name"
     t.string   "branch"
     t.string   "circuit_number"
@@ -83,13 +83,13 @@ ActiveRecord::Schema.define(version: 20150106092301) do
   add_index "client_links", ["network_operator_id"], name: "index_client_links_on_network_operator_id", using: :btree
   add_index "client_links", ["status_id"], name: "index_client_links_on_status_id", using: :btree
 
-  create_table "clients", force: true do |t|
+  create_table "clients", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "core_nodes", force: true do |t|
+  create_table "core_nodes", force: :cascade do |t|
     t.string   "name"
     t.integer  "status_id"
     t.integer  "city_id"
@@ -102,25 +102,25 @@ ActiveRecord::Schema.define(version: 20150106092301) do
   add_index "core_nodes", ["city_id"], name: "index_core_nodes_on_city_id", using: :btree
   add_index "core_nodes", ["status_id"], name: "index_core_nodes_on_status_id", using: :btree
 
-  create_table "link_types", force: true do |t|
+  create_table "link_types", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "network_operators", force: true do |t|
+  create_table "network_operators", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "statuses", force: true do |t|
+  create_table "statuses", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -143,7 +143,7 @@ ActiveRecord::Schema.define(version: 20150106092301) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "versions", force: true do |t|
+  create_table "versions", force: :cascade do |t|
     t.string   "item_type",      null: false
     t.integer  "item_id",        null: false
     t.string   "event",          null: false
@@ -154,5 +154,11 @@ ActiveRecord::Schema.define(version: 20150106092301) do
   end
 
   add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
+
+  create_table "vicinities", force: :cascade do |t|
+    t.text     "physical_address"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
 end
