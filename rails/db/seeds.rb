@@ -6,8 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Antenna.where(size: "30cm", serial_number: 1234, is_asset_tag: 5678, latitude: "-26.150553", longitude: "28.202592").first_or_create
-Antenna.where(size: "30cm", serial_number: 110720023, is_asset_tag: 116034, latitude: "-26.042568", longitude: "28.018240").first_or_create
+Antenna.where(size: "30cm", serial_number: 1234, is_asset_tag: 5678).first_or_create
+Antenna.where(size: "30cm", serial_number: 110720023, is_asset_tag: 116034).first_or_create
 City.where(name: "Johannesburg").first_or_create
 City.where(name: "Cape Town").first_or_create
 City.where(name: "Durban").first_or_create
@@ -24,8 +24,8 @@ Status.where(name: "Audit Done").first_or_create
 Status.where(name: "Audit In Progress").first_or_create
 Status.where(name: "Decommissioned").first_or_create
 
-CoreNode.where(name: "Afgri Isando", status_id: 1, city_id: 1, latitude: "-26.147333", longitude: "28.206883").first_or_create
-CoreNode.where(name: "Bryanston Towers", status_id: 1, city_id: 1, latitude: "-26.043517", longitude: "28.023899").first_or_create
+CoreNode.where(name: "Afgri Isando", status_id: 1, city_id: 1).first_or_create
+CoreNode.where(name: "Bryanston Towers", status_id: 1, city_id: 1).first_or_create
 BaseStationUnit.where(name: "w-isando-bsu1", status_id: 1, core_node_id: 1).first_or_create
 BaseStationUnit.where(name: "w-bry-bsu1", status_id: 1, core_node_id: 2).first_or_create
 BaseStationSector.where(name: "w-isando-bsu1 Sector 1", status_id: 1, base_station_unit_id: 1, sector: 1).first_or_create
