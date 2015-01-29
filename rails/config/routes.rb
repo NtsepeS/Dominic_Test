@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       resources :pictures
       resources :statuses
       resources :sub_group_classifications
+      resources :sub_group_picture_sets
     end
   end
 end
