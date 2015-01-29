@@ -15,6 +15,7 @@
     "bootstrap": "~3.3.1",
     "datatables": "~1.10.4",
     "ember-qunit-notifications": "0.0.5",
-    "qunit": "~1.17.1"
+    "qunit": "~1.17.1",
+    "jquery-file-upload": "~9.9.2"
   }
 }
