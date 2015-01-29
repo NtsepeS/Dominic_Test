@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'me', to: 'user_info#user', as: :user
 
+      resources :albums
       resources :antennas
       resources :base_station_units
       resources :base_station_sectors
