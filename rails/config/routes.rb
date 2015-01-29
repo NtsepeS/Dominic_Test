@@ -19,6 +19,7 @@ Rails.application.routes.draw do
         member { get 'audit' }
       end
       resources :core_nodes
+      resources :group_classifications
       resources :link_types
       resources :network_operators
       resources :statuses
