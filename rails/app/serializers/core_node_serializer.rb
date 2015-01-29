@@ -1,6 +1,6 @@
 class CoreNodeSerializer < ActiveModel::Serializer
   attributes :id, :name, :city,
-    :status, :created_at, :updated_at
+    :created_at, :updated_at
 
-  has_one :location
+  has_one :location, :status
 end
