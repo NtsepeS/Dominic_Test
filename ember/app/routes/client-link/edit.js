@@ -14,5 +14,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     controller.set('baseStationSectors', this.store.find('base-station-sector'));
     controller.set('clients', this.store.find('client'));
     controller.set('statuses', this.store.find('status'));
+    controller.set('sub-group-picture-sets', this.store.find('sub-group-picture-set'));
   }
 });
