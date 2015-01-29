@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       resources :group_classifications
       resources :link_types
       resources :network_operators
+      resources :pictures
       resources :statuses
       resources :sub_group_classifications
     end
