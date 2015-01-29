@@ -34,3 +34,11 @@ BaseStationSector.where(name: "w-bry-bsu1 Sector 3", status_id: 1, base_station_
 BaseStationSector.where(name: "w-bry-bsu1 Sector 4", status_id: 1, base_station_unit_id: 2, sector: 4).first_or_create
 ClientLink.where(name: "Afgri Isando (4): Bridgestone - Isando", branch: "Isando", circuit_number: "1-19BL0L4-W-ISANDO-BSU1", msad_number: "4.22", activation_date: "2014-09-29", mac_address: "00:05:59:4C:36:9E", distance: "555", client_id: 1, status_id: 4, network_operator_id: 1, link_type_id: 1, base_station_sector_id: 1, antenna_id: 1, solution_identifier: "1-19BL0L4", billing_account: "Bridgestone", service_account: "Bridgestone", service_account_site: "ORA-4082_BRI004").first_or_create
 ClientLink.where(name: "Bryanston Towers (4): Adcorp - Bryanston", branch: "Bryanston", circuit_number: "1-NFO7FJ-W-BRY-BSU1", msad_number: "4.3", activation_date: "2012-02-24", mac_address: "00:05:59:4C:28:52", distance: "642", client_id: 2, status_id: 1, network_operator_id: 1, link_type_id: 1, base_station_sector_id: 3, antenna_id: 2, solution_identifier: "1-NFO7FJ", billing_account: "DIMENSION DATA (PTY) LTD - ADCORP", service_account: "DIMENSION DATA (PTY) LTD - ADCORP - BRYANSTON", service_account_site: "BRYANSTON").first_or_create
+
+Geometry.where(latitude: "800.01", longitude: "900.1", altitude: "1.0").first_or_create
+Geometry.where(latitude: "600.02", longitude: "700.2", altitude: "2.0").first_or_create
+Vicinity.where(physical_address: "22 Made up street, Sandton, Gauteng, South Africa").first_or_create
+Vicinity.where(physical_address: "P Sherman 42 Wallaby Way, Sydney, Australia").first_or_create
+
+Location.where(geometry_id: 1, vicinity_id: 1).first_or_create
+Location.where(geometry_id: 2, vicinity_id: 2).first_or_create
