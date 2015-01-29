@@ -27,7 +27,7 @@ module Api
       private
 
       def sub_group_picture_set_params
-        params.fetch(:sub_group_picture_set, params).permit(:name)
+        params.fetch(:sub_group_picture_set, params).permit(:album_id, :sub_group_classification_id, :client_link_id)
       end
 
     end

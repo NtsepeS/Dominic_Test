@@ -27,7 +27,7 @@ module Api
       private
 
       def sub_group_classification_params
-        params.fetch(:sub_group_classification, params).permit(:name)
+        params.fetch(:sub_group_classification, params).permit(:name, :group_classification_id)
       end
 
     end

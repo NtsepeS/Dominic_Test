@@ -27,7 +27,7 @@ module Api
       private
 
       def picture_params
-        params.fetch(:picture, params).permit(:name)
+        params.fetch(:picture, params).permit(:mechanism, :picture_data, :date_taken, :album_id)
       end
 
     end
