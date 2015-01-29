@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129051704) do
+ActiveRecord::Schema.define(version: 20150129053332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,11 +20,12 @@ ActiveRecord::Schema.define(version: 20150129051704) do
     t.string   "size"
     t.integer  "serial_number"
     t.integer  "is_asset_tag"
-    t.string   "latitude"
-    t.string   "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "location_id"
   end
+
+  add_index "antennas", ["location_id"], name: "index_antennas_on_location_id", using: :btree
 
   create_table "base_station_sectors", force: :cascade do |t|
     t.string   "name"
@@ -116,6 +117,16 @@ ActiveRecord::Schema.define(version: 20150129051704) do
     t.datetime "updated_at"
   end
 
+  create_table "locations", force: :cascade do |t|
+    t.integer  "geometry_id"
+    t.integer  "vicinity_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "locations", ["geometry_id"], name: "index_locations_on_geometry_id", using: :btree
+  add_index "locations", ["vicinity_id"], name: "index_locations_on_vicinity_id", using: :btree
+
   create_table "network_operators", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -129,23 +140,23 @@ ActiveRecord::Schema.define(version: 20150129051704) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "provider",               limit: 255
-    t.string   "uid",                    limit: 255
-    t.string   "name",                   limit: 255
-    t.string   "ad_username",            limit: 255
-    t.string   "role",                   limit: 255
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "ad_username"
+    t.string   "role"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -169,4 +180,6 @@ ActiveRecord::Schema.define(version: 20150129051704) do
     t.datetime "updated_at",       null: false
   end
 
+  add_foreign_key "locations", "geometries"
+  add_foreign_key "locations", "vicinities"
 end
