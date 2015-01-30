@@ -2,8 +2,8 @@ import Ember from 'ember';
 
 
 export default Ember.Component.extend({
-  didInsertElement: function() {
-    this.$('#imageupload').fileupload({
-    });
-  }
+  // didInsertElement: function() {
+  //   // this.$('#imageupload').fileupload({
+  //   });
+  // }
 });
