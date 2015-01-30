@@ -27,7 +27,7 @@ module Api
       private
 
       def location_params
-        params.fetch(:location, params).permit(:name)
+        params.fetch(:location, params).permit(:geometry_id, :vicinity_id)
       end
 
     end

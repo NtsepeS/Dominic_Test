@@ -22,6 +22,9 @@ Rails.application.routes.draw do
       resources :link_types
       resources :network_operators
       resources :statuses
+      resources :geometries
+      resources :vicinities
+      resources :locations
     end
   end
 end

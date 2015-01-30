@@ -27,7 +27,7 @@ module Api
       private
 
       def vicinity_params
-        params.fetch(:vicinity, params).permit(:name)
+        params.fetch(:vicinity, params).permit(:physical_address)
       end
 
     end

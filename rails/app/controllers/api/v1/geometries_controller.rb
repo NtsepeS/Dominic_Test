@@ -27,7 +27,7 @@ module Api
       private
 
       def geometry_params
-        params.fetch(:geometry, params).permit(:name)
+        params.fetch(:geometry, params).permit(:longitude, :latitude, :altitude)
       end
 
     end
