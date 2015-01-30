@@ -59,7 +59,8 @@ RSpec.describe Api::V1::ClientLinksController do
           :circuit_number, :mac_address, :msad_number, :activation_date, :distance,
           :solution_identifier, :billing_account, :service_account,
           :service_account_site, :created_at, :updated_at, :client_id, :link_type_id,
-          :antenna_id, :network_operator_id, :base_station_sector_id, :status_id
+          :antenna_id, :network_operator_id, :base_station_sector_id, :status_id,
+          :sub_group_picture_set_ids
         )
       end
 
