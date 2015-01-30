@@ -21,10 +21,4 @@ var ClientLink = DS.Model.extend({
   subGroupPictureSets: DS.hasMany('sub-group-picture-set', {async: true})
 });
 
-ClientLink.reopenClass({
-  FIXTURES:[{
-    subGroupPictureSets: [4]
-  }]
-});
-
 export default ClientLink;

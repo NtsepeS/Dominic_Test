@@ -5,13 +5,4 @@ var GroupClassification = DS.Model.extend({
   subGroupClassifications: DS.hasMany('sub-group-classifications')
 });
 
-GroupClassification.reopenClass({
-  FIXTURES: [
-  {
-    id:   1,
-    name: 'Outdoor'
-  }
-  ]
-});
-
 export default GroupClassification;

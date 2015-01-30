@@ -6,15 +6,4 @@ var SubGroupPictureSet = DS.Model.extend({
   clientLink:             DS.belongsTo('client-link', {async: true})
 });
 
-SubGroupPictureSet.reopenClass({
-  FIXTURES: [
-  {
-    id:                     4,
-    album:                  7,
-    subGroupClassification: 2,
-    clientLink:             1,
-  }
-  ]
-});
-
 export default SubGroupPictureSet;
