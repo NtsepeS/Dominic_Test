@@ -15,7 +15,7 @@ RSpec.describe Api::V1::GeometriesController do
 
   describe 'GET /api/v1/geometries/:id' do
     let(:resource) {:show}
-    let(:object_key) {:geometries}
+    let(:object_key) {:geometry}
 
     before(:each) do
       @geometry = create(:geometry)
