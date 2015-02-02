@@ -287,6 +287,7 @@ DEPENDENCIES
   omniauth-is-oauth2!
   paper_trail (~> 3.0.6)
   pg (~> 0.17.1)
+  pry
   pry-rails
   puma
   rails (= 4.2.0)
