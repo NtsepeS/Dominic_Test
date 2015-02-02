@@ -9,7 +9,7 @@ module Api
       def render_404(exception)
         #TODO: log exception message
         puts exception.message
-        render status: :not_found, text: "not found"
+        render status: :not_found, json: {message: "not found"}
       end
     end
   end
