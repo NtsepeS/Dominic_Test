@@ -41,6 +41,16 @@ RSpec.describe Api::V1::GeometriesController do
     it_should_behave_like "an amendable resource"
   end
 
-  describe '#destroy' do
+  describe 'DELETE /api/v1/geometries/:id' do
+    let(:resource) {:destroy}
+    let(:object_key) {:geometry}
+
+    before(:each) do
+      @geometry = create(:geometry)
+    end
+
+    let(:id) {@geometry.id}
+
+    it_should_behave_like "an erasable resource"
   end
 end
