@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'pry'
 
-RSpec.shared_examples_for "a showable resource" do
+RSpec.shared_examples_for "a viewable resource" do
 
 
   context "for a valid id" do
