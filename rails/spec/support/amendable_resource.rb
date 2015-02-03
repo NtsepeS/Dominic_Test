@@ -3,7 +3,6 @@ require 'pry'
 
 RSpec.shared_examples_for "an amendable resource" do
 
-  
   context "for a valid id" do
     context "for valid attributes" do
       before(:each) do
