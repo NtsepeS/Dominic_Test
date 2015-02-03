@@ -23,10 +23,22 @@ RSpec.describe Api::V1::GeometriesController do
 
     let(:id) {@geometry.id}
 
-    it_should_behave_like "a showable resource"
+    it_should_behave_like "a viewable resource"
   end
 
-  describe '#update' do
+  describe 'PUT /api/v1/geometries/:id' do
+    let(:resource) {:update}
+    let(:object_key) {:geometry}
+    let(:amendable_key) {:longitude}
+    let(:amendable_value) {"1234567890.0"}
+
+    before(:each) do
+      @geometry = create(:geometry)
+    end
+
+    let(:id) {@geometry.id}
+
+    it_should_behave_like "an amendable resource"
   end
 
   describe '#destroy' do
