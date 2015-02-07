@@ -8,6 +8,11 @@ You will need the following installed:
 
 * Foreman ([https://github.com/ddollar/foreman](https://github.com/ddollar/foreman))
 
+* Watchman ([https://facebook.github.io/watchman/docs/install.html](https://facebook.github.io/watchman/docs/install.html))
+``` bash
+$ brew install watchman
+```
+
 * Please upgrade Sass locally to the latest version or a version > 3.4.4
 
 ## Setup
@@ -24,7 +29,7 @@ COPS includes a setup script to get your development environment set up. Just ru
 $ bin/setup
 ```
 
-To start the app, just use foreman
+To start the app, use foreman
 
 ``` bash
 $ foreman start
