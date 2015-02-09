@@ -1,114 +1,67 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::ClientLinksController do
+  let(:object_key) {:client_link}
 
-  describe '#index' do
-
-    # only when you call client_link does it actually create that record
-    # so use let! or before do.. To test, try ClientLink.count
-
-    before do
-      3.times {create(:client_link)}
-      get :index
-      @data = JSON.parse(response.body)
-    end
-
-    it 'returns http ok status' do
-      expect(response).to be_ok
-    end
-
-    it 'returns an outer key of client_links' do
-      expect(@data).to have_key('client_links')
-    end
-
-    it 'returns greater than zero records' do
-      expect(@data['client_links'].size).to eq(3)
-      expect(@data['client_links']).not_to be_empty
-    end
-
-    it 'returns a JSON array of client links' do
-      expect(@data['client_links']).to be_an(Array)
-    end
-
+  before(:each) do
+    @client_link = create(:client_link)
   end
 
-  describe '#show' do
-    context 'for a valid id' do
-
-      let(:client_link) {create(:client_link)}
-
-      before do
-        get :show, id: client_link.id
-        @data = JSON.parse(response.body)
-      end
-
-      it 'returns http ok status' do
-        expect(response).to be_ok
-      end
-
-      it 'returns an outer key of client_link' do
-        expect(@data).to have_key('client_link')
-      end
-
-      it 'returns a Hash of information' do
-        expect(@data['client_link']).to be_a(Hash)
-      end
-
-      it 'returns results containing the appropriate keys' do
-        expect(@data['client_link'].keys.map(&:to_sym)).to include(:name, :branch,
-          :circuit_number, :mac_address, :msad_number, :activation_date, :distance,
-          :solution_identifier, :billing_account, :service_account,
-          :service_account_site, :created_at, :updated_at, :client_id, :link_type_id,
-          :antenna_id, :network_operator_id, :base_station_sector_id, :status_id
-        )
-      end
-
-    end
-
-    context 'for an invalid id' do
-
-      let(:client_link) {create(:client_link)}
-      let :non_existent_id do
-        id = client_link.id
-        client_link.destroy
-        id
-      end
-
-      before do
-          get :show, id: non_existent_id
-      end
-
-       it 'returns http not found status' do
-        expect(response.status).to be 404
-      end
-
-    end
+  describe 'GET /api/v1/geometries' do
+    it_should_behave_like "a listable resource"
   end
 
-  describe "#post" do
+  describe 'GET /api/v1/geometries/:id' do
+    let(:id) {@client_link.id}
 
-    context 'with valid attributes' do
-
-      let(:client_link_attributes) {attributes_for(:client_link)}
-
-      before do
-        post :create, client_link: client_link_attributes
-        @data = JSON.parse(response.body)
-      end
-
-      it 'returns http created status' do
-        expect(response.status).to be 201
-      end
-
-      it 'creates a new client_link object' do
-
-        expect do
-          ClientLink.find(@data['client_link']['id'])
-        end.to_not raise_error
-      end
-
-    end
-
+    it_should_behave_like "a viewable resource"
   end
 
+  describe 'PUT /api/v1/geometries/:id' do
+    let(:amendable_key) {:name}
+    let(:amendable_value) {"Oh look! a name..."}
+    let(:id) {@client_link.id}
+
+    it_should_behave_like "an amendable resource"
+  end
+
+  describe 'DELETE /api/v1/geometries/:id' do
+    let(:id) {@client_link.id}
+
+    it_should_behave_like "an erasable resource"
+  end
+
+  describe 'POST /api/v1/client_links' do
+    let(:hash) { {name: 'Alice Cooper',
+          branch: 'Some branch',
+          circuit_number: '1-19BL0L4-W-ISANDO-BSU1',
+          msad_number: "4.22",
+          activation_date: '',
+          mac_address: '00:05:59:4C:36:9E',
+          distance: '765',
+          client_id: 1,
+          status_id: 4,
+          link_type_id: '',
+          antenna_id: 1,
+          network_operator_id: 1,
+          base_station_sector_id: 1,
+          solution_identifier: 1,
+          billing_account: 1,
+          service_account: 1,
+          service_account_site: 1}
+
+        }
+    # When sending a valid json hash with all params
+      # Should create object in db
+      # 200 ok
+      # Returns the created object
+
+    # When sending a INVALID json hash
+      # Should not have created object
+      # return bad_request
+      # should return a error message
+
+
+    it_should_behave_like "a createable resource"
+  end
 end
