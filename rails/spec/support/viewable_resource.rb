@@ -1,9 +1,11 @@
 require 'rails_helper'
 
 RSpec.shared_examples_for "a viewable resource" do
+  let(:action) {:show}
+
   context "for a valid id" do
     before(:each) do
-      get resource, id: id
+      get action, id: id
     end
 
     it "returns http ok status" do
@@ -25,7 +27,7 @@ RSpec.shared_examples_for "a viewable resource" do
 
   context "for an invalid id" do
     before(:each) do
-      get resource, id: "some_invalid_id"
+      get action, id: "some_invalid_id"
     end
 
     it "returns http not found status" do

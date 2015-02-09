@@ -1,11 +1,12 @@
 require 'rails_helper'
 
 RSpec.shared_examples_for "an amendable resource" do
+  let(:action) {:update}
 
   context "for a valid id" do
     context "for valid attributes" do
       before(:each) do
-        post resource, id: id, object_key => {amendable_key => amendable_value}
+        post action, id: id, object_key => {amendable_key => amendable_value}
       end
 
       it "returns http ok status" do
@@ -29,7 +30,7 @@ RSpec.shared_examples_for "an amendable resource" do
     context "for invalid attributes" do
       before(:each) do
         random_key = (0...8).map { (65 + rand(26)).chr }.join
-        post resource, id: id, object_key => {random_key.to_sym => amendable_value}
+        post action, id: id, object_key => {random_key.to_sym => amendable_value}
       end
 
       it "returns http bad request status" do
@@ -44,7 +45,7 @@ RSpec.shared_examples_for "an amendable resource" do
 
   context "for an invalid id" do
     before(:each) do
-      get resource, id: "some_invalid_id"
+      get action, id: "some_invalid_id"
     end
 
     it "returns http not found status" do

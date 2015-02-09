@@ -1,8 +1,11 @@
 require 'rails_helper'
 
 RSpec.shared_examples_for "an erasable resource" do
+  let(:action) {:destroy}
+
   before(:each) do
-    delete resource, id: id
+    @resource = create(object_key)
+    delete action, id: id
   end
 
   context "for a valid id" do
@@ -11,14 +14,14 @@ RSpec.shared_examples_for "an erasable resource" do
     end
 
     it "the resource doesn't exist anymore" do
-      get resource, id: id
+      get action, id: id
       expect(response).to be_not_found
     end
   end
 
   context "for an invalid id" do
     before(:each) do
-      get resource, id: "some_invalid_id"
+      get action, id: "some_invalid_id"
     end
 
     it "returns http not found status" do

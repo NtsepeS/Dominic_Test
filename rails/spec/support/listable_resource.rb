@@ -1,8 +1,11 @@
 require 'rails_helper'
 
 RSpec.shared_examples_for "a listable resource" do
+  let(:action) {:index}
+  let(:object_key) { super().to_s.pluralize.to_sym }
+
   before(:each) do
-    get resource
+    get action
   end
 
   it "returns http ok status" do
