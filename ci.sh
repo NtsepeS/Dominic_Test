@@ -10,4 +10,4 @@ export RAILS_ENV=test
 
 bundle install
 bundle exec rake ci:setup:rspec spec
-echo "Test!!!!!!!!!!!!"
+echo "Test!!"
