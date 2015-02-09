@@ -3,7 +3,7 @@
 cd rails
 
 set -e
-rvm use "2.1.2"
+rvm use "2.2.0"
 # Set this for after rvm is done loading, to keep CI output low
 set -x
 
