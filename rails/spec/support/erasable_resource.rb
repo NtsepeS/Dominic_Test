@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'pry'
 
 RSpec.shared_examples_for "an erasable resource" do
   before(:each) do

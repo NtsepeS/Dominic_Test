@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'pry'
 
 RSpec.shared_examples_for "a listable resource" do
   before(:each) do
@@ -7,7 +6,6 @@ RSpec.shared_examples_for "a listable resource" do
   end
 
   it "returns http ok status" do
-    # binding.pry
     expect(response).to be_ok
   end
 

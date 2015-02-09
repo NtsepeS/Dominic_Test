@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'pry'
 
 RSpec.describe Api::V1::VicinitiesController do
   describe 'GET /api/v1/vicinities' do
