@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'me', to: 'user_info#user', as: :user
 
+      resources :albums
       resources :antennas
       resources :base_station_units
       resources :base_station_sectors
@@ -19,12 +20,16 @@ Rails.application.routes.draw do
         member { get 'audit' }
       end
       resources :core_nodes
+      resources :group_classifications
       resources :link_types
       resources :network_operators
+      resources :pictures
       resources :statuses
       resources :geometries
       resources :vicinities
       resources :locations
+      resources :sub_group_classifications
+      resources :sub_group_picture_sets
     end
   end
 end

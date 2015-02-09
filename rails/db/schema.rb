@@ -11,10 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129061042) do
+ActiveRecord::Schema.define(version: 20150129095149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "albums", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "antennas", force: :cascade do |t|
     t.string   "size"
@@ -111,6 +116,12 @@ ActiveRecord::Schema.define(version: 20150129061042) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "group_classifications", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "link_types", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -133,11 +144,43 @@ ActiveRecord::Schema.define(version: 20150129061042) do
     t.datetime "updated_at"
   end
 
+  create_table "pictures", force: :cascade do |t|
+    t.string   "mechanism"
+    t.string   "picture_data"
+    t.datetime "date_taken"
+    t.integer  "album_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "pictures", ["album_id"], name: "index_pictures_on_album_id", using: :btree
+
   create_table "statuses", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "sub_group_classifications", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "group_classification_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "sub_group_classifications", ["group_classification_id"], name: "index_sub_group_classifications_on_group_classification_id", using: :btree
+
+  create_table "sub_group_picture_sets", force: :cascade do |t|
+    t.integer  "album_id"
+    t.integer  "sub_group_classification_id"
+    t.integer  "client_link_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "sub_group_picture_sets", ["album_id"], name: "index_sub_group_picture_sets_on_album_id", using: :btree
+  add_index "sub_group_picture_sets", ["client_link_id"], name: "index_sub_group_picture_sets_on_client_link_id", using: :btree
+  add_index "sub_group_picture_sets", ["sub_group_classification_id"], name: "index_sub_group_picture_sets_on_sub_group_classification_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -182,4 +225,9 @@ ActiveRecord::Schema.define(version: 20150129061042) do
 
   add_foreign_key "locations", "geometries"
   add_foreign_key "locations", "vicinities"
+  add_foreign_key "pictures", "albums"
+  add_foreign_key "sub_group_classifications", "group_classifications"
+  add_foreign_key "sub_group_picture_sets", "albums"
+  add_foreign_key "sub_group_picture_sets", "client_links"
+  add_foreign_key "sub_group_picture_sets", "sub_group_classifications"
 end

@@ -42,3 +42,22 @@ Vicinity.where(physical_address: "P Sherman 42 Wallaby Way, Sydney, Australia").
 
 Location.where(geometry_id: 1, vicinity_id: 1).first_or_create
 Location.where(geometry_id: 2, vicinity_id: 2).first_or_create
+
+GroupClassification.where(name: 'Outdoor').first_or_create
+SubGroupClassification.where(name: 'LOS', group_classification_id: 1).first_or_create
+SubGroupClassification.where(name: 'Antenna Mount', group_classification_id: 1).first_or_create
+SubGroupClassification.where(name: 'Outdoor Cable', group_classification_id: 1).first_or_create
+GroupClassification.where(name: 'Indoor').first_or_create
+SubGroupClassification.where(name: 'MSAD', group_classification_id: 2).first_or_create
+SubGroupClassification.where(name: 'Equipment Room', group_classification_id: 2).first_or_create
+SubGroupClassification.where(name: 'Indoor Cable', group_classification_id: 2).first_or_create
+Album.where(id: 1).first_or_create
+Album.where(id: 2).first_or_create
+Picture.where(mechanism: 'url', picture_data: 'www.test.com/pic_1.jpg', date_taken: '2015-01-29 12:00:00', album_id: 1).first_or_create
+Picture.where(mechanism: 'url', picture_data: 'www.test.com/pic_2.jpg', date_taken: '2015-01-29 12:01:00', album_id: 1).first_or_create
+Picture.where(mechanism: 'url', picture_data: 'www.test.com/pic_3.jpg', date_taken: '2015-01-29 12:00:00', album_id: 1).first_or_create
+Picture.where(mechanism: 'file', picture_data: '/data/public/pic_4.jpg', date_taken: '2015-01-29 12:01:00', album_id: 2).first_or_create
+Picture.where(mechanism: 'file', picture_data: '/data/public/pic_5.jpg', date_taken: '2015-01-29 12:01:00', album_id: 2).first_or_create
+Picture.where(mechanism: 'url', picture_data: 'www.test.com/pic_6.jpg', date_taken: '2015-01-29 12:00:00', album_id: 2).first_or_create
+SubGroupPictureSet.where(album_id: 1, sub_group_classification_id: 1, client_link_id: 1).first_or_create
+SubGroupPictureSet.where(album_id: 2, sub_group_classification_id: 2, client_link_id: 1).first_or_create
