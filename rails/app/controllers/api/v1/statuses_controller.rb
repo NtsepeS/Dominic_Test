@@ -27,7 +27,7 @@ module Api
       private
 
       def status_params
-        params.fetch(:status, params).permit(:name)
+        params.require(:status).permit(:name)
       end
 
     end

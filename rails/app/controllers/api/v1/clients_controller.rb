@@ -27,7 +27,7 @@ module Api
       private
 
       def client_params
-        params.fetch(:client, params).permit(:name)
+        params.require(:client).permit(:name)
       end
 
     end

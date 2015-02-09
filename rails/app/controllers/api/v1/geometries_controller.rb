@@ -1,7 +1,6 @@
 module Api
   module V1
     class GeometriesController < AuthenticatedController
-
       def index
         geometries = Geometry.all
         render json: geometries
@@ -27,7 +26,7 @@ module Api
       private
 
       def geometry_params
-        params.fetch(:geometry, params).permit(:longitude, :latitude, :altitude)
+        params.require(:geometry).permit(:longitude, :latitude, :altitude)
       end
 
     end

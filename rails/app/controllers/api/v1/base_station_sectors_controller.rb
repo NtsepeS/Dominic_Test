@@ -27,7 +27,7 @@ module Api
       private
 
       def base_station_sector_params
-        params.fetch(:base_station_sector, params).permit(:name)
+        params.require(:base_station_sector).permit(:name)
       end
 
     end

@@ -27,7 +27,7 @@ module Api
       private
 
       def city_params
-        params['city'].fetch(:city, params['city']).permit(:name)
+        params.require(:city).permit(:name)
       end
 
     end
