@@ -30,6 +30,7 @@ Rails.application.routes.draw do
       resources :locations
       resources :sub_group_classifications
       resources :sub_group_picture_sets
+      resources :notes
     end
   end
 end
