@@ -10,6 +10,7 @@ export RAILS_ENV=test
 
 bundle install
 rake db:create
-bundle exec rake ci:setup:rspec spec
+rake db:migrate
+bundle exec rake spec
 rake db:drop
 echo "Test"
