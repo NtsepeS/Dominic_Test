@@ -9,5 +9,7 @@ cd rails
 export RAILS_ENV=test
 
 bundle install
+rake db:create
 bundle exec rake ci:setup:rspec spec
+rake db:drop
 echo "Test"
