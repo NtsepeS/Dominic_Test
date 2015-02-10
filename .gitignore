@@ -26,7 +26,8 @@
 # misc
 /.sass-cache
 /connect.lock
-/coverage/*
+rails/coverage/*
+rails/spec/reports/*
 /libpeerconnection.log
 npm-debug.log
 testem.log
