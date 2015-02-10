@@ -1,6 +1,6 @@
 # COPS
 
-COPS is an online platform that allows IS and its vendors an easy and efficient way to store and retrieve data related to the IS Carrier network, enabling engineers and management to make the correct decision at the correct time, leading to improved network availibility and decreased costs.
+COPS is an online platform that allows IS and its vendors an easy and efficient way to store and retrieve data related to the IS Carrier network, enabling engineers and management to make the correct decision at the correct time, leading to improved network availability and decreased costs.
 
 ## Prerequisites
 
