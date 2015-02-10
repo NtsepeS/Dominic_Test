@@ -27,7 +27,7 @@ module Api
       private
 
       def core_node_params
-        params['core_node'].fetch(:core_node, params['core_node']).permit(:name)
+        params.require(:core_node).permit(:name)
       end
 
     end

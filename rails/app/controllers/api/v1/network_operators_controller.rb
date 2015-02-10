@@ -27,7 +27,7 @@ module Api
       private
 
       def network_operator_params
-        params.fetch(:network_operator, params).permit(:name)
+        params.require(:network_operator).permit(:name)
       end
 
     end

@@ -25,6 +25,9 @@ Rails.application.routes.draw do
       resources :network_operators
       resources :pictures
       resources :statuses
+      resources :geometries
+      resources :vicinities
+      resources :locations
       resources :sub_group_classifications
       resources :sub_group_picture_sets
     end

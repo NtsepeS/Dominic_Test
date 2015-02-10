@@ -13,8 +13,6 @@ module Api
       def show
         client_link = ClientLink.find(params[:id])
         render json: client_link
-      rescue => e
-        render json: "Not Found", status: :not_found
       end
 
       def create
@@ -54,7 +52,7 @@ module Api
 
       def client_link_params
 
-        params.fetch(:client_link, params).permit(
+        params.require(:client_link).permit(
           :name,
           :branch,
           :circuit_number,

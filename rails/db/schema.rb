@@ -25,11 +25,12 @@ ActiveRecord::Schema.define(version: 20150129095149) do
     t.string   "size"
     t.integer  "serial_number"
     t.integer  "is_asset_tag"
-    t.string   "latitude"
-    t.string   "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "location_id"
   end
+
+  add_index "antennas", ["location_id"], name: "index_antennas_on_location_id", using: :btree
 
   create_table "base_station_sectors", force: :cascade do |t|
     t.string   "name"
@@ -98,14 +99,22 @@ ActiveRecord::Schema.define(version: 20150129095149) do
     t.string   "name"
     t.integer  "status_id"
     t.integer  "city_id"
-    t.string   "latitude"
-    t.string   "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "location_id"
   end
 
   add_index "core_nodes", ["city_id"], name: "index_core_nodes_on_city_id", using: :btree
+  add_index "core_nodes", ["location_id"], name: "index_core_nodes_on_location_id", using: :btree
   add_index "core_nodes", ["status_id"], name: "index_core_nodes_on_status_id", using: :btree
+
+  create_table "geometries", force: :cascade do |t|
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.decimal  "altitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "group_classifications", force: :cascade do |t|
     t.string   "name"
@@ -118,6 +127,16 @@ ActiveRecord::Schema.define(version: 20150129095149) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "locations", force: :cascade do |t|
+    t.integer  "geometry_id"
+    t.integer  "vicinity_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "locations", ["geometry_id"], name: "index_locations_on_geometry_id", using: :btree
+  add_index "locations", ["vicinity_id"], name: "index_locations_on_vicinity_id", using: :btree
 
   create_table "network_operators", force: :cascade do |t|
     t.string   "name"
@@ -198,6 +217,14 @@ ActiveRecord::Schema.define(version: 20150129095149) do
 
   add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
 
+  create_table "vicinities", force: :cascade do |t|
+    t.text     "physical_address"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_foreign_key "locations", "geometries"
+  add_foreign_key "locations", "vicinities"
   add_foreign_key "pictures", "albums"
   add_foreign_key "sub_group_classifications", "group_classifications"
   add_foreign_key "sub_group_picture_sets", "albums"

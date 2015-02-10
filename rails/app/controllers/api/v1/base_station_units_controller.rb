@@ -27,7 +27,7 @@ module Api
       private
 
       def base_station_unit_params
-        params['base_station_unit'].fetch(:base_station_unit, params['base_station_unit']).permit(:name)
+        params.require(:base_station_unit).permit(:name)
       end
 
     end
