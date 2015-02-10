@@ -1,3 +1,3 @@
 class Modem < ActiveRecord::Base
-  has_many :equipment, as: :equipable
+  has_one :equipment, as: :equipped
 end

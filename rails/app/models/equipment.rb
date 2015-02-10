@@ -1,3 +1,3 @@
 class Equipment < ActiveRecord::Base
-  belongs_to :equipable, polymorphic: true
+  belongs_to :equipped, polymorphic: true
 end

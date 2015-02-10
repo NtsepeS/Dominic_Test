@@ -20,8 +20,10 @@ Rails.application.routes.draw do
         member { get 'audit' }
       end
       resources :core_nodes
+      resources :equipment
       resources :group_classifications
       resources :link_types
+      resources :modems
       resources :network_operators
       resources :pictures
       resources :statuses
