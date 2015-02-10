@@ -9,8 +9,7 @@ cd rails
 export RAILS_ENV=test
 
 bundle install
-rake db:create
-rake db:migrate
-bundle exec rake spec
-rake db:drop
+bundle exec rake db:create:all
+bundle exec rake db:migrate
+bundle exec rake db:test:prepare
 echo "Test"
