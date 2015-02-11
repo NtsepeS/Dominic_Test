@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       resources :modems
       resources :network_operators
       resources :pictures
+      resources :radios
       resources :statuses
       resources :geometries
       resources :vicinities
