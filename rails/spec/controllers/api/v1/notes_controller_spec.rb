@@ -11,6 +11,12 @@ RSpec.describe Api::V1::NotesController do
     it_should_behave_like "a listable resource"
   end
 
+  describe 'POST /api/v1/notes' do
+    let(:hash) { {text: "A new note!"} }
+
+    it_should_behave_like "a createable resource"
+  end
+
   describe 'GET /api/v1/notes/:id' do
     let(:id) {@note.id}
 

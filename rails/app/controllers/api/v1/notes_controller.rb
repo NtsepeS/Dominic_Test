@@ -8,6 +8,16 @@ module Api
         render json: notes
       end
 
+      # POST /api/v1/notes
+      def create
+        note = Note.new(note_params)
+        if note.save
+          render json: note, status: :created
+        else
+          render json: note.errors.to_json, status: :unprocessable_entity
+        end
+      end
+
       # GET /api/v1/notes/:id
       def show
         note = Note.find(params[:id])
