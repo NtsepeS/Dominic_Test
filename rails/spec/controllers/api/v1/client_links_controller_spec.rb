@@ -50,6 +50,7 @@ RSpec.describe Api::V1::ClientLinksController do
       service_account: 1,
       service_account_site: 1}
     }
+
     it_should_behave_like "a createable resource"
   end
 end

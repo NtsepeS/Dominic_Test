@@ -15,15 +15,14 @@ module Api
         render json: client_link
       end
 
+      # POST /api/v1/client_links
       def create
         client_link = ClientLink.new(client_link_params)
-
         if client_link.save
           render json: client_link, status: :created
         else
           render json: client_link.errors.to_json, status: :unprocessable_entity
         end
-
       end
 
       # PUT /api/v1/client_links/:id
