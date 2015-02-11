@@ -111,10 +111,13 @@ ActiveRecord::Schema.define(version: 20150210085349) do
   create_table "equipment", force: :cascade do |t|
     t.string   "name"
     t.string   "is_asset_tag"
+    t.string   "serial_number"
+    t.string   "model_number"
+    t.string   "product_number"
     t.integer  "equipped_id"
     t.string   "equipped_type"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   add_index "equipment", ["equipped_type", "equipped_id"], name: "index_equipment_on_equipped_type_and_equipped_id", using: :btree
@@ -174,8 +177,10 @@ ActiveRecord::Schema.define(version: 20150210085349) do
 
   create_table "radios", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "item_code"
+    t.boolean  "icasa_sticker"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "statuses", force: :cascade do |t|
