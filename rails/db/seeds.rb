@@ -61,3 +61,7 @@ Picture.where(mechanism: 'file', picture_data: '/data/public/pic_5.jpg', date_ta
 Picture.where(mechanism: 'url', picture_data: 'www.test.com/pic_6.jpg', date_taken: '2015-01-29 12:00:00', album_id: 2).first_or_create
 SubGroupPictureSet.where(album_id: 1, sub_group_classification_id: 1, client_link_id: 1).first_or_create
 SubGroupPictureSet.where(album_id: 2, sub_group_classification_id: 2, client_link_id: 1).first_or_create
+
+Note.where(text: "Godard Blue Bottle roof party, Bushwick street art ugh blog.").first_or_create
+Note.where(text: "Drinking vinegar ethical twee lo-fi cardigan, lumbersexual church-key viral before they sold out. ").first_or_create
+Note.where(text: "YOLO Brooklyn Marfa, Pinterest biodiesel lomo health goth small batch hashtag.").first_or_create
