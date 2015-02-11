@@ -13,7 +13,7 @@ You will need the following installed:
 $ brew install watchman
 ```
 
-* Please upgrade Sass locally to the latest version or a version > 3.4.4
+* Please upgrade Sass locally to the latest version, or a version > 3.4.4
 
 ## Setup
 
