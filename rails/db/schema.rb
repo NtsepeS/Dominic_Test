@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150212010900) do
+ActiveRecord::Schema.define(version: 20150212065752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,12 @@ ActiveRecord::Schema.define(version: 20150212010900) do
   create_table "albums", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "antenna_parameters", force: :cascade do |t|
+    t.string   "polarization"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "antennas", force: :cascade do |t|
@@ -168,6 +174,17 @@ ActiveRecord::Schema.define(version: 20150212010900) do
     t.datetime "updated_at"
   end
 
+  create_table "operating_parameters", force: :cascade do |t|
+    t.integer  "location_id"
+    t.integer  "params_id"
+    t.string   "params_type"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "operating_parameters", ["location_id"], name: "index_operating_parameters_on_location_id", using: :btree
+  add_index "operating_parameters", ["params_type", "params_id"], name: "index_operating_parameters_on_params_type_and_params_id", using: :btree
+
   create_table "pictures", force: :cascade do |t|
     t.string   "mechanism"
     t.string   "picture_data"
@@ -257,6 +274,7 @@ ActiveRecord::Schema.define(version: 20150212010900) do
 
   add_foreign_key "locations", "geometries"
   add_foreign_key "locations", "vicinities"
+  add_foreign_key "operating_parameters", "locations"
   add_foreign_key "pictures", "albums"
   add_foreign_key "sub_group_classifications", "group_classifications"
   add_foreign_key "sub_group_picture_sets", "albums"
