@@ -1,5 +1,5 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  polarization: DS.attr('string')
+  OperatingParameters: DS.hasMany('operating-parameter')
 });
