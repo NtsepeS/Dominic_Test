@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150212065752) do
+ActiveRecord::Schema.define(version: 20150212071856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -202,6 +202,17 @@ ActiveRecord::Schema.define(version: 20150212065752) do
     t.boolean  "icasa_sticker"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "rf_performance_parameters", force: :cascade do |t|
+    t.string   "uplink_rssi"
+    t.string   "downlink_rssi"
+    t.string   "uplink_cni"
+    t.string   "downlink_cni"
+    t.string   "tx_power"
+    t.string   "step_attenuator"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "statuses", force: :cascade do |t|
