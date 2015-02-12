@@ -24,6 +24,17 @@ module Api
         render json: rf_performance_parameter
       end
 
+      def create
+        rf_performance_parameter = RfPerformanceParameter.new(rf_performance_parameter_params)
+
+        if rf_performance_parameter.save
+          render json: rf_performance_parameter, status: :created
+        else
+          render json: rf_performance_parameter.errors.to_json, status: :unprocessable_entity
+        end
+
+      end
+
       private
 
       def rf_performance_parameter_params
