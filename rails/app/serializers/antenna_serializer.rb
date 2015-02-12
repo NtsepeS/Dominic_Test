@@ -1,5 +1,5 @@
 class AntennaSerializer < ActiveModel::Serializer
-  attributes :id, :size, :serial_number, :is_asset_tag, :created_at, :updated_at
+  attributes :id, :size, :item_code, :created_at, :updated_at
 
-  has_one :location
+  has_one :location, :equipment
 end

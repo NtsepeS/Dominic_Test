@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150210085349) do
+ActiveRecord::Schema.define(version: 20150211174634) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,11 +23,10 @@ ActiveRecord::Schema.define(version: 20150210085349) do
 
   create_table "antennas", force: :cascade do |t|
     t.string   "size"
-    t.integer  "serial_number"
-    t.integer  "is_asset_tag"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "location_id"
+    t.string   "item_code"
   end
 
   add_index "antennas", ["location_id"], name: "index_antennas_on_location_id", using: :btree

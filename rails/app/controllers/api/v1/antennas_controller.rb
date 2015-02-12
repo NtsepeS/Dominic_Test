@@ -27,7 +27,7 @@ module Api
       private
 
       def antenna_params
-        params.require(:antenna).permit(:name)
+        params.require(:antenna).permit(:size, :item_code, :location_id)
       end
 
     end
