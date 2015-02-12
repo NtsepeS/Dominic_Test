@@ -6,8 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Antenna.where(size: "30cm", serial_number: 1234, is_asset_tag: 5678, location_id: 1).first_or_create
-Antenna.where(size: "30cm", serial_number: 110720023, is_asset_tag: 116034, location_id: 2).first_or_create
+Antenna.where(size: "30cm", item_code: 'abc', location_id: 1).first_or_create
+Antenna.where(size: "30cm",  item_code: 'def', location_id: 2).first_or_create
 City.where(name: "Johannesburg").first_or_create
 City.where(name: "Cape Town").first_or_create
 City.where(name: "Durban").first_or_create
