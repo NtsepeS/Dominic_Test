@@ -35,6 +35,7 @@ Rails.application.routes.draw do
       resources :sub_group_classifications
       resources :sub_group_picture_sets
       resources :rf_performance_parameters
+      resources :operating_parameters
     end
   end
 end
