@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150213103930) do
+ActiveRecord::Schema.define(version: 20150213115038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,11 @@ ActiveRecord::Schema.define(version: 20150213103930) do
   end
 
   add_index "base_station_units", ["status_id"], name: "index_base_station_units_on_status_id", using: :btree
+
+  create_table "chasses", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -95,9 +100,13 @@ ActiveRecord::Schema.define(version: 20150213103930) do
   end
 
   create_table "containers", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "containable_id"
+    t.string   "containable_type"
   end
+
+  add_index "containers", ["containable_type", "containable_id"], name: "index_containers_on_containable_type_and_containable_id", using: :btree
 
   create_table "controller_cards", force: :cascade do |t|
     t.datetime "created_at", null: false
