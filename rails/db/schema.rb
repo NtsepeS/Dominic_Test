@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150212071856) do
+ActiveRecord::Schema.define(version: 20150213055159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -176,14 +176,14 @@ ActiveRecord::Schema.define(version: 20150212071856) do
 
   create_table "operating_parameters", force: :cascade do |t|
     t.integer  "location_id"
-    t.integer  "params_id"
-    t.string   "params_type"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "parameterized_id"
+    t.string   "parameterized_type"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   add_index "operating_parameters", ["location_id"], name: "index_operating_parameters_on_location_id", using: :btree
-  add_index "operating_parameters", ["params_type", "params_id"], name: "index_operating_parameters_on_params_type_and_params_id", using: :btree
+  add_index "operating_parameters", ["parameterized_id", "parameterized_type"], name: "index_operatingparameters_on_parameterized_type_and_id", using: :btree
 
   create_table "pictures", force: :cascade do |t|
     t.string   "mechanism"
