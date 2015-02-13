@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150213064842) do
+ActiveRecord::Schema.define(version: 20150213082637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -166,6 +166,15 @@ ActiveRecord::Schema.define(version: 20150213064842) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "modulations", force: :cascade do |t|
+    t.integer  "downlink_min"
+    t.integer  "downlink_max"
+    t.integer  "uplink_min"
+    t.integer  "uplink_max"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "network_operators", force: :cascade do |t|
