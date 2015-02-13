@@ -32,7 +32,7 @@ RSpec.describe Api::V1::OperatingParametersController do
     it_should_behave_like "an erasable resource"
   end
 
-  describe 'POST /api/v1/client_links' do
+  describe 'POST /api/v1/operating_parameters' do
     let(:location) { create(:location) }
     let(:hash) {
       {

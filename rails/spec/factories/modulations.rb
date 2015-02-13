@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :modulation do
-    downlink_min ""
-downlink_max ""
-uplink_min ""
-uplink_max ""
+    downlink_min 64
+    downlink_max 64
+    uplink_min 64
+    uplink_max 64
   end
 
 end

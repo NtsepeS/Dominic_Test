@@ -31,7 +31,7 @@ RSpec.describe Api::V1::RfPerformanceParametersController do
     it_should_behave_like "an erasable resource"
   end
 
-  describe 'POST /api/v1/client_links' do
+  describe 'POST /api/v1/rf_performance_parameters' do
     let(:hash) { {
       uplink_rssi: "123",
       downlink_rssi: "123",
