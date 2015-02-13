@@ -33,11 +33,11 @@ RSpec.describe Api::V1::RfPerformanceParametersController do
 
   describe 'POST /api/v1/client_links' do
     let(:hash) { {
-      uplink_rssi: "123", 
-      downlink_rssi: "123", 
-      uplink_cni: "123", 
-      downlink_cni: "123", 
-      tx_power: "123", 
+      uplink_rssi: "123",
+      downlink_rssi: "123",
+      uplink_cnr: "123",
+      downlink_cnr: "123",
+      tx_power: "123",
       step_attenuator: "123"
     }
     }
