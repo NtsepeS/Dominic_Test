@@ -64,5 +64,5 @@ SubGroupPictureSet.where(album_id: 2, sub_group_classification_id: 2, client_lin
 
 RfPerformanceParameter.where(uplink_rssi: "Some RSSI", downlink_rssi: "Some RSSI").first_or_create
 AntennaParameter.where(polarization: "polarization").first_or_create
-OperatingParameter.where(location_id: 1, params: RfPerformanceParameter.find(1)).first_or_create
-OperatingParameter.where(location_id: 1, params: AntennaParameter.find(1)).first_or_create
+OperatingParameter.where(location_id: 1, parameterized: RfPerformanceParameter.find(1)).first_or_create
+OperatingParameter.where(location_id: 1, parameterized: AntennaParameter.find(1)).first_or_create

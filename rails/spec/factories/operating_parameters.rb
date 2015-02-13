@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :operating_parameter do
     location nil
-    params nil
+    parameterized nil
   end
 
 end
