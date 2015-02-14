@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       resources :client_links do
         member { get 'audit' }
       end
+      resources :images
       resources :core_nodes
       resources :group_classifications
       resources :link_types

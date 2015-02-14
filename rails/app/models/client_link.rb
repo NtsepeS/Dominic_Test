@@ -9,4 +9,5 @@ class ClientLink < ActiveRecord::Base
   belongs_to :antenna
 
   has_many :sub_group_picture_sets
+  has_many :images
 end
