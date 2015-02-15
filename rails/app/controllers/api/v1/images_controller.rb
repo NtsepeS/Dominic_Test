@@ -25,8 +25,8 @@ module Api
       end
 
       def create
+        ap params
         image = Image.new(image_params)
-
         if image.save
           render json: image, status: :created
         else
