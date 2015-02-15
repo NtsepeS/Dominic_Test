@@ -38,7 +38,7 @@ module Api
       private
 
       def image_params
-        params.fetch(:image, params).permit(:image_data)
+        params.fetch(:image, params).permit(:image_data, :client_link_id)
       end
 
     end
