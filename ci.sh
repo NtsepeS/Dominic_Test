@@ -9,7 +9,5 @@ cd rails
 export RAILS_ENV=test
 
 bundle install
-bundle exec rake db:create:all
-bundle exec rake db:migrate
-bundle exec rake db:test:prepare
+bundle exec rake db:drop db:create db:migrate db:test:prepare
 bundle exec rake ci:setup:rspec spec
