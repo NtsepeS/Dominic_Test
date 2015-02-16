@@ -515,6 +515,9 @@
         <!-- SECTION 9: PICTURES -->
         <section class="row">
           <h2> Pictures </h2>
+            {{#each image}}
+              <br> {{id}} {{image_data}}
+            {{/each}}
             {{image-upload
               url='/api/v1/images' id=id}}
         </section>
