@@ -18,6 +18,9 @@ app.import('bower_components/jquery-file-upload/css/jquery.fileupload.css');
 app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff', {
   destDir: 'fonts'
 });
+app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2', {
+  destDir: 'fonts'
+});
 app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.svg', {
   destDir: 'fonts'
 });
