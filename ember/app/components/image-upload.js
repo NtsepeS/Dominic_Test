@@ -2,19 +2,27 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   didInsertElement: function() {
-    Em.assert('should have an url', this.get('url'));
-    return this.$('#imageupload').fileupload({
-      formData: {client_link_id: this.id},
-      url: this.get('url'),
+    var self = this;
+    Em.assert('should have an url', self.get('url'));
+
+    return self.$('#imageupload').fileupload({
+      formData: {client_link_id: self.model.id},
+      url: self.get('url'),
+
       progressall: function (e, data) {
         var progress = parseInt(data.loaded / data.total * 100, 10);
         $('#progress .bar').css('width', progress + '%');
         $('#progress .bar').text(progress + '%');
       },
-      done: function(e, data){
-        // debugger
+
+      done: function(e, data) {
         console.log(data.result)
+         var width  = '100px'
+         var height = '100px'
+         var markdown = '<img src="' + data.result.image.url + '" width="' + width + '" height="' + height + '">';
+         $('.image-section').append(markdown)
       }
+
     })
   },
 

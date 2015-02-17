@@ -516,10 +516,10 @@
         <section class="row">
           <h2> Pictures </h2>
             {{#each image}}
-              <br> {{id}} {{image_data}}
+              <br> <img {{bind-attr src=url}}>
             {{/each}}
             {{image-upload
-              url='/api/v1/images' id=id}}
+              url='/api/v1/images' model=content}}
         </section>
       </div>
     </div>
