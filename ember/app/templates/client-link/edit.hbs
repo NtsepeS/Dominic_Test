@@ -515,9 +515,13 @@
         <!-- SECTION 9: PICTURES -->
         <section class="row">
           <h2> Pictures </h2>
-            {{#each image}}
-              <br> <img {{bind-attr src=url}}>
-            {{/each}}
+            <section class="row">
+              {{#each image}}
+                <div class="image">
+                  <img {{bind-attr src=url}}>
+                </div>
+              {{/each}}
+            </section>
             {{image-upload
               url='/api/v1/images' model=content}}
         </section>
