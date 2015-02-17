@@ -9,12 +9,14 @@ var app = new EmberApp();
 // output files.
 
 app.import('bower_components/jquery/dist/jquery.js');
-app.import('bower_components/bootstrap/dist/js/bootstrap.js');
-app.import('bower_components/bootstrap/dist/css/bootstrap.css');
+
 app.import('bower_components/jquery-file-upload/js/vendor/jquery.ui.widget.js');
 app.import('bower_components/jquery-file-upload/js/jquery.iframe-transport.js');
 app.import('bower_components/jquery-file-upload/js/jquery.fileupload.js');
 app.import('bower_components/jquery-file-upload/css/jquery.fileupload.css');
+
+app.import('bower_components/bootstrap/dist/js/bootstrap.js');
+app.import('bower_components/bootstrap/dist/css/bootstrap.css');
 app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff', {
   destDir: 'fonts'
 });
@@ -30,6 +32,7 @@ app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.t
 app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.eot', {
   destDir: 'fonts'
 });
+
 app.import('bower_components/datatables/media/js/jquery.dataTables.js');
 app.import('bower_components/datatables/media/css/jquery.dataTables.css');
 app.import('bower_components/datatables/media/images/sort_desc.png', {
