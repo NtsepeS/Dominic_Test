@@ -6,6 +6,10 @@ export default Ember.Component.extend({
     Em.assert('should have an url', self.get('url'));
 
     return self.$('#imageupload').fileupload({
+      disableImageResize: /Android(?!.*Chrome)|Opera/
+        .test(window.navigator && navigator.userAgent),
+      imageMaxWidth: 500,
+      imageMaxHeight: 500,
       formData: {client_link_id: self.model.id},
       url: self.get('url'),
 

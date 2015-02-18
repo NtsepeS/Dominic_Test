@@ -11,8 +11,12 @@ var app = new EmberApp();
 app.import('bower_components/jquery/dist/jquery.js');
 
 app.import('bower_components/jquery-file-upload/js/vendor/jquery.ui.widget.js');
+app.import('bower_components/blueimp-load-image/js/load-image.all.min.js');
+app.import('bower_components/blueimp-canvas-to-blob/js/canvas-to-blob.min.js');
 app.import('bower_components/jquery-file-upload/js/jquery.iframe-transport.js');
 app.import('bower_components/jquery-file-upload/js/jquery.fileupload.js');
+app.import('bower_components/jquery-file-upload/js/jquery.fileupload-process.js');
+app.import('bower_components/jquery-file-upload/js/jquery.fileupload-image.js');
 app.import('bower_components/jquery-file-upload/css/jquery.fileupload.css');
 
 app.import('bower_components/bootstrap/dist/js/bootstrap.js');
