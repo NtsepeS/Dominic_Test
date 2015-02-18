@@ -6,14 +6,20 @@ class EquipmentGenerator < Rails::Generators::NamedBase
 
   def create_controller_files
     template 'controller.rb', File.join('app/controllers/api/v1', class_path, "#{plural_name}_controller.rb")
+    template 'controller_spec.rb', File.join('spec/controllers/api/v1', class_path, "#{plural_name}_controller_spec.rb")
   end
 
   def create_model_files
     template "model.rb", "app/models/#{singular_name}.rb"
-    migration_template "migration.rb", "db/migrate", :migration_file_name => "create_#{plural_name}"
-
     template "model_spec.rb", "spec/models/#{singular_name}_spec.rb"
     template "factory.rb", "spec/factories/#{plural_name}.rb"
+  end
+
+  def create_migration_files
+    migration_template "migration.rb", "db/migrate", :migration_file_name => "create_#{plural_name}"
+  end
+
+  def create_serializer_files
   end
 
   protected
