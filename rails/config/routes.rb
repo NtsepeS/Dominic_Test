@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       resources :antennas
       resources :base_station_units
       resources :base_station_sectors
+      resources :chassis
       resources :cities
       resources :clients
       resources :client_links do
