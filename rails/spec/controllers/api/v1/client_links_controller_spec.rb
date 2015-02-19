@@ -7,17 +7,17 @@ RSpec.describe Api::V1::ClientLinksController do
     @client_link = create(:client_link)
   end
 
-  describe 'GET /api/v1/geometries' do
+  describe 'GET /api/v1/client_links' do
     it_should_behave_like "a listable resource"
   end
 
-  describe 'GET /api/v1/geometries/:id' do
+  describe 'GET /api/v1/client_links/:id' do
     let(:id) {@client_link.id}
 
     it_should_behave_like "a viewable resource"
   end
 
-  describe 'PUT /api/v1/geometries/:id' do
+  describe 'PUT /api/v1/client_links/:id' do
     let(:amendable_key) {:name}
     let(:amendable_value) {"Oh look! a name..."}
     let(:id) {@client_link.id}
@@ -25,7 +25,7 @@ RSpec.describe Api::V1::ClientLinksController do
     it_should_behave_like "an amendable resource"
   end
 
-  describe 'DELETE /api/v1/geometries/:id' do
+  describe 'DELETE /api/v1/client_links/:id' do
     let(:id) {@client_link.id}
 
     it_should_behave_like "an erasable resource"
