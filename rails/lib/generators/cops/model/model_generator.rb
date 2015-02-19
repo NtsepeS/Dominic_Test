@@ -5,7 +5,8 @@ class Cops::ModelGenerator < Rails::Generators::NamedBase
   def create_controller_files
     template 'controller.rb', File.join('app/controllers/api/v1', class_path, "#{plural_name}_controller.rb")
     template 'controller_spec.rb', File.join('spec/controllers/api/v1', class_path, "#{plural_name}_controller_spec.rb")
-    route generate_routing_code
+
+    insert_into_file "config/routes.rb", "      resources :#{plural_name}\n", :after => "namespace :v1 do\n"
   end
 
   def create_model
@@ -61,23 +62,4 @@ class Cops::ModelGenerator < Rails::Generators::NamedBase
       ""
     end
   end
-
-  # This method creates nested route entry for namespaced resources.
-  def generate_routing_code()
-    regular_class_path = ['api', 'v1']
-    depth = regular_class_path.length
-
-    namespace_ladder = regular_class_path.each_with_index.map do |ns, i|
-      indent("namespace :#{ns} do\n", (i+1) * 2)
-    end.join
-
-    route = indent(%{resources :#{plural_name}\n}, (depth+1) * 2)
-
-    end_ladder = (1..depth).reverse_each.map do |i|
-      indent("end\n", i * 2)
-    end.join
-
-    namespace_ladder + route + end_ladder
-  end
-
 end
