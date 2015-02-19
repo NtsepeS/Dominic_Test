@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-    namespace :api do
+  namespace :api do
     namespace :v1 do
-<<<<<<< Updated upstream
       resources :service_fragments
-=======
       resources :services
->>>>>>> Stashed changes
+      resources :ports
     end
   end
 
