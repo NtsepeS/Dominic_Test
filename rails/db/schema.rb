@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20150213115038) do
 
   add_index "base_station_units", ["status_id"], name: "index_base_station_units_on_status_id", using: :btree
 
-  create_table "chasses", force: :cascade do |t|
+  create_table "chassis", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
