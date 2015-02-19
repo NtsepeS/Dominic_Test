@@ -14,16 +14,22 @@ Rails.application.routes.draw do
       resources :antennas
       resources :base_station_units
       resources :base_station_sectors
+      resources :chassis
       resources :cities
       resources :clients
       resources :client_links do
         member { get 'audit' }
       end
+      resources :containers
+      resources :controller_cards
       resources :core_nodes
+      resources :equipment
       resources :group_classifications
       resources :link_types
+      resources :modems
       resources :network_operators
       resources :pictures
+      resources :radios
       resources :statuses
       resources :geometries
       resources :vicinities
