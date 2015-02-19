@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+    namespace :api do
+    namespace :v1 do
+      resources :service_fragments
+    end
+  end
+
   devise_for :users, controllers: {omniauth_callbacks: 'omniauth_callbacks'}
 
   devise_scope :user do
