@@ -1,7 +1,9 @@
 FactoryGirl.define do
   factory :<%= singular_name %> do
   <% attributes.each do |attr| -%>
-  <%= attr.name %> "<%= factory_type(attr.type)-%>"
-  <% end -%>
+  <% unless attr.type == :references-%>
+<%= attr.name %> "<%= factory_type(attr.type)-%>"
+<% end -%>
+<% end -%>
 end
 end
