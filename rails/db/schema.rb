@@ -21,6 +21,12 @@ ActiveRecord::Schema.define(version: 20150219104732) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "antenna_parameters", force: :cascade do |t|
+    t.string   "polarization"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "antennas", force: :cascade do |t|
     t.string   "size"
     t.datetime "created_at"
@@ -187,11 +193,31 @@ ActiveRecord::Schema.define(version: 20150219104732) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "modulations", force: :cascade do |t|
+    t.integer  "downlink_min"
+    t.integer  "downlink_max"
+    t.integer  "uplink_min"
+    t.integer  "uplink_max"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "network_operators", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "operating_parameters", force: :cascade do |t|
+    t.integer  "location_id"
+    t.integer  "parameterized_id"
+    t.string   "parameterized_type"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "operating_parameters", ["location_id"], name: "index_operating_parameters_on_location_id", using: :btree
+  add_index "operating_parameters", ["parameterized_id", "parameterized_type"], name: "index_operatingparameters_on_parameterized_type_and_id", using: :btree
 
   create_table "pictures", force: :cascade do |t|
     t.string   "mechanism"
@@ -221,6 +247,17 @@ ActiveRecord::Schema.define(version: 20150219104732) do
     t.boolean  "icasa_sticker"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "rf_performance_parameters", force: :cascade do |t|
+    t.string   "uplink_rssi"
+    t.string   "downlink_rssi"
+    t.string   "uplink_cnr"
+    t.string   "downlink_cnr"
+    t.string   "tx_power"
+    t.string   "step_attenuator"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "service_fragments", force: :cascade do |t|
@@ -316,6 +353,7 @@ ActiveRecord::Schema.define(version: 20150219104732) do
   add_foreign_key "equipment_containers", "equipment"
   add_foreign_key "locations", "geometries"
   add_foreign_key "locations", "vicinities"
+  add_foreign_key "operating_parameters", "locations"
   add_foreign_key "pictures", "albums"
   add_foreign_key "sub_group_classifications", "group_classifications"
   add_foreign_key "sub_group_picture_sets", "albums"
