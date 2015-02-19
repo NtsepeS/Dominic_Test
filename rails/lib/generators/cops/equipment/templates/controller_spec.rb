@@ -32,10 +32,7 @@ RSpec.describe Api::V1::<%= pluralized_class_name %>Controller do
   end
 
   describe 'POST /api/v1/<%= plural_name %>' do
-    let(:hash) { {<% attributes.each do |attr| -%>
-      <%= attr.name %>: "<%= factory_type(attr.type)-%>"<%= ", " unless attr == attributes.last -%>
-      <% end -%>}
-    }
+    let(:hash) { {<% remove_references_attribute.each do |attr| -%><%= attr.name %>: "<%= factory_type(attr.type)-%>"<%= ", " unless attr == remove_references_attribute.last -%><% end -%>}}
     it_should_behave_like "a createable resource"
   end
 end

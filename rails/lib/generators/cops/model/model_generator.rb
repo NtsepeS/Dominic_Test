@@ -62,4 +62,12 @@ class Cops::ModelGenerator < Rails::Generators::NamedBase
       ""
     end
   end
+
+  def remove_references_attribute
+    attrs = attributes.clone
+    attrs.each do |attr|
+      attrs.delete attr if attr.type == :references
+    end
+    attrs
+  end
 end
