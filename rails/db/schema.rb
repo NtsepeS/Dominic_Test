@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150219061148) do
+ActiveRecord::Schema.define(version: 20150219061623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,11 +23,10 @@ ActiveRecord::Schema.define(version: 20150219061148) do
 
   create_table "antennas", force: :cascade do |t|
     t.string   "size"
-    t.integer  "serial_number"
-    t.integer  "is_asset_tag"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "location_id"
+    t.string   "item_code"
   end
 
   add_index "antennas", ["location_id"], name: "index_antennas_on_location_id", using: :btree
@@ -53,6 +52,11 @@ ActiveRecord::Schema.define(version: 20150219061148) do
   end
 
   add_index "base_station_units", ["status_id"], name: "index_base_station_units_on_status_id", using: :btree
+
+  create_table "chassis", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -95,6 +99,20 @@ ActiveRecord::Schema.define(version: 20150219061148) do
     t.datetime "updated_at"
   end
 
+  create_table "containers", force: :cascade do |t|
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "containable_id"
+    t.string   "containable_type"
+  end
+
+  add_index "containers", ["containable_type", "containable_id"], name: "index_containers_on_containable_type_and_containable_id", using: :btree
+
+  create_table "controller_cards", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "core_nodes", force: :cascade do |t|
     t.string   "name"
     t.integer  "status_id"
@@ -107,6 +125,31 @@ ActiveRecord::Schema.define(version: 20150219061148) do
   add_index "core_nodes", ["city_id"], name: "index_core_nodes_on_city_id", using: :btree
   add_index "core_nodes", ["location_id"], name: "index_core_nodes_on_location_id", using: :btree
   add_index "core_nodes", ["status_id"], name: "index_core_nodes_on_status_id", using: :btree
+
+  create_table "equipment", force: :cascade do |t|
+    t.string   "name"
+    t.string   "is_asset_tag"
+    t.string   "serial_number"
+    t.string   "model_number"
+    t.string   "product_number"
+    t.integer  "equipped_id"
+    t.string   "equipped_type"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "equipment", ["equipped_type", "equipped_id"], name: "index_equipment_on_equipped_type_and_equipped_id", using: :btree
+
+  create_table "equipment_containers", id: false, force: :cascade do |t|
+    t.integer  "container_id"
+    t.integer  "equipment_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "equipment_containers", ["container_id", "equipment_id"], name: "index_equipment_containers_on_container_id_and_equipment_id", unique: true, using: :btree
+  add_index "equipment_containers", ["container_id"], name: "index_equipment_containers_on_container_id", using: :btree
+  add_index "equipment_containers", ["equipment_id"], name: "index_equipment_containers_on_equipment_id", using: :btree
 
   create_table "geometries", force: :cascade do |t|
     t.decimal  "latitude"
@@ -138,6 +181,12 @@ ActiveRecord::Schema.define(version: 20150219061148) do
   add_index "locations", ["geometry_id"], name: "index_locations_on_geometry_id", using: :btree
   add_index "locations", ["vicinity_id"], name: "index_locations_on_vicinity_id", using: :btree
 
+  create_table "modems", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "network_operators", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -155,6 +204,14 @@ ActiveRecord::Schema.define(version: 20150219061148) do
 
   add_index "pictures", ["album_id"], name: "index_pictures_on_album_id", using: :btree
 
+  create_table "radios", force: :cascade do |t|
+    t.string   "name"
+    t.string   "item_code"
+    t.boolean  "icasa_sticker"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "service_fragments", force: :cascade do |t|
     t.string   "work_order_number"
     t.decimal  "line_speed"
@@ -163,6 +220,17 @@ ActiveRecord::Schema.define(version: 20150219061148) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "services", force: :cascade do |t|
+    t.string   "linetag"
+    t.decimal  "line_speed"
+    t.text     "vlan"
+    t.integer  "service_fragment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "services", ["service_fragment_id"], name: "index_services_on_service_fragment_id", using: :btree
 
   create_table "statuses", force: :cascade do |t|
     t.string   "name"
@@ -232,6 +300,8 @@ ActiveRecord::Schema.define(version: 20150219061148) do
     t.datetime "updated_at",       null: false
   end
 
+  add_foreign_key "equipment_containers", "containers"
+  add_foreign_key "equipment_containers", "equipment"
   add_foreign_key "locations", "geometries"
   add_foreign_key "locations", "vicinities"
   add_foreign_key "pictures", "albums"
