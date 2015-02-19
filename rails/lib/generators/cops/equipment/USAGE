@@ -1,5 +1,5 @@
 Description:
-    This will generate the boilerplate model, controller, route, spec & serializer for an equipment model.
+    This will generate the boilerplate model, controller, route, spec & serializer for any COPS model.
 
 Example:
     rails generate equipment Modem ports:references speed:string
