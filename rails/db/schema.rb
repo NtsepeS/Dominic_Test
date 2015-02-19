@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150213082637) do
+ActiveRecord::Schema.define(version: 20150213115038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,11 @@ ActiveRecord::Schema.define(version: 20150213082637) do
 
   add_index "base_station_units", ["status_id"], name: "index_base_station_units_on_status_id", using: :btree
 
+  create_table "chassis", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "cities", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -100,6 +105,15 @@ ActiveRecord::Schema.define(version: 20150213082637) do
     t.datetime "updated_at"
   end
 
+  create_table "containers", force: :cascade do |t|
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "containable_id"
+    t.string   "containable_type"
+  end
+
+  add_index "containers", ["containable_type", "containable_id"], name: "index_containers_on_containable_type_and_containable_id", using: :btree
+
   create_table "controller_cards", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -131,6 +145,17 @@ ActiveRecord::Schema.define(version: 20150213082637) do
   end
 
   add_index "equipment", ["equipped_type", "equipped_id"], name: "index_equipment_on_equipped_type_and_equipped_id", using: :btree
+
+  create_table "equipment_containers", id: false, force: :cascade do |t|
+    t.integer  "container_id"
+    t.integer  "equipment_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "equipment_containers", ["container_id", "equipment_id"], name: "index_equipment_containers_on_container_id_and_equipment_id", unique: true, using: :btree
+  add_index "equipment_containers", ["container_id"], name: "index_equipment_containers_on_container_id", using: :btree
+  add_index "equipment_containers", ["equipment_id"], name: "index_equipment_containers_on_equipment_id", using: :btree
 
   create_table "geometries", force: :cascade do |t|
     t.decimal  "latitude"
@@ -292,6 +317,8 @@ ActiveRecord::Schema.define(version: 20150213082637) do
     t.datetime "updated_at",       null: false
   end
 
+  add_foreign_key "equipment_containers", "containers"
+  add_foreign_key "equipment_containers", "equipment"
   add_foreign_key "locations", "geometries"
   add_foreign_key "locations", "vicinities"
   add_foreign_key "operating_parameters", "locations"
