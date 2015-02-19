@@ -213,6 +213,8 @@ ActiveRecord::Schema.define(version: 20150219063530) do
     t.datetime "updated_at"
   end
 
+  add_index "ports", ["service_id"], name: "index_ports_on_service_id", using: :btree
+
   create_table "radios", force: :cascade do |t|
     t.string   "name"
     t.string   "item_code"

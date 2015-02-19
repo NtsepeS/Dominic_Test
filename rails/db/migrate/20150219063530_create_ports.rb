@@ -4,7 +4,7 @@ class CreatePorts < ActiveRecord::Migration
       t.string :vlan_type
       t.string :acceptable_frame_type
       t.string :default_vlan
-      t.references :service
+      t.references :service, index: true
       t.timestamps
     end
   end
