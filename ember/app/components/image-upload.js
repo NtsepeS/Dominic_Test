@@ -14,9 +14,10 @@ export default Ember.Component.extend({
       url: self.get('url'),
 
       progressall: function (e, data) {
-        var progress = parseInt(data.loaded / data.total * 100, 10);
-        self.$('#progress .bar').css('width', progress + '%');
-        self.$('#progress .bar').text(progress + '%');
+        var valeur = parseInt(data.loaded / data.total * 100, 10);
+        self.$('.progress-bar').css('width', valeur+'%').attr('aria-valuenow', valeur);
+        // self.$('.progress .bar').css('width', progress + '%');
+        self.$('.progress-bar').text(valeur + '%');
       },
 
       done: function(e, data) {
