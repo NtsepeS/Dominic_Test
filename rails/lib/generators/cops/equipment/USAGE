@@ -1,0 +1,16 @@
+Description:
+    This will generate the boilerplate model, controller, route, spec & serializer for equipment model.
+    Remember to add associations.
+
+Example:
+    rails generate equipment Modem ports:references speed:string
+
+    This will create:
+        Model:      app/models/modem.rb
+        Controller: app/controllers/api/v1/modems_controller.rb
+        Serializer: app/serializers/modem_serializer.rb
+        Spec:       spec/controllers/api/v1/modems_controller_spec.rb
+        Factory:    spec/factories/modems.yml
+        Migration:  db/migrate/XXX_create_modems.rb
+
+
