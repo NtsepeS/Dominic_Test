@@ -8,15 +8,15 @@ export default Ember.Component.extend({
     return self.$('#imageupload').fileupload({
       disableImageResize: /Android(?!.*Chrome)|Opera/
         .test(window.navigator && navigator.userAgent),
-      imageMaxWidth: 1000,
-      imageMaxHeight: 1000,
+      imageMaxWidth: 900,
+      imageMaxHeight: 900,
       formData: {client_link_id: self.model.id},
       url: self.get('url'),
 
       progressall: function (e, data) {
         var progress = parseInt(data.loaded / data.total * 100, 10);
-        $('#progress .bar').css('width', progress + '%');
-        $('#progress .bar').text(progress + '%');
+        self.$('#progress .bar').css('width', progress + '%');
+        self.$('#progress .bar').text(progress + '%');
       },
 
       done: function(e, data) {
@@ -24,7 +24,7 @@ export default Ember.Component.extend({
          var width  = '100px'
          var height = '100px'
          var markdown = '<img src="' + data.result.image.url + '" width="' + width + '" height="' + height + '">';
-         $('.image-section').append(markdown)
+         self.$('.image-section').append(markdown)
       }
 
     })
