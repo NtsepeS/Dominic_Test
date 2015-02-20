@@ -519,6 +519,7 @@
               {{#each image in images}}
                 <div class="image">
                   <img {{bind-attr src=image.url}}>
+                  <span class="glyphicon glyphicon-trash js-actions delete" aria-hidden="true" {{action "removePicture" image}} ></span>
                 </div>
               {{/each}}
             </section>

@@ -16,6 +16,9 @@ export default Ember.ObjectController.extend({
       clientLink.save().then(function(){
         self.transitionToRoute('client-links');
       });
+    },
+    removePicture: function(image){
+      image.destroyRecord()
     }
   }
 });
