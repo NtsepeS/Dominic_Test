@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150213115038) do
+ActiveRecord::Schema.define(version: 20150219104732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -230,6 +230,17 @@ ActiveRecord::Schema.define(version: 20150213115038) do
 
   add_index "pictures", ["album_id"], name: "index_pictures_on_album_id", using: :btree
 
+  create_table "ports", force: :cascade do |t|
+    t.string   "vlan_type"
+    t.string   "acceptable_frame_type"
+    t.string   "default_vlan"
+    t.integer  "service_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ports", ["service_id"], name: "index_ports_on_service_id", using: :btree
+
   create_table "radios", force: :cascade do |t|
     t.string   "name"
     t.string   "item_code"
@@ -248,6 +259,27 @@ ActiveRecord::Schema.define(version: 20150213115038) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
+
+  create_table "service_fragments", force: :cascade do |t|
+    t.string   "work_order_number"
+    t.decimal  "line_speed"
+    t.string   "service_type"
+    t.string   "physical_mode"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "client_link_id"
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.string   "linetag"
+    t.decimal  "line_speed"
+    t.text     "vlan"
+    t.integer  "service_fragment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "services", ["service_fragment_id"], name: "index_services_on_service_fragment_id", using: :btree
 
   create_table "statuses", force: :cascade do |t|
     t.string   "name"

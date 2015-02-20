@@ -39,6 +39,9 @@ Rails.application.routes.draw do
       resources :rf_performance_parameters
       resources :operating_parameters
       resources :modulations
+      resources :service_fragments
+      resources :services
+      resources :ports
     end
   end
 end
