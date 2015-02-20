@@ -516,9 +516,9 @@
         <section class="row">
           <h2> Pictures </h2>
             <section class="row">
-              {{#each image}}
+              {{#each image in images}}
                 <div class="image">
-                  <img {{bind-attr src=url}}>
+                  <img {{bind-attr src=image.url}}>
                 </div>
               {{/each}}
             </section>

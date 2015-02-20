@@ -18,7 +18,7 @@ var ClientLink = DS.Model.extend({
   baseStationSector:   DS.belongsTo('base-station-sector', {async: true}),
   client:              DS.belongsTo('client', {async: true}),
   status:              DS.belongsTo('status', {async: true}),
-  image:               DS.hasMany('images', {async: true}),
+  images:              DS.hasMany('images', {async: true}),
   subGroupPictureSets: DS.hasMany('sub-group-picture-set', {async: true})
 });
 
