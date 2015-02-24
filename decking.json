@@ -1,0 +1,24 @@
+{
+  "images": {
+    "cops/backend" : "dockerfiles/backend"
+  },
+
+  "containers": {
+    "cops/backend": {
+      "image": "cops/backend",
+      "port" : ["3000:3000"],
+      "dependencies": [
+        "cops/database"
+      ]
+    },
+    "cops/database": {
+      "image": "postgres",
+      "env"  : ["POSTGRES_USER=root"]
+    }
+  },
+
+  "clusters": {
+    "main": ["cops/backend","cops/database"]
+  }
+
+}
