@@ -41,6 +41,23 @@ export default Ember.Component.extend({
         icon: image,
         title: coreNode.get('name')
       });
+
     });
+
+    var clienLinkCoordinates = [
+      new google.maps.LatLng(-26.7217916, 27.8487259),
+      new google.maps.LatLng(-26.2145598, 27.964365),
+      new google.maps.LatLng(-25.7586499, 28.219682)
+    ];
+
+    var path = new google.maps.Polyline({
+      path: clienLinkCoordinates,
+      geodesic: true,
+      strokeColor: '#FF0000',
+      strokeOpacity: 1.0,
+      strokeWeight: 2
+    });
+
+    path.setMap(map);
   }.on('didInsertElement')
 });
