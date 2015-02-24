@@ -68,3 +68,42 @@ Modulation.where(uplink_max: 5).first_or_create
 OperatingParameter.where(location_id: 1, parameterized: RfPerformanceParameter.find(1)).first_or_create
 OperatingParameter.where(location_id: 1, parameterized: AntennaParameter.find(1)).first_or_create
 OperatingParameter.where(location_id: 1, parameterized: Modulation.find(1)).first_or_create
+
+
+Geometry.where(latitude: "-26.7217916", longitude: "27.8487259", altitude: "1").first_or_create
+Geometry.where(latitude: "-25.7586499", longitude: "28.219682", altitude: "2.0").first_or_create
+Geometry.where(latitude: "-26.2145598", longitude: "27.964365", altitude: "2.0").first_or_create
+Geometry.where(latitude: "-33.9149861", longitude: "18.6560594", altitude: "2.0").first_or_create
+Geometry.where(latitude: "-29.8483794", longitude: "30.9924624", altitude: "2.0").first_or_create
+Geometry.where(latitude: "-28.7238759", longitude: "24.7232065", altitude: "2.0").first_or_create
+
+Location.where(geometry_id: 3).first_or_create
+Location.where(geometry_id: 4).first_or_create
+Location.where(geometry_id: 5).first_or_create
+Location.where(geometry_id: 6).first_or_create
+Location.where(geometry_id: 7).first_or_create
+Location.where(geometry_id: 8).first_or_create
+
+Antenna.where(size: "30cm", item_code: 'abc', location_id: 3).first_or_create
+Antenna.where(size: "30cm",  item_code: 'def', location_id: 4).first_or_create
+Antenna.where(size: "30cm", item_code: 'abc', location_id: 5).first_or_create
+Antenna.where(size: "30cm",  item_code: 'def', location_id: 6).first_or_create
+Antenna.where(size: "30cm", item_code: 'abc', location_id: 7).first_or_create
+Antenna.where(size: "30cm",  item_code: 'def', location_id: 8).first_or_create
+
+CoreNode.where(name: 'Vanderbijlpark', location_id: 3).first_or_create
+CoreNode.where(name: 'Pretoria', location_id: 4).first_or_create
+CoreNode.where(name: 'Johannesburg', location_id: 5).first_or_create
+
+BaseStationUnit.where(name: "base-station 1", status_id: 1, core_node_id: 3).first_or_create
+BaseStationUnit.where(name: "base-station 2", status_id: 1, core_node_id: 4).first_or_create
+BaseStationUnit.where(name: "base-station 3", status_id: 1, core_node_id: 5).first_or_create
+
+BaseStationSector.where(name: "Sector 1", status_id: 1, base_station_unit_id: 3, sector: 1).first_or_create
+BaseStationSector.where(name: "Sector 2", status_id: 1, base_station_unit_id: 4, sector: 2).first_or_create
+BaseStationSector.where(name: "Sector 3", status_id: 1, base_station_unit_id: 5, sector: 3).first_or_create
+
+ClientLink.where(name: "Pick 'n Pay", antenna_id: 6, base_station_sector_id: 5).first_or_create
+ClientLink.where(name: "Wimpy", antenna_id: 7, base_station_sector_id: 6).first_or_create
+ClientLink.where(name: "Steers", antenna_id: 8, base_station_sector_id: 7).first_or_create
+
