@@ -3,12 +3,11 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   insertMap: function() {
     var container   = this.$(".map-canvas"),
-        coreNodes   = this.get("coreNodes"),
-        clientLinks = this.get("clientLinks"),
+        coreNodes   = this.get('model'),
         _this       = this;
 
     var options = {
-      center: new google.maps.LatLng(-26.1229025, 28.029034,12),
+      center: new google.maps.LatLng(-26.1229025, 28.029034),
       zoom: 6,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
@@ -19,13 +18,18 @@ export default Ember.Component.extend({
       _this.drawCoreNode(coreNode, map);
     });
 
-    _this.drawClientLinks(clientLinks, map);
+    // _this.drawClientLinks(clientLinks, map);
   }.on('didInsertElement'),
 
+
+
   drawCoreNode: function(coreNode, map) {
-    var image = this.determineStatusImage(coreNode.get('status'));
+    var image     = this.determineStatusImage(coreNode.get('status.name')),
+        latitude  = coreNode.get('location.geometry.latitude'),
+        longitude = coreNode.get('location.geometry.longitude');
+
     var marker = new google.maps.Marker({
-      position: new google.maps.LatLng(coreNode.get('latitude'), coreNode.get('longitude')),
+      position: new google.maps.LatLng(latitude, longitude),
       map: map,
       icon: image,
       title: coreNode.get('name')
@@ -40,13 +44,13 @@ export default Ember.Component.extend({
     var image = null;
 
     switch (status) {
-      case "active":
+      case "Operational":
         image = active_image;
         break;
-      case "decommissioned":
+      case "Decommissioned":
         image = decomed_image;
         break;
-      case "comissioning":
+      case "Commissioning":
         image = commissioning_image;
         break;
       default:
@@ -58,10 +62,7 @@ export default Ember.Component.extend({
 
   drawClientLinks: function(clientLinks ,map) {
     // clientLinks = this.get("clientLinks"); // THIS NEEDS TO BE FETECHED FROM MODELS
-
     var clienLinkCoordinates = [];
-
-    debugger
 
     clientLinks.forEach(function(clientLink) {
       clienLinkCoordinates.push(new google.maps.LatLng(clientLink.get('latitude'), clientLink.get('longitude')));
@@ -77,5 +78,5 @@ export default Ember.Component.extend({
 
     path.setMap(map);
 
-  }
+  }.property('clientLinks')
 });
