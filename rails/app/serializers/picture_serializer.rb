@@ -1,4 +1,9 @@
 class PictureSerializer < ActiveModel::Serializer
-  attributes :id, :mechanism, :picture_data, :date_taken,
-    :album_id, :created_at, :updated_at
+  attributes :id, :mechanism, :date_taken,
+    :album_id, :created_at, :updated_at, :url
+
+  def url
+    object.picture_data.url
+  end
+
 end
