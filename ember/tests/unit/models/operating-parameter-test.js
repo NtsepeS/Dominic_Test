@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForModel('operating-paramater', 'OperatingParamater', {
+moduleForModel('operating-parameter', 'OperatingParameter', {
   // Specify the other units that are required for this test.
   needs: []
 });
