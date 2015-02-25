@@ -21,8 +21,24 @@ export default Ember.Component.extend({
 
   }.on('didInsertElement'),
 
+  statusImages: function(){
+    return {
+      "Operational": "assets/images/icon-cleared.svg", 
+      "Decommissioned": "assets/images/icon-outage.svg", 
+      "Commissioning": "assets/images/icon-threshold.svg" 
+    };
+  },
+
+  statusColour: function(){
+    return {
+      "Decommissioned": '#F34D01',
+      "Operational": '#0091D0',
+      "Commissioning": '#6F266F'
+    };
+  },
+
   drawMarker: function(marker, map) {
-    var image     = this.determineStatusImage(marker.get('status.name'));
+    var image     = this.map(marker.get('status.name'), this.statusImages(), "assets/images/icon-outage.svg");
 
     var marker = new google.maps.Marker({
       position: new google.maps.LatLng(marker.get('latitude'), marker.get('longitude')),
@@ -32,53 +48,8 @@ export default Ember.Component.extend({
     });
   },
 
-  determineStatusImage: function(status) {
-    var decomed_image = 'assets/images/icon-outage.svg',
-        active_image =  'assets/images/icon-cleared.svg',
-        commissioning_image = 'assets/images/icon-threshold.svg';
-
-    var image = null;
-
-    switch (status) {
-      case "Operational":
-        image = active_image;
-        break;
-      case "Decommissioned":
-        image = decomed_image;
-        break;
-      case "Commissioning":
-        image = commissioning_image;
-        break;
-      default:
-        image = decomed_image;
-        break;
-    }
-    return image;
-  },
-
-  determineStatusColour: function(status) {
-    var decomed_colour = '#F34D01',
-        active_colour =  '#0091D0',
-        commissioning_colour = '#6F266F';
-
-    var colour = null;
-
-    switch (status) {
-      case "Operational":
-        colour = active_colour;
-        break;
-      case "Decommissioned":
-        colour = decomed_colour;
-        break;
-      case "Commissioning":
-        colour = commissioning_colour;
-        break;
-      default:
-        colour = decomed_colour;
-        break;
-    }
-    return colour;
-
+  map: function(item, mapping_hash, default_value) {
+    return mapping_hash[item] || default_value;
   },
 
   drawClientLinks: function(coreNode ,map) {
@@ -95,7 +66,7 @@ export default Ember.Component.extend({
       var path = new google.maps.Polyline({
         path: clienLinkCoordinates,
         geodesic: true,
-        strokeColor: _this.determineStatusColour(clientLink.get('status.name')),
+        strokeColor: _this.map(clientLink.get('status.name'), _this.statusColour(), '#F34D01'),
         strokeOpacity: 0.5,
         strokeWeight: 2
       });
