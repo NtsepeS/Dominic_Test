@@ -56,25 +56,53 @@ export default Ember.Component.extend({
     return image;
   },
 
+  determineStatusColour: function(status) {
+    var decomed_colour = '#F34D01',
+        active_colour =  '#0091D0',
+        commissioning_colour = '#6F266F';
+
+    var colour = null;
+
+    switch (status) {
+      case "Operational":
+        colour = active_colour;
+        break;
+      case "Decommissioned":
+        colour = decomed_colour;
+        break;
+      case "Commissioning":
+        colour = commissioning_colour;
+        break;
+      default:
+        colour = decomed_colour;
+        break;
+    }
+    return colour;
+
+  },
+
   drawClientLinks: function(coreNode ,map) {
-    var clienLinkCoordinates = [],
-        _this       = this,
+    var _this       = this,
         clientLinks = coreNode.get('clientLinks');
 
     clientLinks.forEach(function(clientLink){
+      var clienLinkCoordinates = [];
+
       _this.drawMarker(clientLink, map);
       clienLinkCoordinates.push(new google.maps.LatLng(coreNode.get('latitude'), coreNode.get('longitude')));
       clienLinkCoordinates.push(new google.maps.LatLng(clientLink.get('latitude'), clientLink.get('longitude')));
+
+      var path = new google.maps.Polyline({
+        path: clienLinkCoordinates,
+        geodesic: true,
+        strokeColor: _this.determineStatusColour(clientLink.get('status.name')),
+        strokeOpacity: 0.5,
+        strokeWeight: 2
+      });
+
+      path.setMap(map);
     })
 
-    var path = new google.maps.Polyline({
-      path: clienLinkCoordinates,
-      geodesic: true,
-      strokeColor: '#FF0000',
-      strokeOpacity: 1.0,
-      strokeWeight: 2
-    });
 
-    path.setMap(map);
   }
 });

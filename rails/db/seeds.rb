@@ -104,7 +104,7 @@ BaseStationSector.where(name: "Sector 1", status_id: 1, base_station_unit_id: 1,
 BaseStationSector.where(name: "Sector 2", status_id: 1, base_station_unit_id: 2, sector: 2).first_or_create
 BaseStationSector.where(name: "Sector 3", status_id: 1, base_station_unit_id: 3, sector: 3).first_or_create
 
-ClientLink.where(name: "Capetwm", antenna_id: 6, base_station_sector_id: 1).first_or_create
-ClientLink.where(name: "Durban", antenna_id: 7, base_station_sector_id: 2).first_or_create
-ClientLink.where(name: "Kimberly", antenna_id: 8, base_station_sector_id: 3).first_or_create
+ClientLink.where(name: "Capetwm", antenna_id: 6, base_station_sector_id: 1, status_id: 1).first_or_create
+ClientLink.where(name: "Durban", antenna_id: 7, base_station_sector_id: 2, status_id: 1).first_or_create
+ClientLink.where(name: "Kimberly", antenna_id: 8, base_station_sector_id: 3, status_id: 5).first_or_create
 
