@@ -16,9 +16,9 @@ export default Ember.Component.extend({
 
     coreNodes.forEach(function(coreNode) {
       _this.drawCoreNode(coreNode, map);
+      _this.drawClientLinks(coreNode, map);
     });
 
-    // _this.drawClientLinks(clientLinks, map);
   }.on('didInsertElement'),
 
 
@@ -60,12 +60,25 @@ export default Ember.Component.extend({
     return image;
   },
 
-  drawClientLinks: function(clientLinks ,map) {
-    // clientLinks = this.get("clientLinks"); // THIS NEEDS TO BE FETECHED FROM MODELS
-    var clienLinkCoordinates = [];
+  drawClientLinks: function(coreNode ,map) {
+    var clienLinkCoordinates = [],
+        coreNodeLatitude  = coreNode.get('location.geometry.latitude'),
+        coreNodeLongitude = coreNode.get('location.geometry.longitude');
 
-    clientLinks.forEach(function(clientLink) {
-      clienLinkCoordinates.push(new google.maps.LatLng(clientLink.get('latitude'), clientLink.get('longitude')));
+    var baseStationUnits = coreNode.get('baseStationUnit')
+
+    baseStationUnits.forEach( function(baseStationUnit){
+      var baseStationSectors = baseStationUnit.get('baseStationSector');
+      baseStationSectors.forEach( function(baseStationSector) {
+        var clientLinks = baseStationSector.get('clientLink');
+        clientLinks.forEach(function(clientLink){
+          var latitude  = clientLink.get('antenna.location.geometry.latitude'),
+              longitude = clientLink.get('antenna.location.geometry.longitude');
+
+          clienLinkCoordinates.push(new google.maps.LatLng(coreNodeLatitude, coreNodeLongitude));
+          clienLinkCoordinates.push(new google.maps.LatLng(latitude, longitude));
+        })
+      })
     });
 
     var path = new google.maps.Polyline({
@@ -77,6 +90,5 @@ export default Ember.Component.extend({
     });
 
     path.setMap(map);
-
-  }.property('clientLinks')
+  }
 });
