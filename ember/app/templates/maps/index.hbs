@@ -10,7 +10,7 @@
       <h4>Statuses</h4>
       <div class="status-option">
         <img alt="Brand" src="assets/images/icon-outage.svg">
-        <a>Decommissioned</a>
+        <a {{action "test"}}>Decommissioned</a>
       </div>
       <div class="status-option">
         <img alt="Brand" src="assets/images/icon-cleared.svg">
@@ -24,6 +24,6 @@
 
   </div>
   <div class="col-md-9">
-    {{google-map model=model}}
+    {{google-map nodes=selectedNodes}}
   </div>
 </div>

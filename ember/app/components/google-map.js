@@ -1,10 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  insertMap: function() {
-    var container   = this.$(".map-canvas"),
-        coreNodes   = this.get('model'),
-        _this       = this;
+  didInsertElement: function() {
+    var container   = this.$(".map-canvas");
 
     var options = {
       center: new google.maps.LatLng(-30.3190936, 25.0385684),
@@ -13,19 +11,32 @@ export default Ember.Component.extend({
     };
 
     var map = new google.maps.Map(container[0], options);
+    this.set('map', map);
+
+    this.drawMarkers();
+  },
+
+  drawMarkers: function() {
+    var coreNodes   = this.get('nodes'),
+        _this       = this,
+        map         = this.get('map');
 
     coreNodes.forEach(function(coreNode) {
       _this.drawMarker(coreNode, map);
       _this.drawClientLinks(coreNode, map);
     });
+  },
 
-  }.on('didInsertElement'),
+  redraw: function() {
+    // clear
+    this.drawMarkers();
+  }.observes('nodes.[]'),
 
   statusImages: function(){
     return {
-      "Operational": "assets/images/icon-cleared.svg", 
-      "Decommissioned": "assets/images/icon-outage.svg", 
-      "Commissioning": "assets/images/icon-threshold.svg" 
+      "Operational": "assets/images/icon-cleared.svg",
+      "Decommissioned": "assets/images/icon-outage.svg",
+      "Commissioning": "assets/images/icon-threshold.svg"
     };
   },
 
@@ -38,7 +49,7 @@ export default Ember.Component.extend({
   },
 
   drawMarker: function(marker, map) {
-    var image     = this.map(marker.get('status.name'), this.statusImages(), "assets/images/icon-outage.svg");
+    var image     = this.fetch(marker.get('status.name'), this.statusImages(), "assets/images/icon-outage.svg");
 
     var marker = new google.maps.Marker({
       position: new google.maps.LatLng(marker.get('latitude'), marker.get('longitude')),
@@ -48,7 +59,7 @@ export default Ember.Component.extend({
     });
   },
 
-  map: function(item, mapping_hash, default_value) {
+  fetch: function(item, mapping_hash, default_value) {
     return mapping_hash[item] || default_value;
   },
 
@@ -66,7 +77,7 @@ export default Ember.Component.extend({
       var path = new google.maps.Polyline({
         path: clienLinkCoordinates,
         geodesic: true,
-        strokeColor: _this.map(clientLink.get('status.name'), _this.statusColour(), '#F34D01'),
+        strokeColor: _this.fetch(clientLink.get('status.name'), _this.statusColour(), '#F34D01'),
         strokeOpacity: 0.5,
         strokeWeight: 2
       });
@@ -75,5 +86,9 @@ export default Ember.Component.extend({
     })
 
 
+  },
+
+  willDestroyElement: function() {
+    console.warn('Remove Google Map component from DOM');
   }
 });
