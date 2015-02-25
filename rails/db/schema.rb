@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150219104732) do
+ActiveRecord::Schema.define(version: 20150225130430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,10 @@ ActiveRecord::Schema.define(version: 20150219104732) do
     t.string   "polarization"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "antenna_id"
   end
+
+  add_index "antenna_parameters", ["antenna_id"], name: "index_antenna_parameters_on_antenna_id", using: :btree
 
   create_table "antennas", force: :cascade do |t|
     t.string   "size"
@@ -349,6 +352,7 @@ ActiveRecord::Schema.define(version: 20150219104732) do
     t.datetime "updated_at",       null: false
   end
 
+  add_foreign_key "antenna_parameters", "antennas"
   add_foreign_key "equipment_containers", "containers"
   add_foreign_key "equipment_containers", "equipment"
   add_foreign_key "locations", "geometries"
