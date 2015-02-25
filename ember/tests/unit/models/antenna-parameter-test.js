@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForModel('antenna-paramter', 'AntennaParamter', {
+moduleForModel('antenna-parameter', 'AntennaParameter', {
   // Specify the other units that are required for this test.
   needs: []
 });
