@@ -32,6 +32,9 @@ app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.t
 app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.eot', {
   destDir: 'fonts'
 });
+app.import('bower_components/bootstrap/dist/css/bootstrap.css.map', {
+    destDir: 'assets'
+});
 
 app.import('bower_components/datatables/media/js/jquery.dataTables.js');
 app.import('bower_components/datatables/media/css/jquery.dataTables.css');
