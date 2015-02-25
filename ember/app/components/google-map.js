@@ -21,15 +21,11 @@ export default Ember.Component.extend({
 
   }.on('didInsertElement'),
 
-
-
   drawCoreNode: function(coreNode, map) {
-    var image     = this.determineStatusImage(coreNode.get('status.name')),
-        latitude  = coreNode.get('location.geometry.latitude'),
-        longitude = coreNode.get('location.geometry.longitude');
+    var image     = this.determineStatusImage(coreNode.get('status.name'));
 
     var marker = new google.maps.Marker({
-      position: new google.maps.LatLng(latitude, longitude),
+      position: new google.maps.LatLng(coreNode.get('latitude'), coreNode.get('longitude')),
       map: map,
       icon: image,
       title: coreNode.get('name')
@@ -61,25 +57,14 @@ export default Ember.Component.extend({
   },
 
   drawClientLinks: function(coreNode ,map) {
-    var clienLinkCoordinates = [],
-        coreNodeLatitude  = coreNode.get('location.geometry.latitude'),
-        coreNodeLongitude = coreNode.get('location.geometry.longitude');
+    var clienLinkCoordinates = [];
 
-    var baseStationUnits = coreNode.get('baseStationUnit')
+    var clientLinks = coreNode.get('clientLinks');
 
-    baseStationUnits.forEach( function(baseStationUnit){
-      var baseStationSectors = baseStationUnit.get('baseStationSector');
-      baseStationSectors.forEach( function(baseStationSector) {
-        var clientLinks = baseStationSector.get('clientLink');
-        clientLinks.forEach(function(clientLink){
-          var latitude  = clientLink.get('antenna.location.geometry.latitude'),
-              longitude = clientLink.get('antenna.location.geometry.longitude');
-
-          clienLinkCoordinates.push(new google.maps.LatLng(coreNodeLatitude, coreNodeLongitude));
-          clienLinkCoordinates.push(new google.maps.LatLng(latitude, longitude));
-        })
-      })
-    });
+    clientLinks.forEach(function(clientLink){
+      clienLinkCoordinates.push(new google.maps.LatLng(coreNode.get('latitude'), coreNode.get('longitude')));
+      clienLinkCoordinates.push(new google.maps.LatLng(clientLink.get('latitude'), clientLink.get('longitude')));
+    })
 
     var path = new google.maps.Polyline({
       path: clienLinkCoordinates,
