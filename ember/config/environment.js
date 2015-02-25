@@ -17,8 +17,19 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    contentSecurityPolicy: {
+      'default-src': "'none'",
+      'script-src': "'self' *.googleapis.com maps.gstatic.com 'unsafe-inline' 'unsafe-eval' cops.dev:35729",
+      'font-src': "'self' fonts.gstatic.com data: use.typek ",
+      'connect-src': "'self'",
+      'img-src': "'self' *.googleapis.com csi.gstatic.com maps.gstatic.com",
+      'style-src': "'self' 'unsafe-inline' *.googleapis.com",
+      'connect-src': "'self' ws://localhost:35729 ws://0.0.0.0:35729 ws://cops.dev:35729"
     }
   };
+
+
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
