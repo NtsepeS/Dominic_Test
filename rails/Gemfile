@@ -22,6 +22,7 @@ group :development do
   gem 'guard-rspec', require: false
   gem 'nokogiri', '~> 1.6.6.1'
   gem 'spring-commands-rspec'
+  gem 'railroady'
 end
 
 group :development, :test do
