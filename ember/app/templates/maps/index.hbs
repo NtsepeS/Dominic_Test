@@ -1,7 +1,27 @@
 <h1>Core Nodes</h1>
 <div class="row">
   <div class="col-md-3">
-    <h4>Legend</h4>
+    <div class="well well-sm">
+      <h4>MtMP Client Links</h4>
+      <p>Core-Node:</p>
+      {{view "select" content=model.name value=selectedName}}
+    </div>
+    <div class="well well-sm">
+      <h4>Statuses</h4>
+      <div class="status-option">
+        <img alt="Brand" src="assets/images/icon-outage.svg">
+        <a>Decommissioned</a>
+      </div>
+      <div class="status-option">
+        <img alt="Brand" src="assets/images/icon-cleared.svg">
+        <a>Operational</a>
+      </div>
+      <div class="status-option">
+        <img alt="Brand" src="assets/images/icon-threshold.svg">
+        <a>Commissioning</a>
+      </div>
+    </div>
+
   </div>
   <div class="col-md-9">
     {{google-map model=model}}
