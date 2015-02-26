@@ -14,7 +14,9 @@ Router.map(function() {
     this.route('edit');
     this.route('audit');
   });
-  this.resource('maps', { path: 'maps/core-nodes/' }, function() {});
+  this.resource('maps', { path: 'maps/core-nodes/' }, function() {
+    this.route('view' , { path: ':coreNodeId' });
+  });
 });
 
 export default Router;
