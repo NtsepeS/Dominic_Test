@@ -10,7 +10,19 @@ export default Ember.View.extend({
     Ember.assert('should have an url', _this.get('url'));
 
     return _this.$('.js-picture-upload').fileupload({
-      url: _this.get('url')
+
+      formData: {
+        client_link_id: _this.get('controller.clientLinkId'),
+        sub_group_classification_id: _this.get('controller.id'),
+        group_classification_id: _this.get('controller.groupClassificationId'),
+      },
+
+      url: _this.get('url'),
+
+      done: function(e, data) {
+        //push the payload to the store
+      }
+
     });
   },
 
