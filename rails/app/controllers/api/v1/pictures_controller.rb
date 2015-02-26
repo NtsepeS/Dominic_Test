@@ -42,11 +42,9 @@ module Api
 
         album = sub_group_picture_set.album
 
-        #logs from the parameters
-        puts "newly created album_id: ", album.id
-        puts "params for the sub_group_picture_set: "
-          puts "client_link_id", picture_params["client_link_id"]
-          puts "sub_group_classification_id", picture_params["sub_group_classification_id"]
+        # newly created records
+        puts "album_id: ", album.id
+        puts "sub_group_picture_set:", sub_group_picture_set.id
 
         picture = Picture.new(picture_data: picture_params["picture_data"], album: album)
 
