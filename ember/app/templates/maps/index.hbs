@@ -2,23 +2,22 @@
 <div class="row">
   <div class="col-md-3">
     <div class="well well-sm">
-      <h4>MtMP Client Links</h4>
-      <p>Core-Node:</p>
-      {{view "select" content=model.name value=selectedName}}
-    </div>
-    <div class="well well-sm">
-      <h4>Statuses</h4>
+      <h4>Filter by Status</h4>
       <div class="status-option">
-        <img alt="Brand" src="assets/images/icon-outage.svg">
+        {{input type="checkbox" checked=filterDecommissioned class="toggle"}}
         <a id="decommissioned-option" {{action "toggleDecommissioned" }}>Decommissioned</a>
       </div>
       <div class="status-option">
-        <img alt="Brand" src="assets/images/icon-cleared.svg">
+        {{input type="checkbox" checked=filterOperational class="toggle"}}
         <a id="operational-option" {{action "toggleOperational" }}>Operational</a>
       </div>
       <div class="status-option">
-        <img alt="Brand" src="assets/images/icon-threshold.svg">
+        {{input type="checkbox" checked=filterCommissioning class="toggle"}}
         <a id="commissioning-option" {{action "toggleCommissioning" }}>Commissioning</a>
+      </div>
+      <div class="status-option">
+        {{input type="checkbox" checked=filterClientLinks class="toggle"}}
+        <a id="commissioning-option" {{action "toggleCommissioning" }}>Client Links</a>
       </div>
     </div>
 

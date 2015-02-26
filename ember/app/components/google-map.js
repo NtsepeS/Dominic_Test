@@ -21,12 +21,15 @@ export default Ember.Component.extend({
   drawMarkers: function() {
     var coreNodes   = this.get('nodes'),
         _this       = this,
-        map         = this.get('map');
+        map         = this.get('map'),
+        filters     = this.get('filters');
 
     coreNodes.forEach(function(coreNode) {
       if (_this.shouldDraw(coreNode)){
         _this.drawMarker(coreNode, map);
-        _this.drawClientLinks(coreNode, map);
+        if (filters.ClientLinks) {
+          _this.drawClientLinks(coreNode, map);
+        }
       }
     });
   },
@@ -70,7 +73,6 @@ export default Ember.Component.extend({
     var markers = this.get('markers');
     markers.push(marker);
     this.set('markers', markers);
-
   },
 
   fetch: function(item, mapping_hash, default_value) {
