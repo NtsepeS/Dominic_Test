@@ -16,6 +16,9 @@ export default Ember.ObjectController.extend({
       clientLink.save().then(function(){
         self.transitionToRoute('client-links');
       });
+    },
+    pictureUploaded: function(data) {
+      this.store.pushPayload(data);
     }
   }
 });

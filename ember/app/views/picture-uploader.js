@@ -20,7 +20,7 @@ export default Ember.View.extend({
       url: _this.get('url'),
 
       done: function(e, data) {
-        //push the payload to the store
+        _this.get('controller').send("pictureUploaded", data.result);
       }
 
     });
