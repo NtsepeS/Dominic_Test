@@ -18,7 +18,7 @@ class ApplicationManager
     @rails.cwd = Cukes.config.rails_root
     @rails_log = @rails.io.stdout = @rails.io.stderr = Tempfile.new('rails-log')
 
-    @ember = ChildProcess.build("ember", "serve", "--proxy", "http://localhost:3000")
+    @ember = ChildProcess.build("ember", "serve", "--proxy", "http://localhost:3000", "--live-reload", "false")
     @ember.leader = true
     @ember.cwd = Cukes.config.ember_root
     @ember_log = @ember.io.stdout = @ember.io.stderr = Tempfile.new("ember-log")
