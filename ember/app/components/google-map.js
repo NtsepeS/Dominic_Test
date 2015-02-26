@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  markers: [],
   didInsertElement: function() {
     var container   = this.$(".map-canvas");
 
@@ -28,7 +29,8 @@ export default Ember.Component.extend({
   },
 
   redraw: function() {
-    // clear
+    console.log('Im redrawing');
+    this.clearMarkers();
     this.drawMarkers();
   }.observes('nodes.[]'),
 
@@ -57,6 +59,11 @@ export default Ember.Component.extend({
       icon: image,
       title: marker.get('name')
     });
+
+    var markers = this.get('markers');
+    markers.push(marker);
+    this.set('markers', markers);
+
   },
 
   fetch: function(item, mapping_hash, default_value) {
@@ -86,6 +93,15 @@ export default Ember.Component.extend({
     })
 
 
+  },
+
+  clearMarkers: function() {
+    console.log('clearing markers');
+    var markers = this.get('markers');
+    for (var i = 0; i < markers.length; i++) {
+      markers[i].setMap(null);
+    }
+    this.set('markers', []);
   },
 
   willDestroyElement: function() {
