@@ -12,9 +12,9 @@ export default Ember.View.extend({
     return _this.$('.js-picture-upload').fileupload({
 
       formData: {
-        client_link_id: _this.get('controller.clientLinkId'),
+        client_link_id:              _this.get('controller.clientLinkId'),
         sub_group_classification_id: _this.get('controller.id'),
-        group_classification_id: _this.get('controller.groupClassificationId'),
+        group_classification_id:     _this.get('controller.groupClassificationId'),
       },
 
       url: _this.get('url'),
