@@ -6,13 +6,12 @@ export default Ember.ArrayController.extend({
     var nodes = this.get('model');
 
     // filter here
-
     return nodes;
   }.property('model.[]'),
 
   actions: {
-    test: function() {
-      console.log('ACTIUON!!!!!!!!!!!!!!!');
+    toggle: function(option) {
+      var filteredModel =  this.get('model').filterBy('status.name', option);
     }
   }
 });

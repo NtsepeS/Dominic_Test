@@ -10,15 +10,15 @@
       <h4>Statuses</h4>
       <div class="status-option">
         <img alt="Brand" src="assets/images/icon-outage.svg">
-        <a {{action "test"}}>Decommissioned</a>
+        <a {{action "toggle" 'Decommissioned'}}>Decommissioned</a>
       </div>
       <div class="status-option">
         <img alt="Brand" src="assets/images/icon-cleared.svg">
-        <a>Operational</a>
+        <a {{action "toggle" 'Operational'}}>Operational</a>
       </div>
       <div class="status-option">
         <img alt="Brand" src="assets/images/icon-threshold.svg">
-        <a>Commissioning</a>
+        <a {{action "toggle" 'Commissioning'}}>Commissioning</a>
       </div>
     </div>
 
