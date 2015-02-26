@@ -515,7 +515,28 @@
         <!-- SECTION 9: PICTURES -->
         <section class="row">
           <h2> Pictures </h2>
-            {{view "picture-uploader"}}
+
+          <section class="row">
+            {{#each group in groupClassifications}}
+              <h3>GROUP CLASSIFICATION: {{group.name}}</h3>
+              {{#each subgroup in group.subGroupClassifications itemController="sub-group-classification"}}
+                <h4>{{subgroup.name}}</h4>
+
+                <ul>
+                {{#each pictureSet in subgroup.subGroupPictureSets}}
+                  {{#each picture in pictureSet.album.pictures}}
+                    fdfgdfgdf
+                    <li>
+                      <img {{bind-attr src="picture.url"}}>
+                    </li>
+                  {{/each}}
+                {{/each}}
+                </ul>
+
+                {{view "picture-uploader"}}
+              {{/each}}
+            {{/each}}
+
         </section>
       </div>
     </div>
