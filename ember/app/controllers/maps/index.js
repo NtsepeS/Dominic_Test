@@ -1,25 +1,29 @@
 import Ember from 'ember';
 
 export default Ember.ArrayController.extend({
-  filterOperational: false,
-  filterDecommissioned: false,
-  filterCommissioning: false,
-  selectedNodes: function() {
-    var nodes = this.get('model');
-    var filteredModel =  this.get('model');
-    if (this.get('filterOperational')) {
-      console.log('Im in the if!!!!');
-      filteredModel =  filteredModel.filterBy('status.name', 'Operational');
+  filterOperational: true,
+  filterDecommissioned: true,
+  filterCommissioning: true,
+
+
+  filterCollection: function() {
+    return {
+      "Operational": this.get('filterOperational'),
+      "Decommissioned": this.get('filterDecommissioned'),
+      "Commissioning": this.get('filterCommissioning'),
     }
 
-    // filter here
-    return filteredModel;
-  }.property('model.[]', 'filterOperational'),
+  }.property('model.[]', 'filterOperational','filterDecommissioned', 'filterCommissioning'),
 
   actions: {
-    toggle: function(option) {
-      this.set('filterOperational', true);
-      console.log('TOGGLE!!!'+ this.get('filterOperational'));
+    toggleOperational: function() {
+      this.set('filterOperational', !this.get('filterOperational'));
+    },
+    toggleDecommissioned: function() {
+      this.set('filterDecommissioned', !this.get('filterDecommissioned'));
+    },
+    toggleCommissioning: function() {
+      this.set('filterCommissioning', !this.get('filterCommissioning'));
     }
   }
 });

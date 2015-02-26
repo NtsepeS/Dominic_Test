@@ -10,20 +10,20 @@
       <h4>Statuses</h4>
       <div class="status-option">
         <img alt="Brand" src="assets/images/icon-outage.svg">
-        <a {{action "toggle" 'Decommissioned'}}>Decommissioned</a>
+        <a id="decommissioned-option" {{action "toggleDecommissioned" }}>Decommissioned</a>
       </div>
       <div class="status-option">
         <img alt="Brand" src="assets/images/icon-cleared.svg">
-        <a {{action "toggle" 'Operational'}}>Operational</a>
+        <a id="operational-option" {{action "toggleOperational" }}>Operational</a>
       </div>
       <div class="status-option">
         <img alt="Brand" src="assets/images/icon-threshold.svg">
-        <a {{action "toggle" 'Commissioning'}}>Commissioning</a>
+        <a id="commissioning-option" {{action "toggleCommissioning" }}>Commissioning</a>
       </div>
     </div>
 
   </div>
   <div class="col-md-9">
-    {{google-map nodes=selectedNodes}}
+    {{google-map nodes=model filters=filterCollection}}
   </div>
 </div>

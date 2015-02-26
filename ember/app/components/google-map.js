@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   markers: [],
+  paths: [],
   didInsertElement: function() {
     var container   = this.$(".map-canvas");
 
@@ -23,16 +24,22 @@ export default Ember.Component.extend({
         map         = this.get('map');
 
     coreNodes.forEach(function(coreNode) {
-      _this.drawMarker(coreNode, map);
-      _this.drawClientLinks(coreNode, map);
+      if (_this.shouldDraw(coreNode)){
+        _this.drawMarker(coreNode, map);
+        _this.drawClientLinks(coreNode, map);
+      }
     });
   },
 
+  shouldDraw: function(coreNode){
+    var filters     = this.get('filters');
+    return filters[coreNode.get('status.name')];
+  },
+
   redraw: function() {
-    console.log('Im redrawing');
     this.clearMarkers();
     this.drawMarkers();
-  }.observes('nodes.[]'),
+  }.observes('nodes.[]','filters'),
 
   statusImages: function(){
     return {
@@ -89,19 +96,26 @@ export default Ember.Component.extend({
         strokeWeight: 2
       });
 
+      var paths = _this.get('paths');
+      paths.push(path);
+      _this.set('paths', paths);
+
       path.setMap(map);
     })
-
-
   },
 
   clearMarkers: function() {
-    console.log('clearing markers');
     var markers = this.get('markers');
     for (var i = 0; i < markers.length; i++) {
       markers[i].setMap(null);
     }
     this.set('markers', []);
+
+    var paths = this.get('paths');
+    for (var i = 0; i < paths.length; i++) {
+      paths[i].setMap(null);
+    }
+    this.set('paths', []);
   },
 
   willDestroyElement: function() {
