@@ -48,6 +48,22 @@ export default Ember.Component.extend({
     };
   },
 
+  statusImages: function(){
+    return {
+      "Operational": "assets/images/icon-cleared.svg",
+      "Decommissioned": "assets/images/icon-outage.svg",
+      "Commissioning": "assets/images/icon-threshold.svg"
+    };
+  },
+
+  statusColour: function(){
+    return {
+      "Decommissioned": '#F34D01',
+      "Operational": '#0091D0',
+      "Commissioning": '#6F266F'
+    };
+  },
+
   drawMarker: function(marker, map) {
     var image     = this.fetch(marker.get('status.name'), this.statusImages(), "assets/images/icon-outage.svg");
 
