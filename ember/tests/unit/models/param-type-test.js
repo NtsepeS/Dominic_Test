@@ -5,7 +5,7 @@ import {
 
 moduleForModel('param-type', 'ParamType', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:operating-parameter', 'model:location']
 });
 
 test('it exists', function() {

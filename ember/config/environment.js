@@ -17,6 +17,18 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    // CSP sanity
+    contentSecurityPolicy: {
+      'default-src': "'none'",
+      'script-src': "'self' 'unsafe-eval' http://*:35729 ",
+      'font-src': "'self'", // Allow fonts to be loaded from http://fonts.gstatic.com
+      'connect-src': "'self' ",
+      'img-src': "'self'",
+      'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com", // Allow inline styles and loaded CSS from http://fonts.googleapis.com
+      'media-src': "'self'",
+      'object-src': "'self'"
     }
   };
 
