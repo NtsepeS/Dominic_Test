@@ -3,10 +3,15 @@ require 'active_record'
 require 'childprocess'
 require 'database_cleaner'
 require 'active_support/dependencies'
-require 'page-object'
-require 'page-object/page_factory'
 require_relative '../../config/cukes'
 require_relative './application_manager'
+
+require 'capybara/cucumber'
+require 'capybara/poltergeist'
+Capybara.default_driver = :selenium
+# Capybara.default_driver = :poltergeist
+Capybara.app_host = Cukes.config.host
+Capybara.default_wait_time = 10
 
 # Require Models
 ActiveSupport::Dependencies.autoload_paths += Dir.glob File.join(Cukes.config.rails_root, "app/models")
@@ -37,12 +42,8 @@ end
 require 'database_cleaner/cucumber'
 DatabaseCleaner.strategy = :truncation
 Around do |scenario, block|
-    DatabaseCleaner.cleaning(&block)
+  DatabaseCleaner.cleaning(&block)
 end
-
-# Page Object Stuff
-PageObject.javascript_framework = :jquery # Ember uses Jquery Under the hood
-World(PageObject::PageFactory)
 
 # Shorthand FactoryGirl
 include FactoryGirl::Syntax::Methods
