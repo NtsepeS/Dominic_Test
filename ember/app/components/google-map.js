@@ -52,14 +52,14 @@ export default Ember.Component.extend({
     };
   },
 
-  drawMarker: function(marker, map) {
-    var image     = this.fetch(marker.get('status.name'), this.statusImages(), "assets/images/icon-outage.svg");
+  drawMarker: function(node, map) {
+    var image     = this.fetch(node.get('status.name'), this.statusImages(), "assets/images/icon-outage.svg");
 
     var marker = new google.maps.Marker({
-      position: new google.maps.LatLng(marker.get('latitude'), marker.get('longitude')),
+      position: new google.maps.LatLng(node.get('latitude'), node.get('longitude')),
       map: map,
       icon: image,
-      title: marker.get('name')
+      title: node.get('name')
     });
 
     var markers = this.get('markers');
@@ -95,20 +95,20 @@ export default Ember.Component.extend({
       _this.set('paths', paths);
 
       path.setMap(map);
-    })
+    });
   },
 
   clearMarkers: function() {
     var markers = this.get('markers');
-    for (var i = 0; i < markers.length; i++) {
-      markers[i].setMap(null);
-    }
+    markers.forEach( function(marker) {
+      marker.setMap(null);
+    });
     this.set('markers', []);
 
     var paths = this.get('paths');
-    for (var i = 0; i < paths.length; i++) {
-      paths[i].setMap(null);
-    }
+    paths.forEach( function(path) {
+      path.setMap(null);
+    });
     this.set('paths', []);
   },
 

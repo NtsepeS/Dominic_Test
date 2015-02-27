@@ -16,8 +16,8 @@ export default DS.Model.extend({
       baseStationUnit.get('baseStationSector').forEach( function(baseStationSector) {
         baseStationSector.get('clientLink').forEach(function (clientLink){
           clientLinks.push(clientLink);
-        })
-      })
+        });
+      });
     });
 
     return clientLinks;
