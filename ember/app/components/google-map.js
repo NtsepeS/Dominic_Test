@@ -53,7 +53,7 @@ export default Ember.Component.extend({
   },
 
   drawMarker: function(node, map) {
-    var image     = this.fetch(node.get('status.name'), this.statusImages(), "assets/images/icon-outage.svg");
+    var image     = node.get('status.getStatusImage');
 
     var marker = new google.maps.Marker({
       position: new google.maps.LatLng(node.get('latitude'), node.get('longitude')),
