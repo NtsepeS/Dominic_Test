@@ -52,14 +52,6 @@ export default Ember.Component.extend({
     };
   },
 
-  statusColour: function(){
-    return {
-      "Decommissioned": '#F34D01',
-      "Operational": '#0091D0',
-      "Commissioning": '#6F266F'
-    };
-  },
-
   drawMarker: function(marker, map) {
     var image     = this.fetch(marker.get('status.name'), this.statusImages(), "assets/images/icon-outage.svg");
 
@@ -93,7 +85,7 @@ export default Ember.Component.extend({
       var path = new google.maps.Polyline({
         path: clienLinkCoordinates,
         geodesic: true,
-        strokeColor: _this.fetch(clientLink.get('status.name'), _this.statusColour(), '#F34D01'),
+        strokeColor: clientLink.get('status.getColour'),
         strokeOpacity: 0.5,
         strokeWeight: 2
       });
