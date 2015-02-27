@@ -1,26 +1,64 @@
-<h1>Core Node</h1>
+<h1>Core Nodes</h1>
 <div class="row">
   <div class="col-md-3">
     <div class="well well-sm">
-      <h4>MtMP Client Links</h4>
-      <p>Core-Node:</p>
+      <h3>Filters</h3>
+      <div class="status-option">
+        <label>
+          {{input type="checkbox" checked=filterClientLinks class="toggle"}}
+          Client Links
+        </label>
+      </div>
+      <hr>
+      <div class="status-option">
+        <label>
+        {{input type="checkbox" checked=filterOperational class="toggle"}}
+        Operational
+        </label>
+      </div>
+      <div class="status-option">
+        <label>
+        {{input type="checkbox" checked=filterUnderConstruction class="toggle"}}
+        Under Construction
+        </label>
+      </div>
+      <div class="status-option">
+        <label>
+        {{input type="checkbox" checked=filterDecommissioned class="toggle"}}
+        Decommissioned
+        </label>
+      </div>
+      <div class="status-option">
+        <label>
+        {{input type="checkbox" checked=filterCommissioning class="toggle"}}
+        Commissioning
+        </label>
+      </div>
+      <div class="status-option">
+        <label>
+        {{input type="checkbox" checked=filterToBeDecommissioned class="toggle"}}
+        To Be Decommissioned
+        </label>
+      </div>
+      <div class="status-option">
+        <label>
+        {{input type="checkbox" checked=filterWaitingForFieldServiceEngineerReport class="toggle"}}
+        Waiting for Field Service Engineer Report
+        </label>
+      </div>
+      <div class="status-option">
+        <label>
+        {{input type="checkbox" checked=filterWaitingForFieldServicesQAApproval class="toggle"}}
+        Waiting for Field Services QA Approval
+        </label>
+      </div>
+      <div class="status-option">
+        <label>
+        {{input type="checkbox" checked=filterWaitingForISQAApproval class="toggle"}}
+        Waiting for IS QA Approval
+        </label>
+      </div>
     </div>
-    <div class="well well-sm">
-      <h4>Statuses</h4>
-      <div class="status-option">
-        <img alt="Brand" src="assets/images/icon-outage.svg">
-        <a id="decommissioned-option" {{action "toggleDecommissioned" }}>Decommissioned</a>
-      </div>
-      <div class="status-option">
-        <img alt="Brand" src="assets/images/icon-cleared.svg">
-        <a id="operational-option" {{action "toggleOperational" }}>Operational</a>
-      </div>
-      <div class="status-option">
-        <img alt="Brand" src="assets/images/icon-threshold.svg">
-        <a id="commissioning-option" {{action "toggleCommissioning" }}>Commissioning</a>
-      </div>
-    </div>
-
   </div>
   <div class="col-md-9">
     {{google-map nodes=nodes filters=filterCollection}}
