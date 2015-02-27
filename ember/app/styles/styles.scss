@@ -151,8 +151,9 @@ section.row h2 {
   width: auto;
 }
 
-.status-option {
+.status-option, .legend-option {
   padding: 5px;
+  list-style-type: none;
 }
 
 .map-canvas {
@@ -163,4 +164,34 @@ a.disabled {
   color: grey;
   text-decoration: none;
 }
+
+.audit-done {
+  color: green;
+}
+
+.commissioning {
+  color: #6F266F;
+}
+.decommissioned {
+  color: #F34D01;
+
+}
+.operational {
+  color: #0091D0;
+}
+
+.well hr {
+  margin: 5px 5px;
+  border-top: 1px solid #e3e3e3;
+}
+
+.status-option label {
+  font-weight: normal;
+  display: block;
+  padding-left: 15px;
+  text-indent: -15px;
+}
+
+
+
 
