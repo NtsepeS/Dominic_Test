@@ -26,6 +26,14 @@ export default DS.Model.extend({
       "Waiting for Field Service Engineer Report": 'assets/images/waiting-for-field-service-engineer-report.svg',
       "Waiting for Field Services QA Approval": 'assets/images/waiting-for-field-services-qa-approval.svg',
       "Waiting for IS QA Approval": 'assets/images/waiting-for-is-qa-approval.svg'
-    }[this.get('name')] || [this.get('Decommissioned')];
+    }[this.get('name')] || 'assets/images/decommissioned.svg';
+  }.property('name'),
+
+  getCoreNodeStatusImage: function() {
+    return {
+      "Operational": 'assets/images/core_node_commissioning.svg',
+      "Under Construction": 'assets/images/core_node_under_construction.svg',
+      "Decommissioned": 'assets/images/core_node_decommissioned.svg'
+    }[this.get('name')] || 'assets/images/core_node_decommissioned.svg';
   }.property('name')
 });
