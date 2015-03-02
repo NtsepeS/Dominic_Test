@@ -13,7 +13,7 @@ export default DS.Model.extend({
       "Waiting for Field Service Engineer Report": '#DD3E00',
       "Waiting for Field Services QA Approval": '#310031',
       "Waiting for IS QA Approval": '#D2493C'
-    }[this.get('name')] || [this.get('Decommissioned')];
+    }[this.get('name')] || '#D8DDE1';
   }.property('name'),
 
   getStatusImage: function() {
