@@ -25,7 +25,13 @@ export default Ember.View.extend({
 
       done: function(e, data) {
         _this.get('controller').send("pictureUploaded", data.result);
-      }
+      },
+
+      progressall: function (e, data) {
+        var value = parseInt(data.loaded / data.total * 100, 10);
+        _this.$('.progress-bar').css('width', value+'%').attr('aria-valuenow', value);
+        _this.$('.progress-bar').text(value + '%');
+      },
 
     });
   },
