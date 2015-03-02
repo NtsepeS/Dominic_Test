@@ -2,8 +2,14 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   markers: [],
-  paths: [],
+  paths:   [],
+
   didInsertElement: function() {
+    this.setupMap();
+    this.drawMarkers();
+  },
+
+  setupMap: function() {
     var container   = this.$(".map-canvas");
 
     var options = {
@@ -14,8 +20,6 @@ export default Ember.Component.extend({
 
     var map = new google.maps.Map(container[0], options);
     this.set('map', map);
-
-    this.drawMarkers();
   },
 
   drawMarkers: function() {
@@ -25,7 +29,7 @@ export default Ember.Component.extend({
         filters     = this.get('filters');
 
     coreNodes.forEach(function(coreNode) {
-      if (_this.shouldDraw(coreNode)){
+      if (_this.filterbyStatus(coreNode)){
         _this.drawMarker(coreNode, map, true);
         if (filters.ClientLinks) {
           _this.drawClientLinks(coreNode, map);
@@ -34,39 +38,9 @@ export default Ember.Component.extend({
     });
   },
 
-  shouldDraw: function(coreNode){
-    var filters     = this.get('filters');
+  filterbyStatus: function(coreNode){
+    var filters = this.get('filters');
     return filters[coreNode.get('status.name')];
-  },
-
-  redraw: function() {
-    this.clearMarkers();
-    this.drawMarkers();
-  }.observes('nodes.[]','filters'),
-
-  drawMarker: function(node, map, isCoreNode) {
-    var image     = this.getImage(node, isCoreNode);
-
-    var marker = new google.maps.Marker({
-      position: new google.maps.LatLng(node.get('latitude'), node.get('longitude')),
-      map: map,
-      icon: image,
-      title: node.get('name')
-    });
-
-    var markers = this.get('markers');
-    markers.push(marker);
-    this.set('markers', markers);
-  },
-
-  getImage: function(node, isCoreNode) {
-    //OPTIONAL PARAMATERS!!!!
-    if (isCoreNode) {
-      return node.get('status.getCoreNodeStatusImage');
-    }
-    else {
-      return node.get('status.getStatusImage');
-    }
   },
 
   drawClientLinks: function(coreNode ,map) {
@@ -76,7 +50,7 @@ export default Ember.Component.extend({
     clientLinks.forEach(function(clientLink){
       var clienLinkCoordinates = [];
 
-      _this.drawMarker(clientLink, map, false);
+      _this.drawMarker(clientLink, map);
       clienLinkCoordinates.push(new google.maps.LatLng(coreNode.get('latitude'), coreNode.get('longitude')));
       clienLinkCoordinates.push(new google.maps.LatLng(clientLink.get('latitude'), clientLink.get('longitude')));
 
@@ -96,6 +70,22 @@ export default Ember.Component.extend({
     });
   },
 
+  drawMarker: function(node, map, isCoreNode) {
+    isCoreNode    = isCoreNode || false;
+    var image     = this.getImage(node, isCoreNode);
+
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(node.get('latitude'), node.get('longitude')),
+      map: map,
+      icon: image,
+      title: node.get('name')
+    });
+
+    var markers = this.get('markers');
+    markers.push(marker);
+    this.set('markers', markers);
+  },
+
   clearMarkers: function() {
     var markers = this.get('markers');
     markers.forEach( function(marker) {
@@ -108,6 +98,20 @@ export default Ember.Component.extend({
       path.setMap(null);
     });
     this.set('paths', []);
+  },
+
+  redraw: function() {
+    this.clearMarkers();
+    this.drawMarkers();
+  }.observes('nodes.[]','filters'),
+
+  getImage: function(node, isCoreNode) {
+    if (isCoreNode) {
+      return node.get('status.getCoreNodeStatusImage');
+    }
+    else {
+      return node.get('status.getStatusImage');
+    }
   },
 
   willDestroyElement: function() {
