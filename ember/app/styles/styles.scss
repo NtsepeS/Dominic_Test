@@ -165,21 +165,6 @@ a.disabled {
   text-decoration: none;
 }
 
-.audit-done {
-  color: green;
-}
-
-.commissioning {
-  color: #6F266F;
-}
-.decommissioned {
-  color: #F34D01;
-
-}
-.operational {
-  color: #0091D0;
-}
-
 .well hr {
   margin: 5px 5px;
   border-top: 1px solid #e3e3e3;
@@ -192,6 +177,55 @@ a.disabled {
   text-indent: -15px;
 }
 
+span.glyphicon.glyphicon-stop {
+  font-size: inherit;
+  &.operational {
+    color: #649131;
+  }
+  &.under-construction {
+    color: #EEA506;
+  }
+  &.decommissioned {
+    color: #D8DDE1;
+  }
+  &.commissioning {
+    color: #3D96EF;
+  }
+  &.to-be-decommissioned {
+    color: #A50077;
+  }
+  &.waiting-for-field-service-engineer-report {
+    color: #DD3E00;
+  }
+  &.waiting-for-field-services-qa-approval {
+    color: #310031;
+  }
+  &.waiting-for-is-qa-approval {
+    color: #D2493C;
+  }
+  &.client-link {
+    color: inherit;
+  }
+  &.disabled {
+    color: #D8DDE1;
+  }
+}
+
+span.glyphicon.glyphicon-signal {
+  font-size: inherit;
+  &.disabled {
+    color: #D8DDE1;
+  }
+}
+
+.toggle.filter {
+  visibility: hidden;
+}
+
+.disabled {
+  color: #D8DDE1;
+  text-decoration: none;
+}
 
 
 

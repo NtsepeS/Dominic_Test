@@ -3,58 +3,67 @@
   <div class="col-md-3">
     <div class="well well-sm">
       <h3>Filters</h3>
-      <div class="status-option">
+      <div class="status-option client-link">
         <label>
-          {{input type="checkbox" checked=filterClientLinks class="toggle"}}
+          {{input type="checkbox" checked=filterClientLinks class="toggle filter"}}
+          <span class="glyphicon glyphicon-signal client-link" aria-hidden="true"></span>
           Client Links
         </label>
       </div>
       <hr>
-      <div class="status-option">
+      <div class="status-option operational">
         <label>
-        {{input type="checkbox" checked=filterOperational class="toggle"}}
+        {{input type="checkbox" checked=filterOperational class="toggle filter"}}
+        <span class="glyphicon glyphicon-stop operational" aria-hidden="true"></span>
         Operational
         </label>
       </div>
-      <div class="status-option">
+      <div class="status-option under-construction">
         <label>
-        {{input type="checkbox" checked=filterUnderConstruction class="toggle"}}
+        {{input type="checkbox" checked=filterUnderConstruction class="toggle filter"}}
+        <span class="glyphicon glyphicon-stop under-construction" aria-hidden="true"></span>
         Under Construction
         </label>
       </div>
-      <div class="status-option">
+      <div class="status-option decommissioned">
         <label>
-        {{input type="checkbox" checked=filterDecommissioned class="toggle"}}
+        {{input type="checkbox" checked=filterDecommissioned class="toggle filter"}}
+        <span class="glyphicon glyphicon-stop decommissioned" aria-hidden="true"></span>
         Decommissioned
         </label>
       </div>
-      <div class="status-option">
+      <div class="status-option commissioning">
         <label>
-        {{input type="checkbox" checked=filterCommissioning class="toggle"}}
+        {{input type="checkbox" checked=filterCommissioning class="toggle filter"}}
+        <span class="glyphicon glyphicon-stop commissioning" aria-hidden="true"></span>
         Commissioning
         </label>
       </div>
-      <div class="status-option">
+      <div class="status-option to-be-decommissioned">
         <label>
-        {{input type="checkbox" checked=filterToBeDecommissioned class="toggle"}}
+        {{input type="checkbox" checked=filterToBeDecommissioned class="toggle filter"}}
+        <span class="glyphicon glyphicon-stop to-be-decommissioned" aria-hidden="true"></span>
         To Be Decommissioned
         </label>
       </div>
-      <div class="status-option">
+      <div class="status-option waiting-for-field-service-engineer-report">
         <label>
-        {{input type="checkbox" checked=filterWaitingForFieldServiceEngineerReport class="toggle"}}
+        {{input type="checkbox" checked=filterWaitingForFieldServiceEngineerReport class="toggle filter"}}
+        <span class="glyphicon glyphicon-stop waiting-for-field-service-engineer-report" aria-hidden="true"></span>
         Waiting for Field Service Engineer Report
         </label>
       </div>
-      <div class="status-option">
+      <div class="status-option waiting-for-field-services-qa-approval">
         <label>
-        {{input type="checkbox" checked=filterWaitingForFieldServicesQAApproval class="toggle"}}
+        {{input type="checkbox" checked=filterWaitingForFieldServicesQAApproval class="toggle filter"}}
+        <span class="glyphicon glyphicon-stop waiting-for-field-services-qa-approval" aria-hidden="true"></span>
         Waiting for Field Services QA Approval
         </label>
       </div>
-      <div class="status-option">
+      <div class="status-option waiting-for-is-qa-approval">
         <label>
-        {{input type="checkbox" checked=filterWaitingForISQAApproval class="toggle"}}
+        {{input type="checkbox" checked=filterWaitingForISQAApproval class="toggle filter"}}
+        <span class="glyphicon glyphicon-stop waiting-for-is-qa-approval" aria-hidden="true"></span>
         Waiting for IS QA Approval
         </label>
       </div>
