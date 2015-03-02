@@ -31,7 +31,7 @@ export default DS.Model.extend({
 
   getCoreNodeStatusImage: function() {
     return {
-      "Operational": 'assets/images/core_node_commissioning.svg',
+      "Operational": 'assets/images/core_node_operational.svg',
       "Under Construction": 'assets/images/core_node_under_construction.svg',
       "Decommissioned": 'assets/images/core_node_decommissioned.svg'
     }[this.get('name')] || 'assets/images/core_node_decommissioned.svg';
