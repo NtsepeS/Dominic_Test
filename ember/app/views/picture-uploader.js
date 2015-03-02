@@ -12,8 +12,8 @@ export default Ember.View.extend({
     return _this.$('.js-picture-upload').fileupload({
       disableImageResize: /Android(?!.*Chrome)|Opera/
         .test(window.navigator && navigator.userAgent),
-      imageMaxWidth:  300,
-      imageMaxHeight: 300,
+      imageMaxWidth:  1000,
+      imageMaxHeight: 1000,
 
       formData: {
         client_link_id:              _this.get('controller.clientLinkId'),
