@@ -15,8 +15,8 @@ export default Ember.ObjectController.extend({
       pictures.forEach(function(picture) {
         photoswipePictures.push({
               src: picture.get('url'),
-              w: 600,
-              h: 400
+              w: 1000,
+              h: 750
             });
       });
       var items = photoswipePictures;
