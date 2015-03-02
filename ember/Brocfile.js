@@ -52,6 +52,15 @@ app.import('bower_components/datatables/media/images/sort_both.png', {
   destDir: 'images'
 });
 
+app.import('bower_components/photoswipe/dist/photoswipe.css');
+app.import('bower_components/photoswipe/dist/default-skin/default-skin.css');
+app.import('bower_components/photoswipe/dist/default-skin/default-skin.png', {
+    destDir: 'assets'
+});
+app.import('bower_components/photoswipe/dist/photoswipe.min.js');
+app.import('bower_components/photoswipe/dist/photoswipe-ui-default.min.js');
+
+
 //
 // If you need to use different assets in different
 // environments, specify an object as the first parameter. That
