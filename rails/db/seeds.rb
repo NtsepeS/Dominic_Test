@@ -24,6 +24,7 @@ Status.where(name: "Audit Done").first_or_create
 Status.where(name: "Audit In Progress").first_or_create
 Status.where(name: "Decommissioned").first_or_create
 Status.where(name: "Commissioning").first_or_create
+Status.where(name: "Under Construction").first_or_create
 
 # CoreNode.where(name: "Afgri Isando", status_id: 1, city_id: 1, location_id: 2).first_or_create
 # CoreNode.where(name: "Bryanston Towers", status_id: 1, city_id: 1, location_id: 2).first_or_create
@@ -93,7 +94,7 @@ Antenna.where(size: "30cm", item_code: 'abc', location_id: 7).first_or_create
 Antenna.where(size: "30cm",  item_code: 'def', location_id: 8).first_or_create
 
 CoreNode.where(name: 'Pretoria', location_id: 4, status_id: 1).first_or_create
-CoreNode.where(name: 'Johannesburg', location_id: 5, status_id: 4).first_or_create
+CoreNode.where(name: 'Johannesburg', location_id: 5, status_id: 6).first_or_create
 CoreNode.where(name: 'Vanderbijlpark', location_id: 3, status_id: 5).first_or_create
 
 BaseStationUnit.where(name: "base-station 1", status_id: 1, core_node_id: 1).first_or_create
