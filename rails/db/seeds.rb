@@ -95,7 +95,7 @@ Antenna.where(size: "30cm",  item_code: 'def', location_id: 8).first_or_create
 
 CoreNode.where(name: 'Pretoria', location_id: 4, status_id: 1).first_or_create
 CoreNode.where(name: 'Johannesburg', location_id: 5, status_id: 6).first_or_create
-CoreNode.where(name: 'Vanderbijlpark', location_id: 3, status_id: 5).first_or_create
+CoreNode.where(name: 'Vanderbijlpark', location_id: 3, status_id: 4).first_or_create
 
 BaseStationUnit.where(name: "base-station 1", status_id: 1, core_node_id: 1).first_or_create
 BaseStationUnit.where(name: "base-station 2", status_id: 1, core_node_id: 2).first_or_create
