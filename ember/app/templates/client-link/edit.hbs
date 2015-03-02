@@ -522,19 +522,18 @@
               {{#each subgroup in group.subGroupClassifications itemController="sub-group-classification"}}
                 <h4>{{subgroup.name}}</h4>
 
-                <ul>
+                <section class="row">
                 {{#each pictureSet in subgroup.subGroupPictureSets itemController="sub-group-picture-set"}}
                    <button {{action 'expand'}}>Album view</button>
 
-                  {{pictureSet.album.id}}
-
+                  <ul class="picture-set">
                   {{#each picture in pictureSet.album.pictures}}
-                    <li>
-                      <img {{bind-attr src="picture.url"}}>
-                    </li>
+                    {{debug_template}}
+                    <li><img {{bind-attr src="picture.url"}}></li>
                   {{/each}}
+                  </ul>
                 {{/each}}
-                </ul>
+                </section>
 
                 {{view "picture-uploader"}}
               {{/each}}
