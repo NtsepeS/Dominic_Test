@@ -145,3 +145,20 @@ section.row h2 {
   cursor: pointer;
   cursor: hand;
 }
+
+#pictures {
+  ul.picture-set {
+    padding: 0;
+    list-style-type: none;
+
+    li {
+      display: inline;
+    }
+  }
+
+  img {
+    max-width: 120px;
+    max-height: 120px;
+    margin : 2px;
+  }
+}
