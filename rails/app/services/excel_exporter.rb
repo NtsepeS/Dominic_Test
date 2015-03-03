@@ -1,6 +1,6 @@
 class ExcelExporter
 
-  def initialize( scope )
+  def initialize(scope)
     @scope = scope
   end
 
