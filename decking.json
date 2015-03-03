@@ -1,6 +1,7 @@
 {
   "images": {
-    "cops/backend" : "dockerfiles/backend"
+    "cops/backend" : "dockerfiles/backend",
+    "nginx" : "dockerfiles/nginx"
   },
 
   "containers": {
