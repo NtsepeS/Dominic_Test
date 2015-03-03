@@ -4,21 +4,21 @@
   },
 
   "containers": {
-    "cops/backend": {
-      "image": "cops/backend",
-      "port" : ["3000:3000"],
-      "dependencies": [
-        "cops/database"
-      ]
-    },
-    "cops/database": {
+    "cops-database": {
       "image": "postgres",
       "env"  : ["POSTGRES_USER=root"]
+    },
+    "cops-backend": {
+      "image": "cops/backend",
+      "port" : ["5000:5000","5001:22"],
+      "dependencies": [
+        "cops-database"
+      ]
     }
   },
 
   "clusters": {
-    "main": ["cops/backend","cops/database"]
+    "main": ["cops-backend","cops-database"]
   }
 
 }
