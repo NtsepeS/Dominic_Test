@@ -1,0 +1,41 @@
+Feature: 0.0 Login to COPS
+	In order to start using COPS
+	As a user
+	I need to log in to COPS
+
+	Scenario: Log in as engineer
+		Given I am not logged in
+		  And I am on the login page
+		 When I fill in 'Username' with 'Graham Dalbock'
+		  And I fill in 'Password' with 'foobar'
+		  And I select 'Fake IS User' from 'Provider'
+		  And I click on 'Sign In'
+		 Then I should see 'Successfully logged in'
+		  And I should see 'Log out'
+
+	Scenario: Log in as a Field Services Engineer
+		Given I am not logged in
+		  And I am on the login page
+		 When I fill in 'Username' with 'Some Other Dude'
+		  And I fill in 'Password' with 'foobar'
+		  And I select 'Fake IS User' from 'Provider'
+		  And I click on 'Sign In'
+		 Then I should see 'Successfully logged in'
+		  And I should see 'Log out'
+
+Feature: 0.1 Logout of COPS
+		Given I am logged in
+		  And I can see "logout"
+		 When I click on "logout"
+		 Then I should see 'Successfully logged out'
+		  And I should see 'Log in'
+
+	Background:
+		Given I am logged in as an engineer
+
+	Scenario: Log out as engineer
+		When I click on 'Logout'
+		Then I should see 'Successfully logged out'
+		 And I should see 'Log in'
+
+

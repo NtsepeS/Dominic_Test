@@ -1,0 +1,17 @@
+Feature: 1.11 Quality Assurance
+As an COP's approver
+I carry out a QA on the installation
+
+Background: Given I am logged into a work order
+	And I have received the notification for Quality assurance
+	Then I can finalise the order
+
+	Scenario: Successful Quality Assurance
+		Given I have uploaded the correct information
+		When  I approve the work order
+		Then  I have finalised the work order
+
+	Scenario: Un-successful Quality Assurance
+		Given I have Not uploaded the correct information
+		When  I decline the work order
+		Then  a notification is sent to the field engineer
