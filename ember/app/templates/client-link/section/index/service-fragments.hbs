@@ -8,7 +8,6 @@
           <th>Line Speed (Mbps)</th>
           <th>Type</th>
           <th>Physical Mode</th>
-          <th>Services</th>
         </tr>
       </thead>
     {{#each serviceFragment in model.serviceFragments}}
@@ -18,7 +17,6 @@
           <td>{{serviceFragment.lineSpeed}}</td>
           <td>{{serviceFragment.serviceType}}</td>
           <td>{{serviceFragment.physicalMode}}</td>
-          <td><button {{action 'toggleServices'}}>Services</button></td>
           <div class="">
             <table class="table table-hover">
               <thead>
