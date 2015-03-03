@@ -6,7 +6,7 @@
   "containers": {
     "cops-database": {
       "image": "postgres",
-      "env"  : ["POSTGRES_USER=root"]
+      "env"  : ["POSTGRES_USER=cops-api"]
     },
     "cops-backend": {
       "image": "cops/backend",
