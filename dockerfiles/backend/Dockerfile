@@ -21,18 +21,26 @@ ENV SECRET_KEY_BASE aaaaaaaa
 
 EXPOSE ${PORT}
 
-# Setup runit to run the app
-RUN mkdir /etc/service/cops-api
-ADD config/deploy/cops-api.sh /etc/service/cops-api/run
-
-# Install the app
+#Create user
 RUN adduser --system --group cops-api
-COPY ./rails /srv/cops-api
+
+# Bundle 
+COPY ./rails/Gemfile /srv/cops-api/Gemfile
+COPY ./rails/Gemfile.lock /srv/cops-api/Gemfile.lock
 RUN chown -R cops-api:cops-api /srv/cops-api
 RUN cd /srv/cops-api && \
   /sbin/setuser cops-api bundle install \
     --deployment \
     --without development:test
+
+
+# Setup runit to run the app
+RUN mkdir /etc/service/cops-api
+ADD config/deploy/cops-api.sh /etc/service/cops-api/run
+
+# Install the app
+COPY ./rails /srv/cops-api
+RUN chown -R cops-api:cops-api /srv/cops-api
 
 # Clean up afterwards.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
