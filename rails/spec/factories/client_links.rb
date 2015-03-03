@@ -18,6 +18,6 @@ FactoryGirl.define do
     antenna_id 1
     network_operator_id 1
     base_station_sector_id 1
-    status_id 4
+    status
   end
 end

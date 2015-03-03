@@ -8,11 +8,33 @@ class ExcelExporter
 
     create_workbook
     add_worksheet
-    determine_columns
+    add_headers
     add_data
 
     @package.to_stream.read
 
+  end
+
+  def worksheet_name
+    @name ||= @scope.table_name.titleize
+  end
+
+  def worksheet_headers
+    determine_columns.map(&:humanize)
+  end
+
+  def worksheet_data
+    data = []
+
+    @scope.find_each do |record|
+      row = []
+      determine_columns.each do |attr|
+        row << fetch_attribute(record, attr)
+      end
+      data << row
+    end
+
+    data
   end
 
   private
@@ -23,23 +45,46 @@ class ExcelExporter
   end
 
   def add_worksheet
-    @name  = @scope.table_name
-    @sheet = @workbook.add_worksheet(name: @name)
+    @sheet = @workbook.add_worksheet(name: worksheet_name)
   end
 
   def determine_columns
-    sample        = @scope.first
-    @column_names = sample.attribute_names
-    @sheet.add_row @column_names.map(&:humanize)
+    @column_names ||= @scope.first.attribute_names
+  end
+
+  def add_headers
+    @sheet.add_row worksheet_headers
   end
 
   def add_data
-    @scope.find_each do |record|
-      row = []
-      @column_names.each do |attr|
-        row << record[attr]
-      end
-      @sheet.add_row( row )
+    worksheet_data.each do |row|
+      @sheet.add_row(row)
     end
   end
+
+  def fetch_attribute(record, attr)
+    if association = belongs_to?(record, attr)
+      association = record.public_send(association)
+
+      if association.present?
+        #  to_name - the field or combination of fields that we would like to use as a name,
+        #  if the name doesn't exist
+        association.respond_to?(:to_name) ? association.to_name : association.name
+      else
+        nil
+      end
+
+    else
+      record[attr]
+
+    end
+  end
+
+  def belongs_to?(record, attr)
+    @_belongs_to ||= record.class.reflect_on_all_associations(:belongs_to)
+    reflection = @_belongs_to.detect { |a| a.foreign_key == attr }
+
+    reflection.present? ? reflection.name : false
+  end
+
 end
