@@ -28,7 +28,7 @@ class ExcelExporter
   end
 
   def determine_columns
-    sample = @scope.first
+    sample        = @scope.first
     @column_names = sample.attribute_names
     @sheet.add_row @column_names.map(&:humanize)
   end
