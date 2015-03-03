@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export DATABASE_URL="postgresql://postgres@${POSTGRES_PORT_5432_TCP_ADDR}:${POSTGRES_PORT_5432_TCP_PORT}/cops-api?pool=5"
+# export DATABASE_URL="postgresql://postgres@${POSTGRES_PORT_5432_TCP_ADDR}:${POSTGRES_PORT_5432_TCP_PORT}/cops-api?pool=5"
 
 cd /srv/cops-api
 
