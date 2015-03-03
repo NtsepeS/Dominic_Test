@@ -13,7 +13,7 @@
     {{#each serviceFragment in model.serviceFragments}}
       <tbody>
         <tr>
-          <td>{{serviceFragment.workOrderNumber}}</td>
+          <td>{{input value=serviceFragment.workOrderNumber}}</td>
           <td>{{serviceFragment.lineSpeed}}</td>
           <td>{{serviceFragment.serviceType}}</td>
           <td>{{serviceFragment.physicalMode}}</td>
