@@ -1,31 +1,41 @@
-FROM ruby:2.2.0
+FROM phusion/baseimage
+MAINTAINER Andre Helberg Pieter van der Merwe
 
-MAINTAINER Andre Helberg  Alecia Bester
+# Install system dependencies
+RUN apt-add-repository ppa:brightbox/ruby-ng
+RUN apt-get update && apt-get dist-upgrade -qq -y
+RUN apt-get install -qq -y ruby-switch ruby2.1 \
+  build-essential ruby2.1-dev libpq-dev \
+  nodejs git
+RUN ruby-switch --set ruby2.1
 
-RUN apt-get update && apt-get install -y nodejs --no-install-recommends && rm -rf /var/lib/apt/lists/*
+# Update Rubygems and install a couple of system-wide gems.
+RUN gem update --system --no-rdoc --no-ri
+RUN gem update --no-rdoc --no-ri
+RUN gem install --no-rdoc --no-ri bundler
 
-RUN apt-get update && apt-get install -y mysql-client postgresql-client sqlite3 --no-install-recommends && rm -rf /var/lib/apt/lists/*
+# Configure the environment for the app to run in.
+ENV RAILS_ENV production
+ENV PORT 5000
+ENV SECRET_KEY_BASE aaaaaaaa
 
-ENV RAILS_VERSION 4.2.0
+EXPOSE ${PORT}
 
-RUN gem install rails --version "$RAILS_VERSION"
+# Setup runit to run the app
+RUN mkdir /etc/service/cops-api
+ADD config/deploy/cops-api.sh /etc/service/cops-api/run
 
-RUN mkdir ~/.ssh
-ADD rails/ssh/* /root/.ssh/
+# Install the app
+RUN adduser --system --group cops-api
+COPY ./rails /srv/cops-api
+RUN chown -R cops-api:cops-api /srv/cops-api
+RUN cd /srv/cops-api && \
+  /sbin/setuser cops-api bundle install \
+    --deployment \
+    --without development:test
 
-RUN bundle config --global frozen 1
-
-
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-
-COPY rails/Gemfile /usr/src/app/
-COPY rails/Gemfile.lock /usr/src/app/
-RUN bundle install
-
-COPY rails/ /usr/src/app
-
-EXPOSE 3000
-CMD ["rails", "server", "-b", "0.0.0.0"]
-
+# Clean up afterwards.
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN /usr/sbin/enable_insecure_key
+RUN rm -f /etc/service/sshd/down
 
