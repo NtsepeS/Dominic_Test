@@ -7,4 +7,5 @@ class ClientLinkSerializer < ActiveModel::Serializer
   has_one :client, :link_type, :antenna, :network_operator, :status
 
   has_many :sub_group_picture_sets
+  has_many :service_fragment
 end
