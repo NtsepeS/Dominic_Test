@@ -24,6 +24,12 @@ module Api
         render json: base_station_unit
       end
 
+      def export
+        base_station_units = BaseStationUnit.all
+        excel              = ExcelExporter.new(base_station_units)
+        send_data excel.to_stream, type: "application/xlsx", filename: excel.filename
+      end
+
       private
 
       def base_station_unit_params
