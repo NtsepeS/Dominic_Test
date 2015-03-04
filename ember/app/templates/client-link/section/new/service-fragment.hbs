@@ -1,0 +1,31 @@
+<h4>New service fragment</h4>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Work Order #</th>
+      <th>Line Speed (Mbps)</th>
+      <th>Service Type</th>
+      <th>Physical Mode</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{input value=serviceFragment.workOrderNumber}}</td>
+      <td>{{view "select"
+            content=lineSpeeds
+            value=serviceFragment.lineSpeed
+            prompt="Please Select"}}</td>
+      <td>{{view "select"
+            content=serviceTypes
+            value=serviceFragment.serviceType
+            prompt="Please Select"}}</td>
+      <td>{{view "select"
+            content=physicalModes
+            value=serviceFragment.physicalMode
+            prompt="Please Select"}}</td>
+      <td>
+      <td><button type="button" class="btn btn-primary btn-sm pull-right" {{action "saveServiceFragment"}}>Save</button></td>
+    </tr>
+  </tbody>
+</table>

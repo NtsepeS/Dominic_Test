@@ -1,6 +1,10 @@
 <div class="container">
   <section class="row">
     <h2>Service Fragments</h2>
+    <button type="button" class="btn btn-primary btn-sm pull-right" {{action "addServiceFragment"}}>Add Service Fragment</button>
+    {{#if addServiceFragment}}
+      {{partial "client-link/section/new/service-fragment"}}
+    {{/if}}
     <table class="table table-hover">
       <thead>
         <tr>
@@ -8,6 +12,7 @@
           <th>Line Speed (Mbps)</th>
           <th>Service Type</th>
           <th>Physical Mode</th>
+          <th></th>
         </tr>
       </thead>
     {{#each serviceFragment in model.serviceFragments}}
@@ -26,7 +31,14 @@
                 content=physicalModes
                 value=serviceFragment.physicalMode
                 prompt="Please Select"}}</td>
+          <td>
+            <span class="glyphicon glyphicon-trash js-actions delete" aria-hidden="true" {{action "removeServiceFragment"}} ></span>
+            <button type="button" class="btn btn-primary btn-sm pull-right" {{action "addService"}}>Add Service</button>
+          </td>
           <div class="">
+            {{#if addService}}
+              {{partial "client-link/section/new/service"}}
+            {{/if}}
             <table class="table table-hover">
               <thead>
                 <tr>
@@ -44,6 +56,9 @@
                           value=service.lineSpeed
                           prompt="Please Select"}}</td>
                     <td>{{input value=service.vlan}}</td>
+                    <td>
+                      <span class="glyphicon glyphicon-trash js-actions delete" aria-hidden="true" {{action "removeService"}} ></span>
+                    </td>
                   </tr>
                 {{/each}}
               </tbody>
