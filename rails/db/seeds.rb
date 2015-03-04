@@ -70,7 +70,7 @@ OperatingParameter.where(location_id: 1, parameterized: AntennaParameter.find(1)
 OperatingParameter.where(location_id: 1, parameterized: Modulation.find(1)).first_or_create
 
 # Service Fragment Test
-ServiceFragment.where(work_order_number: "123", line_speed: 14.5, service_type: "Voice (rtPS)",  physical_mode: "4QAM" ,client_link_id: 1).first_or_create
+ServiceFragment.where(work_order_number: "123", line_speed: 14, service_type: "Voice (rtPS)",  physical_mode: "4QAM" ,client_link_id: 1).first_or_create
 ServiceFragment.where(work_order_number: "234", line_speed: 2, service_type: "Voice (rtPS)",  physical_mode: "4QAM" ,client_link_id: 1).first_or_create
 
 
