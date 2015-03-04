@@ -19,6 +19,10 @@ class ExcelExporter
     @name ||= @scope.table_name.titleize
   end
 
+  def filename
+    "#{worksheet_name}.xlsx"
+  end
+
   def worksheet_headers
     determine_columns.map(&:humanize)
   end
