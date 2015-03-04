@@ -57,7 +57,12 @@ class ExcelExporter
   end
 
   def add_headers
-    @sheet.add_row worksheet_headers
+    @sheet.add_row worksheet_headers, :style => header_style
+    add_blank_row
+  end
+
+  def add_blank_row
+    @sheet.add_row
   end
 
   def add_data
@@ -89,6 +94,10 @@ class ExcelExporter
     reflection = @_belongs_to.detect { |a| a.foreign_key == attr }
 
     reflection.present? ? reflection.name : false
+  end
+
+  def header_style
+    @sheet.styles.add_style(:b=> true)
   end
 
 end
