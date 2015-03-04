@@ -36,7 +36,7 @@ module Api
       private
 
       def service_fragment_params
-        params.require(:service_fragment).permit(:work_order_number, :line_speed, :service_type, :physical_mode)
+        params.require(:service_fragment).permit(:work_order_number, :line_speed, :service_type, :physical_mode, :client_link_id)
       end
 
     end

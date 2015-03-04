@@ -8,25 +8,18 @@ export default Ember.ObjectController.extend({
   addService: false,
   actions: {
     acceptChanges: function() {
-      var self = this;
-      var editedClientLink = self.get('model');
-      editedClientLink.save().then(function(result){
-        self.transitionToRoute('client-link', result.id);
+      var editedClientLink      = this.get('model');
+      var editedServiceFragment = this.get('model.serviceFragments');
+
+      var _this = this;
+      editedClientLink.save().then(function(clientLink) {
+        clientLink.get('serviceFragments').then(function(serviceFragment){
+          serviceFragment.forEach(function(serviceFragment){
+            serviceFragment.save();
+          });
+          _this.transitionToRoute('client-link', clientLink.id);
+        });
       });
-
-
-
-      // debugger
-
-      // var editedClientLink      = self.get('model');
-      // var editedServiceFragment = self.get('model.serviceFragments');
-      // var promise = editedServiceFragment.save().then(function() {
-      //     //editedClientLink.get('serviceFragments').pushObject(editedServiceFragment);// Add serviceFragment to clientlink.
-      //     return editedClientLink.save();// Save the clientlink.
-      // });
-      // promise.then(function(response) {
-      //   self.transitionToRoute('client-link', result.id);
-      // });
     },
     removeClientLink: function(){
       var self = this;
