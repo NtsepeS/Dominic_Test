@@ -15,10 +15,20 @@ export default Ember.ObjectController.extend({
       editedClientLink.save().then(function(clientLink) {
         clientLink.get('serviceFragments').then(function(serviceFragment){
           serviceFragment.forEach(function(serviceFragment){
-            serviceFragment.save();
+            serviceFragment.save().then(function(serviceFragment) {
+              serviceFragment.get('services').then(function(service){
+                service.forEach(function(service){
+                  service.save();
+                });
+                _this.transitionToRoute('client-link', clientLink.id);
+              });
+            });
           });
-          _this.transitionToRoute('client-link', clientLink.id);
         });
+
+
+
+
       });
     },
     removeClientLink: function(){
