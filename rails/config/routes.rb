@@ -13,7 +13,9 @@ Rails.application.routes.draw do
       resources :albums
       resources :antennas
       resources :base_station_units
-      resources :base_station_sectors
+      resources :base_station_sectors do
+        collection { get 'export' }
+      end
       resources :chassis
       resources :cities
       resources :clients
