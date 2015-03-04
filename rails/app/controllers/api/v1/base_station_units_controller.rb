@@ -1,6 +1,7 @@
 module Api
   module V1
     class BaseStationUnitsController < AuthenticatedController
+      include ExcelGenerator
 
       def index
         base_station_units = BaseStationUnit.all
@@ -27,7 +28,8 @@ module Api
       def export
         base_station_units = BaseStationUnit.all
         excel              = ExcelExporter.new(base_station_units)
-        send_data excel.to_stream, type: "application/xlsx", filename: excel.filename
+
+        generate(excel)
       end
 
       private

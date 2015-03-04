@@ -2,6 +2,7 @@ module Api
   module V1
     class ClientLinksController < AuthenticatedController
       include History
+      include ExcelGenerator
 
       # GET /api/v1/client_links
       def index
@@ -52,7 +53,8 @@ module Api
       def export
         client_links = ClientLink.all
         excel        = ExcelExporter.new(client_links)
-        send_data excel.to_stream, type: "application/xlsx", filename: excel.filename
+
+        generate(excel)
       end
 
       private
