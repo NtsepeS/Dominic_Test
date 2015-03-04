@@ -51,6 +51,12 @@ private
         end
       end
     rescue Timeout::Error => e
+      puts "Rails log:"
+      puts open(rails_log).read
+      puts "-"*10
+      puts "Ember log:"
+      puts open(ember_log).read
+      puts "-"*10
       rails.interrupt
       ember.interrupt
       wait_for_processes_to_exit
