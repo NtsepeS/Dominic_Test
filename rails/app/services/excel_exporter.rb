@@ -63,13 +63,13 @@ class ExcelExporter
   end
 
   def fetch_attribute(record, attr)
-    if association = belongs_to?(record, attr)
-      association = record.public_send(association)
+    if association_name = belongs_to?(record, attr)
+      associated_record = record.public_send(association_name)
 
-      if association.present?
+      if associated_record.present?
         #  to_name - the field or combination of fields that we would like to use as a name,
-        #  if the name doesn't exist
-        association.respond_to?(:to_name) ? association.to_name : association.name
+        #  if we do not have a name attribute on the model
+        associated_record.respond_to?(:to_name) ? associated_record.to_name : associated_record.name
       else
         nil
       end
