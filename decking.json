@@ -1,7 +1,6 @@
 {
   "images": {
     "cops/backend" : "dockerfiles/backend",
-    "cops/nginx" : "dockerfiles/nginx"
   },
 
   "containers": {
@@ -11,21 +10,15 @@
     },
     "cops-backend": {
       "image": "cops/backend",
+      "port" : ["5000:80", "5001:22"],
       "dependencies": [
         "cops-database"
-      ]
-    },
-    "cops-webserver": {
-      "image": "cops/nginx",
-      "port" : ["5000:80"],
-      "dependencies": [
-        "cops-backend"
       ]
     }
   },
 
   "clusters": {
-    "main": ["cops-backend","cops-database", "cops-webserver"]
+    "main": ["cops-backend","cops-database"]
   }
 
 }
