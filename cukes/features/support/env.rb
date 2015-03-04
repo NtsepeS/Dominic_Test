@@ -1,10 +1,8 @@
 require 'factory_girl'
 require 'active_record'
-require 'childprocess'
 require 'database_cleaner'
 require 'active_support/dependencies'
 require_relative '../../config/cukes'
-require_relative './application_manager'
 
 require 'capybara/cucumber'
 require 'capybara/poltergeist'

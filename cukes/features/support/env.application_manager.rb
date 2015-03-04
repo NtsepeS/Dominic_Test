@@ -1,3 +1,5 @@
+require 'childprocess'
+
 module ChildProcess
   module Unix
     class Process < AbstractProcess
