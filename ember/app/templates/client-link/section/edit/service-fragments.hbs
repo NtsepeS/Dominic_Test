@@ -6,7 +6,7 @@
         <tr>
           <th>Work Order #</th>
           <th>Line Speed (Mbps)</th>
-          <th>Type</th>
+          <th>Service Type</th>
           <th>Physical Mode</th>
         </tr>
       </thead>
@@ -14,9 +14,18 @@
       <tbody>
         <tr>
           <td>{{input value=serviceFragment.workOrderNumber}}</td>
-          <td>{{view "select"}}</td>
-          <td>{{view "select"}}</td>
-          <td>{{view "select"}}</td>
+          <td>{{view "select"
+                content=lineSpeeds
+                value=serviceFragment.lineSpeed
+                prompt="Please Select"}}</td>
+          <td>{{view "select"
+                content=serviceTypes
+                value=serviceFragment.serviceType
+                prompt="Please Select"}}</td>
+          <td>{{view "select"
+                content=physicalModes
+                value=serviceFragment.physicalMode
+                prompt="Please Select"}}</td>
           <div class="">
             <table class="table table-hover">
               <thead>
@@ -30,7 +39,10 @@
                 {{#each service in serviceFragment.services}}
                   <tr>
                     <td>{{input value=service.linetag}}</td>
-                    <td>{{view "select"}}</td>
+                    <td>{{view "select"
+                          content=lineSpeeds
+                          value=service.lineSpeed
+                          prompt="Please Select"}}</td>
                     <td>{{input value=service.vlan}}</td>
                   </tr>
                 {{/each}}
