@@ -1,0 +1,30 @@
+Feature: 1.10 Configure Logic Link
+As a IS Carrier Engineer
+I have recorded the RF Performance
+
+Background: Given the Field Engineer has completed the installation successfully
+And I have received the notification
+Then I can Configure Logic Link
+
+Scenario: Wireless Engineer Received notification
+	Given The feild services parter has closed the work order
+	When  I receive the notification
+	Then  I am able to configure the logic link
+
+Scenario: Configure Logic Link
+	Given I have imput the data into the work order
+	And   I have the RF performance results
+	And   I have the Serial Number
+	And   I have the Circuit Number
+	And   I have the line Tag
+	Then  I am able to imput the data
+
+Scenairo: Update UniMS system
+	Given I have logged onto the system
+	And   I have imput the required fields
+	Then  I have updated the information
+
+Scenairo: Update Siebel system
+	Given I have logged onto the system
+	And   I have imput the required fields
+	Then  I have updated the information

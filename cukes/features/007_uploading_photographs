@@ -1,0 +1,26 @@
+Feature: 1.7 Uploading photographs
+As a Field Engineer
+I want to upload the site photographs
+
+Background: 
+	Given I have input the installation data required
+	And   I have moved to the next page
+	Then  I am able to take the photographs
+	
+	Scenario: Take photographs
+		Given I have opened the photograph page
+		And   I have selected the photograph name to be taken
+		Then  I can use my mobile device to take the photograph
+
+	Scenario: Upload photograph
+		Given I have taken the photograph
+		And   the photograph is acceptable quality
+		And   I click on "upload"
+		Then  The photograph is uploaded into the task
+
+	Scenario: Photograph is of un-acceptable quality
+		Given I have taken the photograph
+		And   the photograph is of un-acceptable quality
+		And   I click on the delete icon
+		Then  I have deleted the photograph
+	
