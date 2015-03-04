@@ -48,6 +48,13 @@ module Api
         render json: version_history
       end
 
+      # GET /api/v1/client_links/export
+      def export
+        client_links = ClientLink.all
+        excel        = ExcelExporter.new(client_links)
+        send_data excel.to_stream, type: "application/xlsx", filename: excel.filename
+      end
+
       private
 
       def client_link_params

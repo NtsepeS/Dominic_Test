@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       resources :clients
       resources :client_links do
         member { get 'audit' }
+        collection { get 'export' }
       end
       resources :containers
       resources :controller_cards
