@@ -32,7 +32,7 @@
                 value=serviceFragment.physicalMode
                 prompt="Please Select"}}</td>
           <td>
-            <span class="glyphicon glyphicon-trash js-actions delete" aria-hidden="true" {{action "removeServiceFragment"}} ></span>
+            <span class="glyphicon glyphicon-trash js-actions delete" aria-hidden="true" {{action "removeServiceFragment" serviceFragment}} ></span>
             <button type="button" class="btn btn-primary btn-sm pull-right" {{action "addService"}}>Add Service</button>
           </td>
           <div class="">
@@ -57,7 +57,7 @@
                           prompt="Please Select"}}</td>
                     <td>{{input value=service.vlan}}</td>
                     <td>
-                      <span class="glyphicon glyphicon-trash js-actions delete" aria-hidden="true" {{action "removeService"}} ></span>
+                      <span class="glyphicon glyphicon-trash js-actions delete" aria-hidden="true" {{action "removeService" serviceFragment service}} ></span>
                     </td>
                   </tr>
                 {{/each}}

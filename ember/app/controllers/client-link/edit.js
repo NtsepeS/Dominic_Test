@@ -40,6 +40,16 @@ export default Ember.ObjectController.extend({
       });
     },
 
+    removeServiceFragment: function(serviceFragment) {
+      this.get('serviceFragments').removeObject(serviceFragment);
+      serviceFragment.destroyRecord();
+    },
+
+    removeService: function(serviceFragment, service) {
+      serviceFragment.get('services').removeObject(service),
+      service.destroyRecord();
+    },
+
     addServiceFragment: function() {
       // TODO: toggle
       this.set('addServiceFragment', !this.get('addServiceFragment'));
