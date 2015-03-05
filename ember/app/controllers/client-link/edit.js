@@ -7,6 +7,8 @@ export default Ember.ObjectController.extend({
   vlanTypes: ['Provider Port', 'VLAN Transparent'],
   acceptableFrameTypes: ['Tagged Only', 'Untagged Only', 'Tagged and Untagged'],
   addServiceFragment: false,
+  addPort:false,
+
   actions: {
     acceptChanges: function() {
       var editedClientLink = this.get('model'),
@@ -60,6 +62,10 @@ export default Ember.ObjectController.extend({
       serviceFragment.set('addService', true);
     },
 
+    addPort: function() {
+      this.set('addPort', true);
+    },
+
     saveServiceFragment: function() {
       var serviceFragment = this.store.createRecord('service-fragment', {
         workOrderNumber: this.get('newWorkOrderNumber'),
@@ -83,6 +89,19 @@ export default Ember.ObjectController.extend({
 
       service.save();
       serviceFragment.set('addService', false);
-    }
+    },
+
+    savePort: function() {
+      var port = this.store.createRecord('port', {
+        vlanType: this.get('newVlanType'),
+        acceptableFrameType: this.get('newAcceptableFrameType'),
+        service: this.get('content.services')
+      });
+
+      port.save();
+      this.set('addPort', false);
+    },
+
+
   }
 });
