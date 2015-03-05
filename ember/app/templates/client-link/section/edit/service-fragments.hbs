@@ -33,12 +33,9 @@
                 prompt="Please Select"}}</td>
           <td>
             <span class="glyphicon glyphicon-trash js-actions delete" aria-hidden="true" {{action "removeServiceFragment" serviceFragment}} ></span>
-            <button type="button" class="btn btn-primary btn-sm pull-right" {{action "addService"}}>Add Service</button>
+            <button type="button" class="btn btn-primary btn-sm pull-right" {{action "addService" serviceFragment}}>Add Service</button>
           </td>
           <div class="">
-            {{#if addService}}
-              {{partial "client-link/section/new/service"}}
-            {{/if}}
             <table class="table table-hover">
               <thead>
                 <tr>
@@ -61,6 +58,9 @@
                     </td>
                   </tr>
                 {{/each}}
+                {{#if serviceFragment.addService}}
+                  {{partial "client-link/section/new/service"}}
+                {{/if}}
               </tbody>
             </table>
           </div>

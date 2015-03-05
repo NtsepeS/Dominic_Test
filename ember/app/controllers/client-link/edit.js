@@ -5,7 +5,6 @@ export default Ember.ObjectController.extend({
   serviceTypes: ['Voice (rtPS)', 'Data 1:1 (nrtPS)', 'Data 1:2 (BE Plus)', 'Broadband (BE)'],
   physicalModes: ['4QAM2/3', '4QAM', '16QAM', '64QAM'],
   addServiceFragment: false,
-  addService: false,
   actions: {
     acceptChanges: function() {
       var editedClientLink = this.get('model'),
@@ -50,8 +49,8 @@ export default Ember.ObjectController.extend({
       this.set('addServiceFragment', !this.get('addServiceFragment'));
     },
 
-    addService: function() {
-      this.set('addService', !this.get('addService'));
+    addService: function(serviceFragment) {
+      serviceFragment.set('addService', true);
     },
 
     saveServiceFragment: function() {
@@ -65,6 +64,18 @@ export default Ember.ObjectController.extend({
 
       serviceFragment.save();
       this.set('addServiceFragment', false);
+    },
+
+    saveService: function(serviceFragment) {
+      var service = this.store.createRecord('service', {
+        linetag: this.get('newLinetag'),
+        lineSpeed: this.get('newServiceLineSpeed'),
+        vlan: this.get('newVlan'),
+        serviceFragment: serviceFragment
+      });
+
+      service.save();
+      serviceFragment.set('addService', false);
     }
   }
 });
