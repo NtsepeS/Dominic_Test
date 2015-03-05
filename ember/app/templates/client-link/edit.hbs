@@ -527,12 +527,11 @@
 
                 <span class="row">
                 {{#each pictureSet in subgroup.subGroupPictureSets itemController="sub-group-picture-set"}}
-                   <button {{action 'expand'}}>Album view</button>
 
                   <ul class="picture-set">
                   {{#each picture in pictureSet.album.pictures itemController="picture"}}
                     <li>
-                      <div class="picture">
+                      <div class="picture" {{action "expand" this}}>
                         <img {{bind-attr src="picture.url"}}>
                         <div class="overlay">
                           <a class="close-overlay" {{action 'removePicture' this}}>

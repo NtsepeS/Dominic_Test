@@ -8,6 +8,37 @@ export default Ember.ObjectController.extend({
       var _this   = this;
       var picture = _this.get('model');
       picture.destroyRecord();
+    },
+
+    expand: function() {
+      var pswpElement = document.querySelectorAll('.pswp')[0];
+
+      // build items array with the appropriate indexes
+      var photoswipePictures = [];
+      var pictures           = this.model.get('album.pictures');
+      var index, i = 0;
+
+      pictures.forEach(function(picture) {
+        index = i;
+        picture.set('index', i);
+        photoswipePictures.push({
+              src: picture.get('url'),
+              w: 1000,
+              h: 750
+            });
+        i++;
+      });
+
+      var items = photoswipePictures;
+
+      // define options (if needed)
+      var options = {
+          index: this.model.get('index')
+      };
+
+      // Initializes and opens PhotoSwipe
+      var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+      gallery.init();
     }
   }
 
