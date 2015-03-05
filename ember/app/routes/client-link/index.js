@@ -5,4 +5,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model: function() {
     return this.modelFor('client-link');
   },
+  setupController: function(controller, model) {
+    controller.set('content', model);
+    controller.set('subGroupClassifications', this.store.find('sub-group-classification'));
+    controller.set('groupClassifications', this.store.find('group-classification'));
+  }
 });
