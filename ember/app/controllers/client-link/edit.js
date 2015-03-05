@@ -8,10 +8,9 @@ export default Ember.ObjectController.extend({
   addService: false,
   actions: {
     acceptChanges: function() {
-      var editedClientLink      = this.get('model');
-      var editedServiceFragment = this.get('model.serviceFragments');
+      var editedClientLink = this.get('model'),
+          _this            = this;
 
-      var _this = this;
       editedClientLink.save().then(function(clientLink) {
         clientLink.get('serviceFragments').then(function(serviceFragment){
           serviceFragment.forEach(function(serviceFragment){
@@ -25,12 +24,9 @@ export default Ember.ObjectController.extend({
             });
           });
         });
-
-
-
-
       });
     },
+
     removeClientLink: function(){
       var self = this;
       var clientLink = this.get('model');
@@ -51,15 +47,11 @@ export default Ember.ObjectController.extend({
     },
 
     addServiceFragment: function() {
-      // TODO: toggle
       this.set('addServiceFragment', !this.get('addServiceFragment'));
     },
 
     addService: function() {
-      // TODO: toggle
       this.set('addService', !this.get('addService'));
     }
-
-
   }
 });
