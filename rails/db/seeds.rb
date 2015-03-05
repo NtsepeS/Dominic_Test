@@ -82,6 +82,10 @@ Service.where(linetag: "linetag-4", line_speed: 10, vlan: "122", service_fragmen
 Service.where(linetag: "linetag-5", line_speed: 1, vlan: "143", service_fragment_id: 2).first_or_create
 Service.where(linetag: "linetag-6", line_speed: 2, vlan: "143", service_fragment_id: 2).first_or_create
 
+Port.where(vlan_type: 'some type 1', acceptable_frame_type: 'acceptable frame type 1', default_vlan: 'default VLAN', service_id: 1).first_or_create
+Port.where(vlan_type: 'some type 2', acceptable_frame_type: 'acceptable frame type 2', default_vlan: 'default VLAN', service_id: 1).first_or_create
+Port.where(vlan_type: 'some type 3', acceptable_frame_type: 'acceptable frame type 3', default_vlan: 'default VLAN', service_id: 2).first_or_create
+Port.where(vlan_type: 'some type 4', acceptable_frame_type: 'acceptable frame type 4', default_vlan: 'default VLAN', service_id: 3).first_or_create
 
 
 
