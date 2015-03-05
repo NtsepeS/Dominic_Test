@@ -202,6 +202,18 @@ a.close-overlay {
   background-color: #000;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0);
+
+.group-classification {
+  margin-bottom: 120px;
+
+  h3 {
+    text-align: center;
+  }
+}
+
+.sub-group-classification {
+  margin-bottom: 64px;
+}
 }
 
 .pswp__bg {
