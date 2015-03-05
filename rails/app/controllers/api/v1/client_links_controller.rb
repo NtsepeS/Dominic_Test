@@ -2,6 +2,7 @@ module Api
   module V1
     class ClientLinksController < AuthenticatedController
       include History
+      include ExcelGenerator
 
       # GET /api/v1/client_links
       def index
@@ -46,6 +47,14 @@ module Api
         version_history = papertrail_for(client_link)
 
         render json: version_history
+      end
+
+      # GET /api/v1/client_links/export
+      def export
+        client_links = ClientLink.all
+        excel        = ExcelExporter.new(client_links)
+
+        generate(excel)
       end
 
       private
