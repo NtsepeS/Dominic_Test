@@ -23,6 +23,10 @@ export default Ember.View.extend({
 
       url: _this.get('url'),
 
+      start: function() {
+        _this.$('.progress').removeClass('invisible');
+      },
+
       done: function(e, data) {
         _this.get('controller').send("pictureUploaded", data.result);
       },
