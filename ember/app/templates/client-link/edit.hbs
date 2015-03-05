@@ -519,13 +519,13 @@
         <section class="row">
           <h2> Pictures </h2>
 
-          <section class="row">
+          <span class="row">
             {{#each group in groupClassifications}}
               <h3>GROUP CLASSIFICATION: {{group.name}}</h3>
               {{#each subgroup in group.subGroupClassifications itemController="sub-group-classification"}}
                 <h4>{{subgroup.name}}</h4>
 
-                <section class="row">
+                <span class="row">
                 {{#each pictureSet in subgroup.subGroupPictureSets itemController="sub-group-picture-set"}}
                    <button {{action 'expand'}}>Album view</button>
 
@@ -536,12 +536,12 @@
                   {{/each}}
                   </ul>
                 {{/each}}
-                </section>
+                </span>
 
                 {{view "picture-uploader"}}
               {{/each}}
             {{/each}}
-          </section>
+          </span>
 
         </section>
       </div>
