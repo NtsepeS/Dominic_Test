@@ -530,9 +530,17 @@
                    <button {{action 'expand'}}>Album view</button>
 
                   <ul class="picture-set">
-                  {{#each picture in pictureSet.album.pictures}}
-                    {{debug_template}}
-                    <li><img {{bind-attr src="picture.url"}}></li>
+                  {{#each picture in pictureSet.album.pictures itemController="picture"}}
+                    <li>
+                      <div class="image">
+                        <img {{bind-attr src="picture.url"}}>
+                        <div class="overlay">
+                          <a class="close-overlay">
+                            &times;
+                          </a>
+                        </div>
+                      </div>
+                    </li>
                   {{/each}}
                   </ul>
                 {{/each}}
