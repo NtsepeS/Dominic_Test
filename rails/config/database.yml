@@ -10,13 +10,3 @@ development: &default
 test:
   <<: *default
   database: cops_test
-
-
-production: &default
-  adapter: postgresql
-  database: cops_development
-  encoding: utf8
-  min_messages: warning
-  pool: 20
-  timeout: 5000
-  host: cops-database

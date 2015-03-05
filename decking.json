@@ -1,6 +1,6 @@
 {
   "images": {
-    "cops/backend" : "dockerfiles/backend",
+    "cops/backend" : "dockerfiles/backend"
   },
 
   "containers": {
@@ -11,6 +11,9 @@
     "cops-backend": {
       "image": "cops/backend",
       "port" : ["5000:80", "5001:22"],
+      "env"  : ["DB_HOST=cops-database", "DB_DB=cops","SECRET_KEY_BASE=d0ab2ef2b74cfc3db96ec354243bbcab3657ca75958cfd931f4bf170a43532b71f331bd73d5724153b6dff7b6e5834d0fb069b0ecb6eb31912f9308490deb555","SSO_CONSUMER_KEY=Bbrv4pGHTt2VCQyq_7qPFA",
+                "SSO_CONSUMER_SECRET=rAU4bzJrQ5yWjp7ZHf1jyA","SIAUTH_KEY=eb9d4559b681427ca07f23aca164ac7b", 
+                "SENTRY_DSN=http://e099c1845a3f469d897ac86b6ddb5289:055d077012f5431cbe8c0e35f680a344@sentry.si.is.co.za/17"],
       "dependencies": [
         "cops-database"
       ]
