@@ -11,18 +11,18 @@
   </thead>
   <tbody>
     <tr>
-      <td>{{input value=serviceFragment.workOrderNumber}}</td>
+      <td>{{input value=newWorkOrderNumber}}</td>
       <td>{{view "select"
             content=lineSpeeds
-            value=serviceFragment.lineSpeed
+            value=newLineSpeed
             prompt="Please Select"}}</td>
       <td>{{view "select"
             content=serviceTypes
-            value=serviceFragment.serviceType
+            value=newServiceType
             prompt="Please Select"}}</td>
       <td>{{view "select"
             content=physicalModes
-            value=serviceFragment.physicalMode
+            value=newPhysicalMode
             prompt="Please Select"}}</td>
       <td>
       <td><button type="button" class="btn btn-primary btn-sm pull-right" {{action "saveServiceFragment"}}>Save</button></td>

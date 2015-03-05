@@ -52,6 +52,19 @@ export default Ember.ObjectController.extend({
 
     addService: function() {
       this.set('addService', !this.get('addService'));
+    },
+
+    saveServiceFragment: function() {
+      var serviceFragment = this.store.createRecord('service-fragment', {
+        workOrderNumber: this.get('newWorkOrderNumber'),
+        lineSpeed: this.get('newLineSpeed'),
+        physicalMode: this.get('newPhysicalMode'),
+        serviceType: this.get('newServiceType'),
+        clientLink: this.get('model')
+      });
+
+      serviceFragment.save();
+      this.set('addServiceFragment', false);
     }
   }
 });
