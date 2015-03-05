@@ -41,7 +41,7 @@ export default Ember.ObjectController.extend({
     },
 
     removeService: function(serviceFragment, service) {
-      serviceFragment.get('services').removeObject(service),
+      serviceFragment.get('services').removeObject(service);
       service.destroyRecord();
     },
 
