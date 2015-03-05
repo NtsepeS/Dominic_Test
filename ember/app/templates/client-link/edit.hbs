@@ -535,7 +535,7 @@
                       <div class="picture">
                         <img {{bind-attr src="picture.url"}}>
                         <div class="overlay">
-                          <a class="close-overlay">
+                          <a class="close-overlay" {{action 'removePicture' this}}>
                             &times;
                           </a>
                         </div>
