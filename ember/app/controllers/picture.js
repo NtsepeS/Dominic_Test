@@ -23,8 +23,8 @@ export default Ember.ObjectController.extend({
         picture.set('index', i);
         photoswipePictures.push({
               src: picture.get('url'),
-              w: 1000,
-              h: 750
+              w:   picture.get('width'),
+              h:   picture.get('height')
             });
         i++;
       });
