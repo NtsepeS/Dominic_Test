@@ -6,7 +6,7 @@ Feature: 0.0 Login to COPS
 	Scenario: Log in as engineer
 		Given I am not logged in
 		  And I am on the login page
-		 When I fill in 'Username' with 'Graham Dalbock'
+		 When I fill in 'User name' with 'Graham Dalbock'
 		  And I fill in 'Password' with 'foobar'
 		  And I select 'Fake IS User' from 'Provider'
 		  And I click on 'Sign In'
@@ -16,7 +16,7 @@ Feature: 0.0 Login to COPS
 	Scenario: Log in as a Field Services Engineer
 		Given I am not logged in
 		  And I am on the login page
-		 When I fill in 'Username' with 'Some Other Dude'
+		 When I fill in 'User name' with 'Some Other Dude'
 		  And I fill in 'Password' with 'foobar'
 		  And I select 'Fake IS User' from 'Provider'
 		  And I click on 'Sign In'
@@ -29,13 +29,3 @@ Feature: 0.1 Logout of COPS
 		 When I click on "logout"
 		 Then I should see 'Successfully logged out'
 		  And I should see 'Log in'
-
-	Background:
-		Given I am logged in as an engineer
-
-	Scenario: Log out as engineer
-		When I click on 'Logout'
-		Then I should see 'Successfully logged out'
-		 And I should see 'Log in'
-
-

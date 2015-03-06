@@ -1,17 +1,14 @@
-Feature: Receive acknowledgment of request from Field Engineer
-	As an IS Field Engineer
-	I want to receive an acknowledgement from the Field Engineer
+Feature: Receive acknowledgment of request from Field services engineer
+	As an IS Wireless Engineer
+	I want to receive an acknowledgment from the Field services engineer
+	So that the COPs system is update with the status
 
 Background:
-	Given I am signed in as a Feild Services Engineer
-	And   I have received an e-mail to action a new work order
+	Given I have assigned a task to the Field Services parter
+	And   I have completed the logic check
+	And   I have assigned a task
 
-	Scenario: Feild Services Engineer receives work order notification
-		Given I am on the new work order page
-		When  I open the first work order
-		Then  I should see a work order to action
-	
-	Scenario: Feild Services Engineer acknowledges the work order notification
-		Given I am on the new work order page
-		When  I open the first work order
-		Then  I should see a work order
+	Scenario: IS Wireless Engineer receives notification
+		Given I am logged on to the system
+		When  I receive a notification from the field services partner
+		Then  the task assignment status should update
