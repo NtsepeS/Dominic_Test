@@ -42,6 +42,7 @@
                       optionLabelPath="content.name"
                       selectionBinding="client.content"
                       prompt="Please Select"
+                      id="client-name"
                     }}
             </div>
             <div class="col-md-2"></div>
@@ -50,7 +51,7 @@
               Branch Name
             </div>
             <div class="col-md-3">
-              {{input value=branch}}
+              {{input value=branch id="branch"}}
             </div>
           </div>
 
@@ -65,6 +66,7 @@
                       optionLabelPath="content.name"
                       selectionBinding="status.content"
                       prompt="Please Select"
+                      id="status"
                     }}
             </div>
             <div class="col-md-2"></div>
@@ -72,7 +74,7 @@
               Circuit Number
             </div>
             <div class="col-md-3">
-              {{input value=circuitNumber}}
+              {{input value=circuitNumber id="circuit-number"}}
             </div>
           </div>
 
@@ -87,6 +89,7 @@
                       optionLabelPath="content.name"
                       selectionBinding="networkOperator.content"
                       prompt="Please Select"
+                      id="network-operator"
                     }}
             </div>
             <div class="col-md-2"></div>
@@ -94,7 +97,7 @@
               MSAD Number
             </div>
             <div class="col-md-3">
-              {{input value=msadNumber}}
+              {{input value=msadNumber id="msad-number"}}
             </div>
           </div>
 
@@ -109,6 +112,7 @@
                       optionLabelPath="content.name"
                       selectionBinding="linkType.content"
                       prompt="Please Select"
+                      id="link-type"
                     }}
             </div>
             <div class="col-md-2"></div>
@@ -117,7 +121,7 @@
             </div>
             <div class="col-md-3">
               <!-- make a calendar popup -->
-              {{input value=activationDate}}
+              {{input value=activationDate id="activation-date"}}
             </div>
           </div>
 
@@ -132,6 +136,7 @@
                       optionLabelPath="content.name"
                       selectionBinding="baseStationSector.content"
                       prompt="Please Select"
+                      id="sector-name"
                     }}
             </div>
             <div class="col-md-2"></div>
@@ -139,7 +144,7 @@
               Mac Address
             </div>
             <div class="col-md-3">
-              {{input value=macAddress}}
+              {{input value=macAddress id="mac-address"}}
             </div>
           </div>
 
@@ -154,6 +159,7 @@
                       optionLabelPath="content.size"
                       selectionBinding="antenna.content"
                       prompt="Please Select"
+                      id="antenna-size"
                     }}
             </div>
             <div class="col-md-2"></div>
@@ -161,7 +167,7 @@
               Distance
             </div>
             <div class="col-md-3">
-              {{input value=distance}}
+              {{input value=distance id="distance"}}
             </div>
           </div>
         </section>
