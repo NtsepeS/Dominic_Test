@@ -145,3 +145,38 @@ section.row h2 {
   cursor: pointer;
   cursor: hand;
 }
+
+
+
+
+
+
+.service-fragment-container {
+  // border: 2px solid;
+  padding-bottom: 1em;
+  border-radius: 25px;
+  background-color: #E9EEF0;
+  margin: 10px 0;
+}
+
+.row.dark-header {
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  background-color: #2D4055;
+  color: white;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0.6em;
+}
+
+.heading {
+  font-size: 50%;
+}
+
+span.glyphicon.glyphicon-remove-sign.delete {
+  color: #DE433D;
+}
+
+span.glyphicon.glyphicon.glyphicon-plus-sign.js-actions.add {
+  color: #5F8A2F;
+}

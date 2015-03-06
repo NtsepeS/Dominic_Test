@@ -1,43 +1,63 @@
 <div class="container">
-  <section class="row">
-    <h2>Service Fragments</h2>
-    {{#each serviceFragment in model.serviceFragments}}
-    <table class="table table-hover table-bordered">
-      <thead>
-        <tr>
-          <th>Work Order #</th>
-          <th>Line Speed (Mbps)</th>
-          <th>Type</th>
-          <th>Physical Mode</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{serviceFragment.workOrderNumber}}</td>
-          <td>{{serviceFragment.lineSpeed}}</td>
-          <td>{{serviceFragment.serviceType}}</td>
-          <td>{{serviceFragment.physicalMode}}</td>
-        </tr>
-        <tr>
-          <thead>
-            <tr>
-              <th>Line Tag</th>
-              <th>Line Speed (Mbps)</th>
-              <th>VLAN</th>
-            </tr>
-          </thead>
-          <tbody>
-            {{#each service in serviceFragment.services}}
-              <tr>
-                <td>{{service.linetag}}</td>
-                <td>{{service.lineSpeed}}</td>
-                <td>{{service.vlan}}</td>
-              </tr>
-            {{/each}}
-          </tbody>
-        </tr>
-      </tbody>
-    </table>
+<section class="row">
+  <h2>Service Fragments</h2>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-3">Work Order #</div>
+    <div class="col-md-2">Line Speed (Mbps)</div>
+    <div class="col-md-2">Type</div>
+    <div class="col-md-2">Physical Mode</div>
+  </div>
+
+
+  {{#each serviceFragment in model.serviceFragments}}
+  <div class="service-fragment-container">
+    <div class="row dark-header">
+      <div class="col-md-1">
+        <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+      </div>
+      <div class="col-md-3">
+        <div class="heading">WORK ORDER #</div>
+        <div>{{serviceFragment.workOrderNumber}}</div>
+      </div>
+      <div class="col-md-2">
+        <div class="heading">LINE SPEED</div>
+        <div>{{serviceFragment.lineSpeed}} Mbps</div>
+      </div>
+      <div class="col-md-2">
+        <div class="heading">TYPE</div>
+        <div>{{serviceFragment.serviceType}}</div>
+      </div>
+      <div class="col-md-2">
+        <div class="heading">PHYSICAL MODE</div>
+        <div>{{serviceFragment.physicalMode}}</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-3"><b>LINE-TAG</b></div>
+      <div class="col-md-2"><b>LINE SPEED</b></div>
+      <div class="col-md-2"><b>VLAN</b></div>
+      <div class="col-md-2"></div>
+    </div>
+    {{#each service in serviceFragment.services}}
+
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-3">{{service.linetag}}</div>
+      <div class="col-md-2">{{service.lineSpeed}} Mbps</div>
+      <div class="col-md-2">{{service.vlansString}}</div>
+      <div class="col-md-2"></div>
+    </div>
     {{/each}}
-  </section>
+  </div>
+  {{/each}}
+</section>
+
+
+
+
+
+
+
 </div>

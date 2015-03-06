@@ -8,16 +8,17 @@
     <table class="table table-hover">
       <thead>
         <tr>
+          <th></th>
           <th>Work Order #</th>
           <th>Line Speed (Mbps)</th>
           <th>Service Type</th>
           <th>Physical Mode</th>
-          <th></th>
         </tr>
       </thead>
     {{#each serviceFragment in model.serviceFragments}}
       <tbody>
         <tr>
+          <td><span class="glyphicon glyphicon-remove-sign delete" aria-hidden="true" {{action "removeServiceFragment" serviceFragment}}></span></td>
           <td>{{input value=serviceFragment.workOrderNumber}}</td>
           <td>{{view "select"
                 content=lineSpeeds
@@ -32,13 +33,13 @@
                 value=serviceFragment.physicalMode
                 prompt="Please Select"}}</td>
           <td>
-            <span class="glyphicon glyphicon-trash js-actions delete" aria-hidden="true" {{action "removeServiceFragment" serviceFragment}} ></span>
             <button type="button" class="btn btn-primary btn-sm pull-right" {{action "addService" serviceFragment}}>Add Service</button>
           </td>
           <div class="">
             <table class="table table-hover">
               <thead>
                 <tr>
+                  <th></th>
                   <th>Line Tag</th>
                   <th>Line Speed (Mbps)</th>
                   <th>VLAN</th>
@@ -47,15 +48,22 @@
               <tbody>
                 {{#each service in serviceFragment.services}}
                   <tr>
+                    <td>
+                      <span class="glyphicon glyphicon-remove-sign delete" aria-hidden="true" {{action "removeService" serviceFragment service}} ></span>
+                    </td>
                     <td>{{input value=service.linetag}}</td>
                     <td>{{view "select"
                           content=lineSpeeds
                           value=service.lineSpeed
                           prompt="Please Select"}}</td>
-                    <td>{{input value=service.vlan}}</td>
                     <td>
-                      <span class="glyphicon glyphicon-trash js-actions delete" aria-hidden="true" {{action "removeService" serviceFragment service}} ></span>
+                      {{#each vlan in service.vlans}}
+                        {{input value=vlan}}
+                      {{/each}}
+                      <span class="glyphicon glyphicon glyphicon-plus-sign js-actions add" aria-hidden="true" {{action "addVLAN" serviceFragment}} ></span>
                     </td>
+
+
                   </tr>
                 {{/each}}
                 {{#if serviceFragment.addService}}
