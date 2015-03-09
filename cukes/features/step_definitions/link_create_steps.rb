@@ -1,3 +1,7 @@
+Given(/^I have a client "(.*?)"$/) do |client_name|
+	FactoryGirl.create :client, :name => client_name
+end
+
 Given(/^I'm on the client links page$/) do
   visit "/client-links"
 end
@@ -6,10 +10,26 @@ Then(/^I should see a Add Client Link button$/) do
   expect( page ).to have_link("Add Client Link")
 end
 
-When(/^I click on the Add Client Link button$/) do
-  find_link("Add Client Link").click
+When(/^I click on the (.*?) button$/) do |button|
+  find(".#{button.parameterize}").click
 end
 
 Then(/^the uri should match "(.*?)"$/) do |url|
   expect(page.current_path).to eql(url) 
+end
+
+When(/^I select "(.*?)" from "(.*?)"$/) do |option, select_box|
+	select(option, :from => "#{select_box.downcase}-select")
+end
+
+When(/^I fill in "(.*?)" with "(.*?)"$/) do |arg1, arg2|
+  fill_in 'branch', :with => arg2
+end
+
+When(/^Go to the (.*?) page$/) do |page|
+  visit "/#{page.parameterize}"
+end
+
+Then(/^I should see a client link titled "(.*?)"$/) do |title|
+  expect( page ).to have_text(title)
 end
