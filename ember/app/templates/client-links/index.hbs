@@ -18,7 +18,7 @@
     <tbody>
     {{#each}}
       {{#link-to 'client-link.index' id tagName="tr"}}
-        <td>{{name}}</td>
+        <td>{{client.name}} - {{branch}}</td>
         <td>{{msadNumber}}</td>
         <td>{{solutionIdentifier}}</td>
         <td>{{status.name}}</td>
