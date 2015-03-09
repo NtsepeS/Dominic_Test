@@ -13,4 +13,4 @@ gem "factory_girl"        # For Creating Fixture Data
 gem "database_cleaner"    # Clean the Database between runs
 gem "rspec-expectations"  # Expectations Library
 gem "byebug"              # Ruby 2.0 Debugging
-
+gem 'paper_trail', '~> 3.0.6'
