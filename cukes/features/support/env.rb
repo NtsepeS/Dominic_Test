@@ -36,6 +36,10 @@ at_exit do
   manager.stop_stack
 end
 
+AfterStep do
+  sleep 1
+end
+
 # Database Cleaner to clear out the test DB between tests
 require 'database_cleaner/cucumber'
 DatabaseCleaner.strategy = :truncation
