@@ -1,5 +1,6 @@
 require 'factory_girl'
 require 'active_record'
+require 'paper_trail'
 require 'database_cleaner'
 require 'active_support/dependencies'
 require_relative '../../config/cukes'
