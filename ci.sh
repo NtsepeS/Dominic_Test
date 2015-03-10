@@ -11,7 +11,10 @@ export RAILS_ENV=test
 # install all the things
 
 cd rails && bundle install && cd -
-cd ember && npm install && bower install && cd -
+cd ember
+npm install
+bower install
+cd -
 cd cukes && bundle install && cd -
 
 # rails tests
