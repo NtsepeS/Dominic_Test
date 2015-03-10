@@ -13,8 +13,8 @@ end
 When(/^I populate the Site Information as follows:$/) do |table|
   data = table.rows_hash
 
-  select(data['Client'], :from => "client-select")
-  fill_in 'branch', :with => data['Branch']
+  select data['Client'], from: "client-select"
+  fill_in 'branch-input', with: data['Branch']
 end
 
 When(/^I save the new client link$/) do
