@@ -25,14 +25,13 @@ RUN gem install --no-rdoc --no-ri bundler sass
 # Rails API
 # ========================================
 
-# # Configure the environment for the app to run in.
+# Configure the environment for the app to run in.
 ENV RAILS_ENV production
 ENV PORT 5000
-ENV SECRET_KEY_BASE aaaaaaaa
 
-EXPOSE ${PORT}
+EXPOSE 80
 
-#Create user
+# Create user
 RUN adduser --system --group cops-api
 
 # Bundle 
