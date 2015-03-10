@@ -16,7 +16,7 @@ bundle exec rake ci:setup:rspec spec
 cd ..
 
 # cucumber tests
-
+ls
 cd cukes
 
 bundle install
