@@ -4,6 +4,16 @@ rvm use "2.2.0"
 # Set this for after rvm is done loading, to keep CI output low
 set -x
 
+# env
+
+export RAILS_ENV=test
+
+# install all the things
+
+cd rails && bundle install && cd -
+cd ember && npm install && bower install && cd -
+cd cukes && bundle install && cd -
+
 # rails tests
 
 cd rails
@@ -16,7 +26,7 @@ bundle exec rake ci:setup:rspec spec
 cd ..
 
 # cucumber tests
-ls
+
 cd cukes
 
 bundle install
