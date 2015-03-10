@@ -1,9 +1,9 @@
 #!/bin/sh -e
 
-echo 5200 > ~/.pow/cops
+echo 4200 > ~/.pow/cops
 
 #bundle install
-npm install
+#npm install
 
 cd rails
 bundle
