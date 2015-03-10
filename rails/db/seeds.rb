@@ -25,6 +25,10 @@ Status.where(name: "Audit In Progress").first_or_create
 Status.where(name: "Decommissioned").first_or_create
 Status.where(name: "Commissioning").first_or_create
 Status.where(name: "Under Construction").first_or_create
+Status.where(name: "To Be Decommissioned").first_or_create
+Status.where(name: "Waiting for Field Service Engineer Report").first_or_create
+Status.where(name: "Waiting for Field Services QA Approval").first_or_create
+Status.where(name: "Waiting for IS QA Approval").first_or_create
 
 # CoreNode.where(name: "Afgri Isando", status_id: 1, city_id: 1, location_id: 2).first_or_create
 # CoreNode.where(name: "Bryanston Towers", status_id: 1, city_id: 1, location_id: 2).first_or_create
@@ -108,4 +112,127 @@ BaseStationSector.where(name: "Sector 3", status_id: 1, base_station_unit_id: 3,
 ClientLink.where(name: "Capetwm", antenna_id: 6, base_station_sector_id: 1, status_id: 1).first_or_create
 ClientLink.where(name: "Durban", antenna_id: 7, base_station_sector_id: 2, status_id: 1).first_or_create
 ClientLink.where(name: "Kimberly", antenna_id: 8, base_station_sector_id: 3, status_id: 5).first_or_create
+
+# Service Fragment Test
+ServiceFragment.where(work_order_number: "123", line_speed: 14, service_type: "Voice (rtPS)",  physical_mode: "4QAM" ,client_link_id: 1).first_or_create
+ServiceFragment.where(work_order_number: "234", line_speed: 2, service_type: "Voice (rtPS)",  physical_mode: "4QAM" ,client_link_id: 1).first_or_create
+
+
+Service.where(linetag: "linetag-1", line_speed: 1, vlan: "[143, 234]", service_fragment_id: 1).first_or_create
+Service.where(linetag: "linetag-2", line_speed: 1.5, vlan: "[263]", service_fragment_id: 1).first_or_create
+Service.where(linetag: "linetag-3", line_speed: 2, vlan: "[336]", service_fragment_id: 1).first_or_create
+Service.where(linetag: "linetag-4", line_speed: 10, vlan: "[122]", service_fragment_id: 1).first_or_create
+
+Service.where(linetag: "linetag-5", line_speed: 1, vlan: "[143]", service_fragment_id: 2).first_or_create
+Service.where(linetag: "linetag-6", line_speed: 2, vlan: "[143]", service_fragment_id: 2).first_or_create
+
+Port.where(vlan_type: 'Provider Port', acceptable_frame_type: 'Tagged Only', default_vlan: '143', service_id: 1).first_or_create
+Port.where(vlan_type: 'Provider Port', acceptable_frame_type: 'Tagged Only', default_vlan: '143', service_id: 1).first_or_create
+Port.where(vlan_type: 'Provider Port', acceptable_frame_type: 'Tagged Only', default_vlan: '143', service_id: 2).first_or_create
+Port.where(vlan_type: 'Provider Port', acceptable_frame_type: 'Tagged Only', default_vlan: '143', service_id: 3).first_or_create
+
+
+BaseStationSector.where(name: "Sector 3", status_id: 1,sector: 3, base_station_unit:
+  BaseStationUnit.where(name: "base-station 1", status_id: 1,
+    core_node: CoreNode.where(name: 'Pretoria', status_id: 1,
+      location: Location.where(
+        geometry: Geometry.where(latitude: "-29.7369478", longitude: "31.0211299", altitude: "1").first_or_create
+      ).first_or_create
+    ).first_or_create
+  ).first_or_create
+).first_or_create
+
+ClientLink.where(name: 'Garsfontein (4): Dimension Data - Santam - Kasteelpark', msad_number: "16.4", solution_identifier: "QW648-RT92", status_id: 1, base_station_sector_id: 1,
+  antenna: Antenna.where(size: "30cm", item_code: 'abc',
+    location: Location.where(
+      geometry:
+        Geometry.where(latitude: "-25.78967", longitude: "28.27864", altitude: "1").first_or_create
+      ).first_or_create
+    ).first_or_create
+  ).first_or_create
+
+
+ClientLink.where(name: 'BMW', msad_number: "16.4", solution_identifier: "QW648-RT92", status_id: 2, base_station_sector_id: 1,
+  antenna: Antenna.where(size: "30cm", item_code: 'abc',
+    location: Location.where(
+      geometry:
+        Geometry.where(latitude: "-25.981970", longitude: "28.130860", altitude: "1").first_or_create
+      ).first_or_create
+    ).first_or_create
+  ).first_or_create
+
+ClientLink.where(name: 'Bayport', msad_number: "16.4", solution_identifier: "QW648-RT92", status_id: 3, base_station_sector_id: 1,
+  antenna: Antenna.where(size: "30cm", item_code: 'abc',
+    location: Location.where(
+      geometry:
+        Geometry.where(latitude: "-26.054806", longitude: "28.060833", altitude: "1").first_or_create
+      ).first_or_create
+    ).first_or_create
+  ).first_or_create
+
+ClientLink.where(name: 'BMW', msad_number: "16.4", solution_identifier: "QW648-RT92", status_id: 1, base_station_sector_id: 1,
+  antenna: Antenna.where(size: "30cm", item_code: 'abc',
+    location: Location.where(
+      geometry:
+        Geometry.where(latitude: "-23.912790", longitude: "29.444181", altitude: "1").first_or_create
+      ).first_or_create
+    ).first_or_create
+  ).first_or_create
+
+ClientLink.where(name: 'Blue Label Distribution', msad_number: "16.4", solution_identifier: "QW648-RT92", status_id: 5, base_station_sector_id: 1,
+  antenna: Antenna.where(size: "30cm", item_code: 'abc',
+    location: Location.where(
+      geometry:
+        Geometry.where(latitude: "-26.100028", longitude: "28.051056", altitude: "1").first_or_create
+      ).first_or_create
+    ).first_or_create
+  ).first_or_create
+
+# ########################################################################
+
+ClientLink.where(name: 'Blue Label Distribution 1', msad_number: "16.4", solution_identifier: "QW648-RT92", status_id: 6, base_station_sector_id: 4,
+  antenna: Antenna.where(size: "30cm", item_code: 'abc',
+    location: Location.where(
+      geometry:
+        Geometry.where(latitude: "29.7337613", longitude: "30.965405", altitude: "1").first_or_create
+      ).first_or_create
+    ).first_or_create
+  ).first_or_create
+
+ClientLink.where(name: 'Blue Label Distribution 2', msad_number: "16.4", solution_identifier: "QW648-RT92", status_id: 7, base_station_sector_id: 4,
+  antenna: Antenna.where(size: "30cm", item_code: 'abc',
+    location: Location.where(
+      geometry:
+        Geometry.where(latitude: "-29.7751875", longitude: "30.9393704", altitude: "1").first_or_create
+      ).first_or_create
+    ).first_or_create
+  ).first_or_create
+
+ClientLink.where(name: 'Blue Label Distribution 3', msad_number: "16.4", solution_identifier: "QW648-RT92", status_id: 8, base_station_sector_id: 4,
+  antenna: Antenna.where(size: "30cm", item_code: 'abc',
+    location: Location.where(
+      geometry:
+        Geometry.where(latitude: "-29.8511913", longitude: "30.9180025", altitude: "1").first_or_create
+      ).first_or_create
+    ).first_or_create
+  ).first_or_create
+
+ClientLink.where(name: 'Blue Label Distribution 4', msad_number: "16.4", solution_identifier: "QW648-RT92", status_id: 9, base_station_sector_id: 4,
+  antenna: Antenna.where(size: "30cm", item_code: 'abc',
+    location: Location.where(
+      geometry:
+        Geometry.where(latitude: "-29.9254006", longitude: "30.9031174", altitude: "1").first_or_create
+      ).first_or_create
+    ).first_or_create
+  ).first_or_create
+
+ClientLink.where(name: 'Blue Label Distribution 5', msad_number: "16.4", solution_identifier: "QW648-RT92", status_id: 10, base_station_sector_id: 4,
+  antenna: Antenna.where(size: "30cm", item_code: 'abc',
+    location: Location.where(
+      geometry:
+        Geometry.where(latitude: "-29.8964904", longitude: "31.0117711", altitude: "1").first_or_create
+      ).first_or_create
+    ).first_or_create
+  ).first_or_create
+
 
