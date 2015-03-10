@@ -23,7 +23,7 @@ Feature: 0.0 Login to COPS
 		 Then I should see 'Successfully logged in'
 		  And I should see 'Log out'
 
-Feature: 0.1 Logout of COPS
+	Scenario: Logout of COPS
 		Given I am logged in
 		  And I can see "logout"
 		 When I click on "logout"
