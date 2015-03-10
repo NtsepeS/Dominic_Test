@@ -2,9 +2,6 @@
 
 echo 4200 > ~/.pow/cops
 
-#bundle install
-#npm install
-
 cd rails
 bundle
 rake db:setup
@@ -13,3 +10,4 @@ cd ../ember
 npm install
 bower install
 
+cd ../
