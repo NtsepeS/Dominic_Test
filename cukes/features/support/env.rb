@@ -11,7 +11,7 @@ require 'capybara/poltergeist'
 Capybara.default_driver = :selenium
 # Capybara.default_driver = :poltergeist
 Capybara.app_host = Cukes.config.host
-Capybara.default_wait_time = 10
+Capybara.default_wait_time = 3
 
 # Require Models
 ActiveSupport::Dependencies.autoload_paths += Dir.glob File.join(Cukes.config.rails_root, "app/models")
@@ -38,9 +38,9 @@ at_exit do
   manager.stop_stack
 end
 
-AfterStep do
-  sleep 1
-end
+# AfterStep do
+#   sleep 1
+# end
 
 # Database Cleaner to clear out the test DB between tests
 require 'database_cleaner/cucumber'
