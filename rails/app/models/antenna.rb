@@ -3,4 +3,8 @@ class Antenna < ActiveRecord::Base
 
   belongs_to :location
   has_one :equipment, as: :equipped
+
+  def to_name
+    size
+  end
 end
