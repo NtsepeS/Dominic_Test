@@ -57,7 +57,7 @@ export default Ember.Component.extend({
       var path = new google.maps.Polyline({
         path: clienLinkCoordinates,
         geodesic: true,
-        strokeColor: this.getColour(clientLink.get('status')),
+        strokeColor: _this.getColour(clientLink.get('status.name')),
         strokeOpacity: 0.5,
         strokeWeight: 2
       });
@@ -106,11 +106,12 @@ export default Ember.Component.extend({
   }.observes('nodes.[]','filters'),
 
   getImage: function(node, isCoreNode) {
+    var _this = this;
     if (isCoreNode) {
-      return this.getCoreNodeStatusImage(node.get('status'));
+      return _this.getCoreNodeStatusImage(node.get('status.name'));
     }
     else {
-      return this.getStatusImage(node.get('status'));
+      return _this.getStatusImage(node.get('status.name'));
     }
   },
 
