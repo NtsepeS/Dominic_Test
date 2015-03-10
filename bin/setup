@@ -13,3 +13,4 @@ cd ../ember
 npm install
 bower install
 
+cd ../
