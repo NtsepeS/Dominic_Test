@@ -60,7 +60,6 @@ ADD config/deploy/cops-api.sh /etc/service/cops-api/run
 
 
 COPY ./ember /srv/cops-frontend
-RUN chown -R www-data:www-data /srv/cops-frontend/dist
 
 RUN cd /srv/cops-frontend && \
   npm install
@@ -71,6 +70,7 @@ RUN cd /srv/cops-frontend && \
 RUN cd /srv/cops-frontend && \
   ember build
 
+RUN chown -R www-data:www-data /srv/cops-frontend/dist
 
 # ========================================
 # NGINX
