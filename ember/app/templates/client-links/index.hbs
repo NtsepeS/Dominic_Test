@@ -17,13 +17,13 @@
       </tr>
     </thead>
     <tbody>
-    {{#each}}
-      {{#link-to 'client-link.index' id tagName="tr"}}
-        <td>{{name}}</td>
-        <td>{{msadNumber}}</td>
-        <td>{{solutionIdentifier}}</td>
-        <td>{{status.name}}</td>
-      {{/link-to}}
+    {{#each clientLink in model}}
+      <tr>
+        <td>{{clientLink.name}}</td>
+        <td>{{clientLink.msadNumber}}</td>
+        <td>{{clientLink.solutionIdentifier}}</td>
+        <td>{{clientLink.status.name}}</td>
+      </tr>
     {{/each}}
     </tbody>
   </table>
