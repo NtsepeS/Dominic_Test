@@ -18,12 +18,14 @@ class ApplicationManager
     @rails = ChildProcess.build("sh", "-c", "BUNDLE_GEMFILE=Gemfile bundle exec rails s -e test")
     @rails.leader = true
     @rails.cwd = Cukes.config.rails_root
-    @rails_log = @rails.io.stdout = @rails.io.stderr = Tempfile.new('rails-log')
+    @rails.io.inherit!
+    # @rails_log = @rails.io.stdout = @rails.io.stderr = Tempfile.new('rails-log')
 
     @ember = ChildProcess.build("ember", "serve", "--proxy", "http://localhost:3000", "--live-reload", "false")
     @ember.leader = true
     @ember.cwd = Cukes.config.ember_root
-    @ember_log = @ember.io.stdout = @ember.io.stderr = Tempfile.new("ember-log")
+    @ember.io.inherit!
+    # @ember_log = @ember.io.stdout = @ember.io.stderr = Tempfile.new("ember-log")
   end
 
   def start_stack
@@ -46,13 +48,13 @@ class ApplicationManager
 private
 
   def dump_logs
-    puts "Rails log:"
-      puts open(rails_log).read
-      puts "-"*10
-      puts "Ember log:"
-      puts open(ember_log).read
-      puts "-"*10
-    end
+    # puts "Rails log:"
+    # puts open(rails_log).read
+    # puts "-"*10
+    # puts "Ember log:"
+    # puts open(ember_log).read
+    # puts "-"*10
+  end
 
   def wait_for_processes_started
     begin
@@ -84,7 +86,9 @@ private
   end
 
   def processes_started?
-    open(rails_log).read.include?( Cukes.config.rails_started_message ) &&
-      open(ember_log).read.include?( Cukes.config.ember_started_message )
+    sleep 15
+    true 
+    # open(rails_log).read.include?( Cukes.config.rails_started_message ) &&
+      # open(ember_log).read.include?( Cukes.config.ember_started_message )
   end
 end
