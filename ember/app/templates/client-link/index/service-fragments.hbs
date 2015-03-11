@@ -26,16 +26,14 @@
         <th>Line Tag</th>
         <th>Line Speed</th>
         <th colspan=2>VLANs</th>
-
       </tr>
       {{#each service in serviceFragment.services}}
-       <tr>
-          <td>
-          <td>{{service.linetag}}</td>
-          <td>{{service.lineSpeed}} Mbps</td>
-          <td colspan=2>{{service.vlansString}}</td>
-
-        </tr>
+      <tr>
+        <td></td>
+        <td>{{service.linetag}}</td>
+        <td>{{service.lineSpeed}} Mbps</td>
+        <td colspan=2>{{service.vlansString}}</td>
+      </tr>
       {{/each}}
     </tbody>
    </table>
