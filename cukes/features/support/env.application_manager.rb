@@ -30,10 +30,16 @@ class ApplicationManager
 
   def start_stack
     puts "Bringing the Applications Online, sit tight"
-    rails.start
-    puts "start_stack1"
-    ember.start
-    puts "start_stack2"
+    begin
+      Timeout::timeout(5) do
+        rails.start
+        puts "start_stack1"
+        ember.start
+        puts "start_stack2"
+      end
+    rescue Timeout::Error => e
+      puts "Bailing out of starting child process, but trying to continue"
+    end
     wait_for_processes_started
     puts "Applications Online - Happy Cuking"
   end
