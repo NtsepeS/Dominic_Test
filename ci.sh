@@ -12,6 +12,7 @@ export RAILS_ENV=test
 
 cd rails && bundle install && cd -
 cd ember
+npm install -g bower
 npm install
 bower install
 cd -
