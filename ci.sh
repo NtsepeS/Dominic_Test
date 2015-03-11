@@ -3,7 +3,7 @@
 # to keep CI output low
 function silently {
 	set +x 
-	cd $1 
+	"$@" 
 	set -x
 }
 
