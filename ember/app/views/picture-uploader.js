@@ -31,7 +31,7 @@ export default Ember.View.extend({
         _this.get('controller').send("pictureUploaded", data.result);
         setTimeout(function(){
           _this.$('.progress').addClass('invisible');
-        }, 1000)
+        }, 1000);
       },
 
       progressall: function (e, data) {
