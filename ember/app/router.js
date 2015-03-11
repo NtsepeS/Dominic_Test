@@ -26,7 +26,7 @@ Router.map(function() {
         this.route('edit');
         this.route('ports');
         this.resource('port', { path: 'ports/:port_id' }, function() {
-
+          this.route('edit');
         });
       });
     });
