@@ -1,0 +1,16 @@
+<h1>Client Link</h1>
+{{model.name}}
+<h2>Service Fragments:</h2>
+<ul>
+  {{#each serviceFragment in model.serviceFragments}}
+  <li>
+  <span>{{serviceFragment.workOrderNumber}} - {{serviceFragment.serviceType}} </span>
+  <a>
+    {{#link-to 'service-fragments' serviceFragment.id}}
+      View
+    {{/link-to}}
+  </a>
+  </li>
+  {{/each}}
+</ul>
+{{outlet}}
