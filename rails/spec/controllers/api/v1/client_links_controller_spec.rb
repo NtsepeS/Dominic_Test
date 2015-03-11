@@ -5,6 +5,7 @@ RSpec.describe Api::V1::ClientLinksController do
 
   before(:each) do
     @client_link = create(:client_link)
+    sign_in( :user )
   end
 
   describe 'GET /api/v1/client_links' do
