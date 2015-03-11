@@ -45,6 +45,15 @@ class ApplicationManager
 
 private
 
+  def dump_logs
+    puts "Rails log:"
+      puts open(rails_log).read
+      puts "-"*10
+      puts "Ember log:"
+      puts open(ember_log).read
+      puts "-"*10
+    end
+
   def wait_for_processes_started
     begin
       Timeout::timeout(Cukes.config.startup_timeout) do
@@ -53,17 +62,13 @@ private
         end
       end
     rescue Timeout::Error => e
-      puts "Rails log:"
-      puts open(rails_log).read
-      puts "-"*10
-      puts "Ember log:"
-      puts open(ember_log).read
-      puts "-"*10
+      dump_logs
       rails.interrupt
       ember.interrupt
       wait_for_processes_to_exit
       raise "Unable to start the application"
     end
+    dump_logs
   end
 
   def wait_for_processes_to_exit
