@@ -1,3 +1,4 @@
+@wip
 Feature: Change status
 	As a Field Engineer
 	I have completed the installation on site

@@ -1,3 +1,4 @@
+@wip
 Feature: 1.5 Carry out installation
 As a Field Engineer
 I want to carry out the installation on the scheduled date
