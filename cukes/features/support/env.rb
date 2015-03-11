@@ -8,8 +8,7 @@ require_relative '../../config/cukes'
 
 require 'capybara/cucumber'
 require 'capybara/poltergeist'
-Capybara.default_driver = :selenium
-# Capybara.default_driver = :poltergeist
+Capybara.default_driver = Cukes.config.browser
 Capybara.app_host = Cukes.config.host
 Capybara.default_wait_time = 3
 

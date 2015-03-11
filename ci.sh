@@ -12,6 +12,7 @@ silently rvm use "2.2.0"
 # env
 
 export RAILS_ENV=test
+export BROWSER=:poltergeist
 
 # install all the things
 

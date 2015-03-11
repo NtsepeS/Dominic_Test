@@ -9,8 +9,9 @@ class Cukes
     config.ember_root = File.join(config.root, "..", "ember")
     config.ember_started_message = "Build successful"
     config.host = "http://localhost:4200"
-    config.browser = ENV["BROWSER"] || :phantomjs
-    config.startup_timeout = 45
+    config.browser = ENV["BROWSER"] || :poltergeist
+     # || :selenium
+    config.startup_timeout = 10
   end
 
 end
