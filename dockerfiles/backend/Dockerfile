@@ -57,7 +57,8 @@ ADD config/deploy/cops-api.sh /etc/service/cops-api/run
 # ========================================
 # Ember frontend
 # ========================================
-
+# Make sure bower uses https instead of ssh
+RUN git config --global url."https://".insteadOf git://
 
 COPY ./ember /srv/cops-frontend
 
