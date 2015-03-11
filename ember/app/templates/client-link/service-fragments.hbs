@@ -4,7 +4,7 @@
   <table class="table table-hover table-striped table-fragments">
       <thead>
         <tr>
-          <th></th>
+          <th>#</th>
           <th>Work Order #</th>
           <th>Line Speed</th>
           <th>Type</th>
@@ -13,8 +13,8 @@
       </thead>
       <tbody>
   {{#each serviceFragment in model.serviceFragments}}
-      <tr>
-        <td></td>
+      {{#link-to 'service-fragments' serviceFragment.id tagName="tr"}}
+        <td>{{serviceFragment.id}}</td>
         <td>{{serviceFragment.workOrderNumber}}</td>
         <td>{{serviceFragment.lineSpeed}} Mbps</td>
         <td>{{serviceFragment.serviceType}}</td>
@@ -22,11 +22,11 @@
         <td>
           <a>
             {{#link-to 'service-fragments' serviceFragment.id}}
-              View
+              <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
             {{/link-to}}
           </a>
         </td>
-      </tr>
+      {{/link-to}}
   {{/each}}
   </tbody>
   </table>

@@ -1,22 +1,68 @@
-<h4>Index Service Fragments</h4>
-<h3>Services:</h3>
-<table class="table table-hover table-striped">
-  <tbody>
-{{#each service in model.services}}
-  <tr>
-    <td></td>
-    <td>{{service.linetag}}</td>
-    <td>{{service.lineSpeed}} Mbps</td>
-    <td>{{service.vlansString}}</td>
-    <td>{{service.vlansString}}</td>
-    <td>
-      <a>
-        {{#link-to 'service' service.id}}
-          View
-        {{/link-to}}
-      </a>
-    </td>
-  </tr>
-{{/each}}
-  </tbody>
-</table>
+<div class="container">
+  <section class="row">
+    <h2>Service Fragment</h2>
+    <div class="row show">
+      <label class="col-sm-2 control-label">Work Order #:</label>
+        {{model.workOrderNumber}}
+    </div>
+    <div class="row show">
+      <label class="col-sm-2 control-label">Line Speed:</label>
+        {{model.lineSpeed}}
+    </div>
+    <div class="row show">
+      <label class="col-sm-2 control-label">Service Type:</label>
+        {{model.serviceType}}
+    </div>
+    <div class="row show">
+      <label class="col-sm-2 control-label">Physical Mode:</label>
+        {{model.physicalMode}}
+    </div>
+
+    <h3>Services:</h3>
+    <table class="table table-hover table-striped">
+      <tbody>
+    {{#each service in model.services}}
+      <tr>
+        <td></td>
+        <td>{{service.linetag}}</td>
+        <td>{{service.lineSpeed}} Mbps</td>
+        <td>{{service.vlansString}}</td>
+        <td>{{service.vlansString}}</td>
+        <td>
+          <a>
+            {{#link-to 'service' service.id}}
+              View
+            {{/link-to}}
+          </a>
+        </td>
+      </tr>
+    {{/each}}
+      </tbody>
+    </table>
+
+    <div class="row pull-right">
+      {{#link-to 'service-fragments.edit' model.id}}
+      <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</button>
+      {{/link-to}}
+      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete</button>
+    </div>
+  </section>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Delete Service Fragment</h4>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete this item?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+        <button type="button" class="btn btn-warning" {{action "removeServiceFragment" service port}}>Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
