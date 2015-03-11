@@ -18,7 +18,7 @@
     </thead>
     <tbody>
     {{#each clientLink in model}}
-      <tr>
+      <tr {{action "viewClientLink" client-link}}>
         <td>{{clientLink.name}}</td>
         <td>{{clientLink.msadNumber}}</td>
         <td>{{clientLink.solutionIdentifier}}</td>
