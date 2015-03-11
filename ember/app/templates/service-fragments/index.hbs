@@ -1,2 +1,22 @@
 <h4>Index Service Fragments</h4>
-{{serviceFragment}}
+<h3>Services:</h3>
+<table class="table table-hover table-striped table-bordered">
+  <tbody>
+{{#each service in model.services}}
+  <tr>
+    <td></td>
+    <td>{{service.linetag}}</td>
+    <td>{{service.lineSpeed}} Mbps</td>
+    <td>{{service.vlansString}}</td>
+    <td>{{service.vlansString}}</td>
+    <td>
+      <a>
+        {{#link-to 'service' service.id}}
+          View
+        {{/link-to}}
+      </a>
+    </td>
+  </tr>
+{{/each}}
+  </tbody>
+</table>
