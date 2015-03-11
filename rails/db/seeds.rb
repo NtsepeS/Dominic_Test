@@ -83,7 +83,7 @@ Service.where(linetag: "linetag-5", line_speed: 1, vlan: "[143]", service_fragme
 Service.where(linetag: "linetag-6", line_speed: 2, vlan: "[143]", service_fragment_id: 2).first_or_create
 
 Port.where(vlan_type: 'Provider Port', acceptable_frame_type: 'Tagged Only', default_vlan: '143', service_id: 1).first_or_create
-Port.where(vlan_type: 'Provider Port', acceptable_frame_type: 'Tagged Only', default_vlan: '143', service_id: 1).first_or_create
+Port.where(vlan_type: 'VLAN Transparent', acceptable_frame_type: 'Tagged Only', default_vlan: '143', service_id: 1).first_or_create
 Port.where(vlan_type: 'Provider Port', acceptable_frame_type: 'Tagged Only', default_vlan: '143', service_id: 2).first_or_create
 Port.where(vlan_type: 'Provider Port', acceptable_frame_type: 'Tagged Only', default_vlan: '143', service_id: 3).first_or_create
 

@@ -17,16 +17,14 @@ Router.map(function() {
     this.route('site-information');
     this.route('siebel');
     this.route('service-fragments');
-
-
     this.resource('service-fragments', { path: 'service-fragments/:service_fragment_id' }, function() {
-
       this.route('services');
-
       this.resource('service', { path: 'services/:service_id' }, function() {
+        this.route('ports');
+        this.resource('port', { path: 'ports/:port_id' }, function() {
 
+        });
       });
-
     });
   });
 });

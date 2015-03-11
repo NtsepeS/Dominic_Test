@@ -1,1 +1,26 @@
 <h2>Services INDEX</h2>
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>Line Tag</th>
+      <th>Line Speed (Mbps)</th>
+      <th>VLAN</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{model.linetag}}</td>
+      <td>{{model.lineSpeed}}</td>
+      <td>{{model.vlan}}</td>
+    </tr>
+  </tbody>
+</table>
+<ul>
+{{#each port in model.ports}}
+  <li>
+    {{#link-to 'port' port.id}}
+      Port: {{port.vlanType}}
+    {{/link-to}}
+  </li>
+{{/each}}
+</ul>
