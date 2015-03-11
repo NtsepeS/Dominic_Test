@@ -1,8 +1,13 @@
 #!/bin/bash --login
-set -e
-rvm use "2.2.0"
-# Set this for after rvm is done loading, to keep CI output low
-set -x
+
+# to keep CI output low
+function silently {
+	set +x 
+	cd $1 
+	set -x
+}
+
+silently rvm use "2.2.0"
 
 # env
 
@@ -10,29 +15,25 @@ export RAILS_ENV=test
 
 # install all the things
 
-cd rails && bundle install && cd -
-cd ember
+silently cd rails
+bundle install
+
+silently cd ../ember
 npm install
 bower install
-cd -
-cd cukes && bundle install && cd -
+
+silently  cd ../cukes
+bundle install
 
 # rails tests
 
-cd rails
+silently  cd ../rails
 
-export RAILS_ENV=test
-bundle install
 bundle exec rake db:drop db:create db:migrate db:test:prepare
 bundle exec rake ci:setup:rspec spec
 
-cd ..
-
 # cucumber tests
 
-cd cukes
+silently cd ../cukes
 
-bundle install
 cucumber --format json -o cucumber.json
-
-cd ..
