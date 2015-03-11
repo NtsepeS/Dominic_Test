@@ -14,6 +14,11 @@ Router.map(function() {
     this.route('edit');
     this.route('audit');
   });
+  this.route('admin', function(){
+    this.route('user', function(){
+      this.route('add');
+    });
+  });
 });
 
 export default Router;
