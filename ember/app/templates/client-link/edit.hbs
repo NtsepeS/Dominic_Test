@@ -2,6 +2,9 @@
   {{#link-to 'client-link.edit'}}
     <span class="glyphicon glyphicon-eye-open js-actions view" aria-hidden="true"></span>
   {{/link-to}}
+  <a href="api/v1/client_links/export">
+    <span class="glyphicon glyphicon-export js-actions export" target="_blank" aria-hidden="true"></span>
+  </a>
   <span class="glyphicon glyphicon-trash js-actions delete" aria-hidden="true" {{action "removeClientLink"}} ></span>
   {{#link-to 'client-link.audit'}}
     <span class="glyphicon glyphicon-list-alt js-actions audit" aria-hidden="true"></span>
@@ -10,7 +13,6 @@
 </div>
 
 <div role="tabpanel">
-
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active"><a href="#site_information" aria-controls="site_information" role="tab" data-toggle="tab">Site Information</a></li>
@@ -27,45 +29,33 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane fade in active" id="site_information">
-      <!-- SECTION 1: SITE INFORMATION -->
       {{partial "client-link/edit/site-information"}}
     </div>
     <div role="tabpanel" class="tab-pane fade" id="siebel">
-      <!-- SECTION 2: SIEBEL -->
       {{partial "client-link/edit/siebel"}}
     </div>
     <div role="tabpanel" class="tab-pane fade" id="rf_performance">
-      <!-- SECTION 3: RF PERFORMANCE -->
       {{partial "client-link/edit/rf-performance"}}
     </div>
     <div role="tabpanel" class="tab-pane fade" id="modulation">
-      <!-- SECTION 4: MODULATION -->
       {{partial "client-link/edit/modulation"}}
     </div>
     <div role="tabpanel" class="tab-pane fade" id="physical_ports">
-      <!-- SECTION 5: PHYSICAL PORTS -->
       {{partial "client-link/edit/physical-ports"}}
     </div>
     <div role="tabpanel" class="tab-pane fade" id="service_fragments">
-      <!-- SECTION 6: SERVICE FRAGMENTS -->
       {{partial "client-link/edit/service-fragments"}}
     </div>
     <div role="tabpanel" class="tab-pane fade" id="notes">
-       <!-- SECTION 7: NOTES -->
       {{partial "client-link/edit/notes"}}
     </div>
     <div role="tabpanel" class="tab-pane fade" id="quality_assurance">
-      <!-- SECTION 8: QUALITY ASSURANCE -->
       {{partial "client-link/edit/quality-assurance"}}
     </div>
     <div role="tabpanel" class="tab-pane fade" id="pictures">
-      <!-- SECTION 9: PICTURES -->
       {{partial "client-link/edit/pictures"}}
     </div>
   </div>
-
-
 </div>
-
 
 {{outlet}}
