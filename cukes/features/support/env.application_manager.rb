@@ -15,6 +15,7 @@ class ApplicationManager
   attr_accessor :rails, :ember, :rails_log, :ember_log
 
   def initialize
+    ChildProcess.posix_spawn = true
     @rails = ChildProcess.build("sh", "-c", "BUNDLE_GEMFILE=Gemfile bundle exec rails s -e test")
     @rails.leader = true
     @rails.cwd = Cukes.config.rails_root
@@ -30,16 +31,10 @@ class ApplicationManager
 
   def start_stack
     puts "Bringing the Applications Online, sit tight"
-    begin
-      Timeout::timeout(5) do
-        rails.start
-        puts "start_stack1"
-        ember.start
-        puts "start_stack2"
-      end
-    rescue Timeout::Error => e
-      puts "Bailing out of starting child process, but trying to continue"
-    end
+    rails.start
+    puts "start_stack1"
+    ember.start
+    puts "start_stack2"
     wait_for_processes_started
     puts "Applications Online - Happy Cuking"
   end
