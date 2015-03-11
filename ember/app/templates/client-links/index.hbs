@@ -1,18 +1,18 @@
-<div>
+<div class="client-links-header">
   <h2 class="sub-header client-links">
     Client Links
   </h2>
 
-<span>
-  {{#link-to "client-links.new" class="btn btn-default btn-xs js-new-client-link" role="button"}}
-  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-  Add Client Link
-  {{/link-to}}
-  <a class="btn btn-default btn-xs" href="/api/v1/client_links/export" role="button">
-    <span class="glyphicon glyphicon-export" target="_blank" aria-hidden="true"></span>
-    Export
-  </a>
-</span>
+  <span class="client-links-actions">
+    {{#link-to "client-links.new" class="btn btn-default btn-xs js-new-client-link" role="button"}}
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    Add Client Link
+    {{/link-to}}
+    <a class="btn btn-default btn-xs" href="/api/v1/client_links/export" role="button">
+      <span class="glyphicon glyphicon-export" target="_blank" aria-hidden="true"></span>
+      Export
+    </a>
+  </span>
 
 </div>
 {{#data-table}}
