@@ -17,6 +17,7 @@ Router.map(function() {
   this.route('admin', function(){
     this.route('user', function(){
       this.route('add');
+      this.route('view', { path: 'view/:userId' })
     });
   });
 });
