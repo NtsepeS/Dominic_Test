@@ -3,7 +3,7 @@
     <h2>Service Fragments</h2>
     <button type="button" class="btn btn-primary btn-sm pull-right" {{action "addServiceFragment"}}>Add Service Fragment</button>
     {{#if addServiceFragment}}
-      {{partial "client-link/section/new/service-fragment"}}
+      {{partial "client-link/new/service-fragment"}}
     {{/if}}
     <table class="table table-hover">
       <thead>
@@ -67,7 +67,7 @@
                   </tr>
                 {{/each}}
                 {{#if serviceFragment.addService}}
-                  {{partial "client-link/section/new/service"}}
+                  {{partial "client-link/new/service"}}
                 {{/if}}
               </tbody>
             </table>
