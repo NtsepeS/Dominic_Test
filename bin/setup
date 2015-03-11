@@ -1,9 +1,6 @@
 #!/bin/sh -e
 
-echo 5200 > ~/.pow/cops
-
-#bundle install
-npm install
+echo 4200 > ~/.pow/cops
 
 cd rails
 bundle
@@ -13,3 +10,4 @@ cd ../ember
 npm install
 bower install
 
+cd ../
