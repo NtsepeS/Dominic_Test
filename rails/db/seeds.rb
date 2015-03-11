@@ -6,8 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Antenna.where(size: "30cm", serial_number: 1234, is_asset_tag: 5678, location_id: 1).first_or_create
-Antenna.where(size: "30cm", serial_number: 110720023, is_asset_tag: 116034, location_id: 2).first_or_create
+Antenna.where(size: "30cm", item_code: 'abc', location_id: 1).first_or_create
+Antenna.where(size: "30cm",  item_code: 'def', location_id: 2).first_or_create
 City.where(name: "Johannesburg").first_or_create
 City.where(name: "Cape Town").first_or_create
 City.where(name: "Durban").first_or_create
@@ -61,3 +61,10 @@ Picture.where(mechanism: 'file', picture_data: '/data/public/pic_5.jpg', date_ta
 Picture.where(mechanism: 'url', picture_data: 'www.test.com/pic_6.jpg', date_taken: '2015-01-29 12:00:00', album_id: 2).first_or_create
 SubGroupPictureSet.where(album_id: 1, sub_group_classification_id: 1, client_link_id: 1).first_or_create
 SubGroupPictureSet.where(album_id: 2, sub_group_classification_id: 2, client_link_id: 1).first_or_create
+
+RfPerformanceParameter.where(uplink_rssi: "Some RSSI", downlink_rssi: "Some RSSI").first_or_create
+AntennaParameter.where(polarization: "polarization").first_or_create
+Modulation.where(uplink_max: 5).first_or_create
+OperatingParameter.where(location_id: 1, parameterized: RfPerformanceParameter.find(1)).first_or_create
+OperatingParameter.where(location_id: 1, parameterized: AntennaParameter.find(1)).first_or_create
+OperatingParameter.where(location_id: 1, parameterized: Modulation.find(1)).first_or_create

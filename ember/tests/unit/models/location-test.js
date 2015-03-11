@@ -5,7 +5,7 @@ import {
 
 moduleForModel('location', 'Location', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:vicinity', 'model:geometry']
 });
 
 test('it exists', function() {

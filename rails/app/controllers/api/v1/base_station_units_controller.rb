@@ -1,6 +1,7 @@
 module Api
   module V1
     class BaseStationUnitsController < AuthenticatedController
+      include ExcelGenerator
 
       def index
         base_station_units = BaseStationUnit.all
@@ -22,6 +23,13 @@ module Api
         base_station_unit = BaseStationUnit.find(params[:id])
         base_station_unit.destroy
         render json: base_station_unit
+      end
+
+      def export
+        base_station_units = BaseStationUnit.all
+        excel              = ExcelExporter.new(base_station_units)
+
+        generate(excel)
       end
 
       private

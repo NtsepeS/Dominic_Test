@@ -12,13 +12,18 @@ Rails.application.routes.draw do
 
       resources :albums
       resources :antennas
-      resources :base_station_units
-      resources :base_station_sectors
+      resources :base_station_units do
+        collection { get 'export' }
+      end
+      resources :base_station_sectors do
+        collection { get 'export' }
+      end
       resources :chassis
       resources :cities
       resources :clients
       resources :client_links do
         member { get 'audit' }
+        collection { get 'export' }
       end
       resources :containers
       resources :controller_cards
@@ -36,6 +41,12 @@ Rails.application.routes.draw do
       resources :locations
       resources :sub_group_classifications
       resources :sub_group_picture_sets
+      resources :rf_performance_parameters
+      resources :operating_parameters
+      resources :modulations
+      resources :service_fragments
+      resources :services
+      resources :ports
     end
   end
 end

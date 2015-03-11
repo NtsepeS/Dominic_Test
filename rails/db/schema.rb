@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150213115038) do
+ActiveRecord::Schema.define(version: 20150219104732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,12 @@ ActiveRecord::Schema.define(version: 20150213115038) do
   create_table "albums", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "antenna_parameters", force: :cascade do |t|
+    t.string   "polarization"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "antennas", force: :cascade do |t|
@@ -187,11 +193,31 @@ ActiveRecord::Schema.define(version: 20150213115038) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "modulations", force: :cascade do |t|
+    t.integer  "downlink_min"
+    t.integer  "downlink_max"
+    t.integer  "uplink_min"
+    t.integer  "uplink_max"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "network_operators", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "operating_parameters", force: :cascade do |t|
+    t.integer  "location_id"
+    t.integer  "parameterized_id"
+    t.string   "parameterized_type"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "operating_parameters", ["location_id"], name: "index_operating_parameters_on_location_id", using: :btree
+  add_index "operating_parameters", ["parameterized_id", "parameterized_type"], name: "index_operatingparameters_on_parameterized_type_and_id", using: :btree
 
   create_table "pictures", force: :cascade do |t|
     t.string   "mechanism"
@@ -204,6 +230,17 @@ ActiveRecord::Schema.define(version: 20150213115038) do
 
   add_index "pictures", ["album_id"], name: "index_pictures_on_album_id", using: :btree
 
+  create_table "ports", force: :cascade do |t|
+    t.string   "vlan_type"
+    t.string   "acceptable_frame_type"
+    t.string   "default_vlan"
+    t.integer  "service_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ports", ["service_id"], name: "index_ports_on_service_id", using: :btree
+
   create_table "radios", force: :cascade do |t|
     t.string   "name"
     t.string   "item_code"
@@ -211,6 +248,38 @@ ActiveRecord::Schema.define(version: 20150213115038) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
+
+  create_table "rf_performance_parameters", force: :cascade do |t|
+    t.string   "uplink_rssi"
+    t.string   "downlink_rssi"
+    t.string   "uplink_cnr"
+    t.string   "downlink_cnr"
+    t.string   "tx_power"
+    t.string   "step_attenuator"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "service_fragments", force: :cascade do |t|
+    t.string   "work_order_number"
+    t.decimal  "line_speed"
+    t.string   "service_type"
+    t.string   "physical_mode"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "client_link_id"
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.string   "linetag"
+    t.decimal  "line_speed"
+    t.text     "vlan"
+    t.integer  "service_fragment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "services", ["service_fragment_id"], name: "index_services_on_service_fragment_id", using: :btree
 
   create_table "statuses", force: :cascade do |t|
     t.string   "name"
@@ -284,6 +353,7 @@ ActiveRecord::Schema.define(version: 20150213115038) do
   add_foreign_key "equipment_containers", "equipment"
   add_foreign_key "locations", "geometries"
   add_foreign_key "locations", "vicinities"
+  add_foreign_key "operating_parameters", "locations"
   add_foreign_key "pictures", "albums"
   add_foreign_key "sub_group_classifications", "group_classifications"
   add_foreign_key "sub_group_picture_sets", "albums"
