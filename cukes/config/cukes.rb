@@ -9,7 +9,7 @@ class Cukes
     config.ember_root = File.join(config.root, "..", "ember")
     config.ember_started_message = "Build successful"
     config.host = "http://localhost:4200"
-    config.browser = ENV["BROWSER"] || :selenium
+    config.browser = ENV["BROWSER"] ? ENV["BROWSER"].to_sym : :selenium
     config.startup_timeout = 45
   end
 
