@@ -11,4 +11,4 @@ Feature: Create client link
       | Branch              | Happy Branch          | 
       | Network Operator    | Internet Solutions    |
     And I save the new client link
-    Then a new client link titled "Adcorp - Happy Branch" is created
+    Then a new client link titled "Happy Branch" is created
