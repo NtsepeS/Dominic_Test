@@ -18,7 +18,10 @@ Router.map(function() {
       this.route('edit');
     });
 
-    this.route('siebel');
+    this.route('siebel', function() {
+      this.route('edit');
+    });
+
     this.route('service-fragments');
     this.resource('service-fragments', { path: 'service-fragments/:service_fragment_id' }, function() {
       this.route('edit');
