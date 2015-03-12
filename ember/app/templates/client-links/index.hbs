@@ -27,12 +27,12 @@
     </thead>
     <tbody>
     {{#each clientLink in model}}
-      <tr {{action "viewClientLink" clientLink}}>
+      {{#link-to 'client-link.index' clientLink.id tagName="tr"}}
         <td>{{clientLink.name}}</td>
         <td>{{clientLink.msadNumber}}</td>
         <td>{{clientLink.solutionIdentifier}}</td>
-        <td>{{clientLink.status.name}}</td>
-      </tr>
+         <td>{{clientLink.status.name}}</td>
+      {{/link-to}}
     {{/each}}
     </tbody>
   </table>
