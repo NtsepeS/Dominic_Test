@@ -37,4 +37,4 @@ bundle exec rake ci:setup:rspec spec
 
 silently cd ../cukes
 
-cucumber --format json -o cucumber.json
+cucumber --tags ~@wip --format json -o cucumber.json
