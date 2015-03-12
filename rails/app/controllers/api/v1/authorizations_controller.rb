@@ -7,7 +7,7 @@ module Api
         render json: authorizations
       end
 
-      def invite
+      def create
         # Send off request to isid for invite
         authorization = Authorization.new(authorization_params)
         if authorization.save
@@ -18,7 +18,7 @@ module Api
       end
 
       def authorization_params
-        params.require(:authorization).permit(:email)
+        params.require(:authorization).permit(:email, :princaple_id, :invite_id)
       end
 
     end

@@ -47,9 +47,8 @@ Rails.application.routes.draw do
       resources :service_fragments
       resources :services
       resources :ports
-
-      post 'invite', to: 'authorizations#invite'
       resources :authorizations
+      
     end
   end
 end
