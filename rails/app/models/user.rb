@@ -5,24 +5,14 @@ class User < ActiveRecord::Base
 
   class << self
     def from_omniauth auth
-      user = where(provider: auth.provider, uid: auth.uid).first_or_initialize do |new_user|
+      user = where(provider: auth.provider, uid: auth.uid).first_or_create do |new_user|
         new_user.provider = auth.provider
         new_user.uid = auth.uid
       end
 
-      user.name = auth.info.name
-      user.email = auth.info.email
-      auth.info.aliases.each do |provider_alias|
-        user.ad_username = provider_alias.provider_id if provider_alias.provider == 'ddad'
-      end
-
-      user.update_role
-
-      user.save
-
+      OmniauthUserService.new(user, auth).call
       user
     end
-
   end
 
     def update_role!
