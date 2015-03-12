@@ -15,7 +15,7 @@ Router.map(function() {
     this.route('audit');
   });
   this.route('admin', function(){
-    this.route('user', function(){
+    this.route('authorization', function(){
       this.route('add');
       this.route('view', { path: 'view/:userId' })
     });
