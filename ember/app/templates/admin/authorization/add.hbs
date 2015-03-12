@@ -2,8 +2,9 @@
 <form>
   <div class="form-group">
     <label for="user-email">Email: </label>
-    {{input id="user-email" placeholder="Email address" class="form-control" type="email"}}
+    {{input id="user-email" placeholder="Email address" class="form-control" type="email" value=model.email }}
   </div>
-  {{link-to 'Invite' class="btn btn-primary" }}
+  <button class="btn btn-default" {{ action 'sendInvite' }}>Invite</button>
+  
 </form>
 {{outlet}}
