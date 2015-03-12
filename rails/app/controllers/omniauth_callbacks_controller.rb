@@ -1,6 +1,11 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def all
     user = User.from_omniauth(request.env["omniauth.auth"])
+    
+    # Link authorization
+      # What if no authorization? Should any user be able to log in
+      # Should user role delegate to authorization
+
 
     if user.persisted?
       sign_in_and_redirect user, notice: "Signed in!"
