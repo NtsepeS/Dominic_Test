@@ -1,6 +1,6 @@
 <h2 class="sub-header">
   Client Links
-  {{#link-to "client-links.new" class="btn btn-default btn-xs js-new-client-link" role="button"}}
+  {{#link-to "client-links.new" class="btn btn-default btn-xs add-client-link" role="button"}}
   <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
   Add Client Link
   {{/link-to}}
@@ -19,7 +19,7 @@
     <tbody>
     {{#each}}
       {{#link-to 'client-link.index' id tagName="tr"}}
-        <td>{{name}}</td>
+        <td>{{client.name}} - {{branch}}</td>
         <td>{{msadNumber}}</td>
         <td>{{solutionIdentifier}}</td>
         <td>{{status.name}}</td>
