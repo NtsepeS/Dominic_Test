@@ -113,11 +113,6 @@ section.row h2 {
   }
 }
 
-.js-new-client-link{
-  border: 1px solid #cacaca;
-  margin: 0px 30px 0px 30px;
-}
-
 .glyphicon {
   font-size: 1.2em;
 }
@@ -141,7 +136,22 @@ section.row h2 {
   transform: scale(1.5);
 }
 
+/*CLIENT LINKS INDEX*/
 .js-client-links-table tr {
   cursor: pointer;
   cursor: hand;
+}
+
+.sub-header.client-links {
+  display: inline-block;
+}
+
+.client-links-header {
+  margin-bottom: 32px;
+}
+
+.client-links-actions {
+  a {
+    margin: -17px 0 0 15px;
+  }
 }
