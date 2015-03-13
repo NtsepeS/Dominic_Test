@@ -13,7 +13,7 @@
       </thead>
       <tbody>
   {{#each serviceFragment in model.serviceFragments}}
-      {{#link-to 'service-fragments' serviceFragment.id tagName="tr"}}
+      {{#link-to 'service-fragment' serviceFragment.id tagName="tr"}}
         <td>{{serviceFragment.id}}</td>
         <td>{{serviceFragment.workOrderNumber}}</td>
         <td>{{serviceFragment.lineSpeed}} Mbps</td>
