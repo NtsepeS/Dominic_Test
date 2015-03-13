@@ -1,5 +1,7 @@
-As an authorised administrator of COP's
-    I need view COP's data
+@wip
+Feature: export core nodes
+	As an authorised administrator of COP's
+    I need to generate a report
 
     Background: 
         Given I am a registered admin user
