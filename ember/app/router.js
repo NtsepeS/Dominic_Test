@@ -26,15 +26,15 @@ Router.map(function() {
     this.resource('service-fragments', { path: 'service-fragments/:service_fragment_id' }, function() {
       this.route('edit');
 
-
-      this.route('services');
       this.resource('service', { path: 'services/:service_id' }, function() {
         this.route('edit');
-        this.route('ports');
+
         this.resource('port', { path: 'ports/:port_id' }, function() {
           this.route('edit');
         });
+
       });
+
     });
   });
 });

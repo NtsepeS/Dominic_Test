@@ -19,13 +19,6 @@
         <td>{{serviceFragment.lineSpeed}} Mbps</td>
         <td>{{serviceFragment.serviceType}}</td>
         <td>{{serviceFragment.physicalMode}}</td>
-        <td>
-          <a>
-            {{#link-to 'service-fragments.edit' serviceFragment.id}}
-              <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-            {{/link-to}}
-          </a>
-        </td>
       {{/link-to}}
   {{/each}}
   </tbody>
