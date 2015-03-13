@@ -8,7 +8,7 @@ export default Ember.ObjectController.extend({
   actions: {
     updateServiceFragment: function() {
       this.get('model').save().then(
-        this.transitionToRoute('service-fragments', this.get('model.id'))
+        this.transitionToRoute('service-fragment', this.get('model.id'))
       );
     }
   }

@@ -1,0 +1,41 @@
+<div class="container">
+  <section class="row">
+  <h2>Service Fragment</h2>
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Work Order #:</label>
+      <div class="col-sm-9">
+        {{input value=newWorkOrderNumber class="form-control"}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Line Speed (Mbps):</label>
+      <div class="col-sm-9">
+        {{view "select"
+            content=lineSpeeds
+            value=newLineSpeed
+            prompt="Please Select"}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Service Type:</label>
+      <div class="col-sm-9">
+        {{view "select"
+            content=serviceTypes
+            value=newServiceType
+            prompt="Please Select"}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Physical Mode:</label>
+      <div class="col-sm-9">
+        {{view "select"
+            content=physicalModes
+            value=newPhysicalMode
+            prompt="Please Select"}}
+      </div>
+    </div>
+  </form>
+  <button type="button" class="btn btn-primary pull-right" {{action "saveServiceFragment"}}>Save</button>
+  </section>
+</div>

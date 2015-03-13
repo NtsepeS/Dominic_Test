@@ -1,0 +1,30 @@
+<div class="container">
+<section class="row">
+  <h2>Service Fragments</h2>
+  <table class="table table-hover table-striped table-fragments">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Work Order #</th>
+          <th>Line Speed</th>
+          <th>Type</th>
+          <th>Physical Mode</th>
+        </tr>
+      </thead>
+      <tbody>
+  {{#each serviceFragment in model.serviceFragments}}
+      {{#link-to 'service-fragment' serviceFragment.id tagName="tr"}}
+        <td>{{serviceFragment.id}}</td>
+        <td>{{serviceFragment.workOrderNumber}}</td>
+        <td>{{serviceFragment.lineSpeed}} Mbps</td>
+        <td>{{serviceFragment.serviceType}}</td>
+        <td>{{serviceFragment.physicalMode}}</td>
+      {{/link-to}}
+  {{/each}}
+  </tbody>
+  </table>
+  {{#link-to 'client-link.service-fragments.new'}}
+  <button type="button" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Service Fragment</button>
+  {{/link-to}}
+</section>
+</div>
