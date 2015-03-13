@@ -24,7 +24,7 @@ class LoginService
   end
 
   def successful?
-    @completed
+    !!@completed
   end
 
   private
@@ -32,6 +32,10 @@ class LoginService
   attr_reader :auth, :scope
 
   def find_user
+    if auth.provider.nil? || auth.uid.nil?
+      throw :abort
+    end
+
     @user = scope.where(provider: auth.provider, uid: auth.uid).first_or_initialize
   end
 
