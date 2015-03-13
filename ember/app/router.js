@@ -29,6 +29,10 @@ Router.map(function() {
     this.resource('service-fragment', { path: 'service-fragments/:service_fragment_id' }, function() {
       this.route('edit');
 
+      this.route('services', function() {
+        this.route('new');
+      });
+
       this.resource('service', { path: 'services/:service_id' }, function() {
         this.route('edit');
 
