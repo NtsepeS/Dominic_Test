@@ -4,7 +4,7 @@
   </h2>
 
   <span class="client-links-actions">
-    {{#link-to "client-links.new" class="btn btn-default btn-xs js-new-client-link" role="button"}}
+    {{#link-to "client-links.new" class="btn btn-default btn-xs add-client-link" role="button"}}
     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     Add Client Link
     {{/link-to}}
@@ -15,6 +15,7 @@
   </span>
 
 </div>
+
 {{#data-table}}
   <table class="table table-striped display js-client-links-table" cellspacing="0" width="100%">
     <thead>

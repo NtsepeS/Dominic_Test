@@ -5,6 +5,7 @@ RSpec.describe Api::V1::ServicesController do
 
   before(:each) do
     @service = create(:service)
+    sign_in( :user )
   end
 
   describe 'GET /api/v1/services' do
