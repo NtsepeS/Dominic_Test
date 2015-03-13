@@ -1,37 +1,41 @@
-<h3>Edit Service Fragment</h3>
-<form class="form-horizontal">
-  <div class="form-group">
-    <label class="col-sm-3 control-label">Work Order #:</label>
-    <div class="col-sm-9">
-      {{input value=model.workOrderNumber class="form-control"}}
+<div class="container">
+  <section class="row">
+  <h2>Service Fragment</h2>
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Work Order #:</label>
+      <div class="col-sm-9">
+        {{input value=model.workOrderNumber class="form-control"}}
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label class="col-sm-3 control-label">Line Speed (Mbps):</label>
-    <div class="col-sm-9">
-      {{view "select"
-        content=lineSpeeds
-        value=model.lineSpeed
-        prompt="Please Select"}}
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Line Speed (Mbps):</label>
+      <div class="col-sm-9">
+        {{view "select"
+          content=lineSpeeds
+          value=model.lineSpeed
+          prompt="Please Select"}}
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label class="col-sm-3 control-label">Service Type:</label>
-    <div class="col-sm-9">
-      {{view "select"
-        content=serviceTypes
-        value=model.serviceType
-        prompt="Please Select"}}
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Service Type:</label>
+      <div class="col-sm-9">
+        {{view "select"
+          content=serviceTypes
+          value=model.serviceType
+          prompt="Please Select"}}
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label class="col-sm-3 control-label">Physical Mode:</label>
-    <div class="col-sm-9">
-      {{view "select"
-        content=physicalModes
-        value=model.physicalMode
-        prompt="Please Select"}}
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Physical Mode:</label>
+      <div class="col-sm-9">
+        {{view "select"
+          content=physicalModes
+          value=model.physicalMode
+          prompt="Please Select"}}
+      </div>
     </div>
-  </div>
-</form>
-<button type="button" class="btn btn-primary pull-right" {{action "updateServiceFragment"}}>Save</button>
+  </form>
+  <button type="button" class="btn btn-primary pull-right" {{action "updateServiceFragment"}}>Save</button>
+  </section>
+</div>
