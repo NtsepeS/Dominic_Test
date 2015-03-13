@@ -5,6 +5,7 @@ RSpec.describe Api::V1::RfPerformanceParametersController do
 
   before(:each) do
     @rf_performance_parameter = create(:rf_performance_parameter)
+    sign_in( :user )
   end
 
   describe 'GET /api/v1/rf_performance_parameters' do
