@@ -3,47 +3,9 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :omniauthable
 
-  class << self
-    def from_omniauth auth
-      user = where(provider: auth.provider, uid: auth.uid).first_or_create do |new_user|
-        new_user.provider = auth.provider
-        new_user.uid = auth.uid
-      end
-
-      OmniauthUserService.new(user, auth).call
-      user
-    end
+  def username
+    ActiveSupport::Deprecation.warn("User#username is deprecated with no replacement", caller)
+    ad_username ? ad_username : email.split("@")[0].downcase
   end
-
-    def update_role!
-      update_role && save
-    end
-
-    def update_role
-      self.role = determine_role
-    end
-
-    def determine_role
-      return :admin if groups.any? { |g| /IS.System Integrators/ =~ g }
-    end
-
-    def username
-      @username ||= ad_username ? ad_username : email.split("@")[0].downcase
-    end
-
-    def groups
-      return @groups if defined? @groups
-
-      @groups = []
-
-      begin
-        response = RestClient.get "#{Rails.application.secrets.SIAUTH_URL}/users/#{username}/groups", {apiKey: Rails.application.secrets.SIAUTH_KEY, content_type: "application/json"}
-        json = Oj.load(response)
-        @groups = json["groups"].map { |this_group| this_group['ad_group']  }
-      rescue RestClient::InternalServerError => e
-      end
-
-      @groups #.tap { |g| puts "user_groups", g }
-    end
 
 end
