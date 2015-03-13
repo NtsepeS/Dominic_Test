@@ -5,7 +5,7 @@ import {
 
 moduleForModel('service', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:service-fragment', 'model:port', 'model:client-link']
 });
 
 test('it exists', function(assert) {
