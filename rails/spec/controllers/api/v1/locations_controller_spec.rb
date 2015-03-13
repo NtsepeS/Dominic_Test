@@ -5,6 +5,7 @@ RSpec.describe Api::V1::LocationsController do
 
   before(:each) do
     @location = create(:location)
+    sign_in( :user )
   end
 
   describe 'GET /api/v1/locations' do

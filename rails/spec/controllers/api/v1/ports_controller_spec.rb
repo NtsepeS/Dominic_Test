@@ -5,6 +5,7 @@ RSpec.describe Api::V1::PortsController do
 
   before(:each) do
     @port = create(:port)
+    sign_in( :user )
   end
 
   describe 'GET /api/v1/ports' do
