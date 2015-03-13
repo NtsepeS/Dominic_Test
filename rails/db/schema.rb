@@ -38,11 +38,13 @@ ActiveRecord::Schema.define(version: 20150312055831) do
   add_index "antennas", ["location_id"], name: "index_antennas_on_location_id", using: :btree
 
   create_table "authorizations", force: :cascade do |t|
-    t.string   "email"
-    t.string   "princaple_id"
+    t.string   "email",      null: false
+    t.string   "name",       null: false
+    t.string   "invited_by", null: false
     t.string   "invite_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "role",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "base_station_sectors", force: :cascade do |t|
