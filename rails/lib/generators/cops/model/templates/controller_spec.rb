@@ -5,6 +5,7 @@ RSpec.describe Api::V1::<%= pluralized_class_name %>Controller do
 
   before(:each) do
     @<%= singular_name %> = create(:<%= singular_name %>)
+    # sign_in( :user ) # replace with correct factory name
   end
 
   describe 'GET /api/v1/<%= plural_name %>' do

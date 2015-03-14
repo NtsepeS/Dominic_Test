@@ -5,6 +5,7 @@ RSpec.describe Api::V1::GeometriesController do
 
   before(:each) do
     @geometry = create(:geometry)
+    sign_in( :user )
   end
 
   describe 'GET /api/v1/geometries' do
