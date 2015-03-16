@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-echo 4200 > ~/.pow/cops
+echo 8080 > ~/.pow/cops
 
 cd rails
 bundle

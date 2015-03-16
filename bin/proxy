@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+ 
+var httpProxy = require('http-proxy');
+ 
+var proxy = httpProxy.createServer(function (req, res, proxy) {
+  var backendHost;
+  if (/^\/(api|auth|uploads|system|users)/.exec(req.url)) {
+    backendPort = process.env.API_PORT;
+  } else {
+    backendPort = process.env.EMBER_PORT;
+  }
+ 
+  proxy.proxyRequest(req, res, {
+    host: "localhost",
+    port: backendPort
+  });
+ 
+});
+ 
+port = process.env.PROXY_PORT;
+ 
+proxy.listen(port, function() {
+  console.log("Proxying port " + port);
+});
