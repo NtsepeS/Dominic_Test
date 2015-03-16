@@ -5,7 +5,9 @@ import {
 
 moduleForModel('service-fragment', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:service', 'model:client-link', 'model:port', 'model:link-type',
+  'model:antenna', 'model:network-operator', 'model:base-station-sector',
+  'model:client', 'model:status', 'model:sub-group-picture-set']
 });
 
 test('it exists', function(assert) {

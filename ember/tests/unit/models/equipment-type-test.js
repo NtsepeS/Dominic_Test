@@ -5,7 +5,7 @@ import {
 
 moduleForModel('equipment-type', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:equipment']
 });
 
 test('it exists', function(assert) {
