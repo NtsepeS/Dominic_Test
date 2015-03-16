@@ -5,6 +5,7 @@ RSpec.describe Api::V1::ChassisController do
 
   before(:each) do
     @chassis = create(:chassis)
+    sign_in( :user )
   end
 
   describe 'GET /api/v1/chassis' do

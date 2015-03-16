@@ -5,6 +5,7 @@ RSpec.describe Api::V1::ModulationsController do
 
   before(:each) do
     @modulation = create(:modulation)
+    sign_in( :user )
   end
 
   describe 'GET /api/v1/modulations' do

@@ -5,6 +5,7 @@ RSpec.describe Api::V1::ContainersController do
 
   before(:each) do
     @container = create(:container)
+    sign_in( :user )
   end
 
   describe 'GET /api/v1/containers' do
