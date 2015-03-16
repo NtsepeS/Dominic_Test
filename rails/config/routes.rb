@@ -27,7 +27,6 @@ Rails.application.routes.draw do
       resources :containers
       resources :controller_cards
       resources :core_nodes
-      resources :equipment
       resources :group_classifications
       resources :link_types
       resources :modems
