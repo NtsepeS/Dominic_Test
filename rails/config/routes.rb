@@ -18,7 +18,6 @@ Rails.application.routes.draw do
       resources :base_station_sectors do
         collection { get 'export' }
       end
-      resources :chassis
       resources :cities
       resources :clients
       resources :client_links do
