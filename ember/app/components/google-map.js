@@ -1,4 +1,5 @@
 import Ember from 'ember';
+/* global google */
 
 export default Ember.Component.extend({
   markers: [],
