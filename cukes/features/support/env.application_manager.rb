@@ -11,7 +11,6 @@ module ChildProcess
 end
 
 class ApplicationManager
-  require 'childprocess'
   attr_accessor :rails, :ember, :rails_log, :ember_log, :proxy, :proxy_log
 
   def initialize
@@ -34,7 +33,7 @@ class ApplicationManager
     puts "Bringing the Applications Online, sit tight"
     rails.start
     ember.start
-    proxy.start  
+    proxy.start
     wait_for_processes_started
     puts "Applications Online - Happy Cuking"
   end
@@ -62,15 +61,15 @@ class ApplicationManager
 
   def dump_logs
     puts "Rails log:"
-      puts open(rails_log).read
-      puts "-"*10
-      puts "Ember log:"
-      puts open(ember_log).read
-      puts "-"*10
-      puts "Proxy log:"
-      puts open(proxy_log).read
-      puts "-"*10
-    end
+    puts open(rails_log).read
+    puts "-"*10
+    puts "Ember log:"
+    puts open(ember_log).read
+    puts "-"*10
+    puts "Proxy log:"
+    puts open(proxy_log).read
+    puts "-"*10
+  end
 
   def wait_for_processes_started
     begin
