@@ -8,8 +8,6 @@ export default Ember.ObjectController.extend({
   acceptableFrameTypes: AcceptableFrameTypes,
   actions: {
     savePort: function() {
-      var _this = this;
-      debugger
        var port = this.store.createRecord('port', {
           vlanType: this.get('newVlanType'),
           acceptableFrameType: this.get('newAcceptableFrameType'),
