@@ -41,15 +41,24 @@ class ApplicationManager
 
   def stop_stack
     puts "Stopping the Applications, hang on"
-    rails.interrupt
-    ember.interrupt
-    proxy.interrupt
+
+    interrupt "rails", rails
+    interrupt "ember", ember
+    interrupt "proxy", proxy
+
     wait_for_processes_to_exit
     puts "All done! Hope they're all passes (::) (::) (::)"
   end
 
+  private
 
-private
+  def interrupt( label, process )
+    begin
+      process.interrupt
+    rescue Errno::EPERM
+      $stderr.puts "Failed to interrupt #{label}... Process might still be running"
+    end
+  end
 
   def dump_logs
     puts "Rails log:"
@@ -84,7 +93,7 @@ private
   def wait_for_processes_to_exit
     begin
       Timeout::timeout(5) do
-        loop { break if rails.exited? && ember.exited? }
+        loop { break if rails.exited? && ember.exited? && proxy.exited? }
       end
     rescue Errno::ESRCH => e
       # Already stopped the process, no biggie
@@ -94,8 +103,8 @@ private
   end
 
   def processes_started?
-    open(rails_log).read.include?( Cukes.config.rails_started_message ) && 
+    open(rails_log).read.include?( Cukes.config.rails_started_message ) &&
       open(ember_log).read.include?( Cukes.config.ember_started_message ) &&
-      open(proxy_log).read.include?( Cukes.config.proxy_started_message ) 
+      open(proxy_log).read.include?( Cukes.config.proxy_started_message )
   end
 end
