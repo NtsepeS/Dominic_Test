@@ -15,6 +15,7 @@ export RAILS_ENV=test
 export BROWSER=poltergeist
 
 # install all the things
+npm install
 
 silently cd rails
 bundle install
