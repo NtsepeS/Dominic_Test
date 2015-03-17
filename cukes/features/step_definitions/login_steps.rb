@@ -15,15 +15,15 @@ When(/^I successfully authenticate$/) do
 end
 
 Then(/^I should be on the home page$/) do
-	expect(page.current_path).to eql("/") 
+  expect(page.current_path).to eql("/") 
 end
 
 Then(/^I should be logged in$/) do
-	expect( page ).to have_text(@user.gsub(".", " "))
+  expect( page ).to have_text(@user.gsub(".", " "))
 end
 
 Given(/^I'm logged in as a user$/) do
-	@app.login.load
-	@app.login.login_as_user
+  @app.login.load
+  @app.login.login_as_user
 end
 

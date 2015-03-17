@@ -1,5 +1,5 @@
 Given(/^I have a client "(.*?)"$/) do |client_name|
-	FactoryGirl.create :client, :name => client_name
+  FactoryGirl.create :client, :name => client_name
 end
 
 Given(/^I'm on the client links page$/) do
