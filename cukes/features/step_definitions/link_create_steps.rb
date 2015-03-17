@@ -3,26 +3,25 @@ Given(/^I have a client "(.*?)"$/) do |client_name|
 end
 
 Given(/^I'm on the client links page$/) do
-  visit "/client-links"
+  @app.client_links.load
 end
 
 When(/^I create a new client link$/) do
-  find('.add-client-link').click
+  @app.client_links.new_client_link
 end
 
 When(/^I populate the Site Information as follows:$/) do |table|
   data = table.rows_hash
 
-  select data['Client'], from: "client-select"
-  fill_in 'branch-input', with: data['Branch']
+  @app.client_link.site_information(data)
 end
 
 When(/^I save the new client link$/) do
-  find('.save').click
+  @app.client_link.save
 end
 
 Then(/^a new client link titled "(.*?)" is created$/) do |title|
-  visit "/client-links"
+  @app.client_links.load
   expect( page ).to have_text(title)
 end
 

@@ -10,7 +10,7 @@ class Cukes
     config.ember_started_message = "Build successful"
     config.host = "http://localhost:4200"
     config.browser = (ENV["BROWSER"] || 'selenium').to_sym
-    config.startup_timeout = 45
+    config.startup_timeout = 15
   end
 
 end

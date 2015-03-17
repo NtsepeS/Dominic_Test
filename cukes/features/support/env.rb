@@ -5,7 +5,7 @@ require 'pry'
 require 'database_cleaner'
 require 'active_support/dependencies'
 require_relative '../../config/cukes'
-
+require 'site_prism'
 require 'capybara/cucumber'
 require 'capybara/poltergeist'
 Capybara.default_driver = Cukes.config.browser
