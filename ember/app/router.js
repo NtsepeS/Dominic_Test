@@ -22,6 +22,8 @@ Router.map(function() {
       this.route('edit');
     });
 
+    this.route('client-side-ports');
+
     this.route('service-fragments', function() {
       this.route('new');
     });

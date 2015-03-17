@@ -1,0 +1,42 @@
+<div class="container">
+  <section class="row">
+  <h2>Client Side Ports</h2>
+    <table class="table table-hover js-port-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>VLAN Type</th>
+          <th>Acceptable Frame Type</th>
+          <th>Default VLAN</th>
+          <th>VLANs</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+
+      {{#each serviceFragment in model.serviceFragments}}
+        {{#each service in serviceFragment.services}}
+          {{#each port in service.ports}}
+            {{#link-to 'port' serviceFragment.id service.id port.id tagName="tr"}}
+              <td>{{port.id}}</td>
+              <td>{{port.vlanType}}</td>
+              <td>{{port.acceptableFrameType}}</td>
+              <td>{{port.defaultVlan}}</td>
+              <td>
+                {{#link-to 'service' serviceFragment.id service.id}}
+                  {{port.service.vlan}}
+                {{/link-to}}
+              </td>
+              <td>
+                {{#link-to 'port.edit' serviceFragment.id service.id port.id}}
+                <span class="glyphicon glyphicon-edit pull-right" aria-hidden="true"></span>
+                {{/link-to}}
+              </td>
+            {{/link-to}}
+          {{/each}}
+        {{/each}}
+      {{/each}}
+     </tbody>
+    </table>
+  </section>
+</div>
