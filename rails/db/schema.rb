@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150219104732) do
+ActiveRecord::Schema.define(version: 20150317145742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 20150219104732) do
     t.string   "billing_account"
     t.string   "service_account"
     t.string   "service_account_site"
+    t.integer  "radio_id"
   end
 
   add_index "client_links", ["antenna_id"], name: "index_client_links_on_antenna_id", using: :btree
