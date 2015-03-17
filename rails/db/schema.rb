@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150317172652) do
+ActiveRecord::Schema.define(version: 20150317203208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -202,7 +202,10 @@ ActiveRecord::Schema.define(version: 20150317172652) do
     t.integer  "uplink_max"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "radio_id"
   end
+
+  add_index "modulations", ["radio_id"], name: "index_modulations_on_radio_id", using: :btree
 
   create_table "network_operators", force: :cascade do |t|
     t.string   "name"
