@@ -4,11 +4,6 @@ class ClientLinksPage < SitePrism::Page
 
   element :add_client_link, '.add-client-link'
 
-  # def visit_page
-  #   visit "/client-links"
-  #   self
-  # end
-
   def new_client_link
 		add_client_link.click
   end

@@ -7,4 +7,4 @@ Feature: Users can login
         When I follow the login link
         And I successfully authenticate
         Then I should be on the home page
-        And I should see ?
+        And I should be logged in
