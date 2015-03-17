@@ -4,6 +4,9 @@
       {{#link-to 'service'}}
       <button type="button" class="btn btn-primary pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Service</button>
       {{/link-to}}
+      {{#link-to 'client-link.client-side-ports'}}
+      <button type="button" class="btn btn-primary pull-right"> Client Side Ports <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+      {{/link-to}}
       <span>Port</span>
     </h2>
     <div class="row show">
@@ -17,6 +20,10 @@
     <div class="row show">
       <label class="col-sm-2 control-label">Default VLAN:</label>
         {{model.defaultVlan}}
+    </div>
+    <div class="row show">
+      <label class="col-sm-2 control-label">VLANs:</label>
+        {{model.service.vlan}}
     </div>
     <div class="row pull-right">
       {{#link-to 'port.edit' model.id}}

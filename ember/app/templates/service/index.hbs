@@ -48,6 +48,7 @@
           </tr>
         </thead>
         <tbody>
+        {{#if model.ports.length}}
         {{#each port in model.ports}}
           {{#link-to 'port' port.id tagName="tr"}}
             <td>{{port.id}}</td>
@@ -62,6 +63,13 @@
             </td>
           {{/link-to}}
         {{/each}}
+        {{else}}
+        <tr>
+          <td colspan="6">
+            <div class="alert alert-warning" role="alert">There's no ports configured on this service.</div>
+          </td>
+        </tr>
+        {{/if}}
         </tbody>
       </table>
       <div class="panel-footer">
