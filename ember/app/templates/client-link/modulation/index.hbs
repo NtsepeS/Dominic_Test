@@ -2,6 +2,12 @@
   <section class="row">
     <h2> Modulation </h2>
 
+{{#each modulation in radio.modulations}}
+  {{modulation.downlinkMin}}
+  {{modulation.downlinkMax}}
+  {{modulation.uplinkMin}}
+  {{modulation.uplinkMax}}
+{{/each}}
     <div class="row">
       <div class="col-md-1"></div>
       <div class="col-md-2"></div>
