@@ -1,0 +1,9 @@
+<h1>Core Nodes</h1>
+<div class="row">
+  <div class="col-md-3">
+    {{partial 'maps/map-filters'}}
+  </div>
+  <div class="col-md-9">
+    {{google-map nodes=model filters=filterCollection}}
+  </div>
+</div>
