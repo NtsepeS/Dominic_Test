@@ -6,10 +6,10 @@ class ISIDPage < SitePrism::Page
   element :sign_in, ".btn-primary"
 
   def authenticate(username="Justin.Naidu")
-  	username_input.set(username)
-  	password_input.set("123Boom!")
-  	provider_select.select("Fake IS Staff")
-  	sign_in.click
-  	return username
+    username_input.set(username)
+    password_input.set("123Boom!")
+    provider_select.select("Fake IS Staff")
+    sign_in.click
+    return username
   end
 end
