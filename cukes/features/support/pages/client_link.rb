@@ -7,11 +7,11 @@ class ClientLinkPage < SitePrism::Page
   element :save_button, ".save"
 
   def site_information(data)
-  	client_select.select(data['Client']) if data.has_key? 'Client'
-  	branch_input.set(data['Branch']) if data.has_key? 'Branch'
+    client_select.select(data['Client']) if data.has_key? 'Client'
+    branch_input.set(data['Branch']) if data.has_key? 'Branch'
   end
 
   def save
-  	save_button.click
+    save_button.click
   end
 end

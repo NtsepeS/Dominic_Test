@@ -1,5 +1,5 @@
 Given(/^I have a client "(.*?)"$/) do |client_name|
-	FactoryGirl.create :client, :name => client_name
+  FactoryGirl.create :client, :name => client_name
 end
 
 Given(/^I'm on the client links page$/) do
@@ -21,7 +21,6 @@ When(/^I save the new client link$/) do
 end
 
 Then(/^a new client link titled "(.*?)" is created$/) do |title|
-  @app.client_links.load
   expect( page ).to have_text(title)
 end
 

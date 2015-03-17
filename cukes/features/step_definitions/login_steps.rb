@@ -3,23 +3,27 @@ Given(/^I'm on the home page$/) do
 end
 
 Then(/^I should see a login prompt$/) do
-  p page.body
-  expect( page ).to have_css('.login-box')
+  expect( page ).to have_css('#login')
 end
 
 When(/^I follow the login link$/) do
-  pending # express the regexp above with the code you wish you had
+  @app.login.follow_login_link
 end
 
 When(/^I successfully authenticate$/) do
-  pending # express the regexp above with the code you wish you had
+  @user = @app.isid.authenticate
 end
 
 Then(/^I should be on the home page$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(page.current_path).to eql("/") 
 end
 
-Then(/^I should see \?$/) do
-  pending # express the regexp above with the code you wish you had
+Then(/^I should be logged in$/) do
+  expect( page ).to have_text(@user.gsub(".", " "))
+end
+
+Given(/^I'm logged in as a user$/) do
+  @app.login.load
+  @app.login.login_as_user
 end
 
