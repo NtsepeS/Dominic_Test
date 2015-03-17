@@ -1,6 +1,8 @@
 <h1>Core Node <small>{{model.name}}</small></h1>
 <div class="row">
-  {{partial 'maps/map-filters'}}
+  <div class="col-md-3">
+    {{partial 'maps/map-filters'}}
+  </div>
   <div class="col-md-9">
     {{google-map nodes=nodes filters=filterCollection}}
   </div>
