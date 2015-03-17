@@ -132,6 +132,9 @@ Port.where(vlan_type: 'Provider Port', acceptable_frame_type: 'Tagged Only', def
 Port.where(vlan_type: 'Provider Port', acceptable_frame_type: 'Tagged Only', default_vlan: '143', service_id: 2).first_or_create
 Port.where(vlan_type: 'Provider Port', acceptable_frame_type: 'Tagged Only', default_vlan: '143', service_id: 3).first_or_create
 
+Radio.where(name: 'abcd', item_code: '1234', icasa_sticker: true).first_or_create
+Radio.where(name: 'aden', item_code: '12345', icasa_sticker: false).first_or_create
+
 BaseStationSector.where(name: "Sector 3", status_id: 1,sector: 3, base_station_unit:
   BaseStationUnit.where(name: "base-station 1", status_id: 1,
     core_node: CoreNode.where(name: 'Pretoria', status_id: 1,
@@ -142,7 +145,7 @@ BaseStationSector.where(name: "Sector 3", status_id: 1,sector: 3, base_station_u
   ).first_or_create
 ).first_or_create
 
-ClientLink.where(name: 'Garsfontein (4): Dimension Data - Santam - Kasteelpark', msad_number: "16.4", solution_identifier: "QW648-RT92", status_id: 1, base_station_sector_id: 1,
+ClientLink.where(name: 'Garsfontein (4): Dimension Data - Santam - Kasteelpark', msad_number: "16.4", solution_identifier: "QW648-RT92", status_id: 1, base_station_sector_id: 1, radio_id: 1,
   antenna: Antenna.where(size: "30cm", item_code: 'abc',
     location: Location.where(
       geometry:
@@ -152,7 +155,7 @@ ClientLink.where(name: 'Garsfontein (4): Dimension Data - Santam - Kasteelpark',
   ).first_or_create
 
 
-ClientLink.where(name: 'BMW', msad_number: "16.4", solution_identifier: "QW648-RT92", status_id: 2, base_station_sector_id: 1,
+ClientLink.where(name: 'BMW', msad_number: "16.4", solution_identifier: "QW648-RT92", status_id: 2, base_station_sector_id: 1, radio_id: 2,
   antenna: Antenna.where(size: "30cm", item_code: 'abc',
     location: Location.where(
       geometry:
