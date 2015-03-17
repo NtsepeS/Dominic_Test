@@ -17,7 +17,7 @@ var proxy = httpProxy.createServer(function (req, res, proxy) {
 
 });
 
-port = process.env.PROXY_PORT || 8080;
+port = process.env.PROXY_PORT || 3001;
 
 proxy.listen(port, function() {
   console.log("Proxying port " + port);
