@@ -1,65 +1,65 @@
-<div class="well well-sm">
-  <h3>Filters</h3>
-  <div class="status-option client-link">
+<div class="c-map-filter well well-sm">
+  <h3 class="c-map-filter__header">Filters</h3>
+  <div class="c-map-filter__toggle client-link">
     <label>
-      {{input type="checkbox" checked=filterClientLinks class="toggle filter"}}
+      {{input type="checkbox" checked=filterClientLinks}}
       <span class="glyphicon glyphicon-signal client-link" aria-hidden="true"></span>
       Client Links
     </label>
   </div>
-  <hr>
-  <div class="status-option operational">
+  <hr class="c-map-filter__divider">
+  <div class="c-map-filter__toggle operational">
     <label>
-    {{input type="checkbox" checked=filterOperational class="toggle filter"}}
+    {{input type="checkbox" checked=filterOperational}}
     <span class="glyphicon glyphicon-stop operational" aria-hidden="true"></span>
     Operational
     </label>
   </div>
-  <div class="status-option under-construction">
+  <div class="c-map-filter__toggle under-construction">
     <label>
-    {{input type="checkbox" checked=filterUnderConstruction class="toggle filter"}}
+    {{input type="checkbox" checked=filterUnderConstruction}}
     <span class="glyphicon glyphicon-stop under-construction" aria-hidden="true"></span>
     Under Construction
     </label>
   </div>
-  <div class="status-option decommissioned">
+  <div class="c-map-filter__toggle decommissioned">
     <label>
-    {{input type="checkbox" checked=filterDecommissioned class="toggle filter"}}
+    {{input type="checkbox" checked=filterDecommissioned}}
     <span class="glyphicon glyphicon-stop decommissioned" aria-hidden="true"></span>
     Decommissioned
     </label>
   </div>
-  <div class="status-option commissioning">
+  <div class="c-map-filter__toggle commissioning">
     <label>
-    {{input type="checkbox" checked=filterCommissioning class="toggle filter"}}
+    {{input type="checkbox" checked=filterCommissioning}}
     <span class="glyphicon glyphicon-stop commissioning" aria-hidden="true"></span>
     Commissioning
     </label>
   </div>
-  <div class="status-option to-be-decommissioned">
+  <div class="c-map-filter__toggle to-be-decommissioned">
     <label>
-    {{input type="checkbox" checked=filterToBeDecommissioned class="toggle filter"}}
+    {{input type="checkbox" checked=filterToBeDecommissioned}}
     <span class="glyphicon glyphicon-stop to-be-decommissioned" aria-hidden="true"></span>
     To Be Decommissioned
     </label>
   </div>
-  <div class="status-option waiting-for-field-service-engineer-report">
+  <div class="c-map-filter__toggle waiting-for-field-service-engineer-report">
     <label>
-    {{input type="checkbox" checked=filterWaitingForFieldServiceEngineerReport class="toggle filter"}}
+    {{input type="checkbox" checked=filterWaitingForFieldServiceEngineerReport}}
     <span class="glyphicon glyphicon-stop waiting-for-field-service-engineer-report" aria-hidden="true"></span>
     Waiting for Field Service Engineer Report
     </label>
   </div>
-  <div class="status-option waiting-for-field-services-qa-approval">
+  <div class="c-map-filter__toggle waiting-for-field-services-qa-approval">
     <label>
-    {{input type="checkbox" checked=filterWaitingForFieldServicesQAApproval class="toggle filter"}}
+    {{input type="checkbox" checked=filterWaitingForFieldServicesQAApproval}}
     <span class="glyphicon glyphicon-stop waiting-for-field-services-qa-approval" aria-hidden="true"></span>
     Waiting for Field Services QA Approval
     </label>
   </div>
-  <div class="status-option waiting-for-is-qa-approval">
+  <div class="c-map-filter__toggle waiting-for-is-qa-approval">
     <label>
-    {{input type="checkbox" checked=filterWaitingForISQAApproval class="toggle filter"}}
+    {{input type="checkbox" checked=filterWaitingForISQAApproval}}
     <span class="glyphicon glyphicon-stop waiting-for-is-qa-approval" aria-hidden="true"></span>
     Waiting for IS QA Approval
     </label>

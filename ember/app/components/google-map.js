@@ -2,7 +2,7 @@ import Ember from 'ember';
 /* global google */
 
 export default Ember.Component.extend({
-  classNames: "map-canvas",
+  classNames: "c-map-canvas",
   markers: [],
   paths:   [],
 
