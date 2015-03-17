@@ -60,6 +60,7 @@
           </tr>
         </thead>
         <tbody>
+      {{#if model.services.length}}
       {{#each service in model.services}}
         {{#link-to 'service' service.id tagName="tr"}}
           <td>{{service.id}}</td>
@@ -73,6 +74,13 @@
           </td>
         {{/link-to}}
       {{/each}}
+      {{else}}
+        <tr>
+          <td colspan="6">
+            <div class="alert alert-warning" role="alert">There's no services configured on this service fragment.</div>
+          </td>
+        </tr>
+      {{/if}}
         </tbody>
       </table>
       <div class="panel-footer">

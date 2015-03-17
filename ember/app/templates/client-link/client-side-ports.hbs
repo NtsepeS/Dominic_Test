@@ -13,29 +13,36 @@
         </tr>
       </thead>
       <tbody>
-
-      {{#each serviceFragment in model.serviceFragments}}
-        {{#each service in serviceFragment.services}}
-          {{#each port in service.ports}}
-            {{#link-to 'port' serviceFragment.id service.id port.id tagName="tr"}}
-              <td>{{port.id}}</td>
-              <td>{{port.vlanType}}</td>
-              <td>{{port.acceptableFrameType}}</td>
-              <td>{{port.defaultVlan}}</td>
-              <td>
-                {{#link-to 'service' serviceFragment.id service.id}}
-                  {{port.service.vlan}}
-                {{/link-to}}
-              </td>
-              <td>
-                {{#link-to 'port.edit' serviceFragment.id service.id port.id}}
-                <span class="glyphicon glyphicon-edit pull-right" aria-hidden="true"></span>
-                {{/link-to}}
-              </td>
-            {{/link-to}}
+      {{#if model.serviceFragments.length}}
+        {{#each serviceFragment in model.serviceFragments}}
+          {{#each service in serviceFragment.services}}
+            {{#each port in service.ports}}
+              {{#link-to 'port' serviceFragment.id service.id port.id tagName="tr"}}
+                <td>{{port.id}}</td>
+                <td>{{port.vlanType}}</td>
+                <td>{{port.acceptableFrameType}}</td>
+                <td>{{port.defaultVlan}}</td>
+                <td>
+                  {{#link-to 'service' serviceFragment.id service.id}}
+                    {{port.service.vlan}}
+                  {{/link-to}}
+                </td>
+                <td>
+                  {{#link-to 'port.edit' serviceFragment.id service.id port.id}}
+                  <span class="glyphicon glyphicon-edit pull-right" aria-hidden="true"></span>
+                  {{/link-to}}
+                </td>
+              {{/link-to}}
+            {{/each}}
           {{/each}}
         {{/each}}
-      {{/each}}
+      {{else}}
+      <tr>
+        <td colspan="6">
+          <div class="alert alert-warning" role="alert">There's no services fragments configured on this Client Link.</div>
+        </td>
+      </tr>
+      {{/if}}
      </tbody>
     </table>
   </section>
