@@ -70,7 +70,9 @@ SubGroupPictureSet.where(album_id: 2, sub_group_classification_id: 2, client_lin
 
 RfPerformanceParameter.where(uplink_rssi: "Some RSSI", downlink_rssi: "Some RSSI").first_or_create
 AntennaParameter.where(polarization: "polarization").first_or_create
-Modulation.where(uplink_max: 5).first_or_create
+Modulation.where(uplink_max: 5, uplink_min: 5, downlink_min: 2, downlink_max: 3, radio_id: 1).first_or_create
+Modulation.where(uplink_max: 3, uplink_min: 7, downlink_min: 3, downlink_max: 1, radio_id: 1).first_or_create
+Modulation.where(uplink_max: 3, uplink_min: 6, downlink_min: 5, downlink_max: 4, radio_id: 2).first_or_create
 OperatingParameter.where(location_id: 1, parameterized: RfPerformanceParameter.find(1)).first_or_create
 OperatingParameter.where(location_id: 1, parameterized: AntennaParameter.find(1)).first_or_create
 OperatingParameter.where(location_id: 1, parameterized: Modulation.find(1)).first_or_create
