@@ -15,6 +15,8 @@ export RAILS_ENV=test
 export BROWSER=poltergeist
 
 # install all the things
+
+# Root directory npm install
 npm install
 
 silently cd rails
