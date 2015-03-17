@@ -50,6 +50,9 @@ Router.map(function() {
 
     });
   });
+  this.resource('maps', { path: 'maps/core-nodes/' }, function() {
+    this.route('view' , { path: ':coreNodeId' });
+  });
 });
 
 export default Router;

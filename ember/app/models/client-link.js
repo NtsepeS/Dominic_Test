@@ -19,7 +19,15 @@ var ClientLink = DS.Model.extend({
   client:              DS.belongsTo('client', {async: true}),
   status:              DS.belongsTo('status', {async: true}),
   subGroupPictureSets: DS.hasMany('sub-group-picture-set', {async: true}),
-  serviceFragments:    DS.hasMany('service-fragment', {async: true})
+  serviceFragments:    DS.hasMany('service-fragment', {async: true}),
+
+  latitude: function() {
+    return this.get('antenna.location.geometry.latitude');
+  }.property('location'),
+
+  longitude: function() {
+    return this.get('antenna.location.geometry.longitude');
+  }.property('location')
 });
 
 export default ClientLink;

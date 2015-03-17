@@ -113,11 +113,6 @@ section.row h2 {
   }
 }
 
-.js-new-client-link{
-  border: 1px solid #cacaca;
-  margin: 0px 30px 0px 30px;
-}
-
 .glyphicon {
   font-size: 1.2em;
 }
@@ -146,39 +141,16 @@ section.row h2 {
   cursor: hand;
 }
 
-
-.dark-header {
-  background-color: #2D4055;
-  color: white;
-  margin-left: 0;
-  margin-right: 0;
-  padding: 0.6em;
+.sub-header.client-links {
+  display: inline-block;
 }
 
-span.glyphicon.glyphicon-remove-sign.delete {
-  color: #DE433D;
+.client-links-header {
+  margin-bottom: 32px;
 }
 
-span.glyphicon.glyphicon.glyphicon-plus-sign.js-actions.add {
-  color: #5F8A2F;
-}
-
-.center {
-  text-align: center;
-}
-
-.light-header {
-  background-color: rgba(0, 174, 239, 0.2);
-}
-
-.table-bordered.table-fragments {
-  border: 2px solid #2D4055;
-}
-
-.show {
-  padding-top: 7px;
-}
-
-.center {
-  text-align: center;
+.client-links-actions {
+  a {
+    margin: -17px 0 0 15px;
+  }
 }

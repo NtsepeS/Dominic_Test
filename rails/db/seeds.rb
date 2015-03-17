@@ -23,20 +23,26 @@ Status.where(name: "Operational").first_or_create
 Status.where(name: "Audit Done").first_or_create
 Status.where(name: "Audit In Progress").first_or_create
 Status.where(name: "Decommissioned").first_or_create
+Status.where(name: "Commissioning").first_or_create
+Status.where(name: "Under Construction").first_or_create
+Status.where(name: "To Be Decommissioned").first_or_create
+Status.where(name: "Waiting for Field Service Engineer Report").first_or_create
+Status.where(name: "Waiting for Field Services QA Approval").first_or_create
+Status.where(name: "Waiting for IS QA Approval").first_or_create
 
-CoreNode.where(name: "Afgri Isando", status_id: 1, city_id: 1, location_id: 2).first_or_create
-CoreNode.where(name: "Bryanston Towers", status_id: 1, city_id: 1, location_id: 2).first_or_create
-BaseStationUnit.where(name: "w-isando-bsu1", status_id: 1, core_node_id: 1).first_or_create
-BaseStationUnit.where(name: "w-bry-bsu1", status_id: 1, core_node_id: 2).first_or_create
-BaseStationSector.where(name: "w-isando-bsu1 Sector 1", status_id: 1, base_station_unit_id: 1, sector: 1).first_or_create
-BaseStationSector.where(name: "w-isando-bsu1 Sector 2", status_id: 1, base_station_unit_id: 1, sector: 2).first_or_create
-BaseStationSector.where(name: "w-bry-bsu1 Sector 3", status_id: 1, base_station_unit_id: 2, sector: 3).first_or_create
-BaseStationSector.where(name: "w-bry-bsu1 Sector 4", status_id: 1, base_station_unit_id: 2, sector: 4).first_or_create
-ClientLink.where(name: "Afgri Isando (4): Bridgestone - Isando", branch: "Isando", circuit_number: "1-19BL0L4-W-ISANDO-BSU1", msad_number: "4.22", activation_date: "2014-09-29", mac_address: "00:05:59:4C:36:9E", distance: "555", client_id: 1, status_id: 4, network_operator_id: 1, link_type_id: 1, base_station_sector_id: 1, antenna_id: 1, solution_identifier: "1-19BL0L4", billing_account: "Bridgestone", service_account: "Bridgestone", service_account_site: "ORA-4082_BRI004").first_or_create
-ClientLink.where(name: "Bryanston Towers (4): Adcorp - Bryanston", branch: "Bryanston", circuit_number: "1-NFO7FJ-W-BRY-BSU1", msad_number: "4.3", activation_date: "2012-02-24", mac_address: "00:05:59:4C:28:52", distance: "642", client_id: 2, status_id: 1, network_operator_id: 1, link_type_id: 1, base_station_sector_id: 3, antenna_id: 2, solution_identifier: "1-NFO7FJ", billing_account: "DIMENSION DATA (PTY) LTD - ADCORP", service_account: "DIMENSION DATA (PTY) LTD - ADCORP - BRYANSTON", service_account_site: "BRYANSTON").first_or_create
+# CoreNode.where(name: "Afgri Isando", status_id: 1, city_id: 1, location_id: 2).first_or_create
+# CoreNode.where(name: "Bryanston Towers", status_id: 1, city_id: 1, location_id: 2).first_or_create
+# BaseStationUnit.where(name: "w-isando-bsu1", status_id: 1, core_node_id: 1).first_or_create
+# BaseStationUnit.where(name: "w-bry-bsu1", status_id: 1, core_node_id: 2).first_or_create
+# BaseStationSector.where(name: "w-isando-bsu1 Sector 1", status_id: 1, base_station_unit_id: 1, sector: 1).first_or_create
+# BaseStationSector.where(name: "w-isando-bsu1 Sector 2", status_id: 1, base_station_unit_id: 1, sector: 2).first_or_create
+# BaseStationSector.where(name: "w-bry-bsu1 Sector 3", status_id: 1, base_station_unit_id: 2, sector: 3).first_or_create
+# BaseStationSector.where(name: "w-bry-bsu1 Sector 4", status_id: 1, base_station_unit_id: 2, sector: 4).first_or_create
+ClientLink.where(name: "Upington", branch: "Isando", circuit_number: "1-19BL0L4-W-ISANDO-BSU1", msad_number: "4.22", activation_date: "2014-09-29", mac_address: "00:05:59:4C:36:9E", distance: "555", client_id: 1, status_id: 4, network_operator_id: 1, link_type_id: 1, base_station_sector_id: 1, antenna_id: 1, solution_identifier: "1-19BL0L4", billing_account: "Bridgestone", service_account: "Bridgestone", service_account_site: "ORA-4082_BRI004").first_or_create
+ClientLink.where(name: "Britstown", branch: "Bryanston", circuit_number: "1-NFO7FJ-W-BRY-BSU1", msad_number: "4.3", activation_date: "2012-02-24", mac_address: "00:05:59:4C:28:52", distance: "642", client_id: 2, status_id: 1, network_operator_id: 1, link_type_id: 1, base_station_sector_id: 3, antenna_id: 2, solution_identifier: "1-NFO7FJ", billing_account: "DIMENSION DATA (PTY) LTD - ADCORP", service_account: "DIMENSION DATA (PTY) LTD - ADCORP - BRYANSTON", service_account_site: "BRYANSTON").first_or_create
 
-Geometry.where(latitude: "800.01", longitude: "900.1", altitude: "1.0").first_or_create
-Geometry.where(latitude: "600.02", longitude: "700.2", altitude: "2.0").first_or_create
+Geometry.where(latitude: "-28.435476", longitude: "21.208517", altitude: "1.0").first_or_create
+Geometry.where(latitude: "-30.380982", longitude: "22.4278566", altitude: "2.0").first_or_create
 Vicinity.where(physical_address: "22 Made up street, Sandton, Gauteng, South Africa").first_or_create
 Vicinity.where(physical_address: "P Sherman 42 Wallaby Way, Sydney, Australia").first_or_create
 
@@ -69,6 +75,44 @@ OperatingParameter.where(location_id: 1, parameterized: RfPerformanceParameter.f
 OperatingParameter.where(location_id: 1, parameterized: AntennaParameter.find(1)).first_or_create
 OperatingParameter.where(location_id: 1, parameterized: Modulation.find(1)).first_or_create
 
+
+Geometry.where(latitude: "-26.7217916", longitude: "27.8487259", altitude: "1").first_or_create
+Geometry.where(latitude: "-25.7586499", longitude: "28.219682", altitude: "2.0").first_or_create
+Geometry.where(latitude: "-26.2145598", longitude: "27.964365", altitude: "2.0").first_or_create
+Geometry.where(latitude: "-33.9149861", longitude: "18.6560594", altitude: "2.0").first_or_create
+Geometry.where(latitude: "-29.8483794", longitude: "30.9924624", altitude: "2.0").first_or_create
+Geometry.where(latitude: "-28.7238759", longitude: "24.7232065", altitude: "2.0").first_or_create
+
+Location.where(geometry_id: 3).first_or_create
+Location.where(geometry_id: 4).first_or_create
+Location.where(geometry_id: 5).first_or_create
+Location.where(geometry_id: 6).first_or_create
+Location.where(geometry_id: 7).first_or_create
+Location.where(geometry_id: 8).first_or_create
+
+Antenna.where(size: "30cm", item_code: 'abc', location_id: 3).first_or_create # Id = 3
+Antenna.where(size: "30cm",  item_code: 'def', location_id: 4).first_or_create
+Antenna.where(size: "30cm", item_code: 'abc', location_id: 5).first_or_create
+Antenna.where(size: "30cm",  item_code: 'def', location_id: 6).first_or_create
+Antenna.where(size: "30cm", item_code: 'abc', location_id: 7).first_or_create
+Antenna.where(size: "30cm",  item_code: 'def', location_id: 8).first_or_create
+
+CoreNode.where(name: 'Pretoria', location_id: 4, status_id: 1).first_or_create
+CoreNode.where(name: 'Johannesburg', location_id: 5, status_id: 6).first_or_create
+CoreNode.where(name: 'Vanderbijlpark', location_id: 3, status_id: 4).first_or_create
+
+BaseStationUnit.where(name: "base-station 1", status_id: 1, core_node_id: 1).first_or_create
+BaseStationUnit.where(name: "base-station 2", status_id: 1, core_node_id: 2).first_or_create
+BaseStationUnit.where(name: "base-station 3", status_id: 1, core_node_id: 3).first_or_create
+
+BaseStationSector.where(name: "Sector 1", status_id: 1, base_station_unit_id: 1, sector: 1).first_or_create
+BaseStationSector.where(name: "Sector 2", status_id: 1, base_station_unit_id: 2, sector: 2).first_or_create
+BaseStationSector.where(name: "Sector 3", status_id: 1, base_station_unit_id: 3, sector: 3).first_or_create
+
+ClientLink.where(name: "Capetwm", antenna_id: 6, base_station_sector_id: 1, status_id: 1).first_or_create
+ClientLink.where(name: "Durban", antenna_id: 7, base_station_sector_id: 2, status_id: 1).first_or_create
+ClientLink.where(name: "Kimberly", antenna_id: 8, base_station_sector_id: 3, status_id: 5).first_or_create
+
 # Service Fragment Test
 ServiceFragment.where(work_order_number: "123", line_speed: 14, service_type: "Voice (rtPS)",  physical_mode: "4QAM" ,client_link_id: 1).first_or_create
 ServiceFragment.where(work_order_number: "234", line_speed: 2, service_type: "Voice (rtPS)",  physical_mode: "4QAM" ,client_link_id: 1).first_or_create
@@ -84,20 +128,112 @@ Service.where(linetag: "linetag-6", line_speed: 2, vlan: "[143]", service_fragme
 
 Port.where(vlan_type: 'Provider Port', acceptable_frame_type: 'Tagged Only', default_vlan: '143', service_id: 1).first_or_create
 Port.where(vlan_type: 'VLAN Transparent', acceptable_frame_type: 'Tagged Only', default_vlan: '143', service_id: 1).first_or_create
+Port.where(vlan_type: 'Provider Port', acceptable_frame_type: 'Tagged Only', default_vlan: '143', service_id: 1).first_or_create
 Port.where(vlan_type: 'Provider Port', acceptable_frame_type: 'Tagged Only', default_vlan: '143', service_id: 2).first_or_create
 Port.where(vlan_type: 'Provider Port', acceptable_frame_type: 'Tagged Only', default_vlan: '143', service_id: 3).first_or_create
 
+BaseStationSector.where(name: "Sector 3", status_id: 1,sector: 3, base_station_unit:
+  BaseStationUnit.where(name: "base-station 1", status_id: 1,
+    core_node: CoreNode.where(name: 'Pretoria', status_id: 1,
+      location: Location.where(
+        geometry: Geometry.where(latitude: "-29.7369478", longitude: "31.0211299", altitude: "1").first_or_create
+      ).first_or_create
+    ).first_or_create
+  ).first_or_create
+).first_or_create
+
+ClientLink.where(name: 'Garsfontein (4): Dimension Data - Santam - Kasteelpark', msad_number: "16.4", solution_identifier: "QW648-RT92", status_id: 1, base_station_sector_id: 1,
+  antenna: Antenna.where(size: "30cm", item_code: 'abc',
+    location: Location.where(
+      geometry:
+        Geometry.where(latitude: "-25.78967", longitude: "28.27864", altitude: "1").first_or_create
+      ).first_or_create
+    ).first_or_create
+  ).first_or_create
 
 
+ClientLink.where(name: 'BMW', msad_number: "16.4", solution_identifier: "QW648-RT92", status_id: 2, base_station_sector_id: 1,
+  antenna: Antenna.where(size: "30cm", item_code: 'abc',
+    location: Location.where(
+      geometry:
+        Geometry.where(latitude: "-25.981970", longitude: "28.130860", altitude: "1").first_or_create
+      ).first_or_create
+    ).first_or_create
+  ).first_or_create
 
+ClientLink.where(name: 'Bayport', msad_number: "16.4", solution_identifier: "QW648-RT92", status_id: 3, base_station_sector_id: 1,
+  antenna: Antenna.where(size: "30cm", item_code: 'abc',
+    location: Location.where(
+      geometry:
+        Geometry.where(latitude: "-26.054806", longitude: "28.060833", altitude: "1").first_or_create
+      ).first_or_create
+    ).first_or_create
+  ).first_or_create
 
+ClientLink.where(name: 'BMW', msad_number: "16.4", solution_identifier: "QW648-RT92", status_id: 1, base_station_sector_id: 1,
+  antenna: Antenna.where(size: "30cm", item_code: 'abc',
+    location: Location.where(
+      geometry:
+        Geometry.where(latitude: "-23.912790", longitude: "29.444181", altitude: "1").first_or_create
+      ).first_or_create
+    ).first_or_create
+  ).first_or_create
 
+ClientLink.where(name: 'Blue Label Distribution', msad_number: "16.4", solution_identifier: "QW648-RT92", status_id: 5, base_station_sector_id: 1,
+  antenna: Antenna.where(size: "30cm", item_code: 'abc',
+    location: Location.where(
+      geometry:
+        Geometry.where(latitude: "-26.100028", longitude: "28.051056", altitude: "1").first_or_create
+      ).first_or_create
+    ).first_or_create
+  ).first_or_create
 
+# ########################################################################
 
+ClientLink.where(name: 'Blue Label Distribution 1', msad_number: "16.4", solution_identifier: "QW648-RT92", status_id: 6, base_station_sector_id: 4,
+  antenna: Antenna.where(size: "30cm", item_code: 'abc',
+    location: Location.where(
+      geometry:
+        Geometry.where(latitude: "29.7337613", longitude: "30.965405", altitude: "1").first_or_create
+      ).first_or_create
+    ).first_or_create
+  ).first_or_create
 
+ClientLink.where(name: 'Blue Label Distribution 2', msad_number: "16.4", solution_identifier: "QW648-RT92", status_id: 7, base_station_sector_id: 4,
+  antenna: Antenna.where(size: "30cm", item_code: 'abc',
+    location: Location.where(
+      geometry:
+        Geometry.where(latitude: "-29.7751875", longitude: "30.9393704", altitude: "1").first_or_create
+      ).first_or_create
+    ).first_or_create
+  ).first_or_create
 
+ClientLink.where(name: 'Blue Label Distribution 3', msad_number: "16.4", solution_identifier: "QW648-RT92", status_id: 8, base_station_sector_id: 4,
+  antenna: Antenna.where(size: "30cm", item_code: 'abc',
+    location: Location.where(
+      geometry:
+        Geometry.where(latitude: "-29.8511913", longitude: "30.9180025", altitude: "1").first_or_create
+      ).first_or_create
+    ).first_or_create
+  ).first_or_create
 
+ClientLink.where(name: 'Blue Label Distribution 4', msad_number: "16.4", solution_identifier: "QW648-RT92", status_id: 9, base_station_sector_id: 4,
+  antenna: Antenna.where(size: "30cm", item_code: 'abc',
+    location: Location.where(
+      geometry:
+        Geometry.where(latitude: "-29.9254006", longitude: "30.9031174", altitude: "1").first_or_create
+      ).first_or_create
+    ).first_or_create
+  ).first_or_create
 
+ClientLink.where(name: 'Blue Label Distribution 5', msad_number: "16.4", solution_identifier: "QW648-RT92", status_id: 10, base_station_sector_id: 4,
+  antenna: Antenna.where(size: "30cm", item_code: 'abc',
+    location: Location.where(
+      geometry:
+        Geometry.where(latitude: "-29.8964904", longitude: "31.0117711", altitude: "1").first_or_create
+      ).first_or_create
+    ).first_or_create
+  ).first_or_create
 
 
 
