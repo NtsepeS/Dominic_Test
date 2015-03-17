@@ -5,6 +5,7 @@ export default Ember.Component.extend({
   classNames: "c-map-canvas",
   markers: [],
   paths:   [],
+  nodes:   [],
 
   didInsertElement: function() {
     this.setupMap();
@@ -27,6 +28,8 @@ export default Ember.Component.extend({
         _this       = this,
         map         = this.get('map'),
         filters     = this.get('filters');
+
+    Ember.warn("No nodes to draw on map", !Ember.isEmpty(coreNodes));
 
     coreNodes.forEach(function(coreNode) {
       if (_this.filterbyStatus(coreNode)){
