@@ -1,6 +1,11 @@
 <div class="container">
   <section class="row">
-    <h2>Port</h2>
+    <h2>
+      {{#link-to 'service'}}
+      <button type="button" class="btn btn-primary pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Service</button>
+      {{/link-to}}
+      <span>Port</span>
+    </h2>
     <div class="row show">
     <label class="col-sm-2 control-label">VLAN Type:</label>
       {{model.vlanType}}
