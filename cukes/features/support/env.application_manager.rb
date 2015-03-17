@@ -14,7 +14,7 @@ class ApplicationManager
   attr_accessor :rails, :ember, :rails_log, :ember_log, :proxy, :proxy_log
 
   def initialize
-    @rails = ChildProcess.build("sh", "-c", "BUNDLE_GEMFILE=Gemfile bundle exec puma start -C config/puma.rb")
+    @rails = ChildProcess.build("sh", "-c", "RAILS_ENV=test BUNDLE_GEMFILE=Gemfile bundle exec puma start -C config/puma.rb")
     @rails.leader = true
     @rails.cwd = Cukes.config.rails_root
     @rails_log = @rails.io.stdout = @rails.io.stderr = Tempfile.new('rails-log')
