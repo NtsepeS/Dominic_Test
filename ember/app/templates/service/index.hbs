@@ -1,48 +1,67 @@
 <div class="container">
   <section class="row">
     <h2>Service</h2>
-    <div class="row show">
-    <label class="col-sm-2 control-label">Line Tag:</label>
-      {{model.linetag}}
-    </div>
-    <div class="row show">
-      <label class="col-sm-2 control-label">Line Speed:</label>
-        {{model.lineSpeed}} Mbps
-    </div>
-    <div class="row show">
-      <label class="col-sm-2 control-label">VLAN:</label>
-        {{model.vlan}}
-    </div>
-
-    <h3>Ports:</h3>
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>VLAN Type</th>
-          <th>Acceptable Frame Type</th>
-          <th>Default VLAN</th>
-          <th>VLANs</th>
-        </tr>
-      </thead>
-      <tbody>
-      {{#each port in model.ports}}
-        {{#link-to 'port' port.id tagName="tr"}}
-          <td>{{port.vlanType}}</td>
-          <td>{{port.acceptableFrameType}}</td>
-          <td>{{port.defaultVlan}}</td>
-          <td>{{port.service.vlan}}</td>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <span class="panel-title service-fragment-title text-uppercase">{{model.linetag}}</span>
+        {{#link-to 'service.edit' model.id}}
+          <span class="glyphicon glyphicon-edit pull-right" aria-hidden="true"></span>
         {{/link-to}}
-      {{/each}}
-      </tbody>
-    </table>
-    <div class="row pull-right">
-      {{#link-to 'service.ports.new'}}
-      <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Port</button>
-      {{/link-to}}
-      {{#link-to 'service.edit' model.id}}
-      <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</button>
-      {{/link-to}}
-      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#prompt-modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete</button>
+      </div>
+      <div class="panel-body">
+        <div class="row show">
+        <label class="col-sm-2 control-label">Line Tag:</label>
+          {{model.linetag}}
+        </div>
+        <div class="row show">
+          <label class="col-sm-2 control-label">Line Speed:</label>
+            {{model.lineSpeed}} Mbps
+        </div>
+        <div class="row show">
+          <label class="col-sm-2 control-label">VLAN:</label>
+            {{model.vlan}}
+        </div>
+
+        <div class="center col-md-12 no-padding">
+          <h3>
+            <span>Ports</span>
+            {{#link-to 'service.ports.new' model.id }}
+            <button type="button" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Port</button>
+            {{/link-to}}
+          </h3>
+        </div>
+      </div>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>VLAN Type</th>
+            <th>Acceptable Frame Type</th>
+            <th>Default VLAN</th>
+            <th>VLANs</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        {{#each port in model.ports}}
+          {{#link-to 'port' port.id tagName="tr"}}
+            <td>{{port.id}}</td>
+            <td>{{port.vlanType}}</td>
+            <td>{{port.acceptableFrameType}}</td>
+            <td>{{port.defaultVlan}}</td>
+            <td>{{port.service.vlan}}</td>
+            <td>
+              {{#link-to 'port.edit' port.id}}
+                <span class="glyphicon glyphicon-edit pull-right" aria-hidden="true"></span>
+              {{/link-to}}
+            </td>
+          {{/link-to}}
+        {{/each}}
+        </tbody>
+      </table>
+      <div class="panel-footer">
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#prompt-modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete</button>
+      </div>
     </div>
   </section>
 </div>

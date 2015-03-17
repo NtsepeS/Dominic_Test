@@ -1,53 +1,78 @@
 <div class="container">
   <section class="row">
     <h2>Service Fragment</h2>
-    <div class="row show">
-      <label class="col-sm-2 control-label">Work Order #:</label>
-        {{model.workOrderNumber}}
-    </div>
-    <div class="row show">
-      <label class="col-sm-2 control-label">Line Speed:</label>
-        {{model.lineSpeed}} Mbps
-    </div>
-    <div class="row show">
-      <label class="col-sm-2 control-label">Service Type:</label>
-        {{model.serviceType}}
-    </div>
-    <div class="row show">
-      <label class="col-sm-2 control-label">Physical Mode:</label>
-        {{model.physicalMode}}
-    </div>
 
-    <h3>Services:</h3>
-    <table class="table table-hover table-striped">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Line Tag</th>
-          <th>Line Speed (Mbps)</th>
-          <th>VLANS</th>
-        </tr>
-      </thead>
-      <tbody>
-    {{#each service in model.services}}
-      {{#link-to 'service' service.id tagName="tr"}}
-        <td></td>
-        <td>{{service.linetag}}</td>
-        <td>{{service.lineSpeed}}</td>
-        <td>{{service.vlan}}</td>
-      {{/link-to}}
-    {{/each}}
-      </tbody>
-    </table>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <span class="panel-title service-fragment-title text-uppercase">{{model.workOrderNumber}}</span>
+        {{#link-to 'service-fragment.edit' serviceFragment.id}}
+          <span class="glyphicon glyphicon-edit pull-right" aria-hidden="true"></span>
+        {{/link-to}}
+      </div>
+        <div class="panel-body">
+          <div class="col-md-6 col-md-offset-0">
+            <div class="row show">
+              <label class="control-label">Work Order #:</label>
+                {{model.workOrderNumber}}
+            </div>
+            <div class="row show">
+              <label class="control-label">Line Speed:</label>
+                {{model.lineSpeed}} Mbps
+            </div>
+          </div>
 
-    <div class="row pull-right">
-      {{#link-to 'service-fragment.services.new'}}
-      <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Service</button>
-      {{/link-to}}
-      {{#link-to 'service-fragment.edit' model.id}}
-      <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</button>
-      {{/link-to}}
-      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#prompt-modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete</button>
+          <div class="col-md-6 .col-md-offset-7">
+            <div class="row show">
+            <label class="control-label">Service Type:</label>
+              {{model.serviceType}}
+          </div>
+            <div class="row show">
+              <label class="control-label">Physical Mode:</label>
+                {{model.physicalMode}}
+            </div>
+          </div>
+
+
+        <div class="center col-md-12">
+          <h3>
+           <span>Services</span>
+            {{#link-to 'service-fragment.services.new' serviceFragment.id }}
+            <button type="button" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Service</button>
+            {{/link-to}}
+          </h3>
+        </div>
+      </div>
+
+
+      <table class="table js-service-table table-hover table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Line Tag</th>
+            <th>Line Speed</th>
+            <th>VLAN</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+      {{#each service in model.services}}
+        {{#link-to 'service' service.id tagName="tr"}}
+          <td>{{service.id}}</td>
+          <td>{{service.linetag}}</td>
+          <td>{{service.lineSpeed}}</td>
+          <td>{{service.vlan}}</td>
+          <td>
+            {{#link-to 'service.edit' serviceFragment.id service.id}}
+              <span class="glyphicon glyphicon-edit pull-right" aria-hidden="true"></span>
+            {{/link-to}}
+          </td>
+        {{/link-to}}
+      {{/each}}
+        </tbody>
+      </table>
+      <div class="panel-footer">
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#prompt-modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete</button>
+      </div>
     </div>
   </section>
 </div>

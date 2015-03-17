@@ -141,7 +141,7 @@ section.row h2 {
   transform: scale(1.5);
 }
 
-.js-client-links-table tr {
+.js-client-links-table tr, .js-service-table tr {
   cursor: pointer;
   cursor: hand;
 }
@@ -177,4 +177,8 @@ span.glyphicon.glyphicon.glyphicon-plus-sign.js-actions.add {
 
 .show {
   padding-top: 7px;
+}
+
+.center {
+  text-align: center;
 }

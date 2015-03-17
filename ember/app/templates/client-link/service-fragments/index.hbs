@@ -1,30 +1,86 @@
 <div class="container">
-<section class="row">
-  <h2>Service Fragments</h2>
-  <table class="table table-hover table-striped table-fragments">
+  <section class="row">
+  <h2>
+    <span>Service Fragments</span>
+    {{#link-to 'client-link.service-fragments.new' }}
+    <button type="button" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Service Fragment</button>
+    {{/link-to}}
+  </h2>
+
+  {{#each serviceFragment in model.serviceFragments}}
+  <div class="panel panel-default">
+
+    <div class="panel-heading">
+      {{#link-to 'service-fragment' serviceFragment.id}}
+      <span class="panel-title service-fragment-title text-uppercase">{{serviceFragment.workOrderNumber}}</span>
+      {{/link-to}}
+      {{#link-to 'service-fragment.edit' serviceFragment.id}}
+        <span class="glyphicon glyphicon-edit pull-right" aria-hidden="true"></span>
+      {{/link-to}}
+    </div>
+    <div class="panel-body">
+      <div class="col-md-6 col-md-offset-0">
+        <div class="row show">
+          <label class="control-label">Work Order #:</label>
+            {{serviceFragment.workOrderNumber}}
+        </div>
+        <div class="row show">
+          <label class="control-label">Line Speed:</label>
+            {{serviceFragment.lineSpeed}} Mbps
+        </div>
+      </div>
+
+      <div class="col-md-6 .col-md-offset-7">
+        <div class="row show">
+        <label class="control-label">Service Type:</label>
+          {{serviceFragment.serviceType}}
+      </div>
+        <div class="row show">
+          <label class="control-label">Physical Mode:</label>
+            {{serviceFragment.physicalMode}}
+        </div>
+      </div>
+
+      <div class="center col-md-12">
+        <h3>
+          <span>Services</span>
+          {{#link-to 'service-fragment.services.new' serviceFragment.id }}
+          <button type="button" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Service</button>
+          {{/link-to}}
+        </h3>
+      </div>
+    </div>
+
+    <table class="table js-service-table table-hover table-striped">
       <thead>
         <tr>
           <th>#</th>
-          <th>Work Order #</th>
+          <th>Line Tag</th>
           <th>Line Speed</th>
-          <th>Type</th>
-          <th>Physical Mode</th>
+          <th>VLAN</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
-  {{#each serviceFragment in model.serviceFragments}}
-      {{#link-to 'service-fragment' serviceFragment.id tagName="tr"}}
-        <td>{{serviceFragment.id}}</td>
-        <td>{{serviceFragment.workOrderNumber}}</td>
-        <td>{{serviceFragment.lineSpeed}} Mbps</td>
-        <td>{{serviceFragment.serviceType}}</td>
-        <td>{{serviceFragment.physicalMode}}</td>
+      {{#each service in serviceFragment.services}}
+      {{#link-to 'service' serviceFragment.id service.id tagName="tr"}}
+        <td>{{service.id}}</td>
+        <td>{{service.linetag}}</td>
+        <td>{{service.lineSpeed}} Mbps</td>
+        <td>{{service.vlan}}</td>
+        <td>
+          {{#link-to 'service.edit' serviceFragment.id service.id}}
+            <span class="glyphicon glyphicon-edit pull-right" aria-hidden="true"></span>
+          {{/link-to}}
+        </td>
       {{/link-to}}
+      {{/each}}
+      </tbody>
+    </table>
+  </div>
   {{/each}}
-  </tbody>
-  </table>
-  {{#link-to 'client-link.service-fragments.new'}}
-  <button type="button" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Service Fragment</button>
-  {{/link-to}}
-</section>
+  </section>
 </div>
+
+
+
