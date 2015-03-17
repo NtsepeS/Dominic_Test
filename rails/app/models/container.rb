@@ -4,8 +4,8 @@ class Container < ActiveRecord::Base
   belongs_to :containable, polymorphic: true
 
   def method_missing(method, *args, &block)
-    if self.containerizable_type.underscore == method.to_s
-      self.containerizable( *args, &block )
+    if self.containable_type.underscore == method.to_s
+      self.containable( *args, &block )
     else
       super
     end
