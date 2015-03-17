@@ -1,6 +1,8 @@
 #!/bin/sh -e
 
-echo 4200 > ~/.pow/cops
+echo 3001 > ~/.pow/cops
+
+npm install
 
 cd rails
 bundle
@@ -9,5 +11,8 @@ rake db:setup
 cd ../ember
 npm install
 bower install
+
+cd ../cukes
+bundle
 
 cd ../
