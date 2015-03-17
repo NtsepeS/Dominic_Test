@@ -2,6 +2,7 @@ import Ember from 'ember';
 /* global google */
 
 export default Ember.Component.extend({
+  classNames: "map-canvas",
   markers: [],
   paths:   [],
 
@@ -11,15 +12,13 @@ export default Ember.Component.extend({
   },
 
   setupMap: function() {
-    var container   = this.$(".map-canvas");
-
     var options = {
       center: new google.maps.LatLng(-30.3190936, 25.0385684),
       zoom: 6,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
-    var map = new google.maps.Map(container[0], options);
+    var map = new google.maps.Map(this.element, options);
     this.set('map', map);
   },
 
