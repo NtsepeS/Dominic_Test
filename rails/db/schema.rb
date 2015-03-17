@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150317145742) do
+ActiveRecord::Schema.define(version: 20150317172652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 20150317145742) do
   add_index "client_links", ["client_id"], name: "index_client_links_on_client_id", using: :btree
   add_index "client_links", ["link_type_id"], name: "index_client_links_on_link_type_id", using: :btree
   add_index "client_links", ["network_operator_id"], name: "index_client_links_on_network_operator_id", using: :btree
+  add_index "client_links", ["radio_id"], name: "index_client_links_on_radio_id", using: :btree
   add_index "client_links", ["status_id"], name: "index_client_links_on_status_id", using: :btree
 
   create_table "clients", force: :cascade do |t|
