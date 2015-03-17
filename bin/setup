@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-echo 6000 > ~/.pow/cops
+echo 3001 > ~/.pow/cops
 
 npm install
 
