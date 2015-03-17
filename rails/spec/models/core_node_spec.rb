@@ -33,6 +33,19 @@ RSpec.describe CoreNode, :type => :model do
   end
 
   context 'executes methods correctly' do
+    before :each do
+      c1.save
+      cn.save
+      c2.save
+      bs1.save
+      c3.save
+      bs2.save
+      c4.save
+      sec.save
+      c6.save
+      cl.save
+    end
+
     it 'will delegate children method call to attached container' do
       expect(cn.children).to eq(c1.children)
     end
