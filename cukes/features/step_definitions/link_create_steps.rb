@@ -21,7 +21,6 @@ When(/^I save the new client link$/) do
 end
 
 Then(/^a new client link titled "(.*?)" is created$/) do |title|
-  @app.client_links.load
   expect( page ).to have_text(title)
 end
 

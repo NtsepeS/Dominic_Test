@@ -22,3 +22,8 @@ Then(/^I should be logged in$/) do
 	expect( page ).to have_text(@user.gsub(".", " "))
 end
 
+Given(/^I'm logged in as a user$/) do
+	@app.login.load
+	@app.login.login_as_user
+end
+

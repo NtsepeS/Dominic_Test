@@ -7,4 +7,11 @@ class LoginPage < SitePrism::Page
   def follow_login_link
     login.click
   end
+
+  def login_as_user
+    follow_login_link
+    isid = ISIDPage.new
+    isid.authenticate 
+  end
+
 end
