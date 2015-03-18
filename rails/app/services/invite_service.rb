@@ -1,10 +1,11 @@
 class InviteService
 
-  def call( role, email, name, from )
-    @role  = role
-    @email = email
-    @name  = name
-    @from  = from
+  def call( role, email, name, from, request )
+    @role    = role
+    @email   = email
+    @name    = name
+    @from    = from
+    @request = request
 
     transaction do
       catch(:abort) do
@@ -37,13 +38,15 @@ class InviteService
       email:      @email,
       invitee:    @name,
       invitor:    @from,
-      system_url: "http://cops.dev/users/auth/isoauth2"
+      system_url: system_url
     })
 
     json = MultiJson.load( response.body )
-    invite_id = json["invite_id"]
+    @authorization.invite_id = json["id"]
+  end
 
-    @authorization.invite_id = invite_id
+  def system_url
+    @request.protocol + @request.host_with_port + "/users/auth/isoauth2"
   end
 
   def save
