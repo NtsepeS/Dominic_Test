@@ -8,5 +8,5 @@ cd /srv/cops-api
 /sbin/setuser cops-api bundle exec rake db:migrate
 
 exec /sbin/setuser cops-api bundle exec \
-      unicorn -p ${PORT} -c config/unicorn.rb \
+      puma start -C config/puma.rb \
           >> /var/log/rails.log 2>&1
