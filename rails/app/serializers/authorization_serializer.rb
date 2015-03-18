@@ -1,3 +1,3 @@
 class AuthorizationSerializer < ActiveModel::Serializer
-  attributes :id, :email
+  attributes :id, :email, :name, :invited_by
 end

@@ -7,6 +7,11 @@ module Api
         render json: authorizations
       end
 
+      def show
+        authorization = Authorization.find( params[:id] )
+        render json: authorization
+      end
+
       def create
         # Send off request to isid for invite
         invite = InviteService.new
