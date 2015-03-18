@@ -17,10 +17,10 @@ Router.map(function() {
   this.resource('maps', { path: 'maps/core-nodes/' }, function() {
     this.route('view' , { path: ':coreNodeId' });
   });
-  this.route('admin', function(){
-    this.route('authorization', function(){
-      this.route('add');
-      this.route('view', { path: 'view/:userId' })
+  this.resource('admin', function(){
+    this.resource('authorizations', function() {
+      this.resource('authorization', { path: ':id' });
+      this.route('new');
     });
   });
 });
