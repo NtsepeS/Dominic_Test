@@ -9,16 +9,26 @@ module Api
 
       def create
         # Send off request to isid for invite
-        authorization = Authorization.new(authorization_params)
-        if authorization.save
-          render json: authorization, status: :created
+        invite = InviteService.new
+        invite.call(
+          "user",
+          authorization_params[:email],
+          authorization_params[:name],
+          current_user.name,
+          request
+        )
+
+        if invite.successful?
+          render json: invite.authorization, status: :created
         else
-          render json: authorization.errors.to_json, status: :unprocessable_entity
+          render json: invite.errors.to_json, status: :unprocessable_entity
         end
       end
 
+      private
+
       def authorization_params
-        params.require(:authorization).permit(:email, :princaple_id, :invite_id)
+        params.require(:authorization).permit(:email, :name, :invited_by)
       end
 
     end
