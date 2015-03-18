@@ -8,7 +8,7 @@ moduleForModel('client-link', 'ClientLink', {
   needs: ['model:link-type', 'model:antenna', 'model:network-operator',
   'model:base-station-sector', 'model:client', 'model:status',
   'model:sub-group-picture-set',
-  'model:album', 'model:sub-group-classification', 'model:location'
+  'model:album', 'model:sub-group-classification', 'model:location', 'model:base-station-unit'
   ]
 });
 
