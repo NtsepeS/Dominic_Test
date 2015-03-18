@@ -2,103 +2,63 @@
   <section class="row">
     <h2> Modulation </h2>
 
-    <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-2"></div>
-      <div class="col-md-2">DL MIN</div>
-      <div class="col-md-2">DL MAX</div>
-      <div class="col-md-2">UL MIN</div>
-      <div class="col-md-2">UL MAX</div>
-      <div class="col-md-1"></div>
+    <div class="table-responsive" cellspacing="0" width="100%">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>DL Min</th>
+            <th>DL Max</th>
+            <th>UL Min</th>
+            <th>UL Max</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each modulation in radio.modulations}}
+            <tr>
+              <td> name of modulation </td>
+              <td>
+                <select>
+                  <option selected="selected"></option>
+                  <option value="4QAM2/3">4QAM2/3</option>
+                  <option value="4QAM">4QAM</option>
+                  <option value="16QAM">16QAM</option>
+                  <option value="64QAM">64QAM</option>
+                </select>
+              </td>
+              <td>
+                <select>
+                  <option selected="selected"></option>
+                  <option value="4QAM2/3">4QAM2/3</option>
+                  <option value="4QAM">4QAM</option>
+                  <option value="16QAM">16QAM</option>
+                  <option value="64QAM">64QAM</option>
+                </select>
+              </td>
+              <td>
+                <select>
+                  <option selected="selected"></option>
+                  <option value="4QAM2/3">4QAM2/3</option>
+                  <option value="4QAM">4QAM</option>
+                  <option value="16QAM">16QAM</option>
+                  <option value="64QAM">64QAM</option>
+                </select>
+              </td>
+              <td>
+                <select>
+                  <option selected="selected"></option>
+                  <option value="4QAM2/3">4QAM2/3</option>
+                  <option value="4QAM">4QAM</option>
+                  <option value="16QAM">16QAM</option>
+                  <option value="64QAM">64QAM</option>
+                </select>
+              </td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
     </div>
-
-    <div class="row" id="predicted_modulation">
-      <div class="col-md-1"></div>
-      <div class="col-md-2">Predicted</div>
-      <div class="col-md-2">
-        <select>
-          <option selected="selected"></option>
-          <option value="4QAM2/3">4QAM2/3</option>
-          <option value="4QAM">4QAM</option>
-          <option value="16QAM">16QAM</option>
-          <option value="64QAM">64QAM</option>
-        </select>
-      </div>
-      <div class="col-md-2">
-        <select>
-          <option selected="selected"></option>
-          <option value="4QAM2/3">4QAM2/3</option>
-          <option value="4QAM">4QAM</option>
-          <option value="16QAM">16QAM</option>
-          <option value="64QAM">64QAM</option>
-        </select>
-      </div>
-      <div class="col-md-2">
-        <select>
-          <option selected="selected"></option>
-          <option value="4QAM2/3">4QAM2/3</option>
-          <option value="4QAM">4QAM</option>
-          <option value="16QAM">16QAM</option>
-          <option value="64QAM">64QAM</option>
-        </select>
-      </div>
-      <div class="col-md-2">
-        <select>
-          <option selected="selected"></option>
-          <option value="4QAM2/3">4QAM2/3</option>
-          <option value="4QAM">4QAM</option>
-          <option value="16QAM">16QAM</option>
-          <option value="64QAM">64QAM</option>
-        </select>
-      </div>
-      <div class="col-md-1"></div>
-    </div>
-
-    <div class="row" id="configured_modulation">
-      <div class="col-md-1"></div>
-      <div class="col-md-2">Configured</div>
-      <div class="col-md-2">
-        <select>
-          <option selected="selected"></option>
-          <option value="4QAM2/3">4QAM2/3</option>
-          <option value="4QAM">4QAM</option>
-          <option value="16QAM">16QAM</option>
-          <option value="64QAM">64QAM</option>
-        </select>
-      </div>
-      <div class="col-md-2">
-        <select>
-          <option selected="selected"></option>
-          <option value="4QAM2/3">4QAM2/3</option>
-          <option value="4QAM">4QAM</option>
-          <option value="16QAM">16QAM</option>
-          <option value="64QAM">64QAM</option>
-        </select>
-      </div>
-      <div class="col-md-2">
-        <select>
-          <option selected="selected"></option>
-          <option value="4QAM2/3">4QAM2/3</option>
-          <option value="4QAM">4QAM</option>
-          <option value="16QAM">16QAM</option>
-          <option value="64QAM">64QAM</option>
-        </select>
-      </div>
-      <div class="col-md-2">
-        <select>
-          <option selected="selected"></option>
-          <option value="4QAM2/3">4QAM2/3</option>
-          <option value="4QAM">4QAM</option>
-          <option value="16QAM">16QAM</option>
-          <option value="64QAM">64QAM</option>
-        </select>
-      </div>
-      <div class="col-md-1"></div>
-    </div>
-
-    <div class="col-md-2"></div>
   </section>
 </div>
-
 <button type="button" class="btn btn-default pull-right">Save</button>
 
