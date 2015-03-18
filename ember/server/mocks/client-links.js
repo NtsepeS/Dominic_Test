@@ -10,7 +10,7 @@ module.exports = function(app) {
 
   clientLinksRouter.get('/', function(req, res) {
     res.send({
-      'client-links': []
+      'client-links': fixtures
     });
   });
 
