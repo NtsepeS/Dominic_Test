@@ -5,6 +5,7 @@ RSpec.describe Api::V1::OperatingParametersController do
 
   before(:each) do
     @operating_parameter = create(:operating_parameter)
+    sign_in( :user )
   end
 
   describe 'GET /api/v1/operating_parameters' do
