@@ -6,5 +6,6 @@ export default DS.Model.extend({
   uplinkCnr:          DS.attr('string'),
   downlinkCnr:        DS.attr('string'),
   txPower:            DS.attr('string'),
-  stepAttenuator:     DS.attr('string')
+  stepAttenuator:     DS.attr('string'),
+  radio:              DS.belongsTo('radio', {async: true})
 });
