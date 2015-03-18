@@ -14,11 +14,7 @@ Router.map(function() {
     this.route('edit');
     this.route('audit');
 
-    this.route('site-information', function() {
-      this.route('edit');
-    });
-
-    this.route('siebel', function() {
+    this.route('overview', function() {
       this.route('edit');
     });
 

@@ -1,6 +1,6 @@
 <div class="container">
   <section class="row">
-    <h2>Site Information</h2>
+    <h2>Overview</h2>
     <div class="row row_element">
       <div class="col-md-2">
         Client
@@ -140,7 +140,41 @@
         {{input value=distance id="distance-input"}}
       </div>
     </div>
+
+    <h3> Siebel </h3>
+
+    <div class="row row_element">
+      <div class="col-md-2">
+        Solution ID
+      </div>
+      <div class="col-md-3">
+        {{input value=solutionIdentifier}}
+      </div>
+      <div class="col-md-2"></div>
+      <div class="col-md-2">
+        Billing Account
+      </div>
+      <div class="col-md-3">
+        {{input value=billingAccount}}
+      </div>
+    </div>
+
+    <div class="row row_element">
+      <div class="col-md-2">
+        Service Account
+      </div>
+      <div class="col-md-3">
+        {{input value=serviceAccount}}
+      </div>
+      <div class="col-md-2"></div>
+      <div class="col-md-2">
+        Service Account Site
+      </div>
+      <div class="col-md-3">
+        {{input value=serviceAccountSite}}
+      </div>
+    </div>
   </section>
 </div>
 
-<button type="button" class="btn btn-primary pull-right" {{action "updateSiteInformation"}}>Save</button>
+<button type="button" class="btn btn-primary pull-right" {{action "updateOverview"}}>Save</button>

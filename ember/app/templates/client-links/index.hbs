@@ -28,7 +28,7 @@
     </thead>
     <tbody>
     {{#each clientLink in model}}
-      {{#link-to 'client-link.site-information' clientLink.id tagName="tr"}}
+      {{#link-to 'client-link.overview' clientLink.id tagName="tr"}}
         <td>{{clientLink.name}}</td>
         <td>{{clientLink.msadNumber}}</td>
         <td>{{clientLink.solutionIdentifier}}</td>
