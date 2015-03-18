@@ -5,6 +5,6 @@ export default DS.Model.extend({
   itemCode:                DS.attr('string'),
   icasaSticker:            DS.attr('string'),
   modulations:             DS.hasMany('modulation', {async: true}),
-  rfPerformanceParamaters: DS.hasMany('rf-performance-parameters', {async: true})
+  rfPerformanceParameters: DS.hasMany('rf-performance-parameters', {async: true})
 });
 
