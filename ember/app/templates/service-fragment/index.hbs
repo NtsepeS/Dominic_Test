@@ -10,7 +10,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <span class="panel-title service-fragment-title text-uppercase">{{model.workOrderNumber}}</span>
-        {{#link-to 'service-fragment.edit' serviceFragment.id}}
+        {{#link-to 'service-fragment.edit' model.id}}
           <span class="glyphicon glyphicon-edit pull-right" aria-hidden="true"></span>
         {{/link-to}}
       </div>
@@ -41,7 +41,7 @@
         <div class="center col-md-12">
           <h3>
            <span>Services</span>
-            {{#link-to 'service-fragment.services.new' serviceFragment.id }}
+            {{#link-to 'service-fragment.services.new' model.id }}
             <button type="button" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Service</button>
             {{/link-to}}
           </h3>
@@ -68,7 +68,7 @@
           <td>{{service.lineSpeed}}</td>
           <td>{{service.vlan}}</td>
           <td>
-            {{#link-to 'service.edit' serviceFragment.id service.id}}
+            {{#link-to 'service.edit' service.id}}
               <span class="glyphicon glyphicon-edit pull-right" aria-hidden="true"></span>
             {{/link-to}}
           </td>
