@@ -56,7 +56,6 @@ RSpec.configure do |config|
   # Include support helpers
   config.include JsonHelpers
   config.include OmniauthMocks
-  config.include Devise::TestHelpers, type: :controller
 
   # Set omniauth test mode on
   OmniAuth.config.test_mode = true

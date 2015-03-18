@@ -5,12 +5,12 @@ require 'pry'
 require 'database_cleaner'
 require 'active_support/dependencies'
 require_relative '../../config/cukes'
-
+require 'site_prism'
 require 'capybara/cucumber'
 require 'capybara/poltergeist'
 Capybara.default_driver = Cukes.config.browser
 Capybara.app_host = Cukes.config.host
-Capybara.default_wait_time = 3
+Capybara.default_wait_time = 15
 
 # Require Models
 ActiveSupport::Dependencies.autoload_paths += Dir.glob File.join(Cukes.config.rails_root, "app/models")
