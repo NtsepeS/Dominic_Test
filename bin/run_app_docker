@@ -1,0 +1,42 @@
+#!/usr/bin/env node
+
+require('dotenv').load();
+var util = require('util');
+var exec = require('child_process').exec;
+var argv = require('minimist')(process.argv.slice(2));
+
+
+var child;
+
+if ( argv.db ){
+  process.env.DB_HOST = "cops-database";
+}
+
+var run_command = util.format("docker run -d -p 80:80 "
+  +"-e \"DB_HOST=%s\" "
+  +"-e \"DB_DB=%s\" "
+  +"-e \"SECRET_KEY_BASE=%s\" "
+  +"-e \"SSO_CONSUMER_KEY=%s\" "
+  +"-e \"SSO_CONSUMER_SECRET=%s\" "
+  +"-e \"SIAUTH_KEY=%s\" "
+  +"-e \"SENTRY_DSN=%s\" "
+  ,process.env.DB_HOST,
+  process.env.DB_DB,
+  process.env.SECRET_KEY_BASE,
+  process.env.SSO_CONSUMER_KEY,
+  process.env.SSO_CONSUMER_SECRET,
+  process.env.SIAUTH_KEY,
+  process.env.SENTRY_DSN);
+
+if ( argv.db ){
+  run_command += "--link=\"cops-database:cops-database\" ";  
+}
+
+run_command += "cops";
+
+child = exec(run_command, function (error, stdout, stderr) {
+  console.log('Container: ' + stdout);
+  if (error !== null) {
+    console.log('exec error: ' + error);
+  }
+});
