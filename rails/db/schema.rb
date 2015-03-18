@@ -196,10 +196,10 @@ ActiveRecord::Schema.define(version: 20150318063448) do
   end
 
   create_table "modulations", force: :cascade do |t|
-    t.integer  "downlink_min"
-    t.integer  "downlink_max"
-    t.integer  "uplink_min"
-    t.integer  "uplink_max"
+    t.string   "downlink_min"
+    t.string   "downlink_max"
+    t.string   "uplink_min"
+    t.string   "uplink_max"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "radio_id"
