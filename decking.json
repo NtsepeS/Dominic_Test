@@ -1,6 +1,6 @@
 {
   "images": {
-    "cops/backend" : "dockerfiles/backend"
+    "cops/cops" : "dockerfiles/backend"
   },
 
   "containers": {
@@ -8,7 +8,7 @@
       "image": "postgres",
       "env"  : ["POSTGRES_USER=cops-api"]
     },
-    "cops-backend": {
+    "cops": {
       "image": "cops/backend",
       "port" : ["5000:80", "5001:22"],
       "env"  : ["DB_HOST=", "DB_DB=","SECRET_KEY_BASE=","SSO_CONSUMER_KEY=",
@@ -21,7 +21,7 @@
   },
 
   "clusters": {
-    "main": ["cops-backend","cops-database"]
+    "main": ["cops","cops-database"]
   }
 
 }
