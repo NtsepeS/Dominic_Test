@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150317203208) do
+ActiveRecord::Schema.define(version: 20150318064550) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -255,12 +255,12 @@ ActiveRecord::Schema.define(version: 20150317203208) do
   end
 
   create_table "rf_performance_parameters", force: :cascade do |t|
-    t.string   "uplink_rssi"
-    t.string   "downlink_rssi"
-    t.string   "uplink_cnr"
-    t.string   "downlink_cnr"
-    t.string   "tx_power"
-    t.string   "step_attenuator"
+    t.float    "uplink_rssi"
+    t.float    "downlink_rssi"
+    t.float    "uplink_cnr"
+    t.float    "downlink_cnr"
+    t.float    "tx_power"
+    t.float    "step_attenuator"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "radio_id"
