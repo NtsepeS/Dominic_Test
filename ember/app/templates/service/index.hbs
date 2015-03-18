@@ -1,11 +1,13 @@
 <div class="container">
   <section class="row">
-    <h2>
+
+    <h2 class="c-model-heading">Service</h2>
+    <div class="row c-model-add-button">
       {{#link-to 'service-fragment'}}
       <button type="button" class="btn btn-primary pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Service Fragment</button>
       {{/link-to}}
-      <span>Service</span>
-    </h2>
+    </div>
+
     <div class="panel panel-default">
       <div class="panel-heading">
         <span class="panel-title service-fragment-title text-uppercase">{{model.linetag}}</span>

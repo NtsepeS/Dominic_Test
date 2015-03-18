@@ -1,13 +1,11 @@
 <div class="container">
   <section class="row">
-
-  <h2 class="c-service-fragment-heading">Service Fragments</h2>
-  <div class="row c-service-fragment-add-button">
+  <h2 class="c-model-heading">Service Fragments</h2>
+  <div class="row c-model-add-button">
     {{#link-to 'client-link.service-fragments.new' }}
     <button type="button" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Service Fragment</button>
     {{/link-to}}
   </div>
-
     {{#if model.serviceFragments.length}}
     {{#each serviceFragment in model.serviceFragments}}
     <div class="panel panel-default">
