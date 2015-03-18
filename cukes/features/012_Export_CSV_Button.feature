@@ -1,4 +1,5 @@
-Feature: 1.12 Export data
+@wip
+#Feature: 12 Export data
     In order to extract data into a format that can be manipulated
     As an authorised administrator of COP's
     I need view COP's data
@@ -6,7 +7,6 @@ Feature: 1.12 Export data
     Background: 
         Given I am a registered admin user
         And   I have logged in
-        And   I 
 
         Scenario: Generate report
             Given I have selected '<Client Links>'
@@ -17,7 +17,6 @@ Feature: 1.12 Export data
             Given I have downloaded the report
             When  I press "<View Report>"
             Then  I should see the report in an excel format with the following fields
-
                 | Vendor                             | Plessy                   |
                 | Base Station Sector                |                          |
                 | Base Station Unit                  |                          | 
@@ -29,9 +28,3 @@ Feature: 1.12 Export data
        # | Save report                      | Desktop                  |
        # | Subscribe to re-occuring report  | Weekly                   |
        # | UnSubscribe to re-occuring report| report name              |
-
-        Scenario: Receive report
-            Given I am on Report criteria selection page
-            And (
-            When I (when?)
-            Then I (then?)

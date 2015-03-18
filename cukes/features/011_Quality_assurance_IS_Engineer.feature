@@ -19,7 +19,7 @@ Background:
 		Then I should be able to send a message of "Declined due to bad or incomplete data"
 
 	Scenario: Notification of unsuccessful quality check
-		Given I have received a "Declined due to bad or incomplete data" notification
+		Given I have received a "Declined due to bad or incomplete data notification"
 		When  I open the task
 		And   I click "view message"
 		Then  I should be able to see the message
