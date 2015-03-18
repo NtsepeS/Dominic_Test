@@ -263,7 +263,10 @@ ActiveRecord::Schema.define(version: 20150317203208) do
     t.string   "step_attenuator"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "radio_id"
   end
+
+  add_index "rf_performance_parameters", ["radio_id"], name: "index_rf_performance_parameters_on_radio_id", using: :btree
 
   create_table "service_fragments", force: :cascade do |t|
     t.string   "work_order_number"
