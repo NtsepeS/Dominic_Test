@@ -43,3 +43,14 @@ The backend and frontend have their own testing frameworks setup. Run both of th
 $ bin/test
 ```
 
+##Environment variables
+* DB_HOST
+* DB_DB
+* SECRET_KEY_BASE
+* SSO_CONSUMER_KEY
+* SSO_CONSUMER_SECRET
+* SIAUTH_KEY
+* SENTRY_DSN
+* API_PORT
+* EMBER_PORT
+* PROXY_PORT
