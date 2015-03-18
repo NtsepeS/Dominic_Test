@@ -5,6 +5,7 @@ RSpec.describe Api::V1::EquipmentController do
 
   before(:each) do
     @equipment = create(:equipment)
+    sign_in( :user )
   end
 
   describe 'GET /api/v1/equipment' do

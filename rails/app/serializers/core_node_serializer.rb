@@ -3,4 +3,5 @@ class CoreNodeSerializer < ActiveModel::Serializer
     :created_at, :updated_at
 
   has_one :location, :status
+  has_many :base_station_units
 end

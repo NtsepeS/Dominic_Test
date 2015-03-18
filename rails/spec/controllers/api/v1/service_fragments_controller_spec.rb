@@ -5,6 +5,7 @@ RSpec.describe Api::V1::ServiceFragmentsController do
 
   before(:each) do
     @service_fragment = create(:service_fragment)
+    sign_in( :user )
   end
 
   describe 'GET /api/v1/service_fragments' do

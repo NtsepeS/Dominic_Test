@@ -5,6 +5,7 @@ RSpec.describe Api::V1::VicinitiesController do
 
   before(:each) do
     @vicinity = create(:vicinity)
+    sign_in( :user )
   end
 
   describe 'GET /api/v1/vicinities' do
