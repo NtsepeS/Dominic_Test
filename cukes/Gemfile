@@ -4,7 +4,7 @@ gem "cucumber"            # Human Readable Specification by Example
 gem "capybara"            # For driving our browsers
 gem "poltergeist"         # For headless testing with phantomjs
 gem "phantomjs"           # Attempts to install phantom if you don't already have it
-gem 'selenium-webdriver'  
+gem 'selenium-webdriver'
 gem "childprocess"        # For managing the running Rails and Ember Apps
 gem "activesupport"       # For Autoloading model classes like Rails
 gem "activerecord"        # Database Access
@@ -15,3 +15,5 @@ gem "rspec-expectations"  # Expectations Library
 gem "byebug"              # Ruby 2.0 Debugging
 gem "paper_trail", "~> 3.0.6"
 gem "pry"
+gem "site_prism", "~> 2.6"
+gem "dotenv", "~> 2.0.0"  # For bootstrapping from .env

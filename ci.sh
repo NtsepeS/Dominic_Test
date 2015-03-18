@@ -16,6 +16,9 @@ export BROWSER=poltergeist
 
 # install all the things
 
+# Root directory npm install
+npm install
+
 silently cd rails
 bundle install
 
@@ -36,5 +39,4 @@ bundle exec rake ci:setup:rspec spec
 # cucumber tests
 
 silently cd ../cukes
-
 cucumber --tags ~@wip --format json -o cucumber.json
