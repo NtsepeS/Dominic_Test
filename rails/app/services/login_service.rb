@@ -48,7 +48,7 @@ class LoginService
     }
 
     if ad_provider.present?
-      user.ad_username = ad_provider.prodiver_id
+      user.ad_username = ad_provider.provider_id
     end
   end
 
