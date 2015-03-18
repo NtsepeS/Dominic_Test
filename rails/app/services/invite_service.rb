@@ -51,7 +51,7 @@ class InviteService
   end
 
   def connection
-    @_connection = Faraday.new("https://sso-stage.si.is.co.za/") do |c|
+    @_connection ||= Faraday.new(Rails.application.secrets.SSO_SITE) do |c|
       c.request :url_encoded
       c.adapter Faraday.default_adapter
     end
