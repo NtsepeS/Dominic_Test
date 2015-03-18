@@ -6,8 +6,6 @@
       <button type="button" class="btn btn-primary pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Service Fragments</button>
       {{/link-to}}
     </div>
-
-
     <div class="panel panel-default">
       <div class="panel-heading">
         <span class="panel-title service-fragment-title text-uppercase">{{model.workOrderNumber}}</span>
@@ -40,12 +38,12 @@
 
 
         <div class="center col-md-12">
-          <h3>
-           <span>Services</span>
+          <h3 class="c-model-heading">Services</h3>
+          <div class="row c-model-add-button__no-margin">
             {{#link-to 'service-fragment.services.new' model.id }}
             <button type="button" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Service</button>
             {{/link-to}}
-          </h3>
+          </div>
         </div>
       </div>
 

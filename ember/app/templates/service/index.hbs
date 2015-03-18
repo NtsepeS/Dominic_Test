@@ -1,13 +1,11 @@
 <div class="container">
   <section class="row">
-
     <h2 class="c-model-heading">Service</h2>
     <div class="row c-model-add-button">
       {{#link-to 'service-fragment'}}
       <button type="button" class="btn btn-primary pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Service Fragment</button>
       {{/link-to}}
     </div>
-
     <div class="panel panel-default">
       <div class="panel-heading">
         <span class="panel-title service-fragment-title text-uppercase">{{model.linetag}}</span>
@@ -30,12 +28,12 @@
         </div>
 
         <div class="center col-md-12 no-padding">
-          <h3>
-            <span>Ports</span>
+          <h3 class="c-model-heading">Ports</h3>
+          <div class="row c-model-add-button__no-margin">
             {{#link-to 'service.ports.new' model.id }}
             <button type="button" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Port</button>
             {{/link-to}}
-          </h3>
+          </div>
         </div>
       </div>
       <table class="table table-hover">

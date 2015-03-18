@@ -41,13 +41,14 @@
           </div>
         </div>
 
+
         <div class="center col-md-12">
-          <h3>
-            <span>Services</span>
-            {{#link-to 'service-fragment.services.new' serviceFragment.id }}
+          <h3 class="c-model-heading">Services</h3>
+          <div class="row c-model-add-button__no-margin">
+            {{#link-to 'service-fragment.services.new' serviceFragment.id}}
             <button type="button" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Service</button>
             {{/link-to}}
-          </h3>
+          </div>
         </div>
       </div>
 

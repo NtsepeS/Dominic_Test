@@ -1,6 +1,11 @@
-section.row h2.c-model-heading
-{
-  margin-bottom: 0;
+section.row  {
+  h2.c-model-heading {
+    margin-bottom: 0;
+  }
+  h3.c-model-heading {
+    text-align: center;
+    margin-bottom: 0;
+  }
 }
 
 .row.c-model-add-button {
