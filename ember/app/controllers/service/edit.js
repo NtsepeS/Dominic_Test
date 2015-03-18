@@ -5,9 +5,10 @@ export default Ember.ObjectController.extend({
   lineSpeeds: LineSpeeds,
   actions: {
     updateService: function() {
-      this.get('model').save().then(
-        this.transitionToRoute('service', this.get('model.id'))
-      );
+      var _this = this;
+      this.get('model').save().then( function() {
+        _this.transitionToRoute('service', _this.get('model.id'));
+      });
     }
   }
 });

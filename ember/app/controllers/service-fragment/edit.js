@@ -9,9 +9,10 @@ export default Ember.ObjectController.extend({
   physicalModes: PhysicalModes,
   actions: {
     updateServiceFragment: function() {
-      this.get('model').save().then(
-        this.transitionToRoute('service-fragment', this.get('model.id'))
-      );
+      var _this = this;
+      this.get('model').save().then( function() {
+        _this.transitionToRoute('service-fragment', _this.get('model.id'));
+      });
     }
   }
 });

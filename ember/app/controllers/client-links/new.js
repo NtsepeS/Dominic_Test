@@ -3,10 +3,10 @@ import Ember from 'ember';
 export default Ember.ObjectController.extend({
   actions: {
     acceptChanges: function() {
-      var self = this;
-      var newClientLink = self.get('model');
+      var _this         = this,
+          newClientLink = this.get('model');
       newClientLink.save().then(function(result){
-        self.transitionToRoute('client-link', result.id);
+        _this.transitionToRoute('client-link', result.id);
       });
     }
   }

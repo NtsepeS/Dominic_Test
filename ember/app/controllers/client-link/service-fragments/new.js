@@ -10,16 +10,18 @@ export default Ember.ObjectController.extend({
   physicalModes: PhysicalModes,
   actions: {
     saveServiceFragment: function() {
-      var serviceFragment = this.store.createRecord('service-fragment', {
-        workOrderNumber: this.get('newWorkOrderNumber'),
-        lineSpeed:       this.get('newLineSpeed'),
-        physicalMode:    this.get('newPhysicalMode'),
-        serviceType:     this.get('newServiceType'),
-        clientLink:      this.get('controllers.client-link.model')
+      var _this           = this,
+          serviceFragment = this.store.createRecord('service-fragment', {
+            workOrderNumber: _this.get('newWorkOrderNumber'),
+            lineSpeed:       _this.get('newLineSpeed'),
+            physicalMode:    _this.get('newPhysicalMode'),
+            serviceType:     _this.get('newServiceType'),
+            clientLink:      _this.get('controllers.client-link.model')
+          });
+
+      serviceFragment.save().then( function() {
+        _this.transitionToRoute('client-link.service-fragments');
       });
-      serviceFragment.save().then(
-        this.transitionToRoute('client-link.service-fragments')
-      );
     }
   }
 });

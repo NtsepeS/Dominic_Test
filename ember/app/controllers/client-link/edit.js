@@ -4,7 +4,7 @@ export default Ember.ObjectController.extend({
   actions: {
     acceptChanges: function() {
       var _this        = this,
-      editedClientLink = _this.get('model');
+      editedClientLink = this.get('model');
       editedClientLink.save().then(function(result){
         _this.transitionToRoute('client-link', result.id);
       });

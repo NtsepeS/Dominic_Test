@@ -7,9 +7,10 @@ export default Ember.ObjectController.extend({
   acceptableFrameTypes: AcceptableFrameTypes,
   actions: {
     updatePort: function() {
-      this.get('model').save().then(
-        this.transitionToRoute('port', this.get('model.id'))
-      );
+      var _this = this;
+      this.get('model').save().then( function() {
+        _this.transitionToRoute('port', _this.get('model.id'));
+      });
     }
   }
 });

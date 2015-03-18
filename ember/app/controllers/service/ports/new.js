@@ -8,16 +8,17 @@ export default Ember.ObjectController.extend({
   acceptableFrameTypes: AcceptableFrameTypes,
   actions: {
     savePort: function() {
-       var port = this.store.createRecord('port', {
-          vlanType: this.get('newVlanType'),
-          acceptableFrameType: this.get('newAcceptableFrameType'),
-          defaultVlan: this.get('newdefaultVlan'),
-          service: this.get('controllers.service.model')
-        });
+       var _this = this,
+            port = this.store.createRecord('port', {
+              vlanType:            _this.get('newVlanType'),
+              acceptableFrameType: _this.get('newAcceptableFrameType'),
+              defaultVlan:         _this.get('newdefaultVlan'),
+              service:             _this.get('controllers.service.model')
+            });
 
-        port.save().then(
-          this.transitionToRoute('service')
-        );
+      port.save().then( function() {
+        _this.transitionToRoute('service');
+      });
     }
   }
 });

@@ -6,16 +6,17 @@ export default Ember.ObjectController.extend({
   lineSpeeds: LineSpeeds,
   actions: {
     saveService: function() {
-      var service = this.store.createRecord('service', {
-        linetag: this.get('newLinetag'),
-        lineSpeed: this.get('newServiceLineSpeed'),
-        vlan: this.get('newVlan'),
-        serviceFragment: this.get('controllers.service-fragment.model')
-      });
+      var _this = this,
+        service = this.store.createRecord('service', {
+          linetag:         _this.get('newLinetag'),
+          lineSpeed:       _this.get('newServiceLineSpeed'),
+          vlan:            _this.get('newVlan'),
+          serviceFragment: _this.get('controllers.service-fragment.model')
+        });
 
-      service.save().then(
-        this.transitionToRoute('service-fragment')
-      );
+      service.save().then( function() {
+        _this.transitionToRoute('service-fragment');
+      });
     }
   }
 });

@@ -6,7 +6,7 @@ export default Ember.ObjectController.extend({
       var _this = this,
       service   = this.get('model');
 
-      service.destroyRecord().then(function(service) {
+      service.destroyRecord().then( function(service) {
         _this.transitionToRoute('service-fragments.index', service.get('serviceFragment.clientLink.id'), service.get('serviceFragment.id'));
       });
     }
