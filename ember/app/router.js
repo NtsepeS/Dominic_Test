@@ -24,6 +24,7 @@ Router.map(function() {
 
     this.route('modulation', function() {
       this.route('edit');
+      this.route('new');
     });
 
     this.route('rf-performance', function() {
