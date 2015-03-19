@@ -35,7 +35,7 @@ export default Ember.ObjectController.extend({
         });
 
         Ember.RSVP.Promise.all(promises).then(function(resolvedPromises){
-          _this.transitionTo('modulation.index');
+          _this.transitionToRoute('client-link.modulation');
           alert("All Saved")
         }).catch(function () {
           console.log('one of the saves failed');
