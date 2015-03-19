@@ -20,7 +20,7 @@ class Cukes
 
     config.host = "http://localhost:#{ENV['PROXY_PORT']}"
     config.browser = (ENV["BROWSER"] || 'selenium').to_sym
-    config.startup_timeout = 15
+    config.startup_timeout = 45
   end
 
 end
