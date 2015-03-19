@@ -9,14 +9,16 @@ export default Ember.ObjectController.extend({
       model = modelProperty;
     }
 
-
     return new Ember.RSVP.Promise(function(resolve, reject) {
+      // Resolve if empty value for promise chain to continue
       if (_this.get(keyName) === undefined ){
         return resolve(undefined);
       }
 
-      var storeModelPromise = _this.store.find(model, _this.get(keyName));
-      storeModelPromise.then(function(storeModel) {
+      // Resolve after save on associated model
+      var promise = _this.store.find(model, _this.get(keyName));
+
+      promise.then(function(storeModel) {
         return resolve(storeModel.save());
       });
     });
