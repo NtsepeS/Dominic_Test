@@ -9,7 +9,6 @@
     {{#if model.serviceFragments.length}}
     {{#each serviceFragment in model.serviceFragments}}
     <div class="panel panel-default">
-
       <div class="panel-heading">
         {{#link-to 'service-fragment' serviceFragment.id}}
         <span class="panel-title service-fragment-title text-uppercase">{{serviceFragment.workOrderNumber}}</span>
@@ -40,8 +39,6 @@
               {{serviceFragment.physicalMode}}
           </div>
         </div>
-
-
         <div class="center col-md-12">
           <h3 class="c-model-heading">Services</h3>
           <div class="row c-model-add-button__no-margin">
@@ -51,7 +48,6 @@
           </div>
         </div>
       </div>
-
       <table class="table js-service-table table-hover">
         <thead>
           <tr>
@@ -86,6 +82,11 @@
         {{/if}}
         </tbody>
       </table>
+      <div class="panel-footer c-panel-footer">
+        <div class="row c-panel-footer__row">
+          <div class="pull-right"><strong>Total Line Speed: </strong>{{serviceFragment.totalLineSpeed}} Mbps</div>
+        </div>
+      </div>
     </div>
     {{/each}}
     {{else}}

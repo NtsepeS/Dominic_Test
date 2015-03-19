@@ -6,5 +6,8 @@ export default DS.Model.extend({
   physicalMode:    DS.attr('string'),
   serviceType:     DS.attr('string'),
   services:        DS.hasMany('service', {async: true}),
-  clientLink:      DS.belongsTo('client-link', { async: true })
+  clientLink:      DS.belongsTo('client-link', { async: true }),
+
+  serviceLineSpeeds: Ember.computed.mapBy('services', 'lineSpeed'),
+  totalLineSpeed:    Ember.computed.sum('serviceLineSpeeds')
 });
