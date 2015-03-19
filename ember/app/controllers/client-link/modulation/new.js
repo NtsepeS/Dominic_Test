@@ -10,17 +10,19 @@ export default Ember.ObjectController.extend({
       var radio = this.store.createRecord('radio', {});
 
       radio.get('modulations').addObject(this.store.createRecord('modulation',{
-        downlinkMin: this.get('selectedPredictedDLMin'),
-        downlinkMax: this.get('selectedPredictedDLMax'),
-        uplinkMin:   this.get('selectedPredictedULMin'),
-        uplinkMax:   this.get('selectedPredictedULMax'),
+        modulationResultSet: 'Predicted',
+        downlinkMin:         this.get('selectedPredictedDLMin'),
+        downlinkMax:         this.get('selectedPredictedDLMax'),
+        uplinkMin:           this.get('selectedPredictedULMin'),
+        uplinkMax:           this.get('selectedPredictedULMax'),
       }));
 
       radio.get('modulations').addObject(this.store.createRecord('modulation',{
-        downlinkMin: this.get('selectedConfiguredDLMin'),
-        downlinkMax: this.get('selectedConfiguredDLMax'),
-        uplinkMin:   this.get('selectedConfiguredULMin'),
-        uplinkMax:   this.get('selectedConfiguredULMax'),
+        modulationResultSet: 'Configured',
+        downlinkMin:         this.get('selectedConfiguredDLMin'),
+        downlinkMax:         this.get('selectedConfiguredDLMax'),
+        uplinkMin:           this.get('selectedConfiguredULMin'),
+        uplinkMax:           this.get('selectedConfiguredULMax'),
       }));
 
       radio.save().then(function() {

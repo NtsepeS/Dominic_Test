@@ -16,7 +16,7 @@
         <tbody>
           {{#each modulation in radio.modulations}}
             <tr>
-              <td> name of modulation </td>
+              <td>{{modulation.modulationResultSet}}</td>
               <td>
                 {{view "select" content=modulationValues value=modulation.downlinkMin prompt="Please Select"}}
               </td>
