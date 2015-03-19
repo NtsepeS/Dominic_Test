@@ -1,7 +1,6 @@
 import DS from 'ember-data';
 
 var ClientLink = DS.Model.extend({
-  name:                DS.attr('string'),
   branch:              DS.attr('string'),
   circuitNumber:       DS.attr('string'),
   msadNumber:          DS.attr('string'),
@@ -20,6 +19,10 @@ var ClientLink = DS.Model.extend({
   status:              DS.belongsTo('status', {async: true}),
   subGroupPictureSets: DS.hasMany('sub-group-picture-set', {async: true}),
   serviceFragments:    DS.hasMany('service-fragment', {async: true}),
+
+  name: function() {
+    return this.get('client.name') + ' - ' + this.get('branch');
+  }.property('branch', 'client'),
 
   latitude: function() {
     return this.get('antenna.location.geometry.latitude');
