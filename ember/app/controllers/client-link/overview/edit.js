@@ -9,7 +9,7 @@ export default Ember.ObjectController.extend({
       model = modelProperty;
     }
 
-    return new Ember.RSVP.Promise(function(resolve, reject) {
+    return new Promise(function(resolve) {
       // Resolve if empty value for promise chain to continue
       if (_this.get(keyName) === undefined ){
         return resolve(undefined);
@@ -34,7 +34,7 @@ export default Ember.ObjectController.extend({
           baseStationSectorPromise = this.setupPromise('baseStationSector', 'base-station-sector'),
           statusPromise            = this.setupPromise('status');
 
-      Promise.all([
+      var promise = Promise.all([
         clientPromise,
         linkTypePromise,
         antennaPromise,
