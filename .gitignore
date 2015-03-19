@@ -31,7 +31,3 @@ rails/spec/reports/*
 /libpeerconnection.log
 npm-debug.log
 testem.log
-
-
-# Ignore the changes to the .env file
-.env
