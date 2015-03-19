@@ -68,10 +68,10 @@ Picture.where(mechanism: 'url', picture_data: 'www.test.com/pic_6.jpg', date_tak
 SubGroupPictureSet.where(album_id: 1, sub_group_classification_id: 1, client_link_id: 1).first_or_create
 SubGroupPictureSet.where(album_id: 2, sub_group_classification_id: 2, client_link_id: 1).first_or_create
 
-RfPerformanceParameter.where(uplink_rssi: 3.46, downlink_rssi: 3.45, uplink_cnr: 3.43, downlink_cnr: 2.34, tx_power: 2.54, step_attenuator: 5.5, radio_id:1).first_or_create
-RfPerformanceParameter.where(uplink_rssi: 2.46, downlink_rssi: 3.45, uplink_cnr: 1.43, downlink_cnr: 1.44, tx_power: 1.53, step_attenuator: 5.5, radio_id:2).first_or_create
-RfPerformanceParameter.where(uplink_rssi: 1.46, downlink_rssi: 3.45, uplink_cnr: 0.43, downlink_cnr: 2.54, tx_power: 3.44, step_attenuator: 5.5, radio_id:1).first_or_create
-RfPerformanceParameter.where(uplink_rssi: 5.46, downlink_rssi: 3.45, uplink_cnr: 2, downlink_cnr: 2.34, tx_power: 2.54, step_attenuator: 5.5, radio_id:1).first_or_create
+RfPerformanceParameter.where(uplink_rssi: 3.46, downlink_rssi: 3.45, uplink_cnr: 3.43, downlink_cnr: 2.34, tx_power: 2.54, step_attenuator: 5.5, rf_result_set: "Predicted", radio_id:1).first_or_create
+RfPerformanceParameter.where(uplink_rssi: 2.46, downlink_rssi: 3.45, uplink_cnr: 1.43, downlink_cnr: 1.44, tx_power: 1.53, step_attenuator: 5.5, rf_result_set: "10-05-2013", radio_id:2).first_or_create
+RfPerformanceParameter.where(uplink_rssi: 1.46, downlink_rssi: 3.45, uplink_cnr: 0.43, downlink_cnr: 2.54, tx_power: 3.44, step_attenuator: 5.5, rf_result_set: "Configured", radio_id:1).first_or_create
+RfPerformanceParameter.where(uplink_rssi: 5.46, downlink_rssi: 3.45, uplink_cnr: 2, downlink_cnr: 2.34, tx_power: 2.54, step_attenuator: 5.5, rf_result_set: "24-03-2013", radio_id:1).first_or_create
 
 AntennaParameter.where(polarization: "polarization").first_or_create
 Modulation.where(uplink_max: "4 QAM", uplink_min: "64 QAM", downlink_min: "4 QAM 2/3", downlink_max: "16 QAM", modulation_result_set: "Predicted", radio_id: 1).first_or_create

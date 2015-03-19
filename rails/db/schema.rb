@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150319145807) do
+ActiveRecord::Schema.define(version: 20150319195654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -265,6 +265,7 @@ ActiveRecord::Schema.define(version: 20150319145807) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "radio_id"
+    t.string   "rf_result_set"
   end
 
   add_index "rf_performance_parameters", ["radio_id"], name: "index_rf_performance_parameters_on_radio_id", using: :btree

@@ -6,6 +6,7 @@ FactoryGirl.define do
     downlink_cnr 1.5
     tx_power 1.5
     step_attenuator 1.5
+    rf_result_set "Predicted"
     radio_id 1
   end
 
