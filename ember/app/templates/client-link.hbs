@@ -1,10 +1,12 @@
-<h1>Client Link <small>{{model.name}}</small></h1>
-
-<div class="actions">
-  {{#link-to 'client-link.audit'}}
-    <span class="glyphicon glyphicon-list-alt js-actions audit" aria-hidden="true"></span>
-  {{/link-to}}
-</div>
+<h1>
+  Client Link
+  <small>
+    {{model.name}}
+    {{#link-to 'client-link.audit'}}
+      <span class="glyphicon glyphicon-list-alt js-actions audit pull-right" aria-hidden="true"></span>
+    {{/link-to}}
+  </small>
+</h1>
 
 <div role="tabpanel">
   <ul class="nav nav-tabs" role="tablist">
