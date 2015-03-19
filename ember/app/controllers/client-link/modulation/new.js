@@ -6,7 +6,7 @@ export default Ember.ObjectController.extend({
   modulationValues: ModulationValues,
   actions: {
     saveModulation: function() {
-      var _this = this
+      var _this = this;
       var radio = this.store.createRecord('radio', {});
 
       radio.get('modulations').addObject(this.store.createRecord('modulation',{
@@ -23,21 +23,21 @@ export default Ember.ObjectController.extend({
         uplinkMax:   this.get('selectedConfiguredULMax'),
       }));
 
-      radio.save().then(function(){
+      radio.save().then(function() {
         var promises = Ember.A();
         radio.get('modulations').forEach(function(item){
           promises.push(item.save());
         });
-        _this.set('radio', radio)
+        _this.set('radio', radio);
 
         Ember.RSVP.Promise.all(
           [promises,
           _this.get('model').save()]
         )
-        .then(function(resolvedPromises){
+        .then(function() {
           _this.transitionToRoute('client-link.modulation');
         })
-        .catch(function () {
+        .catch(function() {
           console.log('one of the saves failed');
         });
       });
