@@ -27,16 +27,13 @@ export default Ember.ObjectController.extend({
         var promises = Ember.A();
         radio.get('modulations').forEach(function(item){
           promises.push(item.save());
-        _this.get('radio');
         _this.set('radio', radio)
-        _this.get('model').save().then(
-          console.log("after save", _this.get('radio'))
-        )
-        });
 
-        Ember.RSVP.Promise.all(promises).then(function(resolvedPromises){
-          _this.transitionToRoute('client-link.modulation');
-          alert("All Saved")
+        Ember.RSVP.Promise.all(
+          [promises,
+          _this.get('model').save()
+          ]).then(function(resolvedPromises){
+            _this.transitionToRoute('client-link.modulation');
         }).catch(function () {
           console.log('one of the saves failed');
         });
