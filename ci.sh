@@ -1,5 +1,5 @@
 #!/bin/bash --login
-exit 1
+
 # to keep CI output low
 function silently {
 	set +x 
