@@ -43,7 +43,7 @@ module Api
       private
 
       def modulation_params
-        params.require(:modulation).permit(:downlink_min, :downlink_max, :uplink_min, :uplink_max)
+        params.require(:modulation).permit(:downlink_min, :downlink_max, :uplink_min, :uplink_max, :radio_id)
       end
 
     end
