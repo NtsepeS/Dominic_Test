@@ -44,6 +44,8 @@ $ bin/test
 ```
 
 ##Environment variables
+Check the .env file,  if you want to ignore the changes in your .env, use `git update-index --assume-unchanged .env`
+
 * DB_HOST
 * DB_DB
 * SECRET_KEY_BASE
