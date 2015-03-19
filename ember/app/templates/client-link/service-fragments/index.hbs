@@ -1,12 +1,12 @@
 <div class="container">
   <section class="row">
   <h2 class="c-model-heading">Service Fragments</h2>
+  {{#if model.serviceFragments.length}}
   <div class="row c-model-add-button">
     {{#link-to 'client-link.service-fragments.new' }}
     <button type="button" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Service Fragment</button>
     {{/link-to}}
   </div>
-    {{#if model.serviceFragments.length}}
     {{#each serviceFragment in model.serviceFragments}}
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -76,7 +76,7 @@
         {{else}}
           <tr>
             <td colspan="6">
-              <div class="alert alert-warning" role="alert">There's no services configured on this service fragment.</div>
+              <div class="alert alert-warning c-warning-message--no-margin" role="alert">There's no services configured on this service fragment.</div>
             </td>
           </tr>
         {{/if}}
@@ -90,7 +90,10 @@
     </div>
     {{/each}}
     {{else}}
-       <div class="alert alert-warning" role="alert">There's no services fragments configured on this Client Link.</div>
+      <div class="alert alert-warning" role="alert">There's <strong>no services fragments</strong> configured on this Client Link.</div>
+      {{#link-to 'client-link.service-fragments.new' }}
+      <button type="button" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Service Fragment</button>
+      {{/link-to}}
     {{/if}}
   </section>
 </div>

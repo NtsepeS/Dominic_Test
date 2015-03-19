@@ -22,3 +22,11 @@ section.row  {
     margin: 0;
   }
 }
+
+.c-warning-message {
+
+  &--no-margin {
+    margin-bottom: 0;
+  }
+
+}
