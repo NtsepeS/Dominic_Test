@@ -1,10 +1,10 @@
-<div class="client-links-header">
-  <h2 class="sub-header client-links">
+<div class="c-client-links-header">
+  <h2 class="c-client-links-header__text">
     Client Links
   </h2>
 
-  <span class="client-links-actions">
-    {{#link-to "client-links.new" class="btn btn-default btn-xs add-client-link" role="button"}}
+  <span class="c-client-links-header__actions">
+    {{#link-to "client-links.new" class="btn btn-default btn-xs qa-add-client-link" role="button"}}
     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     Add Client Link
     {{/link-to}}
@@ -13,7 +13,6 @@
       Export
     </a>
   </span>
-
 </div>
 
 {{#data-table}}
