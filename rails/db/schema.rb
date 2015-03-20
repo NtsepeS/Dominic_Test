@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150317075040) do
+ActiveRecord::Schema.define(version: 20150320104751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,8 +33,13 @@ ActiveRecord::Schema.define(version: 20150317075040) do
     t.datetime "updated_at"
     t.integer  "location_id"
     t.string   "item_code"
+    t.string   "serial_number"
+    t.string   "is_asset_tag"
+    t.string   "product_number"
+    t.integer  "client_link_id"
   end
 
+  add_index "antennas", ["client_link_id"], name: "index_antennas_on_client_link_id", using: :btree
   add_index "antennas", ["location_id"], name: "index_antennas_on_location_id", using: :btree
 
   create_table "base_station_sectors", force: :cascade do |t|
@@ -156,9 +161,15 @@ ActiveRecord::Schema.define(version: 20150317075040) do
 
   create_table "modems", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "serial_number"
+    t.string   "is_asset_tag"
+    t.string   "product_number"
+    t.integer  "client_link_id"
   end
+
+  add_index "modems", ["client_link_id"], name: "index_modems_on_client_link_id", using: :btree
 
   create_table "modulations", force: :cascade do |t|
     t.integer  "downlink_min"
@@ -212,9 +223,15 @@ ActiveRecord::Schema.define(version: 20150317075040) do
     t.string   "name"
     t.string   "item_code"
     t.boolean  "icasa_sticker"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "serial_number"
+    t.string   "is_asset_tag"
+    t.string   "product_number"
+    t.integer  "client_link_id"
   end
+
+  add_index "radios", ["client_link_id"], name: "index_radios_on_client_link_id", using: :btree
 
   create_table "rf_performance_parameters", force: :cascade do |t|
     t.string   "uplink_rssi"
