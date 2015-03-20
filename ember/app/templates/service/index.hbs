@@ -36,7 +36,7 @@
           </div>
         </div>
       </div>
-      <table class="table table-hover">
+      <table class="table table-hover number-table">
         <thead>
           <tr>
             <th>#</th>
@@ -50,8 +50,8 @@
         <tbody>
         {{#if model.ports.length}}
         {{#each port in model.ports}}
-          {{#link-to 'port' port.id tagName="tr"}}
-            <td>{{port.id}}</td>
+          {{#link-to 'port' port.id tagName="tr" class="number-row"}}
+            <td class="number-data-column"></td>
             <td>{{port.vlanType}}</td>
             <td>{{port.acceptableFrameType}}</td>
             <td>{{port.defaultVlan}}</td>

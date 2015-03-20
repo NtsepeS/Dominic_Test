@@ -48,7 +48,7 @@
           </div>
         </div>
       </div>
-      <table class="table js-service-table table-hover">
+      <table class="table js-service-table table-hover number-table">
         <thead>
           <tr>
             <th>#</th>
@@ -61,8 +61,8 @@
         <tbody>
         {{#if serviceFragment.services.length}}
           {{#each service in serviceFragment.services}}
-          {{#link-to 'service' serviceFragment.id service.id tagName="tr"}}
-            <td>{{service.id}}</td>
+          {{#link-to 'service' serviceFragment.id service.id tagName="tr" class="number-row"}}
+            <td class="number-data-column"></td>
             <td>{{service.linetag}}</td>
             <td>{{service.lineSpeed}} Mbps</td>
             <td>{{service.vlan}}</td>

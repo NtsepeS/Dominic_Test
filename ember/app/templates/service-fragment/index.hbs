@@ -48,7 +48,7 @@
       </div>
 
 
-      <table class="table js-service-table table-hover table-striped">
+      <table class="table js-service-table table-hover table-striped number-table">
         <thead>
           <tr>
             <th>#</th>
@@ -61,8 +61,8 @@
         <tbody>
       {{#if model.services.length}}
       {{#each service in model.services}}
-        {{#link-to 'service' service.id tagName="tr"}}
-          <td>{{service.id}}</td>
+        {{#link-to 'service' service.id tagName="tr" class="number-row"}}
+          <td class="number-data-column"></td>
           <td>{{service.linetag}}</td>
           <td>{{service.lineSpeed}}</td>
           <td>{{service.vlan}}</td>

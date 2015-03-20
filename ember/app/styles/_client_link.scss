@@ -1,0 +1,13 @@
+table.number-table {
+  counter-reset: rowNumber - 1;
+
+  tr.number-row {
+    counter-increment: rowNumber;
+
+    td.number-data-column:first-child::before {
+      content: counter(rowNumber);
+    }
+  }
+}
+
+
