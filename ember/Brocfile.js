@@ -48,6 +48,10 @@ app.import('bower_components/datatables/media/images/sort_both.png', {
   destDir: 'images'
 });
 
+if (app.env === "development" || app.env === "test") {
+  app.import('bower_components/jquery-mockjax/jquery.mockjax.js');
+}
+
 //
 // If you need to use different assets in different
 // environments, specify an object as the first parameter. That
