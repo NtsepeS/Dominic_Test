@@ -10,7 +10,7 @@ module.exports = function(app) {
 
   clientLinksRouter.get('/', function(req, res) {
     res.send({
-      'client-links': fixtures
+      'client_links': fixtures
     });
   });
 
@@ -19,17 +19,25 @@ module.exports = function(app) {
   });
 
   clientLinksRouter.get('/:id', function(req, res) {
-    var link = _.find(fixtures, function(obj) { return obj.id === req.params.id });
+    var link = _.find(fixtures, function(obj) {
+      return obj.id === req.params.id
+    });
+
     res.send({
       'client_link': link
     });
   });
 
   clientLinksRouter.put('/:id', function(req, res) {
+    var link = _.find(fixtures, function(obj) {
+      return obj.id === req.params.id
+    });
+
+    // fake update
+    _.merge(link, req.params.client_link);
+
     res.send({
-      'client-links': {
-        id: req.params.id
-      }
+      'client_link': link
     });
   });
 
