@@ -4,21 +4,39 @@ import {
   test
 } from 'qunit';
 import startApp from 'cops/tests/helpers/start-app';
+import Pretender from 'pretender';
+import json from '../helpers/json';
 
-var application;
+var application, server;
 
 module('Acceptance: ClientLinks', {
   beforeEach: function() {
+    server = new Pretender();
     application = startApp();
     authenticateSession();
   },
 
   afterEach: function() {
     Ember.run(application, 'destroy');
+    server.shutdown();
   }
 });
 
+// FactoryGirl like setup
+var i = 0;
+function clientLink(attrs) {
+  return Ember.merge(JSON.parse(JSON.stringify({
+    id: i++
+  })), attrs);
+}
+
 test('visiting /client-links should show a list of links', function(assert) {
+  server.get('/api/v1/client_links', json(200, {
+    client_links: [
+      clientLink({ name: "Upington" })
+    ]
+  }));
+
   visit('/client-links');
 
   andThen(function() {
@@ -32,6 +50,12 @@ test('visiting /client-links should show a list of links', function(assert) {
 });
 
 test('clicking on an entry in the client links table should navigate to the details', function(assert) {
+  server.get('/api/v1/client_links', json(200, {
+    client_links: [
+      clientLink({ name: "Upington" })
+    ]
+  }));
+
   visit('/client-links');
 
   andThen(function() {
