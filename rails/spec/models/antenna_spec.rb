@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Radio, :type => :model do
+RSpec.describe Antenna, :type => :model do
   # core node
   let (:c1) { Container.new }
   let (:cn) { CoreNode.new name: "Bryanston Towers", container: c1 }
@@ -17,13 +17,13 @@ RSpec.describe Radio, :type => :model do
   let (:c6) { c4.children.new }
   let (:cl) { ClientLink.new name: "Client Link 1", container: c6 }
 
-  # radio
-  let (:r) { Radio.new name: 'radio-1', client_link: cl }
+  # antenna
+  let (:a) { Antenna.new serial_number: 'ant-1', client_link: cl }
 
   context 'methods' do
     it 'should respond' do
       %i{ core_node base_station_unit base_station_sector client_link }.each do |method|
-        expect(r).to respond_to(method)
+        expect(a).to respond_to(method)
       end
     end
   end
@@ -38,23 +38,24 @@ RSpec.describe Radio, :type => :model do
       sec.save
       c6.save
       cl.save
-      r.save
+      a.save
     end
 
     it 'returns parent core node' do
-      expect(r.core_node).to eq(cn)
+      expect(a.core_node).to eq(cn)
     end
 
     it 'returns parent base station unit' do
-      expect(r.base_station_unit).to eq(bs1)
+      expect(a.base_station_unit).to eq(bs1)
     end
 
     it 'returns parent base station sector' do
-      expect(r.base_station_sector).to eq(sec)
+      expect(a.base_station_sector).to eq(sec)
     end
 
     it 'returns parent client link' do
-      expect(r.client_link).to eq(cl)
+      expect(a.client_link).to eq(cl)
     end
   end
 end
+
