@@ -11,15 +11,9 @@ module('Acceptance: ClientLinks', {
   beforeEach: function() {
     application = startApp();
     authenticateSession();
-
-    $.mockjax({
-      url: "/api/v1/client_links",
-      proxy: "/mocks/client-links"
-    });
   },
 
   afterEach: function() {
-    $.mockjax.clear();
     Ember.run(application, 'destroy');
   }
 });
