@@ -31,7 +31,7 @@ export default Ember.Controller.extend({
   resetProperties: function() {
     // A Controller in Ember is a singleton - so the controller is never torn down.
     // It lives on, keeping its properties... and we need to reset these properties
-    // so that when creating a new service fragment the previous properties is not displayed in
+    // so that when creating a new service fragment the previous properties are not displayed in
     // the template.
     this.setProperties({ newWorkOrderNumber: null,
                          newLineSpeed: null,

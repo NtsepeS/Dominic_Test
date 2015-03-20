@@ -15,8 +15,3 @@ export default Ember.ObjectController.extend(SaveClienLink, {
     }
   }
 });
-
-
-
-
-
