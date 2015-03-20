@@ -18,6 +18,11 @@ RSpec.describe ClientLink, :type => :model do
   let (:c6) { c4.children.new }
   let (:cl) { ClientLink.new name: "Client Link 1", container: c6 }
 
+  # link equipment
+  let (:a) { Antenna.new serial_number: 'ant-1', client_link: cl }
+  let (:r) { Radio.new name: 'radio-1', client_link: cl }
+  let (:m) { Modem.new name: 'modem-1', client_link: cl }
+
   it 'has a container linked to it' do
     expect(cl.container).to eq(c6)
   end
@@ -28,6 +33,9 @@ RSpec.describe ClientLink, :type => :model do
     it { expect(cl).to respond_to(:core_node) }
     it { expect(cl).to respond_to(:base_station_unit) }
     it { expect(cl).to respond_to(:base_station_sector) }
+    it { expect(cl).to respond_to(:antenna) }
+    it { expect(cl).to respond_to(:radio) }
+    it { expect(cl).to respond_to(:modem) }
   end
 
   context 'executes methods correctly' do
@@ -40,6 +48,9 @@ RSpec.describe ClientLink, :type => :model do
       sec.save
       c6.save
       cl.save
+      a.save
+      r.save
+      m.save
     end
 
     it 'will delegate children method call to attached container' do
@@ -60,6 +71,16 @@ RSpec.describe ClientLink, :type => :model do
 
     it 'will return its parent base station sector' do
       expect(cl.base_station_sector).to eq(sec)
+    end
+
+    it 'lists all link equipment attached to it' do
+      expect(cl.equipment).to include(a, r, m)
+    end
+
+    it 'returns the record for each link equipment attached to it' do
+      expect(cl.antenna).to eq(a)
+      expect(cl.radio).to eq(r)
+      expect(cl.modem).to eq(m)
     end
   end
 end

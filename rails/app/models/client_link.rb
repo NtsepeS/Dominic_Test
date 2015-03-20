@@ -1,5 +1,11 @@
 class ClientLink < ActiveRecord::Base
+  include Equippable
+
   has_paper_trail ignore: [:created_at, :updated_at]
+
+  equipped_with :antenna
+  equipped_with :radio
+  equipped_with :modem
 
   has_one :container, as: :containable
 
@@ -15,4 +21,5 @@ class ClientLink < ActiveRecord::Base
 
   has_many :service_fragment
   has_many :sub_group_picture_sets
+
 end
