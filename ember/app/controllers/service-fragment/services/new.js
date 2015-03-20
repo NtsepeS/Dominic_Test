@@ -1,9 +1,10 @@
 import Ember from 'ember';
 import LineSpeeds from 'cops/models/line-speeds';
 
-export default Ember.ObjectController.extend({
+export default Ember.Controller.extend({
   needs: "service-fragment",
   lineSpeeds: LineSpeeds,
+
   actions: {
     saveService: function() {
       var _this = this,
@@ -15,9 +16,16 @@ export default Ember.ObjectController.extend({
         });
 
       service.save().then( function() {
+        _this.resetProperties();
         _this.transitionToRoute('service-fragment');
       });
     }
+  },
+
+  resetProperties: function() {
+    this.setProperties({ newLinetag: null,
+                         newServiceLineSpeed: null,
+                         newVlan: null });
   }
 });
 

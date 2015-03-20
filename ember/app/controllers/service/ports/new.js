@@ -2,10 +2,11 @@ import Ember from 'ember';
 import VlanTypes from 'cops/models/vlan-types';
 import AcceptableFrameTypes from 'cops/models/acceptable-frame-types';
 
-export default Ember.ObjectController.extend({
+export default Ember.Controller.extend({
   needs: "service",
   vlanTypes: VlanTypes,
   acceptableFrameTypes: AcceptableFrameTypes,
+
   actions: {
     savePort: function() {
        var _this = this,
@@ -17,9 +18,16 @@ export default Ember.ObjectController.extend({
             });
 
       port.save().then( function() {
+        _this.resetProperties();
         _this.transitionToRoute('service');
       });
     }
+  },
+
+  resetProperties: function() {
+    this.setProperties({ newVlanType: null,
+                         newAcceptableFrameType: null,
+                         newdefaultVlan: null });
   }
 });
 
