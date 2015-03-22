@@ -34,7 +34,9 @@
     {{#link-to 'client-link.service-fragments'}}Service Fragments{{/link-to}}
   {{/active-link}}
 
-  <li role="presentation"><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab">Notes</a></li>
+  {{#active-link}}
+    {{#link-to 'client-link.notes'}}Notes{{/link-to}}
+  {{/active-link}}
 
   {{#active-link}}
     {{#link-to 'client-link.quality-assurance'}}Quality Assurance{{/link-to}}

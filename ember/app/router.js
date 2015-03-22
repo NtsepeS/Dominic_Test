@@ -44,6 +44,9 @@ Router.map(function() {
     this.route('quality-assurance', function() {
     });
 
+    this.route('notes', function() {
+    });
+
     this.route('client-side-ports');
 
     this.route('service-fragments', function() {
