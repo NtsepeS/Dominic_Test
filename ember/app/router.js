@@ -10,7 +10,9 @@ Router.map(function() {
   this.resource('client-links', function(){
     this.route('new');
   });
+
   this.resource('client-link', { path: 'client-links/:clientLinkId' }, function(){
+
     this.route('edit');
     this.route('audit');
 
@@ -32,6 +34,10 @@ Router.map(function() {
     });
 
     this.resource('rf-performance-parameter', { path: 'rf-performance/:rf_performance_parameter_id' }, function() {
+      this.route('edit');
+    });
+
+    this.route('pictures', function() {
       this.route('edit');
     });
 
@@ -63,9 +69,11 @@ Router.map(function() {
 
     });
   });
+
   this.resource('maps', { path: 'maps/core-nodes/' }, function() {
     this.route('view' , { path: ':coreNodeId' });
   });
+
 });
 
 export default Router;

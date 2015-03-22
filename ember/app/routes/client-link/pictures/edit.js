@@ -3,10 +3,10 @@ import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixi
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model: function() {
-    return this.modelFor('client-link');
+    return this.modelFor('pictures');
   },
+
   setupController: function(controller, model) {
-    controller.set('content', model);
     controller.set('subGroupClassifications', this.store.find('sub-group-classification'));
     controller.set('groupClassifications', this.store.find('group-classification'));
   }
