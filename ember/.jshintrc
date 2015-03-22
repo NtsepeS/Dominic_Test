@@ -4,7 +4,7 @@
     "window",
     "-Promise",
     "PhotoSwipe",
-    "PhotoSwipeUI_Default"
+    "PhotoSwipeUI_Default",
     "authenticateSession",
     "invalidateSession"
   ],

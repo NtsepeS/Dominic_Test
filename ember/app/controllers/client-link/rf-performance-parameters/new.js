@@ -7,9 +7,9 @@ export default Ember.ObjectController.extend({
     saveRFPerformance: function() {
       var _this = this;
 
-      var radio = _this.get('model.radio.id')
+      var radio = _this.get('model.radio.id');
       if(radio){
-        console.log("WE HAVE AN EXISTING RADIO AND ADD RF")
+        console.log("WE HAVE AN EXISTING RADIO AND ADD RF");
         var rfPerformanceParameter = _this.store.createRecord('rf-performance-parameter', {
           rfResultSet:    _this.get('rfResultSet'),
           uplinkRssi:     _this.get('ULRSSI'),
@@ -29,7 +29,7 @@ export default Ember.ObjectController.extend({
       }
       else {
         console.log("WE CREATE A RADIO, AND ADD RF");
-        var radio = _this.store.createRecord('radio', {});
+        radio = _this.store.createRecord('radio', {});
         radio.get('rfPerformanceParameters').addObject(_this.store.createRecord('rf-performance-parameter', {
           rfResultSet:    _this.get('rfResultSet'),
           uplinkRssi:     _this.get('ULRSSI'),

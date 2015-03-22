@@ -6,7 +6,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     return this.modelFor('pictures');
   },
 
-  setupController: function(controller, model) {
+  setupController: function(controller) {
     controller.set('subGroupClassifications', this.store.find('sub-group-classification'));
     controller.set('groupClassifications', this.store.find('group-classification'));
   }
