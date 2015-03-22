@@ -35,7 +35,10 @@
   {{/active-link}}
 
   <li role="presentation"><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab">Notes</a></li>
-  <li role="presentation"><a href="#quality_assurance" aria-controls="quality_assurance" role="tab" data-toggle="tab">Quality Assurance</a></li>
+
+  {{#active-link}}
+    {{#link-to 'client-link.quality-assurance'}}Quality Assurance{{/link-to}}
+  {{/active-link}}
 
   {{#active-link}}
     {{#link-to 'client-link.pictures'}}Pictures{{/link-to}}

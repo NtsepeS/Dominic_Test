@@ -41,6 +41,9 @@ Router.map(function() {
       this.route('edit');
     });
 
+    this.route('quality-assurance', function() {
+    });
+
     this.route('client-side-ports');
 
     this.route('service-fragments', function() {
