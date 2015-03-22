@@ -1,10 +1,18 @@
 #!/usr/bin/env node
 
+
+// Run the latest version of cops
+
 require('dotenv').load();
 var util = require('util');
 var exec = require('child_process').exec;
 var argv = require('minimist')(process.argv.slice(2));
+var fs = require('fs');
 
+
+var packagejson = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
+
+var version = packagejson['version'];
 
 var child;
 
@@ -29,7 +37,7 @@ var run_command = util.format("docker run -d -p 80:80 "
   process.env.SENTRY_DSN);
 
 if ( argv.db ){
-  run_command += "--link=\"cops-database:cops-database\" ";  
+  run_command += "--link=\"cops-database:cops-database\" ";
 }
 
 run_command += "cops";
