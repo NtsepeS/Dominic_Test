@@ -1,0 +1,48 @@
+<div class="container">
+  <section class="row">
+    <h2> RF Performance </h2>
+
+    {{#if radio.rfPerformanceParameters.length}}
+      <div class="table-responsive" cellspacing="0" width="100%">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>UL RSSI</th>
+              <th>DL RSSI</th>
+              <th>UL CNR</th>
+              <th>DL CNR</th>
+              <th>TX Power</th>
+              <th>Step Attenuator</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each parameter in radio.rfPerformanceParameters}}
+              <tr>
+                <td>{{parameter.rfResultSet}}</td>
+                <td>{{parameter.uplinkRssi}}</td>
+                <td>{{parameter.downlinkRssi}}</td>
+                <td>{{parameter.uplinkCnr}}</td>
+                <td>{{parameter.downlinkCnr}}</td>
+                <td>{{parameter.txPower}}</td>
+                <td>{{parameter.stepAttenuator}}</td>
+                <td>
+                  {{#link-to 'rf-performance-parameter.edit' parameter}}
+                    <span class="glyphicon glyphicon-edit pull-right" aria-hidden="true"></span>
+                  {{/link-to}}
+                </td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+
+    {{else}}
+      <div class="alert alert-warning" role="alert">There's no RF performance parameters configured on this Client Link.</div>
+    {{/if}}
+
+    {{#link-to 'client-link.rf-performance-parameters.new'}}
+    <button type="button" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Add RF Performance Parameters</button>
+    {{/link-to}}
+  </section>
+</div>

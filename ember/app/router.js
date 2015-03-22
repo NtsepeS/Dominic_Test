@@ -27,7 +27,11 @@ Router.map(function() {
       this.route('new');
     });
 
-    this.route('rf-performance', function() {
+    this.route('rf-performance-parameters', { path: 'rf-performance'}, function() {
+      this.route('new');
+    });
+
+    this.resource('rf-performance-parameter', { path: 'rf-performance/:rf_performance_id' }, function() {
       this.route('edit');
     });
 
