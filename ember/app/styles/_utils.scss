@@ -8,3 +8,9 @@ a.disabled, .disabled {
   @extend .is-disabled
 }
 
+// For when using link-to as table row
+.u-link-to-tr {
+  tbody tr {
+    cursor: pointer;
+  }
+}
