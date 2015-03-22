@@ -1,5 +1,27 @@
-#!/bin/sh -e
+#!/usr/bin/env node
 
-cp dockerfiles/backend/Dockerfile .
-docker build -t "cops" .
-rm Dockerfile
+var exec = require('child_process').exec;
+var spawn = require('child_process').spawn;
+var fs = require('fs');
+
+var packagejson = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
+
+var version = packagejson['version'];
+
+
+var add = exec("cp dockerfiles/backend/Dockerfile .",function(){
+  var child = spawn("docker", ["build", "-t", "si.cops:"+version, "."]);
+  child.stdout.on('data', function(data){
+    process.stdout.write(data);
+  });
+
+  child.stderr.on('data', function(data){
+    process.stdout.write(data);
+  });
+
+  child.on('close', function (code){
+    var remove = exec("rm Dockerfile", function(){});
+  });
+
+});
+
