@@ -17,7 +17,7 @@
             </tr>
           </thead>
           <tbody>
-            {{#each parameter in radio.rfPerformanceParameters}}
+            {{#each parameter in radio.rfPerformanceParameters itemController="rf-performance-parameter/index"}}
               <tr>
                 <td>{{parameter.rfResultSet}}</td>
                 <td>{{parameter.uplinkRssi}}</td>
@@ -30,6 +30,9 @@
                   {{#link-to 'rf-performance-parameter.edit' parameter.id}}
                     <span class="glyphicon glyphicon-edit pull-right" aria-hidden="true"></span>
                   {{/link-to}}
+                </td>
+                <td>
+                  <span class="glyphicon glyphicon-trash pull-right" aria-hidden="true" {{action 'deleteRFPerformance' parameter.id}} ></span>
                 </td>
               </tr>
             {{/each}}
