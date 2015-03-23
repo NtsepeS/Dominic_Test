@@ -1,0 +1,29 @@
+{{outlet}}
+<div class="c-base-station-sectors-header">
+  <h2 class="c-base-station-sectors-header__text">
+    Base Station Sectors
+  </h2>
+</div>
+
+{{#data-table}}
+  <table class="table table-striped u-link-to-tr c-base-station-sectors-list" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Sector</th>
+        <th>Base Station Unit</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#each sector in model}}
+    <tr>
+      <td class="c-base-station-sectors-list-item__name">{{sector.name}}</td>
+      <td>{{sector.status.name}}</td>
+      <td>{{sector.sector}}</td>
+      <td>{{sector.baseStationUnit.id}}</td>
+    </tr>
+    {{/each}}
+    </tbody>
+  </table>
+{{/data-table}}

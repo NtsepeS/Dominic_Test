@@ -11,6 +11,11 @@ Router.map(function() {
     this.route('new');
   });
 
+  this.resource('base-station-sectors' ,function() {
+    this.route('new');
+  });
+
+
   this.resource('client-link', { path: 'client-links/:clientLinkId' }, function(){
 
     this.route('edit');
