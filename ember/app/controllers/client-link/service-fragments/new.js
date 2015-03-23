@@ -13,10 +13,10 @@ export default Ember.Controller.extend({
     saveServiceFragment: function() {
       var _this           = this,
           serviceFragment = this.store.createRecord('service-fragment', {
-            workOrderNumber: _this.get('newWorkOrderNumber'),
-            lineSpeed:       _this.get('newLineSpeed'),
-            physicalMode:    _this.get('newPhysicalMode'),
-            serviceType:     _this.get('newServiceType'),
+            workOrderNumber: _this.get('selectedWorkOrderNumber'),
+            lineSpeed:       _this.get('selectedLineSpeed'),
+            physicalMode:    _this.get('selectedPhysicalMode'),
+            serviceType:     _this.get('selectedServiceType'),
             clientLink:      _this.get('controllers.client-link.model')
           });
 
@@ -33,9 +33,9 @@ export default Ember.Controller.extend({
     // It lives on, keeping its properties... and we need to reset these properties
     // so that when creating a new service fragment the previous properties are not displayed in
     // the template.
-    this.setProperties({ newWorkOrderNumber: null,
-                         newLineSpeed: null,
-                         newPhysicalMode: null,
-                         newServiceType:null });
+    this.setProperties({ selectedWorkOrderNumber: null,
+                         selectedLineSpeed: null,
+                         selectedPhysicalMode: null,
+                         selectedServiceType:null });
   }
 });
