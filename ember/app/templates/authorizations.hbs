@@ -14,9 +14,9 @@
   <div class="col-md-6">
     <div class="list-group c-authz-list">
       {{#each authz in persisted}}
-      {{#link-to 'authorization' authz class="list-group-item c-authz-list__item"}}
+      {{#link-to 'authorization' authz class="list-group-item c-authz-list-item"}}
         <span class="pointer glyphicon glyphicon-chevron-right"></span>
-        <h4 class="list-group-item-heading">{{authz.name}}</h4>
+        <h4 class="list-group-item-heading c-authz-list-item__name">{{authz.name}}</h4>
         <p class="list-group-item-text">{{authz.email}}</p>
       {{/link-to}}
       {{/each}}
