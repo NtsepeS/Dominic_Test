@@ -114,3 +114,7 @@ section.row h2 {
   transform: scale(1.5);
 }
 
+.js-service-table tr, .js-port-table tr {
+  cursor: pointer;
+  cursor: hand;
+}
