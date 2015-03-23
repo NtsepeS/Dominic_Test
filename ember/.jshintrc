@@ -2,7 +2,11 @@
   "predef": [
     "document",
     "window",
-    "-Promise"
+    "-Promise",
+    "PhotoSwipe",
+    "PhotoSwipeUI_Default",
+    "authenticateSession",
+    "invalidateSession"
   ],
   "browser": true,
   "boss": true,

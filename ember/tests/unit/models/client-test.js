@@ -6,7 +6,7 @@ import {
 moduleForModel('client', 'Client', {
   // Specify the other units that are required for this test.
   needs: ['model:client-link', 'model:link-type', 'model:antenna', 'model:network-operator',
-          'model:base-station-sector', 'model:status', 'model:sub-group-picture-set', 'model:service-fragment']
+          'model:base-station-sector', 'model:status', 'model:sub-group-picture-set', 'model:service-fragment', 'model:radio']
 });
 
 test('it exists', function() {

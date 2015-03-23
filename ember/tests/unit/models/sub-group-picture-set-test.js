@@ -8,7 +8,8 @@ moduleForModel('sub-group-picture-set', 'SubGroupPictureSet', {
   needs: ['model:sub-group-classification', 'model:album', 'model:client-link',
     'model:picture', 'model:sub-group-classification', 'model:group-classification',
     'model:link-type', 'model:antenna', 'model:network-operator',
-    'model:base-station-sector', 'model:client', 'model:status', 'model:service-fragment'
+    'model:base-station-sector', 'model:client', 'model:status', 'model:service-fragment',
+    'model:radio'
     ]
 });
 

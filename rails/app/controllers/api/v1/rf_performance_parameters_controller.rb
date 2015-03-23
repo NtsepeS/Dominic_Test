@@ -39,7 +39,7 @@ module Api
 
       def rf_performance_parameter_params
         params.require(:rf_performance_parameter).permit(:uplink_rssi, :downlink_rssi, :uplink_cnr,
-                                                          :downlink_cnr, :tx_power, :step_attenuator)
+        :downlink_cnr, :tx_power, :step_attenuator, :rf_result_set, :radio_id)
       end
 
     end
