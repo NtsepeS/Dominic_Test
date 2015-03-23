@@ -2,7 +2,7 @@ import Ember from 'ember';
 import SaveClienLink from 'cops/mixins/save-client-link';
 
 export default Ember.ObjectController.extend(SaveClienLink, {
-  showInfo: false,
+  showWarning: false,
 
   saveModel: function() {
     var _this         = this;
@@ -16,8 +16,8 @@ export default Ember.ObjectController.extend(SaveClienLink, {
       this.saveAssociated();
     },
 
-    showInfo: function() {
-      this.set('showInfo', true);
+    showWarning: function() {
+      this.set('showWarning', true);
     }
   }
 });
