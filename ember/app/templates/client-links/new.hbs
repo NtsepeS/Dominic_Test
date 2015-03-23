@@ -15,8 +15,7 @@
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane fade in active" id="overview">
       {{#if showWarning}}
-      <p></p>
-      <div class="alert alert-info" role="alert">Please save client link overview before configuring other sections.</div>
+      {{alert-message alertType="alert-info" message="Please save client link overview before configuring other sections."}}
       {{/if}}
       {{partial "client-link/overview/edit"}}
     </div>

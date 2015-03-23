@@ -76,7 +76,7 @@
         {{else}}
           <tr>
             <td colspan="6">
-              <div class="alert alert-warning c-warning-message--no-margin" role="alert">There's <strong>no services configured</strong> on this service fragment.</div>
+              {{alert-message alertType="alert-warning" message="There's no services configured on this service fragment."}}
             </td>
           </tr>
         {{/if}}
@@ -90,7 +90,7 @@
     </div>
     {{/each}}
     {{else}}
-      <div class="alert alert-warning" role="alert">There's <strong>no services fragments</strong> configured on this Client Link.</div>
+      {{alert-message alertType="alert-warning" message="There's no services fragments configured on this Client Link."}}
       {{#link-to 'client-link.service-fragments.new' }}
       <button type="button" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Service Fragment</button>
       {{/link-to}}
