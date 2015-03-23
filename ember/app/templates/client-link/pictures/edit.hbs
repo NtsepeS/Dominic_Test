@@ -1,0 +1,37 @@
+<div class="container">
+  <!-- SECTION 9: PICTURES -->
+  <section class="row">
+    <h2> Pictures </h2>
+
+      {{#each group in groupClassifications}}
+        <div class="group-classification">
+          <h3><u>{{group.name}}</u></h3>
+          {{#each subgroup in group.subGroupClassifications itemController="sub-group-classification"}}
+            <div class="sub-group-classification">
+              <h4>{{subgroup.name}}</h4>
+
+              {{view "picture-uploader"}}
+              {{#each pictureSet in subgroup.subGroupPictureSets itemController="sub-group-picture-set"}}
+
+                <ul class="picture-set">
+                {{#each picture in pictureSet.album.pictures itemController="picture"}}
+                  <li>
+                    <div class="picture" {{action "expand" this}}>
+                      <img {{bind-attr src="picture.url"}}>
+                      <div class="overlay">
+                        <a class="close-overlay" {{action 'removePicture' this}}>
+                          &times;
+                        </a>
+                      </div>
+                    </div>
+                  </li>
+                {{/each}}
+                </ul>
+              {{/each}}
+          </div>
+          {{/each}}
+        </div>
+      {{/each}}
+
+  </section>
+</div>

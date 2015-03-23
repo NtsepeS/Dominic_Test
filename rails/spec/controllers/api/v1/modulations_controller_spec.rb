@@ -20,7 +20,7 @@ RSpec.describe Api::V1::ModulationsController do
 
   describe 'PUT /api/v1/modulations/:id' do
     let(:amendable_key) {:downlink_min}
-    let(:amendable_value) {0}
+    let(:amendable_value) {"value"}
     let(:id) {@modulation.id}
 
     it_should_behave_like "an amendable resource"

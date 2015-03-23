@@ -1,10 +1,12 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  uplinkRssi:         DS.attr('string'),
-  downlinkRssi:       DS.attr('string'),
-  uplinkCnr:          DS.attr('string'),
-  downlinkCnr:        DS.attr('string'),
-  txPower:            DS.attr('string'),
-  stepAttenuator:     DS.attr('string')
+  uplinkRssi:     DS.attr('number'),
+  downlinkRssi:   DS.attr('number'),
+  uplinkCnr:      DS.attr('number'),
+  downlinkCnr:    DS.attr('number'),
+  txPower:        DS.attr('number'),
+  stepAttenuator: DS.attr('number'),
+  rfResultSet:  DS.attr('string'),
+  radio:          DS.belongsTo('radio', {async: true})
 });

@@ -56,28 +56,6 @@ section.row h2 {
   margin-top: 15px;
 }
 
-#notes textarea {
-  width: 100%;
-}
-
-/* to-do: fix so that mobile responsive*/
-#rf_performance td input {
-  width: 100px;
-}
-
-.js-add-port {
-  float: right;
-}
-
-.js-add-fragment {
-  float: right;
-}
-
-#pictures .row {
-  text-align: center;
-}
-
-
 /* USER-PROFILE */
 .user-info li {
   text-align: center;
@@ -136,21 +114,7 @@ section.row h2 {
   transform: scale(1.5);
 }
 
-.js-client-links-table tr, .js-service-table tr, .js-port-table tr {
+.js-service-table tr, .js-port-table tr {
   cursor: pointer;
   cursor: hand;
-}
-
-.sub-header.client-links {
-  display: inline-block;
-}
-
-.client-links-header {
-  margin-bottom: 32px;
-}
-
-.client-links-actions {
-  a {
-    margin: -17px 0 0 15px;
-  }
 }

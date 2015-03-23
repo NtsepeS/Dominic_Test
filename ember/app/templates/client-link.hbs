@@ -8,15 +8,44 @@
 
 <div role="tabpanel">
   <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#site_information" aria-controls="site_information" role="tab" data-toggle="tab">{{#link-to 'client-link.site-information'}}Site Information{{/link-to}}</a></li>
-    <li role="presentation"><a href="#siebel" aria-controls="siebel" role="tab" data-toggle="tab">{{#link-to 'client-link.siebel'}}Siebel{{/link-to}}</a></li>
-    <li role="presentation"><a href="#rf_performance" aria-controls="rf_performance" role="tab" data-toggle="tab">RF Performance</a></li>
-    <li role="presentation"><a href="#modulation" aria-controls="modulation" role="tab" data-toggle="tab">Modulation</a></li>
-    <li role="presentation"><a href="#physical_ports" aria-controls="physical_ports" role="tab" data-toggle="tab">{{#link-to 'client-link.client-side-ports'}}Client Side Ports{{/link-to}}</a></li>
-    <li role="presentation"><a href="#service_fragments" aria-controls="service_fragments" role="tab" data-toggle="tab">{{#link-to 'client-link.service-fragments'}}Service Fragments{{/link-to}}</a></li>
-    <li role="presentation"><a href="#notes" aria-controls="notes" role="tab" data-toggle="tab">Notes</a></li>
-    <li role="presentation"><a href="#quality_assurance" aria-controls="quality_assurance" role="tab" data-toggle="tab">Quality Assurance</a></li>
-    <li role="presentation"><a href="#pictures" aria-controls="pictures" role="tab" data-toggle="tab">Pictures</a></li>
+
+
+  {{#active-link}}
+    {{#link-to 'client-link.site-information'}}Site Information{{/link-to}}
+  {{/active-link}}
+
+  {{#active-link}}
+    {{#link-to 'client-link.siebel'}}Siebel{{/link-to}}
+  {{/active-link}}
+
+  {{#active-link}}
+    {{#link-to 'client-link.rf-performance-parameters'}}RF Performance{{/link-to}}
+  {{/active-link}}
+
+  {{#active-link}}
+    {{#link-to 'client-link.modulation'}}Modulation{{/link-to}}
+  {{/active-link}}
+
+  {{#active-link}}
+    {{#link-to 'client-link.service-fragments'}}Service Fragments{{/link-to}}
+  {{/active-link}}
+
+  {{#active-link}}
+    {{#link-to 'client-link.client-side-ports'}}Client Side Ports{{/link-to}}
+  {{/active-link}}
+
+  {{#active-link}}
+    {{#link-to 'client-link.notes'}}Notes{{/link-to}}
+  {{/active-link}}
+
+  {{#active-link}}
+    {{#link-to 'client-link.quality-assurance'}}Quality Assurance{{/link-to}}
+  {{/active-link}}
+
+  {{#active-link}}
+    {{#link-to 'client-link.pictures'}}Pictures{{/link-to}}
+  {{/active-link}}
+
   </ul>
 </div>
 

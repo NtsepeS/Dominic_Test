@@ -9,7 +9,7 @@ moduleForModel('client-link', 'ClientLink', {
   'model:base-station-sector', 'model:client', 'model:status',
   'model:sub-group-picture-set', 'model:album', 'model:sub-group-classification',
   'model:location', 'model:service-fragment', 'model:base-station-unit',
-  'model:service'
+  'model:service', 'model:radio', 'model:modulation', 'model:rf-performance-parameter'
   ]
 });
 
