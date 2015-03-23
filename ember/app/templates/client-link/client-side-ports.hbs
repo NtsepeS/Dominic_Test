@@ -1,45 +1,55 @@
 <div class="container">
   <section class="row">
   <h2>Client Side Ports</h2>
-   {{#if model.serviceFragments.length}}
-    <table class="table table-hover js-port-table number-table">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>VLAN Type</th>
-          <th>Acceptable Frame Type</th>
-          <th>Default VLAN</th>
-          <th>VLANs</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each serviceFragment in model.serviceFragments}}
-          {{#each service in serviceFragment.services}}
-            {{#each port in service.ports}}
-              {{#link-to 'port' serviceFragment.id service.id port.id tagName="tr" class="number-row"}}
-                <td class="number-data-column"></td>
-                <td>{{port.vlanType}}</td>
-                <td>{{port.acceptableFrameType}}</td>
-                <td>{{port.defaultVlan}}</td>
-                <td>
-                  {{#link-to 'service' serviceFragment.id service.id}}
-                    {{port.service.vlan}}
-                  {{/link-to}}
-                </td>
-                <td>
-                  {{#link-to 'port.edit' serviceFragment.id service.id port.id}}
-                  <span class="glyphicon glyphicon-edit pull-right" aria-hidden="true"></span>
-                  {{/link-to}}
-                </td>
-              {{/link-to}}
+  {{#if model.serviceFragments.length}}
+    {{#if hasServices}}
+      {{#if hasPorts}}
+      <table class="table table-hover js-port-table number-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>VLAN Type</th>
+            <th>Acceptable Frame Type</th>
+            <th>Default VLAN</th>
+            <th>VLANs</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each serviceFragment in model.serviceFragments}}
+            {{#each service in serviceFragment.services}}
+              {{#each port in service.ports}}
+                {{#link-to 'port' serviceFragment.id service.id port.id tagName="tr" class="number-row"}}
+                  <td class="number-data-column"></td>
+                  <td>{{port.vlanType}}</td>
+                  <td>{{port.acceptableFrameType}}</td>
+                  <td>{{port.defaultVlan}}</td>
+                  <td>
+                    {{#link-to 'service' serviceFragment.id service.id}}
+                      {{port.service.vlan}}
+                    {{/link-to}}
+                  </td>
+                  <td>
+                    {{#link-to 'port.edit' serviceFragment.id service.id port.id}}
+                    <span class="glyphicon glyphicon-edit pull-right" aria-hidden="true"></span>
+                    {{/link-to}}
+                  </td>
+                {{/link-to}}
+              {{/each}}
             {{/each}}
           {{/each}}
-        {{/each}}
-     </tbody>
-    </table>
+       </tbody>
+      </table>
+      {{else}}
+        <div class="alert alert-warning" role="alert">There's <strong>no ports </strong> configured on this Client Link.</div>
+      {{/if}}
     {{else}}
-      <div class="alert alert-warning" role="alert">There's <strong>no services fragments</strong> configured on this Client Link.</div>
+    <div class="alert alert-warning" role="alert">There's <strong>no services </strong> configured on this Client Link.</div>
     {{/if}}
+  {{else}}
+    <div class="alert alert-warning" role="alert">There's <strong>no services fragments</strong> configured on this Client Link.</div>
+  {{/if}}
+
+
   </section>
 </div>
