@@ -1,7 +1,10 @@
 import Ember from 'ember';
 
+
 export default Ember.Mixin.create({
   setupPromise: function(modelProperty, model) {
+    // Not able to import RSVP Promise
+    var Promise = Ember.RSVP.Promise;
     var _this   = this,
         keyName = 'model.' + modelProperty + '.id';
 
@@ -26,6 +29,7 @@ export default Ember.Mixin.create({
 
 
   saveAssociated: function() {
+    var Promise = Ember.RSVP.Promise;
     var _this                    = this,
         clientPromise            = this.setupPromise('client'),
         linkTypePromise          = this.setupPromise('linkType', 'link-type'),
@@ -34,7 +38,7 @@ export default Ember.Mixin.create({
         baseStationSectorPromise = this.setupPromise('baseStationSector', 'base-station-sector'),
         statusPromise            = this.setupPromise('status');
 
-    var promise = Promise.all([
+    Promise.all([
       clientPromise,
       linkTypePromise,
       antennaPromise,
