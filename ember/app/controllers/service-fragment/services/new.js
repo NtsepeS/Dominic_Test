@@ -9,9 +9,9 @@ export default Ember.Controller.extend({
     saveService: function() {
       var _this = this,
         service = this.store.createRecord('service', {
-          linetag:         _this.get('newLinetag'),
-          lineSpeed:       _this.get('newServiceLineSpeed'),
-          vlan:            _this.get('newVlan'),
+          linetag:         _this.get('selectedLinetag'),
+          lineSpeed:       _this.get('selectedServiceLineSpeed'),
+          vlan:            _this.get('selectedVlan'),
           serviceFragment: _this.get('controllers.service-fragment.model')
         });
 
@@ -23,9 +23,9 @@ export default Ember.Controller.extend({
   },
 
   resetProperties: function() {
-    this.setProperties({ newLinetag: null,
-                         newServiceLineSpeed: null,
-                         newVlan: null });
+    this.setProperties({ selectedLinetag: null,
+                         selectedServiceLineSpeed: null,
+                         selectedVlan: null });
   }
 });
 

@@ -11,9 +11,9 @@ export default Ember.Controller.extend({
     savePort: function() {
        var _this = this,
             port = this.store.createRecord('port', {
-              vlanType:            _this.get('newVlanType'),
-              acceptableFrameType: _this.get('newAcceptableFrameType'),
-              defaultVlan:         _this.get('newdefaultVlan'),
+              vlanType:            _this.get('selectedVlanType'),
+              acceptableFrameType: _this.get('selectedAcceptableFrameType'),
+              defaultVlan:         _this.get('selecteddefaultVlan'),
               service:             _this.get('controllers.service.model')
             });
 
@@ -25,9 +25,9 @@ export default Ember.Controller.extend({
   },
 
   resetProperties: function() {
-    this.setProperties({ newVlanType: null,
-                         newAcceptableFrameType: null,
-                         newdefaultVlan: null });
+    this.setProperties({ selectedVlanType: null,
+                         selectedAcceptableFrameType: null,
+                         selecteddefaultVlan: null });
   }
 });
 

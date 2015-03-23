@@ -41,7 +41,7 @@
       </div>
 
     {{else}}
-      <div class="alert alert-warning" role="alert">There's no RF performance parameters configured on this Client Link.</div>
+    {{alert-message alertType="alert-warning" message="There's no RF performance parameters configured on this Client Link." }}
     {{/if}}
 
     {{#link-to 'client-link.rf-performance-parameters.new'}}

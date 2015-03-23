@@ -5,7 +5,7 @@
     <div class="form-group">
       <label class="col-sm-3 control-label">Work Order #:</label>
       <div class="col-sm-9">
-        {{input value=newWorkOrderNumber class="form-control"}}
+        {{input value=selectedWorkOrderNumber class="form-control"}}
       </div>
     </div>
     <div class="form-group">
@@ -13,7 +13,7 @@
       <div class="col-sm-9">
         {{view "select"
             content=lineSpeeds
-            value=newLineSpeed
+            value=selectedLineSpeed
             prompt="Please Select"}}
       </div>
     </div>
@@ -22,7 +22,7 @@
       <div class="col-sm-9">
         {{view "select"
             content=serviceTypes
-            value=newServiceType
+            value=selectedServiceType
             prompt="Please Select"}}
       </div>
     </div>
@@ -31,7 +31,7 @@
       <div class="col-sm-9">
         {{view "select"
             content=physicalModes
-            value=newPhysicalMode
+            value=selectedPhysicalMode
             prompt="Please Select"}}
       </div>
     </div>

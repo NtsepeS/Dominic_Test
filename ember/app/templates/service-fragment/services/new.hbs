@@ -5,7 +5,7 @@
       <div class="form-group">
         <label class="col-sm-3 control-label">Line Tag:</label>
         <div class="col-sm-9">
-          {{input value=newLinetag class="form-control"}}
+          {{input value=selectedLinetag class="form-control"}}
         </div>
       </div>
       <div class="form-group">
@@ -13,14 +13,14 @@
         <div class="col-sm-9">
         {{view "select"
         content=lineSpeeds
-        value=newServiceLineSpeed
+        value=selectedServiceLineSpeed
         prompt="Please Select"}}
         </div>
       </div>
       <div class="form-group">
         <label class="col-sm-3 control-label">VLAN:</label>
         <div class="col-sm-9">
-        {{input value=newVlan class="form-control"}}
+        {{input value=selectedVlan class="form-control"}}
         </div>
       </div>
     </form>
