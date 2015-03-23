@@ -1,4 +1,5 @@
 class InviteService
+  attr_reader :errors
 
   def call( role, email, name, from, request )
     @role    = role
@@ -12,7 +13,6 @@ class InviteService
         build
         send_invitation
         save
-
         @completed = true
       end
     end
@@ -34,15 +34,22 @@ class InviteService
   end
 
   def send_invitation
-    response = connection.post("/isid/invite", {
-      email:      @email,
-      invitee:    @name,
-      invitor:    @from,
-      system_url: system_url
-    })
+    begin
 
-    json = MultiJson.load( response.body )
-    @authorization.invite_id = json["id"]
+      response = connection.post("/isid/invite", {
+        email:      @email,
+        invitee:    @name,
+        invitor:    @from,
+        system_url: system_url
+      })
+
+      json = MultiJson.load( response.body )
+      @authorization.invite_id = json["id"]
+
+    rescue Faraday::TimeoutError
+      @errors = { network: "Connection timeout" }
+      throw :abort
+    end
   end
 
   def system_url
