@@ -33,4 +33,18 @@ RSpec.describe Api::V1::AuthorizationsController do
       expect( response.status).to equal(422)
     end
   end
+
+  describe "#destroy" do
+    let!(:authorization) { FactoryGirl.create(:authorization) }
+
+    it "should remove an authorization" do
+      expect {
+        post :destroy, id: authorization.id
+      }.to change {
+        Authorization.count
+      }.by( -1 )
+
+      expect( response ).to be_success
+    end
+  end
 end

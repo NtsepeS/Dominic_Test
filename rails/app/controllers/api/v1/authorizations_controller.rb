@@ -30,6 +30,15 @@ module Api
         end
       end
 
+      def destroy
+        authorization = Authorization.find( params[:id] )
+        if authorization.destroy
+          render json: authorization
+        else
+          render json: authorization.errors.to_json, status: :unprocessable_entity
+        end
+      end
+
       private
 
       def authorization_params
