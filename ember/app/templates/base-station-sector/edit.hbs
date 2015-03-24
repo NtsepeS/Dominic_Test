@@ -15,6 +15,7 @@
           contentBinding="statuses"
           optionValuePath="content"
           optionLabelPath="content.name"
+          selection=selectedStatus
         }}
         </div>
       </div>
@@ -31,10 +32,10 @@
           contentBinding="baseStationUnits"
           optionValuePath="content"
           optionLabelPath="content.name"
+          selection=selectedBaseStationUnit
         }}
         </div>
       </div>
-
     </form>
 
     <button type="button" class="btn btn-primary pull-right" {{action "saveBaseStationUnit"}}>Save</button>

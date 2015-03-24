@@ -5,7 +5,6 @@ export default Ember.Controller.extend({
     saveBaseStationUnit: function() {
       var _this = this;
 
-
       Promise.all([
         _this._saveStatus()],
         _this._saveBaseStationUnit()
@@ -27,6 +26,8 @@ export default Ember.Controller.extend({
 
   _saveStatus: function() {
     var _this = this;
+    _this.get('model').set('status', _this.get('selectedStatus'));
+
     return new Ember.RSVP.Promise(function(resolve) {
       var promise = _this.store.find('status', _this.get('selectedStatus.id'));
 
@@ -38,8 +39,10 @@ export default Ember.Controller.extend({
 
   _saveBaseStationUnit: function() {
     var _this = this;
+    _this.get('model').set('baseStationUnit', _this.get('selectedBaseStationUnit'));
+
     return new Ember.RSVP.Promise(function(resolve) {
-      var promise = _this.store.find('base-station-unit', _this.get('selectedBaseStationUnit.id'));
+      var promise = _this.store.find('base-station-unit', _this.get('model.baseStationUnit.id'));
 
       promise.then(function(baseStationUnit) {
         return resolve(baseStationUnit.save());
