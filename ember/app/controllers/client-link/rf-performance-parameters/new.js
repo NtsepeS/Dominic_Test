@@ -23,6 +23,7 @@ export default Ember.ObjectController.extend({
 
         rfPerformanceParameter.save().then(function(){
           _this.transitionToRoute('client-link.rf-performance-parameters');
+          _this.resetProperties();
         }).catch(function() {
             console.log('one of the saves failed');
           });
@@ -54,6 +55,7 @@ export default Ember.ObjectController.extend({
           )
           .then(function() {
             _this.transitionToRoute('client-link.rf-performance-parameters');
+            _this.resetProperties();
           })
           .catch(function() {
             console.log('one of the saves failed');
@@ -62,6 +64,18 @@ export default Ember.ObjectController.extend({
       }
 
     }
+  },
+
+  resetProperties: function() {
+    this.setProperties({
+          rfResultSet:    null,
+          ULRSSI:         null,
+          DLRSSI:         null,
+          ULCNR:          null,
+          DLCNR:          null,
+          TXPower:        null,
+          StepAttenuator: null,
+    })
   }
 
 });
