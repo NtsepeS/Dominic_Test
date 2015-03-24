@@ -15,9 +15,7 @@ FactoryGirl.define do
     updated_at "2015-01-26T06:39:57.063Z"
     client_id 1
     link_type_id 1
-    antenna_id 1
     network_operator_id 1
-    base_station_sector_id 1
     status
   end
 end
