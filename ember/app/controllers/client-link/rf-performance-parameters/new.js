@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.ObjectController.extend({
-  needs:          "client-link",
+  needs: "client-link",
 
   actions: {
     saveRFPerformance: function() {
