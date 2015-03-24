@@ -8,62 +8,64 @@ export default Ember.ObjectController.extend({
       var _this = this;
 
       var radio = _this.get('model.radio.id');
-      if(radio){
+
+      if(radio) {
         console.log("WE HAVE AN EXISTING RADIO AND ADD RF");
-        var rfPerformanceParameter = _this.store.createRecord('rf-performance-parameter', {
-          rfResultSet:    _this.get('rfResultSet'),
-          uplinkRssi:     _this.get('ULRSSI'),
-          downlinkRssi:   _this.get('DLRSSI'),
-          uplinkCnr:      _this.get('ULCNR'),
-          downlinkCnr:    _this.get('DLCNR'),
-          txPower:        _this.get('TXPower'),
-          stepAttenuator: _this.get('StepAttenuator'),
-          radio:          _this.get('model.radio')
-        });
+
+        var rfPerformanceParameter = _this.createRFPerformanceRecord()
+        rfPerformanceParameter.set('radio', _this.get('model.radio'))
 
         rfPerformanceParameter.save().then(function(){
           _this.transitionToRoute('client-link.rf-performance-parameters');
           _this.resetProperties();
         }).catch(function() {
-            console.log('one of the saves failed');
-          });
+          console.log('one of the saves failed');
+        });
+
       }
       else {
         console.log("WE CREATE A RADIO, AND ADD RF");
+
+        var Promise = Ember.RSVP.Promise;
+
         radio = _this.store.createRecord('radio', {});
-        radio.get('rfPerformanceParameters').addObject(_this.store.createRecord('rf-performance-parameter', {
-          rfResultSet:    _this.get('rfResultSet'),
-          uplinkRssi:     _this.get('ULRSSI'),
-          downlinkRssi:   _this.get('DLRSSI'),
-          uplinkCnr:      _this.get('ULCNR'),
-          downlinkCnr:    _this.get('DLCNR'),
-          txPower:        _this.get('TXPower'),
-          stepAttenuator: _this.get('StepAttenuator'),
-        })
-        );
+        radio.get('rfPerformanceParameters').addObject(_this.createRFPerformanceRecord());
 
         radio.save().then(function() {
-          var promises = Ember.A();
+          var rfPerformanceArray = Ember.A();
           radio.get('rfPerformanceParameters').forEach(function(item){
-            promises.push(item.save());
+            rfPerformanceArray.push(item.save());
           });
           _this.set('radio', radio);
 
-          Ember.RSVP.Promise.all(
-            [promises,
-            _this.get('model').save()]
-          )
-          .then(function() {
+          Promise.all([
+            rfPerformanceArray,
+            _this.get('model').save()
+          ]).then(function() {
             _this.transitionToRoute('client-link.rf-performance-parameters');
             _this.resetProperties();
-          })
-          .catch(function() {
+          }).catch(function() {
             console.log('one of the saves failed');
           });
+
         });
       }
 
     }
+  },
+
+  createRFPerformanceRecord: function() {
+    var record = this.store.createRecord('rf-performance-parameter', {
+      rfResultSet:    this.get('rfResultSet'),
+      uplinkRssi:     this.get('ULRSSI'),
+      downlinkRssi:   this.get('DLRSSI'),
+      uplinkCnr:      this.get('ULCNR'),
+      downlinkCnr:    this.get('DLCNR'),
+      txPower:        this.get('TXPower'),
+      stepAttenuator: this.get('StepAttenuator'),
+      // radio:          this.get('model.radio')
+    });
+    return record
   },
 
   resetProperties: function() {
