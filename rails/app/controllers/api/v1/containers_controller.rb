@@ -12,6 +12,16 @@ module Api
         render json: container
       end
 
+      def create
+        container = Container.new(container_params)
+
+        if container.save
+          render json: container, status: :created
+        else
+          render json: container.errors.to_json, status: :unprocessable_entity
+        end
+      end
+
       def update
         container = Container.find(params[:id])
         container.update_attributes(container_params)
