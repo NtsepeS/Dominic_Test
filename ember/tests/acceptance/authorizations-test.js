@@ -124,3 +124,30 @@ test('visiting /admin/authorizations/:id shows authorization details', function(
 //    assert.ok(true);
 //  });
 //});
+
+test('Authorizations can be revoked', function(assert){
+  var joe = authorization({name: "Joe", email: "joe@mailinator.com", invited_by: "Justin"});
+  server.get('/api/v1/authorizations',json(200,{
+    authorizations: [joe ]
+  }));
+  server['delete']('/api/v1/authorizations/'+joe.id, json(200, {
+    authorization: joe
+  }));
+
+  visit('/admin/authorizations/'+joe.id);
+
+  andThen(function(){
+    assert.equal(currentPath(), 'admin.authorizations.authorization');
+    var name = find(".c-authz-details__name");
+    assert.equal(name.text(), "Joe" );
+  });
+
+  click('.c-authz-actions__remove');
+
+  andThen(function() {
+    assert.equal(currentPath(), 'admin.authorizations.index');
+
+    var authz = find(".c-authz-list-item");
+    assert.equal(authz.length, 0);
+  });
+});
