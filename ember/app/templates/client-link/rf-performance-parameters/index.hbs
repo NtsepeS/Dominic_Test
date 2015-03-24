@@ -2,7 +2,7 @@
   <section class="row">
     <h2> RF Performance </h2>
 
-    {{#if radio.rfPerformanceParameters.length}}
+    {{#if hasRfPerformanceParameters}}
       <div class="table-responsive" cellspacing="0" width="100%">
         <table class="table">
           <thead>
@@ -17,7 +17,7 @@
             </tr>
           </thead>
           <tbody>
-            {{#each parameter in radio.rfPerformanceParameters itemController="rf-performance-parameter/index"}}
+            {{#each parameter in rfPerformanceParameters}}
               <tr>
                 <td>{{parameter.rfResultSet}}</td>
                 <td>{{parameter.uplinkRssi}}</td>
@@ -32,7 +32,7 @@
                   {{/link-to}}
                 </td>
                 <td>
-                  <span class="glyphicon glyphicon-trash pull-right" aria-hidden="true" {{action 'removeRFPerformance' parameter.id}} ></span>
+                  <span class="glyphicon glyphicon-trash pull-right" aria-hidden="true" {{action 'removeRFPerformance' parameter}} ></span>
                 </td>
               </tr>
             {{/each}}
