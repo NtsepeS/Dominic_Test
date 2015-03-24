@@ -12,25 +12,13 @@ export default Ember.ObjectController.extend({
       var radio = _this.get('model.radio.id');
 
       if(radio) {
-        console.log("WE HAVE AN EXISTING RADIO AND ADD Mod");
+        console.log("existing radio id, create new modulations");
 
-        var predictedModulation = this.store.createRecord('modulation',{
-          modulationResultSet: 'Predicted',
-          downlinkMin:         this.get('selectedPredictedDLMin'),
-          downlinkMax:         this.get('selectedPredictedDLMax'),
-          uplinkMin:           this.get('selectedPredictedULMin'),
-          uplinkMax:           this.get('selectedPredictedULMax'),
-          radio:               _this.get('model.radio')
-        });
+        var predictedModulation = _this.createPredictedModulationRecord();
+        predictedModulation.set('radio', _this.get('model.radio'))
 
-        var configuredModulation = this.store.createRecord('modulation',{
-          modulationResultSet: 'Configured',
-          downlinkMin:         this.get('selectedConfiguredDLMin'),
-          downlinkMax:         this.get('selectedConfiguredDLMax'),
-          uplinkMin:           this.get('selectedConfiguredULMin'),
-          uplinkMax:           this.get('selectedConfiguredULMax'),
-          radio:               _this.get('model.radio')
-        });
+        var configuredModulation = _this.createConfiguredModulationRecord();
+        configuredModulation.set('radio', _this.get('model.radio'))
 
         Promise.all([
           predictedModulation.save(),
@@ -43,25 +31,13 @@ export default Ember.ObjectController.extend({
 
       }
       else {
-        console.log("WE CREATE A RADIO, AND ADD Mod");
+        console.log("create radio id, create new modulations");
 
-        var radio = this.store.createRecord('radio', {});
+        var radio = _this.store.createRecord('radio', {});
 
-        radio.get('modulations').addObject(this.store.createRecord('modulation',{
-          modulationResultSet: 'Predicted',
-          downlinkMin:         this.get('selectedPredictedDLMin'),
-          downlinkMax:         this.get('selectedPredictedDLMax'),
-          uplinkMin:           this.get('selectedPredictedULMin'),
-          uplinkMax:           this.get('selectedPredictedULMax'),
-        }));
+        radio.get('modulations').addObject(_this.createPredictedModulationRecord());
 
-        radio.get('modulations').addObject(this.store.createRecord('modulation',{
-          modulationResultSet: 'Configured',
-          downlinkMin:         this.get('selectedConfiguredDLMin'),
-          downlinkMax:         this.get('selectedConfiguredDLMax'),
-          uplinkMin:           this.get('selectedConfiguredULMin'),
-          uplinkMax:           this.get('selectedConfiguredULMax'),
-        }));
+        radio.get('modulations').addObject(_this.createConfiguredModulationRecord());
 
         radio.save().then(function() {
           var promises = Ember.A();
@@ -83,9 +59,31 @@ export default Ember.ObjectController.extend({
         });
       }
 
-
     }
+  },
+
+  createConfiguredModulationRecord: function() {
+    var record = this.store.createRecord('modulation',{
+      modulationResultSet: 'Configured',
+      downlinkMin:         this.get('selectedConfiguredDLMin'),
+      downlinkMax:         this.get('selectedConfiguredDLMax'),
+      uplinkMin:           this.get('selectedConfiguredULMin'),
+      uplinkMax:           this.get('selectedConfiguredULMax'),
+    });
+    return record
+  },
+
+  createPredictedModulationRecord: function() {
+    var record = this.store.createRecord('modulation',{
+      modulationResultSet: 'Predicted',
+      downlinkMin:         this.get('selectedPredictedDLMin'),
+      downlinkMax:         this.get('selectedPredictedDLMax'),
+      uplinkMin:           this.get('selectedPredictedULMin'),
+      uplinkMax:           this.get('selectedPredictedULMax'),
+    });
+    return record
   }
+
 
 
 });
