@@ -9,9 +9,9 @@ export default Ember.Controller.extend({
         _this._saveStatus()],
         _this._saveBaseStationUnit()
       ).then(function() {
-        _this.get('model').save().then( function(status) {
+        _this.get('model').save().then( function(baseStationUnit) {
           _this.resetProperties();
-          _this.transitionToRoute('base-station-sectors.index');
+          _this.transitionToRoute('base-station-sector.index', baseStationUnit.id);
         });
       });
     }
