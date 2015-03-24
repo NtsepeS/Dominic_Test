@@ -11,8 +11,8 @@ Router.map(function() {
     this.route('new');
   });
 
-  this.resource('base-station-sector' ,function(){
-    this.route('index', { path: ':baseStationSectorId' });
+  this.resource('base-station-sector' , { path: 'base-station-sectors/:base_station_sector_id' },function(){
+    this.route('edit');
   });
 
   this.resource('base-station-sectors' ,function() {
