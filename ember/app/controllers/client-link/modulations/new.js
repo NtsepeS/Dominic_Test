@@ -37,7 +37,7 @@ export default Ember.ObjectController.extend({
           _this.get('model').save()]
         )
         .then(function() {
-          _this.transitionToRoute('client-link.modulation');
+          _this.transitionToRoute('client-link.modulations');
         })
         .catch(function() {
           console.log('one of the saves failed');

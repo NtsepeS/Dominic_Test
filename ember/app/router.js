@@ -20,12 +20,15 @@ Router.map(function() {
       this.route('edit');
     });
 
-    this.route('modulation', function() {
-      this.route('edit');
+    this.route('modulations', { path: 'modulation'}, function() {
       this.route('new');
     });
 
-    this.route('rf-performance-parameters', { path: 'rf-performance'}, function() {
+    this.resource('modulation', { path: 'modulation/:modulation_id' }, function() {
+      this.route('edit');
+    });
+
+    this.route('rf-performance-parameters', { path: 'rf-performance' }, function() {
       this.route('new');
     });
 

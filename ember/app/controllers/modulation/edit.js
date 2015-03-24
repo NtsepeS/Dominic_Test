@@ -7,7 +7,7 @@ export default Ember.ObjectController.extend({
   actions: {
     updateModulation: function(){
       this.get('model').save().then(
-        this.transitionToRoute('client-link.modulation')
+        this.transitionToRoute('client-link.modulations')
       );
     }
   }
