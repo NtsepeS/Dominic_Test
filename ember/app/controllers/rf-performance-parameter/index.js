@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.ObjectController.extend({
   actions: {
-    deleteRFPerformance: function(){
+    removeRFPerformance: function(){
       var _this       = this,
       rfPerformanceParameter = this.get('model');
 
