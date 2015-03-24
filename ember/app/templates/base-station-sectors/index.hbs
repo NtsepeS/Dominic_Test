@@ -17,12 +17,12 @@
     </thead>
     <tbody>
     {{#each sector in model}}
-    <tr>
+    {{#link-to 'base-station-sector' sector.id tagName='tr'}}
       <td class="c-base-station-sectors-list-item__name">{{sector.name}}</td>
       <td>{{sector.status.name}}</td>
       <td>{{sector.sector}}</td>
       <td>{{sector.baseStationUnit.id}}</td>
-    </tr>
+    {{/link-to}}
     {{/each}}
     </tbody>
   </table>
