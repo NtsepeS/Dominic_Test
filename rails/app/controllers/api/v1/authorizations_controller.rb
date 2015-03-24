@@ -26,7 +26,7 @@ module Api
         if invite.successful?
           render json: invite.authorization, status: :created
         else
-          render json: invite.errors.to_json, status: :unprocessable_entity
+          render json: {errors: invite.errors }, status: :unprocessable_entity
         end
       end
 
