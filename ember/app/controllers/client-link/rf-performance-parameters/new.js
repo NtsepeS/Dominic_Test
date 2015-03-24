@@ -12,8 +12,8 @@ export default Ember.ObjectController.extend({
       if(radio) {
         console.log("existing radio id, create new rf");
 
-        var rfPerformanceParameter = _this.createRFPerformanceRecord()
-        rfPerformanceParameter.set('radio', _this.get('model.radio'))
+        var rfPerformanceParameter = _this.createRFPerformanceRecord();
+        rfPerformanceParameter.set('radio', _this.get('model.radio'));
 
         rfPerformanceParameter.save().then(function(){
           _this.transitionToRoute('client-link.rf-performance-parameters');
@@ -64,7 +64,7 @@ export default Ember.ObjectController.extend({
       txPower:        this.get('TXPower'),
       stepAttenuator: this.get('StepAttenuator'),
     });
-    return record
+    return record;
   },
 
   resetProperties: function() {
@@ -76,7 +76,7 @@ export default Ember.ObjectController.extend({
           DLCNR:          null,
           TXPower:        null,
           StepAttenuator: null,
-    })
+    });
   }
 
 });

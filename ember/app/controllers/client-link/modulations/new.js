@@ -8,6 +8,7 @@ export default Ember.ObjectController.extend({
   actions: {
     saveModulation: function() {
       var _this = this;
+      var Promise = Ember.RSVP.Promise;
 
       var radio = _this.get('model.radio.id');
 
@@ -15,10 +16,10 @@ export default Ember.ObjectController.extend({
         console.log("existing radio id, create new modulations");
 
         var predictedModulation = _this.createPredictedModulationRecord();
-        predictedModulation.set('radio', _this.get('model.radio'))
+        predictedModulation.set('radio', _this.get('model.radio'));
 
         var configuredModulation = _this.createConfiguredModulationRecord();
-        configuredModulation.set('radio', _this.get('model.radio'))
+        configuredModulation.set('radio', _this.get('model.radio'));
 
         Promise.all([
           predictedModulation.save(),
@@ -33,7 +34,7 @@ export default Ember.ObjectController.extend({
       else {
         console.log("create radio id, create new modulations");
 
-        var radio = _this.store.createRecord('radio', {});
+        radio = _this.store.createRecord('radio', {});
 
         radio.get('modulations').addObject(_this.createPredictedModulationRecord());
 
@@ -46,7 +47,7 @@ export default Ember.ObjectController.extend({
           });
           _this.set('radio', radio);
 
-          Ember.RSVP.Promise.all(
+          Promise.all(
             [promises,
             _this.get('model').save()]
           )
@@ -70,7 +71,7 @@ export default Ember.ObjectController.extend({
       uplinkMin:           this.get('selectedConfiguredULMin'),
       uplinkMax:           this.get('selectedConfiguredULMax'),
     });
-    return record
+    return record;
   },
 
   createPredictedModulationRecord: function() {
@@ -81,7 +82,7 @@ export default Ember.ObjectController.extend({
       uplinkMin:           this.get('selectedPredictedULMin'),
       uplinkMax:           this.get('selectedPredictedULMax'),
     });
-    return record
+    return record;
   }
 
 
