@@ -149,5 +149,21 @@ test('Authorizations can be revoked', function(assert){
 
     var authz = find(".c-authz-list-item");
     assert.equal(authz.length, 0);
+
+    /**
+     * There is a bug/missing feature in ember-cli-flash that makes
+     * testing flashes impossible at the moment, but it is the authors
+     * intent to fix it... Lets hope by the time this expiry date has
+     * been reached the issue has been fixed...
+     *
+     * https://github.com/poteto/ember-cli-flash/issues/32
+     */
+    var expiry = new Date(2015,4,1);
+    var today  = new Date();
+    if (today > expiry) {
+      assert.equal( false, "Check if these tests can now pass" );
+      var notice = find(".alert.alert-success");
+      assert.equal(notice.length, 1);
+    }
   });
 });
