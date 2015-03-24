@@ -13,8 +13,6 @@ export default Ember.ObjectController.extend({
 
       if(radio) {
         console.log("WE HAVE AN EXISTING RADIO AND ADD Mod");
-        debugger
-        // var modulations = this.store.createRecord('modulation', {})
 
         var predictedModulation = this.store.createRecord('modulation',{
           modulationResultSet: 'Predicted',
