@@ -32,14 +32,14 @@ export default Ember.ObjectController.extend({
         radio.get('rfPerformanceParameters').addObject(_this.createRFPerformanceRecord());
 
         radio.save().then(function() {
-          var rfPerformanceArray = Ember.A();
+          var promises = Ember.A();
           radio.get('rfPerformanceParameters').forEach(function(item){
-            rfPerformanceArray.push(item.save());
+            promises.push(item.save());
           });
           _this.set('radio', radio);
 
           Promise.all([
-            rfPerformanceArray,
+            promises,
             _this.get('model').save()
           ]).then(function() {
             _this.transitionToRoute('client-link.rf-performance-parameters');
