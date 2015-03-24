@@ -6,6 +6,7 @@ import {
 import startApp from 'cops/tests/helpers/start-app';
 import Pretender from 'pretender';
 import json from '../helpers/json';
+import 'ember-feature-flags/tests/helpers/with-feature';
 
 var application, server;
 
@@ -14,6 +15,7 @@ module('Acceptance: Authorizations', {
     application = startApp();
     server = new Pretender();
     authenticateSession();
+    withFeature("manage-authorizations");
   },
 
   afterEach: function() {

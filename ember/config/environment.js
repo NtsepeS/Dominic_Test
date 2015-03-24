@@ -28,6 +28,11 @@ module.exports = function(environment) {
       'img-src': "'self' *.googleapis.com csi.gstatic.com maps.gstatic.com",
       'style-src': "'self' 'unsafe-inline' *.googleapis.com",
       'connect-src': "'self' ws://localhost:35729 ws://0.0.0.0:35729 ws://cops.dev:35729"
+    },
+
+    // Our feature flags
+    featureFlags: {
+      'manage-authorizations': false
     }
   };
 
