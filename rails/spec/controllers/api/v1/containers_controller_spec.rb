@@ -19,9 +19,9 @@ RSpec.describe Api::V1::ContainersController do
   end
 
   describe 'PUT /api/v1/containers/:id' do
-    let (:chassis) { create(:chassis) }
+    let (:core_node) { create(:core_node) }
     let(:amendable_key) { :containable_id }
-    let(:amendable_value) { chassis.id }
+    let(:amendable_value) { core_node.id }
     let(:id) { @container.id }
 
     it_should_behave_like "an amendable resource"
