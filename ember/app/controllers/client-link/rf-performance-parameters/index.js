@@ -10,7 +10,6 @@ export default Ember.Controller.extend({
 
   actions: {
     removeRFPerformance: function(rfPerformanceParameter){
-      var _this = this;
 
       var promise = rfPerformanceParameter.destroyRecord();
       var radio = promise.then(function(){
