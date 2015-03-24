@@ -10,7 +10,7 @@ export default Ember.ObjectController.extend({
       var radio = _this.get('model.radio.id');
 
       if(radio) {
-        console.log("WE HAVE AN EXISTING RADIO AND ADD RF");
+        console.log("existing radio id, create new rf");
 
         var rfPerformanceParameter = _this.createRFPerformanceRecord()
         rfPerformanceParameter.set('radio', _this.get('model.radio'))
@@ -24,7 +24,7 @@ export default Ember.ObjectController.extend({
 
       }
       else {
-        console.log("WE CREATE A RADIO, AND ADD RF");
+        console.log("create radio id, create new rf");
 
         var Promise = Ember.RSVP.Promise;
 
@@ -63,7 +63,6 @@ export default Ember.ObjectController.extend({
       downlinkCnr:    this.get('DLCNR'),
       txPower:        this.get('TXPower'),
       stepAttenuator: this.get('StepAttenuator'),
-      // radio:          this.get('model.radio')
     });
     return record
   },
