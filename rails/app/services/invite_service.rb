@@ -1,5 +1,4 @@
-class InviteService
-  attr_reader :errors
+class InviteService < BaseService
   attr_reader :authorization
 
   def call( role, email, name, from, request )
@@ -9,18 +8,11 @@ class InviteService
     @from    = from
     @request = request
 
-    transaction do
-      catch(:abort) do
-        build
-        send_invitation
-        save
-        @completed = true
-      end
+    run do
+      build
+      send_invitation
+      save
     end
-  end
-
-  def successful?
-    !!@completed
   end
 
   private
@@ -70,14 +62,6 @@ class InviteService
       c.request :basic_auth, username, password
       c.response :logger, Rails.logger
       c.adapter Faraday.default_adapter
-    end
-  end
-
-  def transaction
-    ActiveRecord::Base.transaction do
-      yield
-
-      raise ActiveRecord::Rollback unless successful?
     end
   end
 

@@ -1,30 +1,21 @@
-class LoginService
+class LoginService < BaseService
 
   attr_reader :user
 
   def initialize( scope )
+    super()
     @scope = scope
   end
 
   def call( auth_hash )
     @auth = auth_hash
 
-    transaction do
-      catch(:abort) do
-        find_user
-        update_user
-        set_user_role
-        save_user
-
-        @completed = true
-      end
+    run do
+      find_user
+      update_user
+      set_user_role
+      save_user
     end
-
-    self
-  end
-
-  def successful?
-    !!@completed
   end
 
   private
@@ -77,11 +68,4 @@ class LoginService
     @groups #.tap { |g| puts "user_groups", g }
   end
 
-  def transaction
-    ActiveRecord::Base.transaction do
-      yield
-
-      raise ActiveRecord::Rollback unless successful?
-    end
-  end
 end
