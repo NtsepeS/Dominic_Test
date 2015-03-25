@@ -17,6 +17,12 @@ Router.map(function() {
   this.resource('maps', { path: 'maps/core-nodes/' }, function() {
     this.route('view' , { path: ':coreNodeId' });
   });
+  this.resource('admin', function(){
+    this.resource('authorizations', function() {
+      this.resource('authorization', { path: ':id' });
+      this.route('new');
+    });
+  });
 });
 
 export default Router;

@@ -296,10 +296,12 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   factory_girl_rails (~> 4.5.0)
+  faraday (~> 0.9.1)
   foreman
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails
+  multi_json (~> 1.10.1)
   nokogiri (~> 1.6.6.1)
   oj (~> 2.11.1)
   omniauth-is-oauth2!
