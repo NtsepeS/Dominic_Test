@@ -10,7 +10,7 @@ require 'capybara/cucumber'
 require 'capybara/poltergeist'
 Capybara.default_driver = Cukes.config.browser
 Capybara.app_host = Cukes.config.host
-Capybara.default_wait_time = 15
+Capybara.default_wait_time = Cukes.config.startup_timeout
 
 # Require Models
 ActiveSupport::Dependencies.autoload_paths += Dir.glob File.join(Cukes.config.rails_root, "app/models")

@@ -1,10 +1,10 @@
-<div class="client-links-header">
-  <h2 class="sub-header client-links">
+<div class="c-client-links-header">
+  <h2 class="c-client-links-header__text">
     Client Links
   </h2>
 
-  <span class="client-links-actions">
-    {{#link-to "client-links.new" class="btn btn-default btn-xs add-client-link" role="button"}}
+  <span class="c-client-links-header__actions">
+    {{#link-to "client-links.new" class="btn btn-default btn-xs qa-add-client-link" role="button"}}
     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     Add Client Link
     {{/link-to}}
@@ -13,11 +13,10 @@
       Export
     </a>
   </span>
-
 </div>
 
 {{#data-table}}
-  <table class="table table-striped display js-client-links-table" cellspacing="0" width="100%">
+  <table class="table table-striped u-link-to-tr c-client-link-list" cellspacing="0" width="100%">
     <thead>
       <tr>
         <th>Title</th>
@@ -28,11 +27,11 @@
     </thead>
     <tbody>
     {{#each clientLink in model}}
-      {{#link-to 'client-link.index' clientLink.id tagName="tr"}}
-        <td>{{clientLink.name}}</td>
+      {{#link-to 'client-link.index' clientLink.id tagName="tr" classNames="c-client-link-list-item"}}
+        <td class="c-client-link-list-item__name">{{clientLink.name}}</td>
         <td>{{clientLink.msadNumber}}</td>
         <td>{{clientLink.solutionIdentifier}}</td>
-         <td>{{clientLink.status.name}}</td>
+        <td>{{clientLink.status.name}}</td>
       {{/link-to}}
     {{/each}}
     </tbody>
