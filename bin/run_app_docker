@@ -40,7 +40,7 @@ if ( argv.db ){
   run_command += "--link=\"cops-database:cops-database\" ";
 }
 
-run_command += "cops";
+run_command += "si.cops:"+version;
 
 child = exec(run_command, function (error, stdout, stderr) {
   console.log('Container: ' + stdout);
