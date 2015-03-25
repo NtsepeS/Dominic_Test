@@ -4,6 +4,9 @@ export default Ember.Controller.extend({
   radio: Ember.computed.alias('model.radio'),
 
   rfPerformanceParameters: Ember.computed.alias('radio.rfPerformanceParameters'),
+
+  proxy: Ember.computed.alias('proxy1'),
+
   hasRfPerformanceParameters: function() {
     return !Ember.isEmpty( this.get('rfPerformanceParameters') );
   }.property('rfPerformanceParameters.[]'),
