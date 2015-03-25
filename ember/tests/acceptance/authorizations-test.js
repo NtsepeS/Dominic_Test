@@ -101,31 +101,39 @@ test('visiting /admin/authorizations/:id shows authorization details', function(
   });
 });
 
+test('Backend timeout shows an error message', function(assert){
+  var joe = authorization({name: "Joe", email: "joe@mailinator.com", invited_by: "Justin"});
+  server.get('/api/v1/authorizations',json(200,{
+    authorizations: [
+      joe
+    ]
+  }));
+  server.post('/api/v1/authorizations', json(422, {errors: {network:"Connection timeout"}}));
+
+  visit('/admin/authorizations/new');
+
+  andThen(function(){
+    assert.equal(currentPath(), "admin.authorizations.new");
+  });
+
+  find(".c-newauthz__email").text(joe.email);
+  find(".c-newauthz__name").text(joe.name);
+
 //  Fails becuase of RSVP error handler causes QUnit to fail the test
-//test('Backend timeout shows an error message', function(assert){
-//  var joe = authorization({name: "Joe", email: "joe@mailinator.com", invited_by: "Justin"});
-//  server.get('/api/v1/authorizations',json(200,{
-//    authorizations: [
-//      joe
-//    ]
-//  }));
-//  server.post('/api/v1/authorizations', json(422, {errors: {network:"Connection timeout"}}));
-//
-//  visit('/admin/authorizations/new');
-//
-//  andThen(function(){
-//    assert.equal(currentPath(), "admin.authorizations.new");
-//  });
-//
-//  find(".c-newauthz__email").text(joe.email);
-//  find(".c-newauthz__name").text(joe.name);
+    var expiry = new Date(2015,4,1);
+    var today  = new Date();
+    if (today > expiry) {
+      assert.equal( false, "Check if these tests can now pass" );
+      var notice = find(".alert.alert-success");
+      assert.equal(notice.length, 1);
+    }
+
 //  click(".c-newauthz__addbutton");
-//
-//  andThen(function(){
-//    //assert.equal(find(".alert").text().indexOf("Error! The backend timed out please try again later.") !== false, true);
-//    assert.ok(true);
-//  });
-//});
+  andThen(function(){
+    //assert.equal(find(".alert").text().indexOf("Error! The backend timed out please try again later.") !== false, true);
+    assert.ok(true);
+  });
+});
 
 test('Authorizations can be revoked', function(assert){
   var joe = authorization({name: "Joe", email: "joe@mailinator.com", invited_by: "Justin"});
