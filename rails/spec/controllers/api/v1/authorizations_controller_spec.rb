@@ -22,7 +22,7 @@ RSpec.describe Api::V1::AuthorizationsController do
     end
 
     it "should return a sensible error when sso times out" do
-      invite = double("InviteService", :successful? => false, :errors => {"network":"Connection timeout"})
+      invite = double("InviteService", :successful? => false, :errors => {network: "Connection timeout"})
       expect(invite).to receive(:call).with(
         "user", "email@mailinator.com", "jim", user.name, request
       )
