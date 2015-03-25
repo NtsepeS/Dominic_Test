@@ -45,6 +45,8 @@ Rails.application.routes.draw do
       resources :service_fragments
       resources :services
       resources :ports
+      resources :authorizations
+      
     end
   end
 end

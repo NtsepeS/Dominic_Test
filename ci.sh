@@ -2,8 +2,8 @@
 
 # to keep CI output low
 function silently {
-	set +x 
-	"$@" 
+	set +x
+	"$@"
 	set -x
 }
 
@@ -16,15 +16,26 @@ export BROWSER=poltergeist
 
 # install all the things
 
+# Root directory npm install
+npm install
+npm prune
+
 silently cd rails
 bundle install
 
 silently cd ../ember
 npm install
+npm prune
 bower install
+bower prune
 
 silently  cd ../cukes
 bundle install
+
+# ember tests
+
+silently cd ../ember
+npm test
 
 # rails tests
 
@@ -36,5 +47,4 @@ bundle exec rake ci:setup:rspec spec
 # cucumber tests
 
 silently cd ../cukes
-
 cucumber --tags ~@wip --format json -o cucumber.json

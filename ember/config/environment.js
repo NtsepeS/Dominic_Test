@@ -22,15 +22,21 @@ module.exports = function(environment) {
     // CSP sanity
     contentSecurityPolicy: {
       'default-src': "'none'",
-      'script-src': "'self' 'unsafe-eval' http://*:35729 ",
-      'font-src': "'self'", // Allow fonts to be loaded from http://fonts.gstatic.com
-      'connect-src': "'self' ",
-      'img-src': "'self'",
-      'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com", // Allow inline styles and loaded CSS from http://fonts.googleapis.com
-      'media-src': "'self'",
-      'object-src': "'self'"
+      'script-src': "'self' *.googleapis.com maps.gstatic.com 'unsafe-inline' 'unsafe-eval' cops.dev:35729",
+      'font-src': "'self' fonts.gstatic.com data: use.typek ",
+      'connect-src': "'self'",
+      'img-src': "'self' *.googleapis.com csi.gstatic.com maps.gstatic.com",
+      'style-src': "'self' 'unsafe-inline' *.googleapis.com",
+      'connect-src': "'self' ws://localhost:35729 ws://0.0.0.0:35729 ws://cops.dev:35729"
+    },
+
+    // Our feature flags
+    featureFlags: {
+      'manage-authorizations': false
     }
   };
+
+
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
@@ -50,6 +56,10 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+
+    ENV['simple-auth'] = {
+      store: 'simple-auth-session-store:ephemeral'
+    }
   }
 
   if (environment === 'production') {

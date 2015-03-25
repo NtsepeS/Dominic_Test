@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(version: 20150320104751) do
   add_index "antennas", ["client_link_id"], name: "index_antennas_on_client_link_id", using: :btree
   add_index "antennas", ["location_id"], name: "index_antennas_on_location_id", using: :btree
 
+  create_table "authorizations", force: :cascade do |t|
+    t.string   "email",      null: false
+    t.string   "name",       null: false
+    t.string   "invited_by", null: false
+    t.string   "invite_id"
+    t.string   "role",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "base_station_sectors", force: :cascade do |t|
     t.string   "name"
     t.integer  "status_id"
@@ -293,12 +303,9 @@ ActiveRecord::Schema.define(version: 20150320104751) do
   add_index "sub_group_picture_sets", ["sub_group_classification_id"], name: "index_sub_group_picture_sets_on_sub_group_classification_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
+    t.string   "email",               default: "", null: false
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",       default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -313,7 +320,6 @@ ActiveRecord::Schema.define(version: 20150320104751) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "versions", force: :cascade do |t|
     t.string   "item_type",      null: false
