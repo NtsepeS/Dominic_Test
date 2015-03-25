@@ -7,10 +7,9 @@ class ClientLink < ActiveRecord::Base
   equipped_with :radio
   equipped_with :modem
 
-  has_one :container, as: :containable
+  include Containable
 
-  delegate :parent, :children, to: :container
-  delegate :base_station_sector, to: :parent
+  contained_in :base_station_sector
   delegate :base_station_unit, to: :base_station_sector
   delegate :core_node, to: :base_station_unit
 

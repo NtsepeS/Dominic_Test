@@ -1,17 +1,12 @@
 class CoreNode < ActiveRecord::Base
   has_paper_trail
 
-  has_one :container, as: :containable
-
-  delegate :children, to: :container
+  include Containable
+  contains :base_station_units
 
   belongs_to :status
   belongs_to :city
   belongs_to :location
-
-  def base_station_units
-    children.map(&:base_station_unit)
-  end
 
   def base_station_sectors
     base_station_units.map(&:base_station_sectors).flatten

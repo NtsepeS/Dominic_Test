@@ -29,7 +29,6 @@ RSpec.describe ClientLink, :type => :model do
 
   context 'responds to its methods' do
     it { expect(cl).to respond_to(:parent) }
-    it { expect(cl).to respond_to(:children) }
     it { expect(cl).to respond_to(:core_node) }
     it { expect(cl).to respond_to(:base_station_unit) }
     it { expect(cl).to respond_to(:base_station_sector) }
@@ -51,10 +50,6 @@ RSpec.describe ClientLink, :type => :model do
       a.save
       r.save
       m.save
-    end
-
-    it 'will delegate children method call to attached container' do
-      expect(cl.children).to eq(c6.children)
     end
 
     it 'will delegate parent method call to attached container' do
