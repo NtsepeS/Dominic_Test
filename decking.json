@@ -9,7 +9,7 @@
       "env"  : ["POSTGRES_USER=cops-api"]
     },
     "cops": {
-      "image": "cops/backend",
+      "image": "cops/cops",
       "port" : ["5000:80", "5001:22"],
       "env"  : ["DB_HOST=", "DB_DB=","SECRET_KEY_BASE=","SSO_CONSUMER_KEY=",
                 "SSO_CONSUMER_SECRET=","SIAUTH_KEY=", 
