@@ -1,7 +1,7 @@
 <div class="container">
   <section class="row">
   <h2>Client Side Ports</h2>
-    <table class="table table-hover js-port-table number-table">
+    <table class="table table-hover c-service-fragment__port-table c-number-table">
       <thead>
         <tr>
           <th>#</th>
@@ -16,8 +16,8 @@
         {{#each serviceFragment in model.serviceFragments}}
           {{#each service in serviceFragment.services}}
             {{#each port in service.ports}}
-              {{#link-to 'port' serviceFragment.id service.id port.id tagName="tr" class="number-row"}}
-                <td class="number-data-column"></td>
+              {{#link-to 'port' serviceFragment.id service.id port.id tagName="tr" class="c-number-row"}}
+                <td class="c-number-data-column"></td>
                 <td>{{port.vlanType}}</td>
                 <td>{{port.acceptableFrameType}}</td>
                 <td>{{port.defaultVlan}}</td>
