@@ -1,23 +1,24 @@
 import Ember from 'ember';
 
-export default Ember.ObjectController.extend({
+export default Ember.Controller.extend({
   needs: "client-link",
+
+  presetName: false,
 
   actions: {
     saveRFPerformance: function() {
       var _this = this;
-
+      var rfResultSet;
       var radio = _this.get('model.radio.id');
 
       if(radio) {
         console.log("existing radio id, create new rf");
 
-        var rfPerformanceParameter = _this.createRFPerformanceRecord();
+        var rfPerformanceParameter = this.get('model');
         rfPerformanceParameter.set('radio', _this.get('model.radio'));
 
         rfPerformanceParameter.save().then(function(){
           _this.transitionToRoute('client-link.rf-performance-parameters');
-          _this.resetProperties();
         }).catch(function() {
           console.log('one of the saves failed');
         });
@@ -52,31 +53,6 @@ export default Ember.ObjectController.extend({
       }
 
     }
-  },
-
-  createRFPerformanceRecord: function() {
-    var record = this.store.createRecord('rf-performance-parameter', {
-      rfResultSet:    this.get('rfResultSet'),
-      uplinkRssi:     this.get('ULRSSI'),
-      downlinkRssi:   this.get('DLRSSI'),
-      uplinkCnr:      this.get('ULCNR'),
-      downlinkCnr:    this.get('DLCNR'),
-      txPower:        this.get('TXPower'),
-      stepAttenuator: this.get('StepAttenuator'),
-    });
-    return record;
-  },
-
-  resetProperties: function() {
-    this.setProperties({
-          rfResultSet:    null,
-          ULRSSI:         null,
-          DLRSSI:         null,
-          ULCNR:          null,
-          DLCNR:          null,
-          TXPower:        null,
-          StepAttenuator: null,
-    });
   }
 
 });
