@@ -36,7 +36,9 @@ describe NewContainerService do
   end
 
   describe "creating base station units" do
-    let!(:core_node) { FactoryGirl.create(:core_node) }
+    let!(:core_node) {
+      described_class.new.create( FactoryGirl.create(:core_node) ).containable
+    }
     let(:base_station_unit) { FactoryGirl.build(:base_station_unit) }
 
     it "should require a core node" do
@@ -76,12 +78,17 @@ describe NewContainerService do
   end
 
   describe "creating base station sectors" do
-    let!(:core_node) { FactoryGirl.create(:core_node) }
-    let!(:base_station_unit) { FactoryGirl.create(:base_station_unit, parent: core_node) }
+    let!(:core_node) {
+      described_class.new.create( FactoryGirl.build(:core_node) ).containable
+    }
+    let!(:base_station_unit) {
+      described_class.new.create(
+        FactoryGirl.build(:base_station_unit), in: core_node
+      ).containable
+    }
     let(:base_station_sector) { FactoryGirl.build(:base_station_sector) }
 
     it "should require a base station unit" do
-      pending
       subject.create( base_station_sector, in: base_station_unit )
     end
 

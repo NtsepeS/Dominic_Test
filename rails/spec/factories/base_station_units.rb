@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :base_station_unit do
-    name "MyString"
+    name "Base Station Unit 6"
     status nil
   end
 end

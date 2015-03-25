@@ -4,9 +4,5 @@ FactoryGirl.define do
     status nil
     city nil
     location nil
-
-    to_create { |instance|
-      NewContainerService.new.create( instance ).containable
-    }
   end
 end
