@@ -20,6 +20,9 @@ Router.map(function() {
       this.route('edit');
     });
 
+    this.route('radio', function() {
+    });
+
     this.route('modulations', { path: 'modulation'}, function() {
       this.route('new');
     });
