@@ -10,7 +10,7 @@ export default Ember.ObjectController.extend({
         _this.transitionToRoute('authorizations');
       }, function(value){
         var errors = value.errors;
-        if (errors['network']){
+        if (Ember.isEmpty(errors['network'])){
           _this.set('error',"The backend timed out please try again later.");
         } else {
           _this.set('error',"Please check your network connection and try again.");
