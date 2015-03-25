@@ -39,6 +39,9 @@ group :development, :test do
   gem 'spring'
   gem 'simplecov-rcov', :require => false, :group => :test
   gem 'ci_reporter_rspec', '~> 1.0.0'
+  gem 'webmock', '~> 1.20.4'
+  gem 'vcr', '~> 2.9.3'
+
 end
 
 group :doc do
