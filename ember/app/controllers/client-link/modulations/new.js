@@ -12,54 +12,20 @@ export default Ember.ObjectController.extend({
 
       var radio = _this.get('model.radio.id');
 
-      if(radio) {
-        console.log("existing radio id, create new modulations");
+      var predictedModulation = _this.createPredictedModulationRecord();
+      predictedModulation.set('radio', _this.get('model.radio'));
 
-        var predictedModulation = _this.createPredictedModulationRecord();
-        predictedModulation.set('radio', _this.get('model.radio'));
+      var configuredModulation = _this.createConfiguredModulationRecord();
+      configuredModulation.set('radio', _this.get('model.radio'));
 
-        var configuredModulation = _this.createConfiguredModulationRecord();
-        configuredModulation.set('radio', _this.get('model.radio'));
-
-        Promise.all([
-          predictedModulation.save(),
-          configuredModulation.save()
-        ]).then(function(){
-          _this.transitionToRoute('client-link.modulations');
-        }).catch(function() {
-          console.log('one of the saves failed');
-        });
-
-      }
-      else {
-        console.log("create radio id, create new modulations");
-
-        radio = _this.store.createRecord('radio', {});
-
-        radio.get('modulations').addObject(_this.createPredictedModulationRecord());
-
-        radio.get('modulations').addObject(_this.createConfiguredModulationRecord());
-
-        radio.save().then(function() {
-          var promises = Ember.A();
-          radio.get('modulations').forEach(function(item){
-            promises.push(item.save());
-          });
-          _this.set('radio', radio);
-
-          Promise.all(
-            [promises,
-            _this.get('model').save()]
-          )
-          .then(function() {
-            _this.transitionToRoute('client-link.modulations');
-          })
-          .catch(function() {
-            console.log('one of the saves failed');
-          });
-        });
-      }
-
+      Promise.all([
+        predictedModulation.save(),
+        configuredModulation.save()
+      ]).then(function(){
+        _this.transitionToRoute('client-link.modulations');
+      }).catch(function() {
+        console.log('one of the saves failed');
+      });
     }
   },
 
