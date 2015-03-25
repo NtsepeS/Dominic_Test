@@ -1,5 +1,6 @@
 class InviteService
   attr_reader :errors
+  attr_reader :authorization
 
   def call( role, email, name, from, request )
     @role    = role
