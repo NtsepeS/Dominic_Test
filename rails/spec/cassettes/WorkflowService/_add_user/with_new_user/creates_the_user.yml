@@ -19,13 +19,13 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 25 Mar 2015 10:17:29 GMT
+      - Wed, 25 Mar 2015 10:11:18 GMT
       Server:
       - Apache/2.4.7 (Ubuntu)
       X-Powered-By:
       - PHP/5.5.9-1ubuntu4.6
       Set-Cookie:
-      - PHPSESSID=uhqjiu2eb7s93p21u80i0vfbe3; expires=Wed, 25-Mar-2015 10:41:29 GMT;
+      - PHPSESSID=e5nvqvdtc47jb2lf48f1ip15j5; expires=Wed, 25-Mar-2015 10:35:18 GMT;
         Max-Age=1440; path=/
       Expires:
       - Tue, 24 Mar 2015 04:00:00 GMT
@@ -35,7 +35,7 @@ http_interactions:
       Pragma:
       - no-cache
       Last-Modified:
-      - Wed, 25 Mar 2015 10:17:29 GMT
+      - Wed, 25 Mar 2015 10:11:18 GMT
       Vary:
       - Accept-Encoding
       Content-Length:
@@ -1721,7 +1721,7 @@ http_interactions:
           </service>
         </definitions>
     http_version: 
-  recorded_at: Wed, 25 Mar 2015 10:19:57 GMT
+  recorded_at: Wed, 25 Mar 2015 10:13:46 GMT
 - request:
     method: post
     uri: http://si-dev01.si.is.co.za/sysworkflow/en/classic/services/soap2
@@ -1749,13 +1749,13 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 25 Mar 2015 10:17:29 GMT
+      - Wed, 25 Mar 2015 10:11:18 GMT
       Server:
       - Apache/2.4.7 (Ubuntu)
       X-Powered-By:
       - PHP/5.5.9-1ubuntu4.6
       Set-Cookie:
-      - PHPSESSID=043pdbmj285h8h075qf95la345; expires=Wed, 25-Mar-2015 10:41:29 GMT;
+      - PHPSESSID=o1so237k1sphv5n0e6f1b9v8a7; expires=Wed, 25-Mar-2015 10:35:18 GMT;
         Max-Age=1440; path=/
       Expires:
       - Tue, 24 Mar 2015 04:00:00 GMT
@@ -1765,20 +1765,20 @@ http_interactions:
       Pragma:
       - no-cache
       Last-Modified:
-      - Wed, 25 Mar 2015 10:17:29 GMT
+      - Wed, 25 Mar 2015 10:11:18 GMT
       Vary:
       - Accept-Encoding
       Content-Length:
-      - '268'
+      - '266'
       Content-Type:
       - text/xml; charset=utf-8
     body:
       encoding: ASCII-8BIT
       string: |
         <?xml version="1.0" encoding="UTF-8"?>
-        <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://www.processmaker.com"><SOAP-ENV:Body><ns1:loginResponse><ns1:status_code>0</ns1:status_code><ns1:message>57423422555128b39ad2863037834017</ns1:message><ns1:version>2.0</ns1:version><ns1:timestamp>2015-03-25 06:17:29</ns1:timestamp></ns1:loginResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
+        <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://www.processmaker.com"><SOAP-ENV:Body><ns1:loginResponse><ns1:status_code>0</ns1:status_code><ns1:message>405311312551289c69ab8e2022175151</ns1:message><ns1:version>2.0</ns1:version><ns1:timestamp>2015-03-25 06:11:18</ns1:timestamp></ns1:loginResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
     http_version: 
-  recorded_at: Wed, 25 Mar 2015 10:19:58 GMT
+  recorded_at: Wed, 25 Mar 2015 10:13:47 GMT
 - request:
     method: post
     uri: http://si-dev01.si.is.co.za/sysworkflow/en/classic/services/soap2
@@ -1786,7 +1786,7 @@ http_interactions:
       encoding: UTF-8
       string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs0="http://www.processmaker.com"
-        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><xs0:createUserRequest><xs0:sessionId>57423422555128b39ad2863037834017</xs0:sessionId><xs0:userId>willy</xs0:userId><xs0:firstname>Willy</xs0:firstname><xs0:lastname>Wonka</xs0:lastname><xs0:email>willy@chocolatefactory.com</xs0:email><xs0:role>PROCESSMAKER_ADMIN</xs0:role><xs0:password>Wonka
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><xs0:createUserRequest><xs0:sessionId>405311312551289c69ab8e2022175151</xs0:sessionId><xs0:userId>willy</xs0:userId><xs0:firstname>Willy</xs0:firstname><xs0:lastname>Wonka</xs0:lastname><xs0:email>willy@chocolatefactory.com</xs0:email><xs0:role>PROCESSMAKER_ADMIN</xs0:role><xs0:password>Wonka
         Bars</xs0:password></xs0:createUserRequest></env:Body></env:Envelope>
     headers:
       Soapaction:
@@ -1807,13 +1807,13 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 25 Mar 2015 10:17:29 GMT
+      - Wed, 25 Mar 2015 10:11:18 GMT
       Server:
       - Apache/2.4.7 (Ubuntu)
       X-Powered-By:
       - PHP/5.5.9-1ubuntu4.6
       Set-Cookie:
-      - PHPSESSID=bdm99ap357r1p0m0kpbd4sl292; expires=Wed, 25-Mar-2015 10:41:29 GMT;
+      - PHPSESSID=dt5r8k13r8e2blmt2jeqq6c8p6; expires=Wed, 25-Mar-2015 10:35:18 GMT;
         Max-Age=1440; path=/
       Expires:
       - Tue, 24 Mar 2015 04:00:00 GMT
@@ -1823,18 +1823,18 @@ http_interactions:
       Pragma:
       - no-cache
       Last-Modified:
-      - Wed, 25 Mar 2015 10:17:29 GMT
+      - Wed, 25 Mar 2015 10:11:18 GMT
       Vary:
       - Accept-Encoding
       Content-Length:
-      - '268'
+      - '306'
       Content-Type:
       - text/xml; charset=utf-8
     body:
       encoding: ASCII-8BIT
       string: |
         <?xml version="1.0" encoding="UTF-8"?>
-        <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://www.processmaker.com"><SOAP-ENV:Body><ns1:createUserResponse><ns1:status_code>7</ns1:status_code><ns1:message>Username 'willy' already exists</ns1:message><ns1:userUID/><ns1:timestamp>2015-03-25 06:17:29</ns1:timestamp></ns1:createUserResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
+        <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://www.processmaker.com"><SOAP-ENV:Body><ns1:createUserResponse><ns1:status_code>0</ns1:status_code><ns1:message>User Willy Wonka [willy] created successfully</ns1:message><ns1:userUID>317634729551289c6adf580076054053</ns1:userUID><ns1:timestamp>2015-03-25 06:11:18</ns1:timestamp></ns1:createUserResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
     http_version: 
-  recorded_at: Wed, 25 Mar 2015 10:19:58 GMT
+  recorded_at: Wed, 25 Mar 2015 10:13:47 GMT
 recorded_with: VCR 2.9.3
