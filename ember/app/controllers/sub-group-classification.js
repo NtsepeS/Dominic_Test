@@ -1,13 +1,13 @@
 import Ember from 'ember';
 
-  needs: ['client-link/edit'],
 export default Ember.Controller.extend({
+  needs: ['client-link'],
 
-  clientLinkId:          Ember.computed.alias('controllers.client-link/edit.id'),
+  clientLinkId:          Ember.computed.alias('controllers.client-link.id'),
   groupClassificationId: Ember.computed.alias('model.groupClassification.id'),
 
   subGroupPictureSets: function() {
-    var clientLink = this.get('controllers.client-link/edit'),
+    var clientLink = this.get('controllers.client-link'),
          pictureSetsRelation = this.get('model.subGroupPictureSets'),
          pictureSets = [];
 

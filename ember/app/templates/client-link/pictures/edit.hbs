@@ -11,7 +11,8 @@
               <h4>{{subgroup.model.name}}</h4>
 
               {{view "picture-uploader"}}
-              {{#each pictureSet in subgroup.model.subGroupPictureSets itemController="sub-group-picture-set"}}
+
+              {{#each pictureSet in subgroup.subGroupPictureSets}}
 
                 <ul class="picture-set">
                 {{#each picture in pictureSet.album.pictures itemController="picture"}}
