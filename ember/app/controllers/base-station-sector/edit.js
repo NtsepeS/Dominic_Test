@@ -9,16 +9,11 @@ export default Ember.Controller.extend({
         _this._saveStatus(),
         _this._saveBaseStationUnit()]
       ).then(function() {
-        _this.get('model').save().then( function(baseStationUnit) {
-          _this.resetProperties();
-          _this.transitionToRoute('base-station-sector.index', baseStationUnit.id);
+        _this.get('model').save().then( function(baseStationSector) {
+          _this.transitionToRoute('base-station-sector.index', baseStationSector.id);
         });
       });
     }
-  },
-
-  resetProperties: function() {
-    this.setProperties({ selectedName: null, selectedSector: null});
   },
 
   _saveStatus: function() {
