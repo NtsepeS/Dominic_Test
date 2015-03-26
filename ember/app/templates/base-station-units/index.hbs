@@ -1,8 +1,7 @@
-{{outlet}}
 <div>
   <h2>
     Base Station Units
-    {{#link-to 'base-station-sectors.new' }}
+    {{#link-to 'base-station-unit.new' }}
     <button type="button" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Base Station Unit</button>
     {{/link-to}}
   </h2>
@@ -21,7 +20,7 @@
     </thead>
     <tbody>
     {{#each unit in model}}
-    {{#link-to 'base-station-sector' sector tagName='tr'}}
+    {{#link-to 'base-station-unit' unit tagName='tr'}}
       <td>{{unit.name}}</td>
 
       <td>{{unit.status.name}}</td>

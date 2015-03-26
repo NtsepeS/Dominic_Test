@@ -142,7 +142,7 @@ Port.where(vlan_type: 'Provider Port', acceptable_frame_type: 'Tagged Only', def
 Radio.where(name: 'abcd', item_code: '1234', icasa_sticker: true).first_or_create
 Radio.where(name: 'aden', item_code: '12345', icasa_sticker: false).first_or_create
 
-BaseStationSector.where(name: "Sector 3", status_id: 1,sector: 3, base_station_unit:
+BaseStationSector.where(name: "Sector 4", status_id: 1,sector: 3, base_station_unit:
   BaseStationUnit.where(name: "base-station 4", status_id: 1,
     core_node: CoreNode.where(name: 'Pretoria', status_id: 1,
       location: Location.where(
