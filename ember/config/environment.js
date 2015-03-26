@@ -28,6 +28,11 @@ module.exports = function(environment) {
       'img-src': "'self' *.googleapis.com csi.gstatic.com maps.gstatic.com",
       'style-src': "'self' 'unsafe-inline' *.googleapis.com",
       'connect-src': "'self' ws://localhost:35729 ws://0.0.0.0:35729 ws://cops.dev:35729"
+    },
+
+    // Our feature flags
+    featureFlags: {
+      'manage-authorizations': false
     }
   };
 
@@ -51,6 +56,10 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+
+    ENV['simple-auth'] = {
+      store: 'simple-auth-session-store:ephemeral'
+    }
   }
 
   if (environment === 'production') {
