@@ -12,35 +12,32 @@ export default Ember.Route.extend({
 
     var originalarray = rfPerformanceParameters;
     var duplicatearray = rfPerformanceParameters.toArray();
-    var d;
     var i=0;
     var founded=0;
 
     while(i<=originalarray.get('length') && founded<=duplicatearray.get('length')){
       if(i%2===0 && i>1){
         var rfPerformanceParameter = Ember.Object.create({
-            uplinkRssi: 2.46,
-            downlinkRssi: 3.45,
-            uplinkCnr: 1.43,
-            downlinkCnr: 1.44,
-            txPower: 1.53,
-            stepAttenuator: 5.5,
+            uplinkRssi: originalarray.objectAt(i-1).get('uplinkRssi') - originalarray.objectAt(i-2).get('uplinkRssi'),
+            downlinkRssi: originalarray.objectAt(i-1).get('downlinkRssi') - originalarray.objectAt(i-2).get('downlinkRssi'),
+            uplinkCnr: originalarray.objectAt(i-1).get('uplinkCnr') - originalarray.objectAt(i-2).get('uplinkCnr'),
+            downlinkCnr: originalarray.objectAt(i-1).get('downlinkCnr') - originalarray.objectAt(i-2).get('downlinkCnr'),
+            txPower: originalarray.objectAt(i-1).get('txPower') - originalarray.objectAt(i-2).get('txPower'),
+            stepAttenuator: originalarray.objectAt(i-1).get('stepAttenuator') - originalarray.objectAt(i-2).get('stepAttenuator'),
             rfResultSet: "CALCULATED LINE",
         });
-        d = duplicatearray.insertAt(founded, rfPerformanceParameter);
+        duplicatearray = duplicatearray.insertAt(founded, rfPerformanceParameter);
         founded ++;
       }
       i++;
       founded++;
     }
 
-    console.log(d);
+    console.log(duplicatearray);
 
-    var rfPerformaceArrayProxy = Ember.ArrayProxy.create({ content: Ember.A(d) });
+    var rfPerformaceArrayProxy = Ember.ArrayProxy.create({ content: Ember.A(duplicatearray) });
     console.log(rfPerformaceArrayProxy);
     controller.set('proxy1', rfPerformaceArrayProxy);
-
-    // return rfPerformaceArrayProxy
 
   }
 });
