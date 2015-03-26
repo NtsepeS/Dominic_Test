@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
     saveBaseStationUnit: function() {
       var _this = this;
 
-      Promise.all([
+      Ember.RSVP.Promise.all([
         _this._saveStatus(),
         _this._saveCoreNode()]
       ).then(function() {
