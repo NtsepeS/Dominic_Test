@@ -1,5 +1,20 @@
 import Ember from 'ember';
 
-export default Ember.ObjectController.extend({
-  noPorts: true
+export default Ember.Controller.extend({
+  hasPorts: false,
+
+  _updatePortExists: function() {
+    var _this = this,
+        _hasPorts = false;
+    this.get('model.serviceFragments').forEach(function(serviceFragment) {
+      serviceFragment.get('services').forEach(function(service) {
+        if (!Ember.isEmpty(service.get('ports')))
+        {
+          _hasPorts = true;
+        }
+      });
+    });
+
+    this.set('hasPorts', _hasPorts);
+  }
 });
