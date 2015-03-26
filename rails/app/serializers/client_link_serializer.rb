@@ -4,7 +4,8 @@ class ClientLinkSerializer < ActiveModel::Serializer
     :billing_account, :service_account, :service_account_site, :created_at,
     :updated_at
 
-  has_one :client, :link_type, :network_operator, :status
+  has_one :client, :link_type, :network_operator, :status,
+    :antenna, :modem, :radio
 
   has_many :sub_group_picture_sets
 end
