@@ -15,4 +15,5 @@ class ClientLinkSerializer < ActiveModel::Serializer
   has_one :radio
 
   has_many :sub_group_picture_sets
+  has_many :service_fragments
 end
