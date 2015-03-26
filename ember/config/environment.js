@@ -32,7 +32,7 @@ module.exports = function(environment) {
 
     // Our feature flags
     featureFlags: {
-      'manage-authorizations': false
+      'manage-authorizations': process.env.FEATURE_MANAGE_AUTHORIZATIONS
     }
   };
 
