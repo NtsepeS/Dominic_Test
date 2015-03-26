@@ -33,6 +33,11 @@ class NewContainerService < BaseService
       return false
     end
 
+    if @containable.persisted?
+      @errors[:containable] = "must be a new record"
+      return false
+    end
+
     if @containable.requires_container?
       if @parent.nil?
         @errors[:parent] = "can't be blank"

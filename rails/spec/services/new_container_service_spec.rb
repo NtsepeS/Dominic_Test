@@ -33,11 +33,23 @@ describe NewContainerService do
 
       expect( core_node.container ).to eq( container )
     end
+
+    it "should require a new object" do
+      core_node.save!
+
+      expect {
+        subject.create( core_node )
+      }.to_not change {
+        Container.count
+      }
+
+      expect( subject.errors[:containable] ).to eq("must be a new record")
+    end
   end
 
   describe "creating base station units" do
     let!(:core_node) {
-      described_class.new.create( FactoryGirl.create(:core_node) ).containable
+      described_class.new.create( FactoryGirl.build(:core_node) ).containable
       # subject.create( FactoryGirl.create(:core_node) ).containable
     }
     let(:base_station_unit) { FactoryGirl.build(:base_station_unit) }
