@@ -95,11 +95,13 @@ ActiveRecord::Schema.define(version: 20150320104751) do
     t.string   "billing_account"
     t.string   "service_account"
     t.string   "service_account_site"
+    t.integer  "radio_id"
   end
 
   add_index "client_links", ["client_id"], name: "index_client_links_on_client_id", using: :btree
   add_index "client_links", ["link_type_id"], name: "index_client_links_on_link_type_id", using: :btree
   add_index "client_links", ["network_operator_id"], name: "index_client_links_on_network_operator_id", using: :btree
+  add_index "client_links", ["radio_id"], name: "index_client_links_on_radio_id", using: :btree
   add_index "client_links", ["status_id"], name: "index_client_links_on_status_id", using: :btree
 
   create_table "clients", force: :cascade do |t|
@@ -182,13 +184,17 @@ ActiveRecord::Schema.define(version: 20150320104751) do
   add_index "modems", ["client_link_id"], name: "index_modems_on_client_link_id", using: :btree
 
   create_table "modulations", force: :cascade do |t|
-    t.integer  "downlink_min"
-    t.integer  "downlink_max"
-    t.integer  "uplink_min"
-    t.integer  "uplink_max"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "downlink_min"
+    t.string   "downlink_max"
+    t.string   "uplink_min"
+    t.string   "uplink_max"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.integer  "radio_id"
+    t.string   "modulation_result_set"
   end
+
+  add_index "modulations", ["radio_id"], name: "index_modulations_on_radio_id", using: :btree
 
   create_table "network_operators", force: :cascade do |t|
     t.string   "name"
@@ -214,6 +220,8 @@ ActiveRecord::Schema.define(version: 20150320104751) do
     t.integer  "album_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "width"
+    t.string   "height"
   end
 
   add_index "pictures", ["album_id"], name: "index_pictures_on_album_id", using: :btree
@@ -244,15 +252,19 @@ ActiveRecord::Schema.define(version: 20150320104751) do
   add_index "radios", ["client_link_id"], name: "index_radios_on_client_link_id", using: :btree
 
   create_table "rf_performance_parameters", force: :cascade do |t|
-    t.string   "uplink_rssi"
-    t.string   "downlink_rssi"
-    t.string   "uplink_cnr"
-    t.string   "downlink_cnr"
-    t.string   "tx_power"
-    t.string   "step_attenuator"
+    t.float    "uplink_rssi"
+    t.float    "downlink_rssi"
+    t.float    "uplink_cnr"
+    t.float    "downlink_cnr"
+    t.float    "tx_power"
+    t.float    "step_attenuator"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "radio_id"
+    t.string   "rf_result_set"
   end
+
+  add_index "rf_performance_parameters", ["radio_id"], name: "index_rf_performance_parameters_on_radio_id", using: :btree
 
   create_table "service_fragments", force: :cascade do |t|
     t.string   "work_order_number"
@@ -303,9 +315,12 @@ ActiveRecord::Schema.define(version: 20150320104751) do
   add_index "sub_group_picture_sets", ["sub_group_classification_id"], name: "index_sub_group_picture_sets_on_sub_group_classification_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",               default: "", null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",       default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -320,6 +335,7 @@ ActiveRecord::Schema.define(version: 20150320104751) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "versions", force: :cascade do |t|
     t.string   "item_type",      null: false

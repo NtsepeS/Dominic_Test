@@ -1,0 +1,53 @@
+<div class="container">
+  <section class="row">
+    <h2> Modulation </h2>
+
+    <div class="table-responsive" cellspacing="0" width="100%">
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>DL Min</th>
+            <th>DL Max</th>
+            <th>UL Min</th>
+            <th>UL Max</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td>Predicted</td>
+              <td>
+                {{view "select" content=modulationValues value=selectedPredictedDLMin prompt="Please Select"}}
+              </td>
+              <td>
+                {{view "select" content=modulationValues value=selectedPredictedDLMax prompt="Please Select"}}
+              </td>
+              <td>
+                {{view "select" content=modulationValues value=selectedPredictedULMin prompt="Please Select"}}
+              </td>
+              <td>
+                {{view "select" content=modulationValues value=selectedPredictedULMax prompt="Please Select"}}
+              </td>
+            </tr>
+            <tr>
+              <td>Configured</td>
+              <td>
+                {{view "select" content=modulationValues value=selectedConfiguredDLMin prompt="Please Select"}}
+              </td>
+              <td>
+                {{view "select" content=modulationValues value=selectedConfiguredDLMax prompt="Please Select"}}
+              </td>
+              <td>
+                {{view "select" content=modulationValues value=selectedConfiguredULMin prompt="Please Select"}}
+              </td>
+              <td>
+                {{view "select" content=modulationValues value=selectedConfiguredULMax prompt="Please Select"}}
+              </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+<button type="button" class="btn btn-default pull-right" {{action 'saveModulation'}}>Save</button>
+

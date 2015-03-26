@@ -5,7 +5,10 @@ import {
 
 moduleForModel('base-station-unit', {
   // Specify the other units that are required for this test.
-  needs: ['model:status', 'model:base-station-sector', 'model:core-node', 'model:client-link', 'model:location']
+  needs: ['model:status', 'model:base-station-sector', 'model:core-node',
+  'model:link-type', 'model:location', 'model:city', 'model:antenna',
+  'model:network-operator', 'model:client-link', 'model:client',
+  'model:sub-group-picture-set', 'model:service-fragment']
 });
 
 test('it exists', function(assert) {

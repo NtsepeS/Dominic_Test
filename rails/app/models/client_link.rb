@@ -17,6 +17,9 @@ class ClientLink < ActiveRecord::Base
   belongs_to :status
   belongs_to :network_operator
   belongs_to :link_type
+  belongs_to :base_station_sector
+  belongs_to :antenna
+  belongs_to :radio
 
   has_many :service_fragment
   has_many :sub_group_picture_sets

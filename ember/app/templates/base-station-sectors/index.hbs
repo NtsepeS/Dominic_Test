@@ -1,0 +1,33 @@
+{{outlet}}
+<div class="c-base-station-sectors-header">
+  <h2 class="c-base-station-sectors-header__text">
+    Base Station Sectors
+    {{#link-to 'base-station-sectors.new' }}
+    <button type="button" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Base Station Sector</button>
+    {{/link-to}}
+  </h2>
+</div>
+
+
+{{#data-table}}
+  <table class="table table-striped u-link-to-tr c-base-station-sectors-list" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Sector</th>
+        <th>Base Station Unit</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#each sector in model}}
+    {{#link-to 'base-station-sector' sector tagName='tr'}}
+      <td class="c-base-station-sectors-list-item__name">{{sector.name}}</td>
+      <td>{{sector.status.name}}</td>
+      <td>{{sector.sector}}</td>
+      <td>{{sector.baseStationUnit.id}}</td>
+    {{/link-to}}
+    {{/each}}
+    </tbody>
+  </table>
+{{/data-table}}

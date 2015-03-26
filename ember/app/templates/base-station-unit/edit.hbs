@@ -1,0 +1,41 @@
+<div class="container">
+  <section class="row">
+    <h2>Base Station Unit</h2>
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Name:</label>
+        <div class="col-sm-10">
+          {{input value=model.name class="form-control"}}
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Status:</label>
+        <div class="col-sm-10">
+        {{view "select"
+          contentBinding="statuses"
+          optionValuePath="content"
+          optionLabelPath="content.name"
+          selection=model.status.content
+          class="form-control"
+          prompt="Please Select"
+        }}
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Core Node:</label>
+        <div class="col-sm-10">
+        {{view "select"
+          contentBinding="coreNodes"
+          optionValuePath="content"
+          optionLabelPath="content.name"
+          selection=model.coreNode.content
+          class="form-control"
+          prompt="Please Select"
+        }}
+        </div>
+      </div>
+    </form>
+
+    <button type="button" class="btn btn-primary pull-right" {{action "saveBaseStationUnit"}}>Save</button>
+  </section>
+</div>

@@ -1,0 +1,36 @@
+<div>
+  <h2>
+    Base Station Units
+    {{#link-to 'base-station-units.new'}}
+    <button type="button" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Base Station Unit</button>
+    {{/link-to}}
+  </h2>
+</div>
+
+
+{{#data-table}}
+  <table class="table table-striped u-link-to-tr" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Status</th>
+        <th>coreNode</th>
+        <th>Base Station Sectors</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#each unit in model}}
+    {{#link-to 'base-station-unit' unit tagName='tr'}}
+      <td>{{unit.name}}</td>
+
+      <td>{{unit.status.name}}</td>
+      <td>{{unit.coreNode.name}}</td>
+      <td>  {{#each sector in unit.baseStationSectors}}
+            {{sector.name}}
+            {{/each}}
+      </td>
+    {{/link-to}}
+    {{/each}}
+    </tbody>
+  </table>
+{{/data-table}}

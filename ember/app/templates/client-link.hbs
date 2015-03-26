@@ -1,0 +1,49 @@
+<h1>
+  Client Link
+  <small>
+    {{model.name}}
+    {{#link-to 'client-link.audit'}}
+      <span class="glyphicon glyphicon-list-alt js-actions audit pull-right" aria-hidden="true"></span>
+    {{/link-to}}
+  </small>
+</h1>
+
+<div role="tabpanel">
+  <ul class="nav nav-tabs" role="tablist">
+
+  {{#active-link}}
+    {{#link-to 'client-link.overview'}}Overview{{/link-to}}
+  {{/active-link}}
+
+  {{#active-link}}
+    {{#link-to 'client-link.rf-performance-parameters'}}RF Performance{{/link-to}}
+  {{/active-link}}
+
+  {{#active-link}}
+    {{#link-to 'client-link.modulation'}}Modulation{{/link-to}}
+  {{/active-link}}
+
+  {{#active-link}}
+    {{#link-to 'client-link.service-fragments'}}Service Fragments{{/link-to}}
+  {{/active-link}}
+
+  {{#active-link}}
+    {{#link-to 'client-link.client-side-ports'}}Client Side Ports{{/link-to}}
+  {{/active-link}}
+
+  {{#active-link}}
+    {{#link-to 'client-link.notes'}}Notes{{/link-to}}
+  {{/active-link}}
+
+  {{#active-link}}
+    {{#link-to 'client-link.quality-assurance'}}Quality Assurance{{/link-to}}
+  {{/active-link}}
+
+  {{#active-link}}
+    {{#link-to 'client-link.pictures'}}Pictures{{/link-to}}
+  {{/active-link}}
+
+  </ul>
+</div>
+
+{{outlet}}

@@ -12,6 +12,15 @@ module Api
         render json: radio
       end
 
+      def create
+        radio =  Radio.new(radio_params)
+        if radio.save
+          render json: radio, status: :created
+        else
+          render json: radio.errors.to_json, status: :unprocessable_entity
+        end
+      end
+
       def update
         radio = Radio.find(params[:id])
         radio.update_attributes(radio_params)

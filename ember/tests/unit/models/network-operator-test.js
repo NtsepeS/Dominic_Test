@@ -5,7 +5,8 @@ import {
 
 moduleForModel('network-operator', 'NetworkOperator', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:client-link', 'model:link-type', 'model:antenna', 'model:base-station-sector', 'model:client',
+          'model:status', 'model:sub-group-picture-set', 'model:service-fragment', 'model:radio']
 });
 
 test('it exists', function() {

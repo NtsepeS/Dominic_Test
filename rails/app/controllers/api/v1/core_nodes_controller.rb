@@ -27,7 +27,7 @@ module Api
       private
 
       def core_node_params
-        params.require(:core_node).permit(:name)
+        params.require(:core_node).permit(:name, :status_id, :city_id, :location_id)
       end
 
     end

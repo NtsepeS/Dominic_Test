@@ -1,0 +1,162 @@
+<div class="container">
+  <section class="row c-index-overview">
+    <h2>Overview</h2>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <span class="panel-title">Site Information</span>
+        {{#link-to 'client-link.overview.edit' model.id}}
+          <span class="glyphicon glyphicon-edit pull-right" aria-hidden="true"></span>
+        {{/link-to}}
+      </div>
+      <div class="panel-body">
+        <div class="row row_element">
+          <div class="col-md-2">
+            <strong>Client:</strong>
+          </div>
+          <div class="col-md-3">
+            {{client.name}}
+          </div>
+          <div class="col-md-2"></div>
+
+          <div class="col-md-2">
+            <strong>Branch Name:</strong>
+          </div>
+          <div class="col-md-3">
+            {{branch}}
+          </div>
+        </div>
+
+        <div class="row row_element">
+          <div class="col-md-2">
+            <strong>Status:</strong>
+          </div>
+          <div class="col-md-3">
+              {{status.name}}
+          </div>
+          <div class="col-md-2"></div>
+          <div class="col-md-2">
+            <strong>Circuit Number:</strong>
+          </div>
+          <div class="col-md-3">
+            {{circuitNumber}}
+          </div>
+        </div>
+
+        <div class="row row_element">
+          <div class="col-md-2">
+            <strong>Network Operator:</strong>
+          </div>
+          <div class="col-md-3">
+            {{networkOperator.name}}
+          </div>
+          <div class="col-md-2"></div>
+          <div class="col-md-2">
+            <strong>MSAD Number:</strong>
+          </div>
+          <div class="col-md-3">
+            {{msadNumber}}
+          </div>
+        </div>
+
+        <div class="row row_element">
+          <div class="col-md-2">
+            <strong>Link Type:</strong>
+          </div>
+          <div class="col-md-3">
+            {{linkType.name}}
+          </div>
+          <div class="col-md-2"></div>
+          <div class="col-md-2">
+            <strong>Activation Date:</strong>
+          </div>
+          <div class="col-md-3">
+            <!-- make a calendar popup -->
+            {{activationDate}}
+          </div>
+        </div>
+
+        <div class="row row_element">
+          <div class="col-md-2">
+            <strong>Sector Name:</strong>
+          </div>
+          <div class="col-md-3">
+            {{baseStationSector.name}}
+          </div>
+          <div class="col-md-2"></div>
+          <div class="col-md-2">
+            <strong>Mac Address:</strong>
+          </div>
+          <div class="col-md-3">
+            {{macAddress}}
+          </div>
+        </div>
+
+        <div class="row row_element">
+          <div class="col-md-2">
+            <strong>Antenna Size:</strong>
+          </div>
+          <div class="col-md-3">
+            {{antenna.size}}
+          </div>
+          <div class="col-md-2"></div>
+          <div class="col-md-2">
+            <strong>Distance:</strong>
+          </div>
+          <div class="col-md-3">
+            {{distance}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <span class="panel-title">Siebel</span>
+        {{#link-to 'client-link.overview.edit' model.id}}
+          <span class="glyphicon glyphicon-edit pull-right" aria-hidden="true"></span>
+        {{/link-to}}
+      </div>
+      <div class="panel-body">
+
+        <div class="panel-body">
+        <div class="row row_element">
+          <div class="col-md-2">
+            <strong>Solution ID:</strong>
+          </div>
+          <div class="col-md-3">
+            {{solutionIdentifier}}
+          </div>
+          <div class="col-md-2"></div>
+          <div class="col-md-2">
+            <strong>Billing Account:</strong>
+          </div>
+          <div class="col-md-3">
+            {{billingAccount}}
+          </div>
+        </div>
+
+        <div class="row row_element">
+          <div class="col-md-2">
+            <strong>Service Account:</strong>
+          </div>
+          <div class="col-md-3">
+            {{serviceAccount}}
+          </div>
+          <div class="col-md-2"></div>
+          <div class="col-md-2">
+            <strong>Service Account Site:</strong>
+          </div>
+          <div class="col-md-3">
+            {{serviceAccountSite}}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  </section>
+</div>
+
+

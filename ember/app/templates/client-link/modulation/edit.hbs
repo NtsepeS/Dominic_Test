@@ -1,0 +1,40 @@
+<div class="container">
+  <section class="row">
+    <h2> Modulation </h2>
+
+    <div class="table-responsive" cellspacing="0" width="100%">
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>DL Min</th>
+            <th>DL Max</th>
+            <th>UL Min</th>
+            <th>UL Max</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each modulation in radio.modulations}}
+            <tr>
+              <td>{{modulation.modulationResultSet}}</td>
+              <td>
+                {{view "select" content=modulationValues value=modulation.downlinkMin prompt="Please Select"}}
+              </td>
+              <td>
+                {{view "select" content=modulationValues value=modulation.downlinkMax prompt="Please Select"}}
+              </td>
+              <td>
+                {{view "select" content=modulationValues value=modulation.uplinkMin prompt="Please Select"}}
+              </td>
+              <td>
+                {{view "select" content=modulationValues value=modulation.uplinkMax prompt="Please Select"}}
+              </td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+<button type="button" class="btn btn-default pull-right" {{action 'saveModulation'}} >Save</button>
+

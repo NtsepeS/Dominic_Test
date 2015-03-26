@@ -5,7 +5,7 @@ import {
 
 moduleForModel('modulation', 'Modulation', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:radio', 'model:rf-performance-parameter']
 });
 
 test('it exists', function() {
