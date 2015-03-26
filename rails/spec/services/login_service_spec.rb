@@ -6,7 +6,7 @@ RSpec.describe LoginService do
 
   subject { described_class.new( scope ) }
 
-  describe "new users" do
+  describe "new users", :vcr do
     it "should create the user" do
       expect {
         subject.call( auth_hash )
@@ -27,7 +27,7 @@ RSpec.describe LoginService do
     end
   end
 
-  describe "existing users" do
+  describe "existing users", :vcr do
     let(:user_attributes) { attributes_for :user }
     let!(:user) { create :user, provider: auth_hash.provider, uid: auth_hash.uid }
 

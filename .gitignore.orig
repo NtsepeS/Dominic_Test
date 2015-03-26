@@ -32,4 +32,7 @@ rails/spec/reports/*
 npm-debug.log
 testem.log
 rails/notebooks/.ipynb_checkpoints
+<<<<<<< .merge_file_oPj7yV
+=======
 cukes/*.html
+>>>>>>> .merge_file_ePSnAM
