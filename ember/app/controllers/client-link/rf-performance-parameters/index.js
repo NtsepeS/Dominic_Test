@@ -1,11 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  radio: Ember.computed.alias('model.radio'),
+  // radio: Ember.computed.alias('model.radio'),
 
-  rfPerformanceParameters: Ember.computed.alias('radio.rfPerformanceParameters'),
+  rfPerformanceParameters: Ember.computed.alias('model'),
 
-  proxy: Ember.computed.alias('proxy1'),
+  proxy: Ember.computed.alias('model'),
 
   hasRfPerformanceParameters: function() {
     return !Ember.isEmpty( this.get('rfPerformanceParameters') );
