@@ -121,12 +121,19 @@ doc.css('Item').each do |node|
   base_station_sector = BaseStationSector.where(name: get_text(node, 'sector_name')).first
   NewContainerService.new.create( cl, in: base_station_sector )
 
+  geometry = Geometry.where(
+    latitude: get_text(node, 'latitude').to_f,
+    longitude: get_text(node, 'longitude').to_f,
+    altitude: get_text(node, 'altitude').to_f,
+  ).first_or_create
+
+  location = Location.where(geometry: geometry).first_or_create
+
   Antenna.where(
     size: get_text(node, 'antenna_size'),
     serial_number: get_text(node, 'antenna_sn'),
-    # is_asset_tag: get_text(node, 'antenna_asset_tag'),
-    # latitude: get_text(node, 'latitude'), # @@@ ??
-    # longitude: get_text(node, 'longitude'), # @@@ ??
+    is_asset_tag: get_text(node, 'antenna_asset_tag'),
+    location: location,
     client_link: cl
   ).first_or_create
 end
