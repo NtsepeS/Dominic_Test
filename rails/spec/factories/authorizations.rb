@@ -1,8 +1,9 @@
 FactoryGirl.define do
   factory :authorization do
-    email "MyString"
-princaple_id "MyString"
-invite_id "MyString"
+    email "joe@mailinator.com"
+    name "Joe"
+    invite_id "MyString"
+    invited_by "Justin"
+    role "staff"
   end
-
 end

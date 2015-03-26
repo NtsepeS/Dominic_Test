@@ -59,7 +59,6 @@ RSpec.describe InviteService do
             email:  "admin@mailinator.com"
           }.to_json
           stubs.post("/isid/invite", params) { |env|
-            # [ 200, {}, response ]
             raise Faraday::TimeoutError
           }
         end

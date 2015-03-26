@@ -7,6 +7,10 @@
       {{/link-to}}
       <h1>Authorizations</h1>
     </div>
+
+    {{#each flashes.queue as |flash|}}
+      {{flash-message flash=flash}}
+    {{/each}}
   </div>
 </div>
 
