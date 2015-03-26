@@ -18,7 +18,7 @@ class ClientLink < ActiveRecord::Base
   belongs_to :network_operator
   belongs_to :link_type
 
-  has_many :service_fragment
+  has_many :service_fragments
   has_many :sub_group_picture_sets
 
 end
