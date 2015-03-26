@@ -10,6 +10,6 @@ export default Ember.Component.extend({
   },
 
   willDestroyElement: function() {
-    $('.modal-backdrop').remove();
+    Ember.$('.modal-backdrop').remove();
   }
 });

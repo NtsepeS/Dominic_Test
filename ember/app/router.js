@@ -19,6 +19,14 @@ Router.map(function() {
     this.route('new');
   });
 
+  this.resource('base-station-unit' , { path: 'base-station-units/:base_station_unit_id' },function(){
+    this.route('edit');
+  });
+
+  this.resource('base-station-units' ,function() {
+    this.route('new');
+  });
+
   this.resource('client-link', { path: 'client-links/:clientLinkId' }, function(){
 
     this.route('edit');
