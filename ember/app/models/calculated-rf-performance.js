@@ -43,7 +43,7 @@ export default Ember.ArrayProxy.extend({
 
     return Ember.Object.create({
       isCalculated:   true,
-      rfResultSet:    "CALCULATED LINE",
+      rfResultSet:    "Result",
       uplinkRssi:     a.get('uplinkRssi')     - b.get('uplinkRssi'),
       downlinkRssi:   a.get('downlinkRssi')   - b.get('downlinkRssi'),
       uplinkCnr:      a.get('uplinkCnr')      - b.get('uplinkCnr'),

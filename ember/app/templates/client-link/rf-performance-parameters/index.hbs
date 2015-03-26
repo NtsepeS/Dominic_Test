@@ -18,7 +18,7 @@
           </thead>
           <tbody>
             {{#each parameter in proxy}}
-              <tr>
+              <tr {{bind-attr class="parameter.isCalculated:calculation-row"}}>
                 <td>{{parameter.rfResultSet}}</td>
                 <td>{{parameter.uplinkRssi}}</td>
                 <td>{{parameter.downlinkRssi}}</td>
@@ -27,12 +27,16 @@
                 <td>{{parameter.txPower}}</td>
                 <td>{{parameter.stepAttenuator}}</td>
                 <td>
-                  {{#link-to 'rf-performance-parameter.edit' parameter.id}}
-                    <span class="glyphicon glyphicon-edit pull-right" aria-hidden="true"></span>
-                  {{/link-to}}
+                  {{#unless parameter.isCalculated}}
+                    {{#link-to 'rf-performance-parameter.edit' parameter.id}}
+                      <span class="glyphicon glyphicon-edit pull-right" aria-hidden="true"></span>
+                    {{/link-to}}
+                  {{/unless}}
                 </td>
                 <td>
-                  <span class="glyphicon glyphicon-trash pull-right" aria-hidden="true" {{action 'removeRFPerformance' parameter}} ></span>
+                  {{#unless parameter.isCalculated}}
+                    <span class="glyphicon glyphicon-trash pull-right" aria-hidden="true" {{action 'removeRFPerformance' parameter}} ></span>
+                  {{/unless}}
                 </td>
               </tr>
             {{/each}}
