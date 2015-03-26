@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+ActiveRecord::Base.transaction do
+
 City.where(name: "Johannesburg").first_or_create
 City.where(name: "Cape Town").first_or_create
 City.where(name: "Durban").first_or_create
@@ -39,15 +41,20 @@ doc.css('Item').each do |node|
   # City is prolly not in the db yet
   city = City.where(name: get_text(node, 'city_name')).first_or_create
 
+  title = get_text(node, 'Title')
+  puts "Core node: #{title}"
   core_node = CoreNode.where(
-    name: get_text(node, 'Title'),
+    name: title,
     # latitude: get_text(node, 'location_gps_latitude'),
     # longitude: get_text(node, 'location_gps_longitude'),
     city: city,
     status: Status.where(name: get_text(node, 'node_status')).first
-  ).first_or_create
+  ).first_or_initialize
 
-  NewContainerService.new.create( core_node )
+  ncs = NewContainerService.new.create( core_node )
+  unless ncs.successful?
+    puts "Failed to create core node: #{ncs.errors.inspect}"
+  end
 end
 
 # So now we drench by cut n paste
@@ -64,10 +71,13 @@ doc.css('Item').each do |node|
     name: get_text(node, 'Title'),
     status: Status.where(name: get_text(node, 'status')).first,
     # core_node: CoreNode.where(name: get_text(node, 'core_node')).first,
-  ).first_or_create
+  ).first_or_initialize
 
   core_node = CoreNode.where(name: get_text(node, 'core_node')).first
-  NewContainerService.new.create( bsu, in: core_node )
+  ncs = NewContainerService.new.create( bsu, in: core_node )
+  unless ncs.successful?
+    puts "Failed to create base station unit: #{ncs.errors.inspect}"
+  end
 end
 
 puts 'Sectors'
@@ -82,10 +92,13 @@ doc.css('Item').each do |node|
     name: get_text(node, 'Title'),
     status: Status.where(name: get_text(node, 'status')).first,
     sector: get_text(node, 'sector'),
-  ).first_or_create
+  ).first_or_initialize
 
   base_station_unit = BaseStationUnit.where(name: get_text(node, 'base_station')).first
-  NewContainerService.new.create( bss, in: base_station_unit )
+  ncs = NewContainerService.new.create( bss, in: base_station_unit )
+  unless ncs.successful?
+    puts "Failed to create base station sector: #{ncs.errors.inspect}"
+  end
 end
 
 puts 'Client Links'
@@ -116,10 +129,14 @@ doc.css('Item').each do |node|
     billing_account: get_text(node, 'siebel_billing_account'),
     service_account: get_text(node, 'siebel_service_account'),
     service_account_site: get_text(node, 'siebel_service_account_site'),
-  ).first_or_create
+  ).first_or_initialize
 
   base_station_sector = BaseStationSector.where(name: get_text(node, 'sector_name')).first
-  NewContainerService.new.create( cl, in: base_station_sector )
+  ncs = NewContainerService.new.create( cl, in: base_station_sector )
+  unless ncs.successful?
+    puts "Failed to create client link: #{ncs.errors.inspect}"
+    next
+  end
 
   geometry = Geometry.where(
     latitude: get_text(node, 'latitude').to_f,
@@ -143,3 +160,5 @@ doc.css('Item').each do |node|
     client_link: cl
   ).first_or_create
 end
+
+end # end the transaction
