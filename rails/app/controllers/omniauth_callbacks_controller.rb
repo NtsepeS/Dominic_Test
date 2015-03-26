@@ -25,7 +25,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       last_name: user.name,
       email: user.email,
       role: user.role,
-      password: user.uid
+      password: user.uid[0,20]
     )
   end
 end
