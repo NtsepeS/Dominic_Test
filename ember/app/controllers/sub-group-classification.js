@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
-export default Ember.ObjectController.extend({
   needs: ['client-link/edit'],
+export default Ember.Controller.extend({
 
   clientLinkId:          Ember.computed.alias('controllers.client-link/edit.id'),
   groupClassificationId: Ember.computed.alias('model.groupClassification.id'),

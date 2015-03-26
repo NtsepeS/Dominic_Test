@@ -8,10 +8,10 @@
           <h3><u>{{group.name}}</u></h3>
           {{#each subgroup in group.subGroupClassifications itemController="sub-group-classification"}}
             <div class="sub-group-classification">
-              <h4>{{subgroup.name}}</h4>
+              <h4>{{subgroup.model.name}}</h4>
 
               {{view "picture-uploader"}}
-              {{#each pictureSet in subgroup.subGroupPictureSets itemController="sub-group-picture-set"}}
+              {{#each pictureSet in subgroup.model.subGroupPictureSets itemController="sub-group-picture-set"}}
 
                 <ul class="picture-set">
                 {{#each picture in pictureSet.album.pictures itemController="picture"}}
