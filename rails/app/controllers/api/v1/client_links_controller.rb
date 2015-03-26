@@ -6,7 +6,10 @@ module Api
 
       # GET /api/v1/client_links
       def index
-        client_links = ClientLink.all
+        client_links = ClientLink.includes(
+          { :client => :client_links }, :radio, :modem, { :antenna => :location },
+          :sub_group_picture_sets, :service_fragments
+        ).all
         render json: client_links
       end
 
