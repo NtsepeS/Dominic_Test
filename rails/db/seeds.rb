@@ -143,7 +143,7 @@ Radio.where(name: 'abcd', item_code: '1234', icasa_sticker: true).first_or_creat
 Radio.where(name: 'aden', item_code: '12345', icasa_sticker: false).first_or_create
 
 BaseStationSector.where(name: "Sector 3", status_id: 1,sector: 3, base_station_unit:
-  BaseStationUnit.where(name: "base-station 1", status_id: 1,
+  BaseStationUnit.where(name: "base-station 4", status_id: 1,
     core_node: CoreNode.where(name: 'Pretoria', status_id: 1,
       location: Location.where(
         geometry: Geometry.where(latitude: "-29.7369478", longitude: "31.0211299", altitude: "1").first_or_create
