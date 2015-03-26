@@ -33,11 +33,24 @@ describe NewContainerService do
 
       expect( core_node.container ).to eq( container )
     end
+
+    it "should require a new object" do
+      core_node.save!
+
+      expect {
+        subject.create( core_node )
+      }.to_not change {
+        Container.count
+      }
+
+      expect( subject.errors[:containable] ).to eq("must be a new record")
+    end
   end
 
   describe "creating base station units" do
     let!(:core_node) {
-      described_class.new.create( FactoryGirl.create(:core_node) ).containable
+      described_class.new.create( FactoryGirl.build(:core_node) ).containable
+      # subject.create( FactoryGirl.create(:core_node) ).containable
     }
     let(:base_station_unit) { FactoryGirl.build(:base_station_unit) }
 
@@ -89,16 +102,88 @@ describe NewContainerService do
     let(:base_station_sector) { FactoryGirl.build(:base_station_sector) }
 
     it "should require a base station unit" do
-      subject.create( base_station_sector, in: base_station_unit )
+      expect {
+        subject.create( base_station_sector )
+      }.to_not change {
+        BaseStationSector.count
+      }
+
+      expect( subject.errors[:parent] ).to be_present
     end
 
-    it "should create the container"
-    it "should create the model"
+    it "should create the container" do
+      expect {
+        subject.create( base_station_sector, in: base_station_unit )
+      }.to change {
+        Container.count
+      }.by( 1 )
+    end
+
+    it "should create the model" do
+      expect {
+        subject.create( base_station_sector, in: base_station_unit )
+      }.to change {
+        BaseStationSector.count
+      }.by( 1 )
+    end
+
+    it "should associate the containers" do
+      subject.create( base_station_sector, in: base_station_unit )
+
+      expect( core_node.base_station_sectors ).to include( base_station_sector )
+      expect( base_station_unit.base_station_sectors ).to include( base_station_sector )
+      expect( base_station_sector.core_node ).to eq( core_node )
+    end
   end
 
   describe "creating client links" do
-    it "should require a parent"
-    it "should create the container"
-    it "should create the model"
+    let!(:core_node) {
+      subject.create( FactoryGirl.build(:core_node) ).containable
+    }
+    let!(:base_station_unit) {
+      subject.create(
+        FactoryGirl.build(:base_station_unit), in: core_node
+      ).containable
+    }
+    let!(:base_station_sector) {
+      subject.create(
+        FactoryGirl.build(:base_station_sector), in: base_station_unit
+      ).containable
+    }
+    let(:client_link) { FactoryGirl.build(:client_link) }
+
+    it "should require a base station sector" do
+      expect {
+        subject.create( client_link )
+      }.to_not change {
+        ClientLink.count
+      }
+    end
+
+    it "should create the container" do
+      expect {
+        subject.create( client_link, in: base_station_sector )
+      }.to change {
+        Container.count
+      }.by ( 1 )
+    end
+
+    it "should create the model" do
+      expect {
+        subject.create( client_link, in: base_station_sector )
+      }.to change {
+        ClientLink.count
+      }.by ( 1 )
+    end
+
+    it "should associate the containers" do
+      subject.create( client_link, in: base_station_sector )
+
+      expect( core_node.client_links ).to include( client_link )
+      expect( base_station_sector.client_links ).to include( client_link )
+      expect( client_link.core_node ).to eq( core_node )
+      expect( client_link.base_station_unit ).to eq( base_station_unit )
+      expect( client_link.base_station_sector ).to eq( base_station_sector )
+    end
   end
 end

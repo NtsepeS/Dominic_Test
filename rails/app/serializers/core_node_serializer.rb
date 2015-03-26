@@ -1,7 +1,10 @@
 class CoreNodeSerializer < ActiveModel::Serializer
-  attributes :id, :name, :city,
-    :created_at, :updated_at
+  embed :ids, include: true
 
-  has_one :location, :status
+  attributes :id, :name, :created_at, :updated_at
+
+  has_one :city
+  has_one :location
+  has_one :status
   has_many :base_station_units
 end

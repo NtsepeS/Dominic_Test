@@ -18,6 +18,8 @@ class NewContainerService < BaseService
         persist_containable
       end
     end
+
+    self
   end
 
   def valid?
@@ -28,6 +30,11 @@ class NewContainerService < BaseService
 
     unless @containable.valid?
       @errors = @containable.errors
+      return false
+    end
+
+    if @containable.persisted?
+      @errors[:containable] = "must be a new record"
       return false
     end
 
