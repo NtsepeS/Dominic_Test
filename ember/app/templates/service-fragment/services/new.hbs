@@ -3,23 +3,24 @@
     <h2>Service</h2>
     <form class="form-horizontal">
       <div class="form-group">
-        <label class="col-sm-3 control-label">Line Tag:</label>
-        <div class="col-sm-9">
+        <label class="col-sm-2 control-label">Line Tag:</label>
+        <div class="col-sm-10">
           {{input value=selectedLinetag class="form-control"}}
         </div>
       </div>
       <div class="form-group">
-        <label class="col-sm-3 control-label">Line Speed (Mbps):</label>
-        <div class="col-sm-9">
+        <label class="col-sm-2 control-label">Line Speed (Mbps):</label>
+        <div class="col-sm-10">
         {{view "select"
-        content=lineSpeeds
-        value=selectedServiceLineSpeed
-        prompt="Please Select"}}
+          content=lineSpeeds
+          value=selectedServiceLineSpeed
+          prompt="Please Select"
+          class="form-control"}}
         </div>
       </div>
       <div class="form-group">
-        <label class="col-sm-3 control-label">VLAN:</label>
-        <div class="col-sm-9">
+        <label class="col-sm-2 control-label">VLAN:</label>
+        <div class="col-sm-10">
         {{input value=selectedVlan class="form-control"}}
         </div>
       </div>

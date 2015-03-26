@@ -5,7 +5,7 @@ export default Ember.ObjectController.extend(SaveClienLink, {
   showWarning: false,
 
   saveModel: function() {
-    var _this         = this;
+    var _this = this;
     this.get('model').save().then(function(result){
       _this.transitionToRoute('client-link.overview.edit', result.id);
     });
@@ -17,7 +17,8 @@ export default Ember.ObjectController.extend(SaveClienLink, {
     },
 
     showWarning: function() {
-      this.set('showWarning', true);
+      var flash = Ember.get(this, "flashes");
+      flash.info("Please save client link overview before configuring other sections.");
     }
   }
 });

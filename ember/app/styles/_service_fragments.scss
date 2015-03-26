@@ -1,32 +1,21 @@
-section.row  {
-  h2.c-model-heading {
-    margin-bottom: 0;
+.c-service-fragment {
+
+  &__add-button {
+    margin-bottom: 1em;
+    padding: 0 1em;
   }
-  h3.c-model-heading {
+
+  &__service-heading, &__port-heading {
     text-align: center;
     margin-bottom: 0;
   }
-}
 
-.row.c-model-add-button {
-  margin: 0;
-
-  button.btn.btn-primary {
-    margin-bottom: 1em;
-  }
-}
-
-
-.c-panel-footer {
-  &__row {
-    margin: 0;
-  }
-}
-
-.c-warning-message {
-
-  &--no-margin {
-    margin-bottom: 0;
+  &__service-table, &__port-table {
+    cursor: pointer;
+    cursor: hand;
   }
 
+  &__footer.row {
+    padding-right: 1em;
+  }
 }

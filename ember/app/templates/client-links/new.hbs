@@ -1,5 +1,4 @@
 <h1>New Client Link</h1>
-
 <div role="tabpanel">
   <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active"><a aria-controls="overview" role="" data-toggle="">Overview</a></li>
@@ -14,9 +13,6 @@
 
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane fade in active" id="overview">
-      {{#if showWarning}}
-      {{alert-message alertType="alert-info" message="Please save client link overview before configuring other sections."}}
-      {{/if}}
       {{partial "client-link/overview/edit"}}
     </div>
   </div>
