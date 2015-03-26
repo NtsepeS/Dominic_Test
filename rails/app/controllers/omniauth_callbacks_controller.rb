@@ -5,7 +5,11 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     login.call( request.env["omniauth.auth"] )
 
     if login.successful?
-      ensure_user_in_workflow(login.user)
+
+      if FeatureFlag.enabled? :workflow
+        ensure_user_in_workflow(login.user)
+      end
+
       sign_in_and_redirect login.user
       session["devise.user_info"] = request.env["omniauth.auth"]['info']
     else
