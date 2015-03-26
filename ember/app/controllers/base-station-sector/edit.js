@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   actions: {
-    saveBaseStationUnit: function() {
+    saveBaseStationSector: function() {
       var _this = this;
 
       Promise.all([
