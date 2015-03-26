@@ -18,6 +18,8 @@ class NewContainerService < BaseService
         persist_containable
       end
     end
+
+    self
   end
 
   def valid?
