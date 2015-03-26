@@ -43,6 +43,7 @@ RSpec.describe WorkflowService do
         response = service.add_user(user)
         expect(response).to have_key(:message)
         expect(response[:message]).to eql("Username '#{user[:user_id]}' already exists")
+        expect(response[:user_uid]).to be_nil
       end
     end
   end
