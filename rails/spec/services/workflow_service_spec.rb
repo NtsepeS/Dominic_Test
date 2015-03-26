@@ -5,16 +5,16 @@ RSpec.describe WorkflowService do
 
   describe "#add_user" do
 
-    context "with new user", :vcr  do
+    context "with new user", :vcr do
       subject(:service) { WorkflowService.new }
       let(:user) do
         {
-            user_id: 'willy',
-            first_name: 'Willy',
-            last_name: 'Wonka',
-            email: 'willy@chocolatefactory.com',
-            role: 'PROCESSMAKER_ADMIN',
-            password: 'Wonka Bars'
+          user_id: 'willy',
+          first_name: 'Willy',
+          last_name: 'Wonka',
+          email: 'willy@chocolatefactory.com',
+          role: 'PROCESSMAKER_ADMIN',
+          password: 'Wonka Bars'
         }
       end
 
@@ -26,16 +26,16 @@ RSpec.describe WorkflowService do
       end
     end
 
-    context "when user already exists", :vcr  do
+    context "when user already exists", :vcr do
       subject(:service) { WorkflowService.new }
       let(:user) do
         {
-            user_id: 'heisenberg',
-            first_name: 'Walter',
-            last_name: 'White',
-            email: 'heisenberg@lospolloshermanos.com',
-            role: 'PROCESSMAKER_ADMIN',
-            password: 'blue'
+          user_id: 'heisenberg',
+          first_name: 'Walter',
+          last_name: 'White',
+          email: 'heisenberg@lospolloshermanos.com',
+          role: 'PROCESSMAKER_ADMIN',
+          password: 'blue'
         }
       end
 
