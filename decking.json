@@ -1,0 +1,27 @@
+{
+  "images": {
+    "cops/cops" : "dockerfiles/backend"
+  },
+
+  "containers": {
+    "cops-database": {
+      "image": "postgres",
+      "env"  : ["POSTGRES_USER=cops-api"]
+    },
+    "cops": {
+      "image": "cops/cops",
+      "port" : ["80:80", "5001:22"],
+      "env"  : ["DB_HOST=", "DB_DB=","SECRET_KEY_BASE=","SSO_CONSUMER_KEY=",
+                "SSO_CONSUMER_SECRET=","SIAUTH_KEY=",
+                "SENTRY_DSN="],
+      "dependencies": [
+        "cops-database"
+      ]
+    }
+  },
+
+  "clusters": {
+    "main": ["cops","cops-database"]
+  }
+
+}
