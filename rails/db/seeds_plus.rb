@@ -136,4 +136,10 @@ doc.css('Item').each do |node|
     location: location,
     client_link: cl
   ).first_or_create
+
+  Radio.where(
+    serial_number: get_text(node, 'radio_sn'),
+    is_asset_tag: get_text(node, 'radio_asset_tag'),
+    client_link: cl
+  ).first_or_create
 end
