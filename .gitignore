@@ -31,3 +31,4 @@ rails/spec/reports/*
 /libpeerconnection.log
 npm-debug.log
 testem.log
+rails/notebooks/.ipynb_checkpoints
