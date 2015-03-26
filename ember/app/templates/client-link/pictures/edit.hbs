@@ -17,7 +17,7 @@
                 {{#each picture in pictureSet.album.pictures itemController="picture"}}
                   <li>
                     <div class="picture" {{action "expand" this}}>
-                      <img {{bind-attr src="picture.url"}}>
+                      <img {{bind-attr src="picture.model.url"}}>
                       <div class="overlay">
                         <a class="close-overlay" {{action 'removePicture' this}}>
                           &times;
