@@ -22,6 +22,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'processmaker', :git => 'git@github.com:vmpj/processmaker_gem.git'
 gem 'sentry-raven'
 
+# Ideally this should not be used in production...
+gem 'dotenv-rails', '~> 2.0.0'
+
 group :development do
   gem 'guard-rspec', require: false
   gem 'nokogiri', '~> 1.6.6.1'
