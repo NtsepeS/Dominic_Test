@@ -6,8 +6,8 @@ export default Ember.Controller.extend({
       var _this = this;
 
       Promise.all([
-        _this._saveStatus()],
-        _this._saveBaseStationUnit()
+        _this._saveStatus(),
+        _this._saveBaseStationUnit()]
       ).then(function() {
         _this.get('model').save().then( function(baseStationUnit) {
           _this.resetProperties();
@@ -18,18 +18,15 @@ export default Ember.Controller.extend({
   },
 
   resetProperties: function() {
-    this.setProperties({ selectedName: null,
-                         selectedSector: null,
-                          selectedStatus: null,
-                          selectedBaseStationUnit: null});
+    this.setProperties({ selectedName: null, selectedSector: null});
   },
 
   _saveStatus: function() {
     var _this = this;
-    _this.get('model').set('status', _this.get('selectedStatus'));
+    _this.get('model').set('status', _this.get('model.status'));
 
     return new Ember.RSVP.Promise(function(resolve) {
-      var promise = _this.store.find('status', _this.get('selectedStatus.id'));
+      var promise = _this.store.find('status', _this.get('model.status.id'));
 
       promise.then(function(status) {
         return resolve(status.save());
@@ -39,7 +36,7 @@ export default Ember.Controller.extend({
 
   _saveBaseStationUnit: function() {
     var _this = this;
-    _this.get('model').set('baseStationUnit', _this.get('selectedBaseStationUnit'));
+    _this.get('model').set('baseStationUnit', _this.get('model.baseStationUnit'));
 
     return new Ember.RSVP.Promise(function(resolve) {
       var promise = _this.store.find('base-station-unit', _this.get('model.baseStationUnit.id'));
