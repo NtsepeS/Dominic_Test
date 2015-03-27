@@ -3,6 +3,7 @@ module Api
     class ClientLinksController < AuthenticatedController
       include History
       include ExcelGenerator
+      include ParentContainerParams
 
       # GET /api/v1/client_links
       def index
@@ -19,23 +20,9 @@ module Api
         render json: client_link
       end
 
-      def parent_container
-        type = [ :base_station_sector_id ].detect { |key|
-          params[:client_link][ key ].present?
-        }
-
-        return if type.nil?
-
-        parent_class = type.to_s.sub(/_id\z/, '').classify.safe_constantize
-        if parent_class.present?
-          id = params[:client_link].delete( type )
-          parent_class.find( id )
-        end
-      end
-
       def create
         # Run before our safe parameters
-        container = parent_container
+        container = parent_container(:client_link, :base_station_sector_id)
 
         client_link = ClientLink.new(client_link_params)
         ncs = NewContainerService.new.create( client_link, in: container )
