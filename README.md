@@ -15,6 +15,16 @@ $ brew install watchman
 
 * Please upgrade Sass locally to the latest version or a version > 3.4.4
 
+* IRuby Notebook (Optional: Install it if you want to run the project's iruby notebooks)
+``` bash
+$ brew install zeromq
+$ pip install "ipython[notebook]"
+$ gem install iruby
+
+# to run iruby notebook
+$ iruby notebook
+```
+
 ## Setup
 
 COPS relies on the `cops.dev` development domain. To run this, install pow from `get.pow.cx`
