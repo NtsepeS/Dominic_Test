@@ -4,8 +4,7 @@ export default Ember.Controller.extend({
   hasPorts: false,
 
   _updatePortExists: function() {
-    var _this = this,
-        _hasPorts = false;
+    var _hasPorts = false;
     this.get('model.serviceFragments').forEach(function(serviceFragment) {
       serviceFragment.get('services').forEach(function(service) {
         if (!Ember.isEmpty(service.get('ports')))
