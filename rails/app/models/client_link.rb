@@ -10,5 +10,5 @@ class ClientLink < ActiveRecord::Base
   belongs_to :radio
   has_many   :service_fragment
 
-  has_many :sub_group_picture_sets
+  has_many :albums
 end
