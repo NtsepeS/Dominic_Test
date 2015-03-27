@@ -1,4 +1,5 @@
-AAs an authorised administrator of COP's
+@wip
+Feature: As an authorised administrator of COP's
     I need view COP's data
 
     Background: 

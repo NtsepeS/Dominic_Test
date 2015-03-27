@@ -1,3 +1,4 @@
+@wip
 Feature: 17. export core nodes
 	As an authorised COPS administrator
     I need to generate a core node report

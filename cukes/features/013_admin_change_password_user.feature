@@ -1,3 +1,4 @@
+@wip
 Feature: 13. Change user password
 As a user
 I want to change my password

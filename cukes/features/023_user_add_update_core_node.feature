@@ -1,3 +1,4 @@
+@wip
 Feature: 23.Update or add data Core Node Information
 	As a member of the COPS admin security group
     I need to update or add a core node
@@ -12,7 +13,6 @@ Feature: 23.Update or add data Core Node Information
             And   I am an administrator or have rights to change COPS
     		When  I click on the add core node button
     		And   I fill in "<site information>"
-            <Example>:
             | <Core Node> | <Latitude> | <Longitude> |   <Height>  |  <Status>   |
             And   I press "save"
             Then  I should see a message of "Core node added"
@@ -24,7 +24,6 @@ Feature: 23.Update or add data Core Node Information
             When  I click on the update core node button
             And   I click on the core node name
             And   I fill in "<site information>"
-            <Example>:
             | <Core Node> | <Latitude> | <Longitude> |   <Height>  |  <Status>   |
             And  I press "save"
             Then  I should see a message of "Core Node updated"
@@ -35,7 +34,6 @@ Feature: 23.Update or add data Core Node Information
             And   I am a member of an admin security group
             When  I click on the update core node button
             And   I do not fill in "<site information>"
-            <Example>:
             | <Core Node> | <Latitude> | <Longitude> |   <Height>  |  <Status>   |
             And  I press "save"
             Then I should see a message of "Information incomplete"
@@ -48,7 +46,6 @@ Feature: 23.Update or add data Core Node Information
             When  I click on "delete core node" button
             And   I click on the core node name
             And   I fill in "<site information>"
-           <Example>:
             | <Core Node> | <Latitude> | <Longitude> |   <Height>  |  <Status>   |
             When  I press c"save"
             Then  I should see a message of "Delete Core Node"
@@ -61,7 +58,6 @@ Feature: 23.Update or add data Core Node Information
             When  I click on "update status" button
             And   I click on the core node name
             And   I fill in "<site information>"
-            <Example>:
             |  <Status>   |
             When  I press "save"
             Then  I should see a message of "Status updated"

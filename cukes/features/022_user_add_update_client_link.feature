@@ -1,3 +1,4 @@
+@wip
 Feature: 022.Update or add data Clink Link
   As a user of COPS 
   I need to update or add a Client Link
@@ -11,25 +12,25 @@ Feature: 022.Update or add data Clink Link
         And   I should see a list of all client links
         When  I click on the "Add Client Link" button
         And   I view and fill in "<information>"
-        <Status>:
+        And   I view and fill in <Status>:
         | <Status>|
         | <View>  |
-        <Contact Details>:
+        And   I view and fill in <Contact Details>:
         | <Contact person> | <Contact #> |  <Street Address>  |
         | <Edit>           | <Edit>      |  <Edit>            |
-        <Antenna Location>:
+        And   I view and fill in <Antenna Location>:
         | <Lattitude>| <Longitude> |  <Altitude (AGL)> |  <Anntenna Size> |
         | <Edit>     | <edit>      |  <edit>           |  <edit>          |
-        <Core Node>:
+        And   I view and fill in <Core Node>:
         | <Core Node> | <Base Station> | <Sector> | <RSSI value> |
         | <View>      | <View>         |  <View>  | <view>       |
-        <RF>:
+        And   I view and fill in <RF>:
         | <RF Frequency> | <TX frequency> | <Polarity> | <IFL Cable lenght> |
         | <View>         | <View>         |  <View>    | <view>             |
-        <Serial Number>:
+        And   I view and fill in <Serial Number>:
         | <MSAD> | <Radio> | <Antenna> | 
         | <View> | <edit>  |  <edit>   |
-        <IS Asset Tag>:
+        And   I view and fill in <IS Asset Tag>:
         | <MSAD> | <Radio> | <Antenna> | 
         | <View> | <edit>  |  <edit>   |
         And   I press "save"
@@ -41,25 +42,25 @@ Feature: 022.Update or add data Clink Link
         When  I click on the "Add Client Link" button
         And   I view only the client links for my FS partner type
         And   I view and fill in "<information>"
-        <Status>:
+        And   I view and fill in <Status>:
         | <Status>|
         | <View>  |
-        <Contact Details>:
+        And   I view and fill in <Contact Details>:
         | <Contact person> | <Contact #> |  <Street Address>  |
         | <Edit>           | <Edit>      |  <Edit>            |
-        <Antenna Location>:
+        And   I view and fill in <Antenna Location>:
         | <Lattitude>| <Longitude> |  <Altitude (AGL)> |  <Anntenna Size> |
         | <Edit>     | <edit>      |  <edit>           |  <edit>          |
-        <Core Node>:
+        And   I view and fill in <Core Node>:
         | <Core Node> | <Base Station> | <Sector> | <RSSI value> |
         | <View>      | <View>         |  <View>  | <view>       |
-        <RF>:
+        And   I view and fill in <RF>:
         | <RF Frequency> | <TX frequency> | <Polarity> | <IFL Cable lenght> |
         | <View>         | <View>         |  <View>    | <view>             |
-        <Serial Number>:
+        And   I view and fill in <Serial Number>:
         | <MSAD> | <Radio> | <Antenna> | 
         | <View> | <edit>  |  <edit>   |
-        <IS Asset Tag>:
+        And   I view and fill in <IS Asset Tag>:
         | <MSAD> | <Radio> | <Antenna> | 
         | <View> | <edit>  |  <edit>   |
         And   I press "save"
@@ -69,25 +70,25 @@ Feature: 022.Update or add data Clink Link
         Given I am on the client links page
         When  I click on the "Update Client Link" button
         And   I fill in "<information>"
-        <Status>:
+        And   I view and fill in <Status>:
         | <Status>|
         | <View>  |
-        <Contact Details>:
+        And   I view and fill in <Contact Details>:
         | <Contact person> | <Contact #> |  <Street Address>  |
         | <Edit>           | <Edit>      |  <Edit>            |
-        <Antenna Location>:
+        And   I view and fill in <Antenna Location>:
         | <Lattitude>| <Longitude> |  <Altitude (AGL)> |  <Anntenna Size> |
         | <Edit>     | <edit>      |  <edit>           |  <edit>          |
-        <Core Node>:
+        And   I view and fill in <Core Node>:
         | <Core Node> | <Base Station> | <Sector> | <RSSI value> |
         | <View>      | <View>         |  <View>  | <view>       |
-        <RF>:
+        And   I view and fill in <RF>:
         | <RF Frequency> | <TX frequency> | <Polarity> | <IFL Cable lenght> |
         | <View>         | <View>         |  <View>    | <view>             |
-        <Serial Number>:
+        And   I view and fill in <Serial Number>:
         | <MSAD> | <Radio> | <Antenna> | 
         | <View> | <edit>  |  <edit>   |
-        <IS Asset Tag>:
+        And   I view and fill in <IS Asset Tag>:
         | <MSAD> | <Radio> | <Antenna> | 
         | <View> | <edit>  |  <edit>   |
         And   I press "save"

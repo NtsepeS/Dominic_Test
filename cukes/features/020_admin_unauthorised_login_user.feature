@@ -1,5 +1,5 @@
 @wip
-Feature: Unauthroised user log on
+Feature: Unauthorised user log on
 
 Background: 
         Given I am on the home page of COPs

@@ -1,3 +1,4 @@
+@wip
 Feature: 24. Update or add data for Sector
 	As an authorised COPS user
     I need to update or add a Sector
@@ -11,8 +12,7 @@ Feature: 24. Update or add data for Sector
     		Given I'm on the sector page
     		When  I click on the "add sector" button
     		And   I fill in "<information>"
-    		<information>:
-    			| <sector> | 
+    			| <sector> |
     			| <select> |
     		And   I And I press "save"
     		Then  I should see a message of "Sector added"
@@ -23,8 +23,7 @@ Feature: 24. Update or add data for Sector
         	When  I click on the "Add sector" button
         	And   I view only the sectors for my FS partner type
         	And   I view and fill in "<information>"
-        	<information>:
-    			| <sector> | 
+    			| <sector> |
     			| <select> |
         	Then  I press "save"
         	And   I should see a message of "sector added"
@@ -32,9 +31,7 @@ Feature: 24. Update or add data for Sector
     	Scenario: Administrator updates a Sector with a status change or parameter change
     		Given I'm on the sector page
     		When  I click on the "update sector" button
-    		And   I fill in "<information>"
-    		<example>:
-    			| <Status>       |
+    		And   I fill in "<status>"
     			| <Being Built>  |  <decommissioned> | <Operational> | <Under Construction> |
     		And   I press "save"
     		Then  I should see a message of "Sector updated"

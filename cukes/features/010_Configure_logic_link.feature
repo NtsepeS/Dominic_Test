@@ -1,3 +1,4 @@
+@wip
 Feature: 1.10 Configure Logic Link
 In order to configure logic link
 As a IS Carrier Engineer
