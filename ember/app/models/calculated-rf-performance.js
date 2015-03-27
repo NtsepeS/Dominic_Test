@@ -10,7 +10,6 @@ export default Ember.ArrayProxy.extend({
   },
 
   paramsChanged: function() {
-    console.log(":efzdfdzz");
     this.recalculate();
   }.observes('rfPerformanceParameters.[]'),
 
@@ -38,18 +37,23 @@ export default Ember.ArrayProxy.extend({
   },
 
   createCalculatedParameter: function(buffer) {
+    var _this   = this;
     var a = buffer[1],
         b = buffer[0];
 
     return Ember.Object.create({
       isCalculated:   true,
       rfResultSet:    "Result",
-      uplinkRssi:     a.get('uplinkRssi')     - b.get('uplinkRssi'),
-      downlinkRssi:   a.get('downlinkRssi')   - b.get('downlinkRssi'),
-      uplinkCnr:      a.get('uplinkCnr')      - b.get('uplinkCnr'),
-      downlinkCnr:    a.get('downlinkCnr')    - b.get('downlinkCnr'),
-      txPower:        a.get('txPower')        - b.get('txPower'),
-      stepAttenuator: a.get('stepAttenuator') - b.get('stepAttenuator')
+      uplinkRssi:     _this.calculateDifference(a, b, 'uplinkRssi'),
+      downlinkRssi:   _this.calculateDifference(a, b, 'downlinkRssi'),
+      uplinkCnr:      _this.calculateDifference(a, b, 'uplinkCnr'),
+      downlinkCnr:    _this.calculateDifference(a, b, 'downlinkCnr'),
+      txPower:        _this.calculateDifference(a, b, 'txPower'),
+      stepAttenuator: _this.calculateDifference(a, b, 'stepAttenuator')
     });
   },
+
+  calculateDifference: function(a, b, parameter){
+    return Math.round(a.get(parameter) - b.get(parameter))/100;
+  }
 });
