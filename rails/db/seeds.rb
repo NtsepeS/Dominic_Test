@@ -57,16 +57,28 @@ GroupClassification.where(name: 'Indoor').first_or_create
 SubGroupClassification.where(name: 'MSAD', group_classification_id: 2).first_or_create
 SubGroupClassification.where(name: 'Equipment Room', group_classification_id: 2).first_or_create
 SubGroupClassification.where(name: 'Indoor Cable', group_classification_id: 2).first_or_create
-# Album.where(id: 1).first_or_create
-# Album.where(id: 2).first_or_create
-# Picture.where(mechanism: 'url', picture_data: 'www.test.com/pic_1.jpg', date_taken: '2015-01-29 12:00:00', album_id: 1).first_or_create
-# Picture.where(mechanism: 'url', picture_data: 'www.test.com/pic_2.jpg', date_taken: '2015-01-29 12:01:00', album_id: 1).first_or_create
-# Picture.where(mechanism: 'url', picture_data: 'www.test.com/pic_3.jpg', date_taken: '2015-01-29 12:00:00', album_id: 1).first_or_create
-# Picture.where(mechanism: 'file', picture_data: '/data/public/pic_4.jpg', date_taken: '2015-01-29 12:01:00', album_id: 2).first_or_create
-# Picture.where(mechanism: 'file', picture_data: '/data/public/pic_5.jpg', date_taken: '2015-01-29 12:01:00', album_id: 2).first_or_create
-# Picture.where(mechanism: 'url', picture_data: 'www.test.com/pic_6.jpg', date_taken: '2015-01-29 12:00:00', album_id: 2).first_or_create
-# SubGroupPictureSet.where(album_id: 1, sub_group_classification_id: 1, client_link_id: 1).first_or_create
-# SubGroupPictureSet.where(album_id: 2, sub_group_classification_id: 2, client_link_id: 1).first_or_create
+Album.where(sub_group_classification_id: 1, client_link_id: 1).first_or_create
+Album.where(sub_group_classification_id: 2, client_link_id: 1).first_or_create
+
+# Picture.where(
+#   mechanism: 'url',
+#   picture_data: 'http://www.wonderslist.com/wp-content/uploads/2013/01/Most-Beautiful-Flowers.jpg',
+#   date_taken: '2001-02-03T04:05:06+07:00',
+#   width: 1000,
+#   height: 1000,
+#   album_id: 1).first_or_create
+# Picture.where(mechanism: 'url',
+#   picture_data: 'http://www.noupe.com/wp-content/uploads/trans/cdn_smash/wp-content/uploads/2010/01/flowers_44.jpg',
+#   date_taken: '2001-02-03T04:05:06+07:00',
+#   width: 1000,
+#   height: 1000,
+#   album_id: 1).first_or_create
+# Picture.where(mechanism: 'url',
+#   picture_data: 'http://upload.wikimedia.org/wikipedia/en/5/5f/Beautiful_flower_with_petals_that_look_like_candy.jpg',
+#   date_taken: '2015-02-03T04:05:06+07:00',
+#   width: 1000,
+#   height: 1000,
+#   album_id: 2).first_or_create
 
 RfPerformanceParameter.where(uplink_rssi: 3.46, downlink_rssi: 3.45, uplink_cnr: 3.43, downlink_cnr: 2.34, tx_power: 2.54, step_attenuator: 5.5, rf_result_set: "Predicted", radio_id:1).first_or_create
 RfPerformanceParameter.where(uplink_rssi: 2.46, downlink_rssi: 3.45, uplink_cnr: 1.43, downlink_cnr: 1.44, tx_power: 1.53, step_attenuator: 5.5, rf_result_set: "10-05-2013", radio_id:2).first_or_create
