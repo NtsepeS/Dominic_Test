@@ -18,15 +18,14 @@ gem 'rest-client', '~> 1.7.2'
 gem 'faraday', '~> 0.9.1'
 gem 'sass', '~> 3.4.13'
 gem 'uglifier', '>= 1.3.0'
-gem 'processmaker', :git => 'git@github.com:vmpj/processmaker_gem.git'
-gem "sentry-raven"
+gem 'processmaker', github: 'vmpj/processmaker_gem'
+gem 'sentry-raven'
 gem 'ci_reporter_rspec', '~> 1.0.0'
 
 group :development do
   gem 'guard-rspec', require: false
   gem 'nokogiri', '~> 1.6.6.1'
   gem 'spring-commands-rspec'
-  gem 'processmaker', :git => 'git@github.com:vmpj/processmaker_gem.git'
   gem 'iruby', '~> 0.1.13'
 end
 

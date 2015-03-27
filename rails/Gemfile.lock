@@ -1,6 +1,6 @@
 GIT
-  remote: git@github.com:vmpj/processmaker_gem.git
-  revision: e9cd620c0a26d6f671a21877b1270b897a4e77cc
+  remote: git://github.com/vmpj/processmaker_gem.git
+  revision: 8f34e440226f714fa4ca3743843cab862481689e
   specs:
     processmaker (0.1.1)
       awesome_print (~> 1.6.1)
