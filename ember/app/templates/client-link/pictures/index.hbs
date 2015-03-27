@@ -6,7 +6,7 @@
       {{#each group in groupClassifications}}
         <div class="group-classification">
           <h3><u>{{group.name}}</u></h3>
-          {{#each subgroup in group.subGroupClassifications itemController="sub-group-classification"}}
+          {{#each subgroup in group.model.subGroupClassifications itemController="sub-group-classification"}}
             <div class="sub-group-classification">
               <h4>{{subgroup.name}}</h4>
 

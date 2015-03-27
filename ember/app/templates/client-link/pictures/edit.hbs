@@ -8,16 +8,17 @@
           <h3><u>{{group.name}}</u></h3>
           {{#each subgroup in group.subGroupClassifications itemController="sub-group-classification"}}
             <div class="sub-group-classification">
-              <h4>{{subgroup.name}}</h4>
+              <h4>{{subgroup.model.name}}</h4>
 
               {{view "picture-uploader"}}
-              {{#each pictureSet in subgroup.subGroupPictureSets itemController="sub-group-picture-set"}}
+
+              {{#each pictureSet in subgroup.subGroupPictureSets}}
 
                 <ul class="picture-set">
                 {{#each picture in pictureSet.album.pictures itemController="picture"}}
                   <li>
                     <div class="picture" {{action "expand" this}}>
-                      <img {{bind-attr src="picture.url"}}>
+                      <img {{bind-attr src="picture.model.url"}}>
                       <div class="overlay">
                         <a class="close-overlay" {{action 'removePicture' this}}>
                           &times;
