@@ -56,4 +56,18 @@ RSpec.describe BaseStationUnit, :type => :model do
       expect(bs1.base_station_sectors).to include(sec1, sec2)
     end
   end
+
+  context "destroying" do
+    before(:each) do
+      @bsu = create_base_station_unit
+    end
+
+    it "should remove its container" do
+      expect {
+        @bsu.destroy
+      }.to change {
+        Container.count
+      }.by( -1 )
+    end
+  end
 end

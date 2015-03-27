@@ -62,4 +62,18 @@ RSpec.describe CoreNode, :type => :model do
       expect(cn.client_links).to include(cl)
     end
   end
+
+  context "destroying" do
+    before(:each) do
+      @core_node = create_core_node
+    end
+
+    it "should remove its container" do
+      expect {
+        @core_node.destroy
+      }.to change {
+        Container.count
+      }.by( -1 )
+    end
+  end
 end

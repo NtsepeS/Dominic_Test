@@ -33,6 +33,8 @@ RSpec.describe Api::V1::ClientLinksController do
   end
 
   describe 'POST /api/v1/client_links' do
+    let(:base_station_sector) { create_base_station_sector }
+
     let(:hash) { {name: 'Alice Cooper',
       branch: 'Some branch',
       circuit_number: '1-19BL0L4-W-ISANDO-BSU1',
@@ -47,8 +49,10 @@ RSpec.describe Api::V1::ClientLinksController do
       solution_identifier: 1,
       billing_account: 1,
       service_account: 1,
-      service_account_site: 1}
+      service_account_site: 1,
+      base_station_sector_id: base_station_sector.id}
     }
+
     it_should_behave_like "a createable resource"
   end
 end

@@ -19,15 +19,32 @@ module Api
         render json: client_link
       end
 
-      def create
-        client_link = ClientLink.new(client_link_params)
+      def parent_container
+        type = [ :base_station_sector_id ].detect { |key|
+          params[:client_link][ key ].present?
+        }
 
-        if client_link.save
-          render json: client_link, status: :created
-        else
-          render json: client_link.errors.to_json, status: :unprocessable_entity
+        return if type.nil?
+
+        parent_class = type.to_s.sub(/_id\z/, '').classify.safe_constantize
+        if parent_class.present?
+          id = params[:client_link].delete( type )
+          parent_class.find( id )
         end
+      end
 
+      def create
+        # Run before our safe parameters
+        container = parent_container
+
+        client_link = ClientLink.new(client_link_params)
+        ncs = NewContainerService.new.create( client_link, in: container )
+
+        if ncs.successful?
+          render json: ncs.containable, status: :created
+        else
+          render json: ncs.errors.to_json, status: :unprocessable_entity
+        end
       end
 
       # PUT /api/v1/client_links/:id
@@ -63,8 +80,7 @@ module Api
       private
 
       def client_link_params
-
-        params.require(:client_link).permit(
+        @_client_link_params ||= params.require(:client_link).permit(
           :name,
           :branch,
           :circuit_number,
