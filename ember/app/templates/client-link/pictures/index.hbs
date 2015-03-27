@@ -6,17 +6,17 @@
       {{#each group in groupClassifications}}
         <div class="group-classification">
           <h3><u>{{group.name}}</u></h3>
-          {{#each subgroup in group.model.subGroupClassifications itemController="sub-group-classification"}}
+          {{#each subgroup in group.subGroupClassifications itemController="sub-group-classification"}}
             <div class="sub-group-classification">
-              <h4>{{subgroup.name}}</h4>
+              <h4>{{subgroup.model.name}}</h4>
 
-              {{#each pictureSet in subgroup.subGroupPictureSets itemController="sub-group-picture-set"}}
+              {{#each pictureSet in subgroup.albums}}
 
                 <ul class="picture-set">
-                {{#each picture in pictureSet.album.pictures itemController="picture"}}
+                {{#each picture in pictureSet.pictures itemController="picture"}}
                   <li>
                     <div class="picture" {{action "expand" this}}>
-                      <img {{bind-attr src="picture.url"}}>
+                      <img {{bind-attr src="picture.model.url"}}>
                       <div class="overlay">
                       </div>
                     </div>
