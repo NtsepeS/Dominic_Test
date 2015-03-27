@@ -25,19 +25,19 @@ Router.map(function() {
       this.route('new');
     });
 
-    this.route('modulations', { path: 'modulation'}, function() {
+    this.route('modulations', { path: 'radio/modulation'}, function() {
       this.route('new');
     });
 
-    this.resource('modulation', { path: 'modulation/:modulation_id' }, function() {
+    this.resource('modulation', { path: 'radio/modulation/:modulation_id' }, function() {
       this.route('edit');
     });
 
-    this.route('rf-performance-parameters', { path: 'rf-performance' }, function() {
+    this.route('rf-performance-parameters', { path: 'radio/rf-performance' }, function() {
       this.route('new');
     });
 
-    this.resource('rf-performance-parameter', { path: 'rf-performance/:rf_performance_parameter_id' }, function() {
+    this.resource('rf-performance-parameter', { path: 'radio/rf-performance/:rf_performance_parameter_id' }, function() {
       this.route('edit');
     });
 
