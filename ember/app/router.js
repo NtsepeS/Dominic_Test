@@ -21,6 +21,7 @@ Router.map(function() {
     });
 
     this.route('radio', function() {
+      this.route('new');
     });
 
     this.route('modulations', { path: 'modulation'}, function() {
