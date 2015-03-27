@@ -20,11 +20,11 @@ export default Ember.Route.extend({
     var clientLink = this.modelFor('client-link'),
         len = clientLink.get('radio.rfPerformanceParameters.length');
 
-    if (len == 1) {
+    if (len === 1) {
       model.set('rfResultSet', "Predicted");
       controller.set('presetName', true);
     }
-    if (len == 2) {
+    if (len === 2) {
       model.set('rfResultSet', "Configured");
       controller.set('presetName', true);
     }

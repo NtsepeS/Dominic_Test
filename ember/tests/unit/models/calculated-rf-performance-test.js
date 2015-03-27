@@ -3,6 +3,7 @@ import {
   test
 } from 'ember-qunit';
 import DS from 'ember-data';
+import Ember from 'ember';
 
 // FactoryGirl like setup
 var i = 0;
