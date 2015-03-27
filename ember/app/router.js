@@ -21,6 +21,7 @@ Router.map(function() {
     });
 
     this.route('radio', function() {
+      this.route('edit');
       this.route('new');
     });
 
