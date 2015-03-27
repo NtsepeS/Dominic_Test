@@ -12,10 +12,10 @@
 
               {{view "picture-uploader"}}
 
-              {{#each pictureSet in subgroup.subGroupPictureSets}}
+              {{#each pictureSet in subgroup.albums}}
 
                 <ul class="picture-set">
-                {{#each picture in pictureSet.album.pictures itemController="picture"}}
+                {{#each picture in pictureSet.pictures itemController="picture"}}
                   <li>
                     <div class="picture" {{action "expand" this}}>
                       <img {{bind-attr src="picture.model.url"}}>
