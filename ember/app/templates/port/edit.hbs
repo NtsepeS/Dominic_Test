@@ -8,7 +8,8 @@
           {{view "select"
             content=vlanTypes
             value=model.vlanType
-            prompt="Please Select"}}
+            prompt="Please Select"
+            class="form-control"}}
         </div>
       </div>
       <div class="form-group">
@@ -17,13 +18,14 @@
           {{view "select"
             content=acceptableFrameTypes
             value=model.acceptableFrameType
-            prompt="Please Select"}}
+            prompt="Please Select"
+            class="form-control"}}
         </div>
       </div>
       <div class="form-group">
         <label class="col-sm-3 control-label">Default VLAN:</label>
         <div class="col-sm-9">
-          {{input value=model.defaultVlan}}
+          {{input value=model.defaultVlan class="form-control"}}
         </div>
       </div>
     </form>

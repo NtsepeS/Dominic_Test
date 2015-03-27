@@ -1,7 +1,7 @@
 <div class="container">
   <section class="row">
-    <h2 class="c-model-heading">Service</h2>
-    <div class="row c-model-add-button">
+    <h2>Service</h2>
+    <div class="row c-service-fragment__add-button">
       {{#link-to 'service-fragment'}}
       <button type="button" class="btn btn-primary pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Service Fragment</button>
       {{/link-to}}
@@ -27,16 +27,16 @@
             {{model.vlan}}
         </div>
 
-        <div class="center col-md-12 no-padding">
-          <h3 class="c-model-heading">Ports</h3>
-          <div class="row c-model-add-button__no-margin">
+        <div class="center col-md-12">
+          <h3 class="c-service-fragment__port-heading">Ports</h3>
+          <div class="row">
             {{#link-to 'service.ports.new' model.id }}
             <button type="button" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Port</button>
             {{/link-to}}
           </div>
         </div>
       </div>
-      <table class="table table-hover number-table">
+      <table class="table table-hover c-number-table">
         <thead>
           <tr>
             <th>#</th>
@@ -50,8 +50,8 @@
         <tbody>
         {{#if model.ports.length}}
         {{#each port in model.ports}}
-          {{#link-to 'port' port.id tagName="tr" class="number-row"}}
-            <td class="number-data-column"></td>
+          {{#link-to 'port' port.id tagName="tr" class="c-number-row"}}
+            <td class="c-number-data-column"></td>
             <td>{{port.vlanType}}</td>
             <td>{{port.acceptableFrameType}}</td>
             <td>{{port.defaultVlan}}</td>
@@ -72,8 +72,8 @@
         {{/if}}
         </tbody>
       </table>
-      <div class="panel-footer c-panel-footer">
-        <div class="row c-panel-footer__row">
+      <div class="panel-footer">
+        <div class="row c-service-fragment__footer">
           <button type="button" class="btn btn-danger pull-right" data-toggle="modal" data-target="#prompt-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button>
         </div>
       </div>

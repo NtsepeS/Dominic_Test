@@ -7,5 +7,9 @@ export default Ember.Component.extend({
     deleteItem: function() {
       this.sendAction();
     }
+  },
+
+  willDestroyElement: function() {
+    Ember.$('.modal-backdrop').remove();
   }
 });
