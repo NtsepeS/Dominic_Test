@@ -10,7 +10,7 @@
 <h2 class="sub-header">Audit History</h2>
 
 {{#data-table}}
-  <table class="table table-striped display js-client-links-table" cellspacing="0" width="100%">
+  <table class="table table-striped" cellspacing="0" width="100%">
     <thead>
       <tr>
         <th>Event</th>
@@ -24,18 +24,19 @@
 
     <tbody>
 
-      {{#each content}}
-          {{#each changes}}
+      {{#each item in model}}
+        {{#each change in item.changes}}
           <tr>
-            <td>{{../event}}</td>
-            <td>{{field_name}}</td>
-            <td>{{from}}</td>
-            <td>{{to}}</td>
-            <td>{{../date}}</td>
-            <td>{{../person}}</td>
+            <td>{{item.event}}</td>
+            <td>{{change.field_name}}</td>
+            <td>{{change.from}}</td>
+            <td>{{change.to}}</td>
+            <td>{{item.date}}</td>
+            <td>{{item.person}}</td>
           </tr>
-          {{/each}}
+        {{/each}}
       {{/each}}
+
     </tbody>
   </table>
 {{/data-table}}

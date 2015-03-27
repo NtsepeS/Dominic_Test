@@ -1,0 +1,16 @@
+.is-disabled {
+  color: #D8DDE1;
+  text-decoration: none;
+}
+
+// legacy, use .is-disabled instead
+a.disabled, .disabled {
+  @extend .is-disabled
+}
+
+// For when using link-to as table row
+.u-link-to-tr {
+  tbody tr {
+    cursor: pointer;
+  }
+}
