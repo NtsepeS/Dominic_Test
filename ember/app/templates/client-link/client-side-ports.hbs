@@ -1,6 +1,7 @@
 <div class="container">
   <section class="row">
   <h2>Client Side Ports</h2>
+  {{#if hasPorts}}
     <table class="table table-hover c-service-fragment__port-table c-number-table">
       <thead>
         <tr>
@@ -37,7 +38,7 @@
         {{/each}}
      </tbody>
     </table>
-    {{#if noPorts}}
+    {{else}}
       {{alert-message alertType="alert-warning" message="There's no ports configured on this Client Link."}}
     {{/if}}
   </section>
