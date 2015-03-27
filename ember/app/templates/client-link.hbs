@@ -19,13 +19,18 @@
     {{#link-to 'client-link.radio'}}Radio{{/link-to}}
   {{/active-link}}
 
-  {{#active-link}}
-    {{#link-to 'client-link.rf-performance-parameters'}}RF Performance{{/link-to}}
-  {{/active-link}}
 
-  {{#active-link}}
-    {{#link-to 'client-link.modulations'}}Modulation{{/link-to}}
-  {{/active-link}}
+  {{#if model.radio}}
+
+    {{#active-link}}
+      {{#link-to 'client-link.rf-performance-parameters'}}RF Performance{{/link-to}}
+    {{/active-link}}
+
+    {{#active-link}}
+      {{#link-to 'client-link.modulations'}}Modulation{{/link-to}}
+    {{/active-link}}
+
+  {{/if}}
 
   {{#active-link}}
     {{#link-to 'client-link.service-fragments'}}Service Fragments{{/link-to}}
