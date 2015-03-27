@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://si-auth.si.is.co.za/auth/users/test.guy/groups
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Apikey:
+      - eb9d4559b681427ca07f23aca164ac7b
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 24 Mar 2015 23:23:15 GMT
+      Server:
+      - Apache/2.2.3 (CentOS)
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '118'
+      Connection:
+      - close
+      Content-Type:
+      - application/json
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA52PsQqAMAxEf6Vk1mT3V8RBpGpQ2tKkgxb/3dbFWbfjjvfg
+        MuzsNoHOZGA3+xJgVQ0dkXA7Jl1RGFlw8niOVAtKYqOQWlFc0kEP1hiom48s
+        9ofjZYuobt8dcBV0iT6F+qYfrhsKXzCj2wAAAA==
+    http_version: 
+  recorded_at: Thu, 26 Mar 2015 06:17:19 GMT
+recorded_with: VCR 2.9.3
