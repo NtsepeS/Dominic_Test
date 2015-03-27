@@ -9,7 +9,7 @@ export default Ember.Controller.extend({
       radio.save().then(function(){
         var clientLink = _this.get('model');
         clientLink.set('radio', radio);
-        clientLink.save()
+        clientLink.save();
       });
     }
   }

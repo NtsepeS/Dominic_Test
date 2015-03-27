@@ -10,8 +10,6 @@ export default Ember.ObjectController.extend({
       var _this = this;
       var Promise = Ember.RSVP.Promise;
 
-      var radio = _this.get('model.radio.id');
-
       var predictedModulation = _this.createPredictedModulationRecord();
       predictedModulation.set('radio', _this.get('model.radio'));
 

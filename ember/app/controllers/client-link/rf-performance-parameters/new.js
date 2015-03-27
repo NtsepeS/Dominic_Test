@@ -7,11 +7,9 @@ export default Ember.Controller.extend({
 
   actions: {
     saveRFPerformance: function() {
-      var _this = this;
-      var rfResultSet;
-      var radio = _this.get('model.radio.id');
-
+      var _this                  = this;
       var rfPerformanceParameter = this.get('model');
+
       rfPerformanceParameter.set('radio', _this.get('model.radio'));
 
       rfPerformanceParameter.save().then(function(){
