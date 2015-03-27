@@ -67,4 +67,18 @@ RSpec.describe BaseStationSector, :type => :model do
       expect(sec.client_links).to include(cl, cl2)
     end
   end
+
+  context "destroying" do
+    before(:each) do
+      @bss = create_base_station_sector
+    end
+
+    it "should remove its container" do
+      expect {
+        @bss.destroy
+      }.to change {
+        Container.count
+      }.by( -1 )
+    end
+  end
 end
