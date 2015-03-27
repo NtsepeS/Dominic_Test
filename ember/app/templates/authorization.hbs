@@ -1,0 +1,25 @@
+<table class="table c-authz-details">
+  <tr>
+    <th>Name</th>
+    <td class="c-authz-details__name">{{model.name}}</td>
+  </tr>
+  <tr>
+    <th>Email</th>
+    <td>{{model.email}}</td>
+  </tr>
+  <tr>
+    <th>Invited by</th>
+    <td class="c-authz-details__invited-by">{{model.invited_by}}</td>
+  </tr>
+  <tr>
+    <th>Role</th>
+    <td>{{model.role}}</td>
+  </tr>
+</table>
+
+<div class="c-authz-actions">
+  <button class="btn btn-danger c-authz-actions__remove" {{ action 'remove' }}>
+    <span class="glyphicon glyphicon-trash"></span>
+    Remove
+  </button>
+</div>
