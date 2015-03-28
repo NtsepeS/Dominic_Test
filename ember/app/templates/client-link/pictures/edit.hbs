@@ -12,7 +12,7 @@
 
               {{view "picture-uploader"}}
 
-              {{#each pictureSet in subgroup.albums}}
+              {{#each pictureSet in subgroup.albums itemController="album"}}
 
                 <ul class="picture-set">
                 {{#each picture in pictureSet.pictures itemController="picture"}}
