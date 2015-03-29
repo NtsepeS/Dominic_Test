@@ -41,8 +41,6 @@ Router.map(function() {
       this.route('edit');
     });
 
-    this.route('pictures', function() {
-      this.route('edit');
     });
 
     this.route('quality-assurance', function() {
