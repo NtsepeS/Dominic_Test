@@ -1,0 +1,17 @@
+{{#each picture in pictures itemController="picture"}}
+  <ul class="picture-set">
+
+    <li>
+      <div class="picture" {{action "expand" this}}>
+        <img {{bind-attr src="picture.model.url"}}>
+        <div class="overlay">
+          <a class="close-overlay" {{action 'removePicture' this}}>
+            &times;
+          </a>
+        </div>
+      </div>
+    </li>
+
+  </ul>
+
+{{/each}}
