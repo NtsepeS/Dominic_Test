@@ -41,6 +41,9 @@ Router.map(function() {
       this.route('edit');
     });
 
+    this.route('albums', function(){
+      this.route('edit')
+    });
     });
 
     this.route('quality-assurance', function() {
