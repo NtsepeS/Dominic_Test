@@ -54,6 +54,6 @@ export default Ember.ArrayProxy.extend({
   },
 
   calculateDifference: function(a, b, parameter){
-    return Math.round(a.get(parameter) - b.get(parameter))/100;
+    return Math.round((a.get(parameter) - b.get(parameter))*100)/100;
   }
 });
