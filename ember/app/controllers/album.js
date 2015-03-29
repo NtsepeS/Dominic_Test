@@ -6,7 +6,7 @@ export default Ember.Controller.extend({
 
   picturez: function() {
     var clientLink = this.get('controllers.client-link'),
-         albums = this.get('model.albums'),
+         albums   = this.get('model.albums'),
          pictures = this.get('model.pictures')
          pictures = pictures.sortBy('dateTaken');
     return pictures;
@@ -19,5 +19,10 @@ export default Ember.Controller.extend({
      pictures = this.get('model.pictures')
      pictures = pictures.sortBy('dateTaken')
     return pictures.get('lastObject');
+  }.property('model.pictures.[]'),
+
+  count: function(){
+     return this.get('model.pictures.length')
   }.property('model.pictures.[]')
+
 });

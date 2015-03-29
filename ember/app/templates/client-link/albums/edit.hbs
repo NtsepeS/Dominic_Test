@@ -1,35 +1,44 @@
 <div class="container">
-  <!-- SECTION 9: PICTURES -->
   <section class="row">
     <h2> Pictures </h2>
 
-      {{#each group in groupClassifications}}
-        <div class="group-classification">
-          <h3><u>{{group.name}}</u></h3>
-          {{#each subgroup in group.subGroupClassifications itemController="sub-group-classification"}}
-            <div class="sub-group-classification">
-              <h4>{{subgroup.model.name}}</h4>
+    {{#each group in groupClassifications}}
+      <div class="well">
+        <div class="row-fluid">
+          <ul class="thumbnails">
 
-              {{view "picture-uploader"}}
+              <h3><u>{{group.name}}</u></h3>
 
-              {{#each pictureSet in subgroup.albums itemController="album"}}
+              {{#each subgroup in group.subGroupClassifications itemController="sub-group-classification"}}
 
-                  <button type="button" class="btn btn-primary pull-right" {{action 'expandAlbum' pictureSet }} >Expand Album</button>
+                <li class="span4">
+                  <div class="thumbnail searchthumb">
+                    <h4>{{subgroup.model.name}}</h4>
+                    {{view "picture-uploader"}}
 
-                <ul class="picture-set">
+                    {{#if subgroup.albums}}
+                      {{#each pictureSet in subgroup.albums itemController="album"}}
 
-                  <li>
-                    <div class="picture">
-                      <img {{bind-attr src="pictureSet.pic.url"}}>
-                    </div>
-                  </li>
+                        <div>
+                          The album has {{pictureSet.count}} picture/s
+                          <span class="glyphicon glyphicon-resize-full pull-right" aria-hidden="true" {{action 'expandAlbum' pictureSet }}></span>
+                        </div>
 
-                </ul>
+                          <img {{bind-attr src="pictureSet.pic.url"}}>
+                      {{/each}}
+
+                    {{else}}
+                        <img src="http://budapesttimes.hu/wp-content/themes/newsroom14/img/placeholder.png">
+                    {{/if}}
+                  </div>
+                </li>
+
               {{/each}}
-          </div>
-          {{/each}}
+
+          </ul>
         </div>
-      {{/each}}
+      </div>
+    {{/each}}
 
   </section>
 </div>
