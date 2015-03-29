@@ -1,6 +1,6 @@
 GIT
-  remote: git@github.com:vmpj/processmaker_gem.git
-  revision: e9cd620c0a26d6f671a21877b1270b897a4e77cc
+  remote: git://github.com/vmpj/processmaker_gem.git
+  revision: 8f34e440226f714fa4ca3743843cab862481689e
   specs:
     processmaker (0.1.1)
       awesome_print (~> 1.6.1)
@@ -71,7 +71,6 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bond (0.5.1)
     builder (3.2.2)
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
@@ -116,10 +115,6 @@ GEM
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.6)
-    ffi-rzmq (2.0.4)
-      ffi-rzmq-core (>= 1.0.1)
-    ffi-rzmq-core (1.0.3)
-      ffi (~> 1.9)
     foreman (0.77.0)
       dotenv (~> 1.0.2)
       thor (~> 0.19.1)
@@ -149,11 +144,6 @@ GEM
     httpi (2.0.2)
       rack
     i18n (0.7.0)
-    iruby (0.1.13)
-      bond (~> 0.5.0)
-      ffi-rzmq (~> 2.0)
-      mimemagic (~> 0.2.0)
-      multi_json (~> 1.10.0)
     jbuilder (2.2.9)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -350,7 +340,6 @@ DEPENDENCIES
   faraday (~> 0.9.1)
   foreman
   guard-rspec
-  iruby (~> 0.1.13)
   jbuilder (~> 2.0)
   jquery-rails
   mini_magick (~> 4.2.0)
