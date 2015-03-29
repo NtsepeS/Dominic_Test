@@ -42,11 +42,11 @@ Router.map(function() {
     });
 
     this.route('albums', function(){
-      this.route('edit')
+      this.route('edit');
     });
 
     this.resource('album', {path: 'album/:album_id/pictures'}, function(){
-      this.route('edit')
+      this.route('edit');
     });
 
     this.route('quality-assurance', function() {

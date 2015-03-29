@@ -6,7 +6,7 @@ export default Ember.ArrayController.extend({
       this.store.pushPayload(data);
     },
     expandAlbum: function(album){
-      this.transitionToRoute('album', album.id)
+      this.transitionToRoute('album', album.id);
     }
   }
 });

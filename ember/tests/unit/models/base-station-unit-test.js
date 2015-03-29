@@ -8,7 +8,7 @@ moduleForModel('base-station-unit', {
   needs: ['model:status', 'model:base-station-sector', 'model:core-node',
   'model:link-type', 'model:location', 'model:city', 'model:antenna',
   'model:network-operator', 'model:client-link', 'model:client',
-  'model:sub-group-picture-set', 'model:service-fragment']
+  'model:album', 'model:service-fragment']
 });
 
 test('it exists', function(assert) {
