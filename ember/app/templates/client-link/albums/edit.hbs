@@ -21,7 +21,7 @@
 
                         <div>
                           The album has {{pictureSet.count}} picture(s)
-                          <span class="glyphicon glyphicon-resize-full pull-right" aria-hidden="true" {{action 'expandAlbum' pictureSet }}></span>
+                          <span class="glyphicon glyphicon-resize-full pull-right js-actions" aria-hidden="true" {{action 'expandAlbum' pictureSet }}></span>
                         </div>
 
                           <img {{bind-attr src="pictureSet.pic.url"}}>
