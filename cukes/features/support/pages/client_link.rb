@@ -12,6 +12,6 @@ class ClientLinkPage < SitePrism::Page
   end
 
   def save
-    save_button.trigger('click')
+    save_button.click
   end
 end
