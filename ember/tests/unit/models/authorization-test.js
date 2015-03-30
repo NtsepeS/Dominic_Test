@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForModel('controller-card', {
+moduleForModel('authorization', {
   // Specify the other units that are required for this test.
   needs: []
 });

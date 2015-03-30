@@ -1,0 +1,16 @@
+.c-authz-list {
+  &__item {
+    position: relative;
+
+    span {
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      margin-top: -0.6em;
+    }
+
+    &.active span {
+      color: #fff;
+    }
+  }
+}
