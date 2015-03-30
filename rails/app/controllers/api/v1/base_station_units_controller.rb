@@ -33,16 +33,6 @@ module Api
         render json: base_station_unit
       end
 
-
-      def create
-        base_station_unit =  BaseStationUnit.new(base_station_unit_params)
-        if base_station_unit.save
-          render json: base_station_unit, status: :created
-        else
-          render json: base_station_unit.errors.to_json, status: :unprocessable_entity
-        end
-      end
-
       def destroy
         base_station_unit = BaseStationUnit.find(params[:id])
         base_station_unit.destroy
