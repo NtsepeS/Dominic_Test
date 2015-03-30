@@ -17,7 +17,7 @@ export default Ember.View.extend({
 
       formData: {
         client_link_id:              _this.get('controller.clientLinkId'),
-        sub_group_classification_id: _this.get('controller.id'),
+        sub_group_classification_id: _this.get('controller.model.id'),
         group_classification_id:     _this.get('controller.groupClassificationId'),
       },
 

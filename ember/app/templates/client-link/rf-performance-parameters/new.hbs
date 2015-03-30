@@ -6,49 +6,49 @@
       <div class="form-group">
         <label class="col-sm-3 control-label">Name</label>
         <div class="col-sm-9">
-          {{input value=rfResultSet lass="form-control"}}
+          {{input value=model.rfResultSet class="form-control" disabled=presetName}}
         </div>
       </div>
 
       <div class="form-group">
         <label class="col-sm-3 control-label">UL RSSI</label>
         <div class="col-sm-9">
-          {{input value=ULRSSI class="form-control"}}
+          {{input value=model.uplinkRssi class="form-control"}}
         </div>
       </div>
 
       <div class="form-group">
         <label class="col-sm-3 control-label">DL RSSI</label>
         <div class="col-sm-9">
-          {{input value=DLRSSI class="form-control"}}
+          {{input value=model.downlinkRssi class="form-control"}}
         </div>
       </div>
 
       <div class="form-group">
         <label class="col-sm-3 control-label">UL CNR:</label>
         <div class="col-sm-9">
-          {{input value=ULCNR class="form-control"}}
+          {{input value=model.uplinkCnr class="form-control"}}
         </div>
       </div>
 
       <div class="form-group">
         <label class="col-sm-3 control-label">DL CNR:</label>
         <div class="col-sm-9">
-          {{input value=DLCNR class="form-control"}}
+          {{input value=model.downlinkCnr class="form-control"}}
         </div>
       </div>
 
       <div class="form-group">
         <label class="col-sm-3 control-label">TX Power:</label>
         <div class="col-sm-9">
-          {{input value=TXPower class="form-control"}}
+          {{input value=model.txPower class="form-control"}}
         </div>
       </div>
 
       <div class="form-group">
         <label class="col-sm-3 control-label">Step Attenuator:</label>
         <div class="col-sm-9">
-          {{input value=StepAttenuator class="form-control"}}
+          {{input value=model.stepAttenuator class="form-control"}}
         </div>
       </div>
 

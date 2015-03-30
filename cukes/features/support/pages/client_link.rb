@@ -12,6 +12,6 @@ class ClientLinkPage < SitePrism::Page
   end
 
   def save
-    save_button.click
+    page.execute_script("$(\".qa-save\").trigger(\"click\")")
   end
 end

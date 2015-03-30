@@ -1,14 +1,14 @@
 import Ember from 'ember';
 
-export default Ember.ObjectController.extend({
-  needs: ['client-link/edit'],
+export default Ember.Controller.extend({
+  needs: ['client-link'],
 
-  clientLinkId:          Ember.computed.alias('controllers.client-link/edit.id'),
+  clientLinkId:          Ember.computed.alias('controllers.client-link.id'),
   groupClassificationId: Ember.computed.alias('model.groupClassification.id'),
 
-  subGroupPictureSets: function() {
-    var clientLink = this.get('controllers.client-link/edit'),
-         pictureSetsRelation = this.get('model.subGroupPictureSets'),
+  albums: function() {
+    var clientLink = this.get('controllers.client-link'),
+         pictureSetsRelation = this.get('model.albums'),
          pictureSets = [];
 
     pictureSetsRelation.then(function(sets) {
@@ -17,9 +17,9 @@ export default Ember.ObjectController.extend({
     });
 
     return pictureSets;
-  }.property('model.subGroupPictureSets.isFulfilled'),
+  }.property('model.albums.isFulfilled'),
 
-  subGroupPictureSet: function() {
-    return this.get('subGroupPictureSets.firstObject');
-  }.property('subGroupPictureSets.[]')
+  album: function() {
+    return this.get('albums.firstObject');
+  }.property('albums.[]')
 });

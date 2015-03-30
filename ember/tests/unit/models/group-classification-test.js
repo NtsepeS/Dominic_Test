@@ -5,7 +5,7 @@ import {
 
 moduleForModel('group-classification', 'GroupClassification', {
   // Specify the other units that are required for this test.
-  needs: ['model:sub-group-classification', 'model:sub-group-picture-set']
+  needs: ['model:sub-group-classification', 'model:album']
 });
 
 test('it exists', function() {

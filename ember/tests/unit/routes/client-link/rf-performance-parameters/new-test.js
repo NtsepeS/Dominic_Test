@@ -3,14 +3,12 @@ import {
   test
 } from 'ember-qunit';
 
-moduleFor('controller:sub-group-classification', {
+moduleFor('route:client-link/rf-performance-parameters/new', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
-  needs: ['controller:client-link/edit']
 });
 
-// Replace this with your real tests.
 test('it exists', function(assert) {
-  var controller = this.subject();
-  assert.ok(controller);
+  var route = this.subject();
+  assert.ok(route);
 });

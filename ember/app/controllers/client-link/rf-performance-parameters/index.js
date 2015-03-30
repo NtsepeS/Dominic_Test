@@ -1,0 +1,29 @@
+import Ember from 'ember';
+
+export default Ember.Controller.extend({
+  // radio: Ember.computed.alias('model.radio'),
+
+  rfPerformanceParameters: Ember.computed.alias('model'),
+
+  proxy: Ember.computed.alias('model'),
+
+  hasRfPerformanceParameters: function() {
+    return !Ember.isEmpty( this.get('rfPerformanceParameters') );
+  }.property('rfPerformanceParameters.[]'),
+
+  actions: {
+    removeRFPerformance: function(rfPerformanceParameter){
+
+      var promise = rfPerformanceParameter.destroyRecord();
+      var radio = promise.then(function(){
+        return rfPerformanceParameter.get('radio');
+      });
+      var childParameters = radio.then(function(model){
+        return model.get('rfPerformanceParameters');
+      });
+      childParameters.then(function(collection) {
+        collection.removeObject( rfPerformanceParameter );
+      });
+    }
+  }
+});

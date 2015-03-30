@@ -3,10 +3,9 @@ import {
   test
 } from 'ember-qunit';
 
-moduleFor('controller:sub-group-picture-set', {
+moduleFor('controller:client-link/radio/new', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
-  needs: ['controller:client-link/edit']
 });
 
 // Replace this with your real tests.
