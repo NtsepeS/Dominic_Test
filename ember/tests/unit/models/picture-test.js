@@ -5,7 +5,7 @@ import {
 
 moduleForModel('picture', 'Picture', {
   // Specify the other units that are required for this test.
-  needs: ['model:album']
+  needs: ['model:album', 'model:sub-group-classification', 'model:client-link']
 });
 
 test('it exists', function() {

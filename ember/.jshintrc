@@ -3,6 +3,8 @@
     "document",
     "window",
     "-Promise",
+    "PhotoSwipe",
+    "PhotoSwipeUI_Default",
     "authenticateSession",
     "invalidateSession"
   ],

@@ -30,14 +30,6 @@ Status.where(name: "Waiting for Field Service Engineer Report").first_or_create
 Status.where(name: "Waiting for Field Services QA Approval").first_or_create
 Status.where(name: "Waiting for IS QA Approval").first_or_create
 
-# CoreNode.where(name: "Afgri Isando", status_id: 1, city_id: 1, location_id: 2).first_or_create
-# CoreNode.where(name: "Bryanston Towers", status_id: 1, city_id: 1, location_id: 2).first_or_create
-# BaseStationUnit.where(name: "w-isando-bsu1", status_id: 1, core_node_id: 1).first_or_create
-# BaseStationUnit.where(name: "w-bry-bsu1", status_id: 1, core_node_id: 2).first_or_create
-# BaseStationSector.where(name: "w-isando-bsu1 Sector 1", status_id: 1, base_station_unit_id: 1, sector: 1).first_or_create
-# BaseStationSector.where(name: "w-isando-bsu1 Sector 2", status_id: 1, base_station_unit_id: 1, sector: 2).first_or_create
-# BaseStationSector.where(name: "w-bry-bsu1 Sector 3", status_id: 1, base_station_unit_id: 2, sector: 3).first_or_create
-# BaseStationSector.where(name: "w-bry-bsu1 Sector 4", status_id: 1, base_station_unit_id: 2, sector: 4).first_or_create
 ClientLink.where(name: "Upington", branch: "Isando", circuit_number: "1-19BL0L4-W-ISANDO-BSU1", msad_number: "4.22", activation_date: "2014-09-29", mac_address: "00:05:59:4C:36:9E", distance: "555", client_id: 1, status_id: 4, network_operator_id: 1, link_type_id: 1, base_station_sector_id: 1, antenna_id: 1, solution_identifier: "1-19BL0L4", billing_account: "Bridgestone", service_account: "Bridgestone", service_account_site: "ORA-4082_BRI004").first_or_create
 ClientLink.where(name: "Britstown", branch: "Bryanston", circuit_number: "1-NFO7FJ-W-BRY-BSU1", msad_number: "4.3", activation_date: "2012-02-24", mac_address: "00:05:59:4C:28:52", distance: "642", client_id: 2, status_id: 1, network_operator_id: 1, link_type_id: 1, base_station_sector_id: 3, antenna_id: 2, solution_identifier: "1-NFO7FJ", billing_account: "DIMENSION DATA (PTY) LTD - ADCORP", service_account: "DIMENSION DATA (PTY) LTD - ADCORP - BRYANSTON", service_account_site: "BRYANSTON").first_or_create
 
@@ -57,20 +49,19 @@ GroupClassification.where(name: 'Indoor').first_or_create
 SubGroupClassification.where(name: 'MSAD', group_classification_id: 2).first_or_create
 SubGroupClassification.where(name: 'Equipment Room', group_classification_id: 2).first_or_create
 SubGroupClassification.where(name: 'Indoor Cable', group_classification_id: 2).first_or_create
-Album.where(id: 1).first_or_create
-Album.where(id: 2).first_or_create
-Picture.where(mechanism: 'url', picture_data: 'www.test.com/pic_1.jpg', date_taken: '2015-01-29 12:00:00', album_id: 1).first_or_create
-Picture.where(mechanism: 'url', picture_data: 'www.test.com/pic_2.jpg', date_taken: '2015-01-29 12:01:00', album_id: 1).first_or_create
-Picture.where(mechanism: 'url', picture_data: 'www.test.com/pic_3.jpg', date_taken: '2015-01-29 12:00:00', album_id: 1).first_or_create
-Picture.where(mechanism: 'file', picture_data: '/data/public/pic_4.jpg', date_taken: '2015-01-29 12:01:00', album_id: 2).first_or_create
-Picture.where(mechanism: 'file', picture_data: '/data/public/pic_5.jpg', date_taken: '2015-01-29 12:01:00', album_id: 2).first_or_create
-Picture.where(mechanism: 'url', picture_data: 'www.test.com/pic_6.jpg', date_taken: '2015-01-29 12:00:00', album_id: 2).first_or_create
-SubGroupPictureSet.where(album_id: 1, sub_group_classification_id: 1, client_link_id: 1).first_or_create
-SubGroupPictureSet.where(album_id: 2, sub_group_classification_id: 2, client_link_id: 1).first_or_create
+Album.where(sub_group_classification_id: 1, client_link_id: 1).first_or_create
+Album.where(sub_group_classification_id: 2, client_link_id: 1).first_or_create
 
-RfPerformanceParameter.where(uplink_rssi: "Some RSSI", downlink_rssi: "Some RSSI").first_or_create
+RfPerformanceParameter.where(uplink_rssi: 3.46, downlink_rssi: 3.45, uplink_cnr: 3.43, downlink_cnr: 2.34, tx_power: 2.54, step_attenuator: 5.5, rf_result_set: "Predicted", radio_id:1).first_or_create
+RfPerformanceParameter.where(uplink_rssi: 2.46, downlink_rssi: 3.45, uplink_cnr: 1.43, downlink_cnr: 1.44, tx_power: 1.53, step_attenuator: 5.5, rf_result_set: "10-05-2013", radio_id:2).first_or_create
+RfPerformanceParameter.where(uplink_rssi: 1.46, downlink_rssi: 3.45, uplink_cnr: 0.43, downlink_cnr: 2.54, tx_power: 3.44, step_attenuator: 5.5, rf_result_set: "Configured", radio_id:1).first_or_create
+RfPerformanceParameter.where(uplink_rssi: 5.46, downlink_rssi: 3.45, uplink_cnr: 2, downlink_cnr: 2.34, tx_power: 2.54, step_attenuator: 5.5, rf_result_set: "24-03-2013", radio_id:1).first_or_create
+
 AntennaParameter.where(polarization: "polarization").first_or_create
-Modulation.where(uplink_max: 5).first_or_create
+Modulation.where(uplink_max: "4 QAM", uplink_min: "64 QAM", downlink_min: "4 QAM 2/3", downlink_max: "16 QAM", modulation_result_set: "Predicted", radio_id: 1).first_or_create
+Modulation.where(uplink_max: "4 QAM 2/3", uplink_min: "4 QAM", downlink_min: "16 QAM", downlink_max: "4 QAM 2/3", modulation_result_set: "Configured", radio_id: 1).first_or_create
+Modulation.where(uplink_max: "4 QAM 2/3", uplink_min: "64 QAM", downlink_min: "4 QAM", downlink_max: "4 QAM", modulation_result_set: "Predicted", radio_id: 2).first_or_create
+Modulation.where(uplink_max: "4 QAM 2/3", uplink_min: "64 QAM", downlink_min: "4 QAM", downlink_max: "4 QAM", modulation_result_set: "Configured", radio_id: 2).first_or_create
 OperatingParameter.where(location_id: 1, parameterized: RfPerformanceParameter.find(1)).first_or_create
 OperatingParameter.where(location_id: 1, parameterized: AntennaParameter.find(1)).first_or_create
 OperatingParameter.where(location_id: 1, parameterized: Modulation.find(1)).first_or_create
@@ -127,10 +118,13 @@ Service.where(linetag: "linetag-5", line_speed: 1, vlan: "[143]", service_fragme
 Service.where(linetag: "linetag-6", line_speed: 2, vlan: "[143]", service_fragment_id: 2).first_or_create
 
 Port.where(vlan_type: 'Provider Port', acceptable_frame_type: 'Tagged Only', default_vlan: '143', service_id: 1).first_or_create
+Port.where(vlan_type: 'VLAN Transparent', acceptable_frame_type: 'Tagged Only', default_vlan: '143', service_id: 1).first_or_create
 Port.where(vlan_type: 'Provider Port', acceptable_frame_type: 'Tagged Only', default_vlan: '143', service_id: 1).first_or_create
 Port.where(vlan_type: 'Provider Port', acceptable_frame_type: 'Tagged Only', default_vlan: '143', service_id: 2).first_or_create
 Port.where(vlan_type: 'Provider Port', acceptable_frame_type: 'Tagged Only', default_vlan: '143', service_id: 3).first_or_create
 
+Radio.where(name: 'abcd', item_code: '1234', icasa_sticker: true).first_or_create
+Radio.where(name: 'aden', item_code: '12345', icasa_sticker: false).first_or_create
 
 BaseStationSector.where(name: "Sector 3", status_id: 1,sector: 3, base_station_unit:
   BaseStationUnit.where(name: "base-station 1", status_id: 1,
@@ -142,7 +136,7 @@ BaseStationSector.where(name: "Sector 3", status_id: 1,sector: 3, base_station_u
   ).first_or_create
 ).first_or_create
 
-ClientLink.where(name: 'Garsfontein (4): Dimension Data - Santam - Kasteelpark', msad_number: "16.4", solution_identifier: "QW648-RT92", status_id: 1, base_station_sector_id: 1,
+ClientLink.where(name: 'Garsfontein (4): Dimension Data - Santam - Kasteelpark', msad_number: "16.4", solution_identifier: "QW648-RT92", status_id: 1, base_station_sector_id: 1, radio_id: 1,
   antenna: Antenna.where(size: "30cm", item_code: 'abc',
     location: Location.where(
       geometry:
@@ -152,7 +146,7 @@ ClientLink.where(name: 'Garsfontein (4): Dimension Data - Santam - Kasteelpark',
   ).first_or_create
 
 
-ClientLink.where(name: 'BMW', msad_number: "16.4", solution_identifier: "QW648-RT92", status_id: 2, base_station_sector_id: 1,
+ClientLink.where(name: 'BMW', msad_number: "16.4", solution_identifier: "QW648-RT92", status_id: 2, base_station_sector_id: 1, radio_id: 2,
   antenna: Antenna.where(size: "30cm", item_code: 'abc',
     location: Location.where(
       geometry:
@@ -234,5 +228,4 @@ ClientLink.where(name: 'Blue Label Distribution 5', msad_number: "16.4", solutio
       ).first_or_create
     ).first_or_create
   ).first_or_create
-
 

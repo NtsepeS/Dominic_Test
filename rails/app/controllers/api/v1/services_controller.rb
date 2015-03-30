@@ -36,7 +36,7 @@ module Api
       private
 
       def service_params
-        params.require(:service).permit(:linetag, :line_speed, :vlan, :service_fragment)
+        params.require(:service).permit(:linetag, :line_speed, :vlan, :service_fragment_id)
       end
 
     end

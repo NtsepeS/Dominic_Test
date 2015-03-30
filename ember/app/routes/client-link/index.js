@@ -5,4 +5,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model: function() {
     return this.modelFor('client-link');
   },
+
+  redirect: function() {
+    this.transitionTo('client-link.overview.index');
+  }
 });
