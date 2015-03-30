@@ -323,6 +323,18 @@ ActiveRecord::Schema.define(version: 20150327173106) do
 
   add_index "sub_group_classifications", ["group_classification_id"], name: "index_sub_group_classifications_on_group_classification_id", using: :btree
 
+  create_table "sub_group_picture_sets", force: :cascade do |t|
+    t.integer  "album_id"
+    t.integer  "sub_group_classification_id"
+    t.integer  "client_link_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "sub_group_picture_sets", ["album_id"], name: "index_sub_group_picture_sets_on_album_id", using: :btree
+  add_index "sub_group_picture_sets", ["client_link_id"], name: "index_sub_group_picture_sets_on_client_link_id", using: :btree
+  add_index "sub_group_picture_sets", ["sub_group_classification_id"], name: "index_sub_group_picture_sets_on_sub_group_classification_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",               default: "", null: false
     t.datetime "remember_created_at"

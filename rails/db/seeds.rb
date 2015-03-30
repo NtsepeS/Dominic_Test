@@ -30,14 +30,6 @@ Status.where(name: "Waiting for Field Service Engineer Report").first_or_create
 Status.where(name: "Waiting for Field Services QA Approval").first_or_create
 Status.where(name: "Waiting for IS QA Approval").first_or_create
 
-# CoreNode.where(name: "Afgri Isando", status_id: 1, city_id: 1, location_id: 2).first_or_create
-# CoreNode.where(name: "Bryanston Towers", status_id: 1, city_id: 1, location_id: 2).first_or_create
-# BaseStationUnit.where(name: "w-isando-bsu1", status_id: 1, core_node_id: 1).first_or_create
-# BaseStationUnit.where(name: "w-bry-bsu1", status_id: 1, core_node_id: 2).first_or_create
-# BaseStationSector.where(name: "w-isando-bsu1 Sector 1", status_id: 1, base_station_unit_id: 1, sector: 1).first_or_create
-# BaseStationSector.where(name: "w-isando-bsu1 Sector 2", status_id: 1, base_station_unit_id: 1, sector: 2).first_or_create
-# BaseStationSector.where(name: "w-bry-bsu1 Sector 3", status_id: 1, base_station_unit_id: 2, sector: 3).first_or_create
-# BaseStationSector.where(name: "w-bry-bsu1 Sector 4", status_id: 1, base_station_unit_id: 2, sector: 4).first_or_create
 ClientLink.where(name: "Upington", branch: "Isando", circuit_number: "1-19BL0L4-W-ISANDO-BSU1", msad_number: "4.22", activation_date: "2014-09-29", mac_address: "00:05:59:4C:36:9E", distance: "555", client_id: 1, status_id: 4, network_operator_id: 1, link_type_id: 1, base_station_sector_id: 1, antenna_id: 1, solution_identifier: "1-19BL0L4", billing_account: "Bridgestone", service_account: "Bridgestone", service_account_site: "ORA-4082_BRI004").first_or_create
 ClientLink.where(name: "Britstown", branch: "Bryanston", circuit_number: "1-NFO7FJ-W-BRY-BSU1", msad_number: "4.3", activation_date: "2012-02-24", mac_address: "00:05:59:4C:28:52", distance: "642", client_id: 2, status_id: 1, network_operator_id: 1, link_type_id: 1, base_station_sector_id: 3, antenna_id: 2, solution_identifier: "1-NFO7FJ", billing_account: "DIMENSION DATA (PTY) LTD - ADCORP", service_account: "DIMENSION DATA (PTY) LTD - ADCORP - BRYANSTON", service_account_site: "BRYANSTON").first_or_create
 
@@ -59,26 +51,6 @@ SubGroupClassification.where(name: 'Equipment Room', group_classification_id: 2)
 SubGroupClassification.where(name: 'Indoor Cable', group_classification_id: 2).first_or_create
 Album.where(sub_group_classification_id: 1, client_link_id: 1).first_or_create
 Album.where(sub_group_classification_id: 2, client_link_id: 1).first_or_create
-
-# Picture.where(
-#   mechanism: 'url',
-#   picture_data: 'http://www.wonderslist.com/wp-content/uploads/2013/01/Most-Beautiful-Flowers.jpg',
-#   date_taken: '2001-02-03T04:05:06+07:00',
-#   width: 1000,
-#   height: 1000,
-#   album_id: 1).first_or_create
-# Picture.where(mechanism: 'url',
-#   picture_data: 'http://www.noupe.com/wp-content/uploads/trans/cdn_smash/wp-content/uploads/2010/01/flowers_44.jpg',
-#   date_taken: '2001-02-03T04:05:06+07:00',
-#   width: 1000,
-#   height: 1000,
-#   album_id: 1).first_or_create
-# Picture.where(mechanism: 'url',
-#   picture_data: 'http://upload.wikimedia.org/wikipedia/en/5/5f/Beautiful_flower_with_petals_that_look_like_candy.jpg',
-#   date_taken: '2015-02-03T04:05:06+07:00',
-#   width: 1000,
-#   height: 1000,
-#   album_id: 2).first_or_create
 
 RfPerformanceParameter.where(uplink_rssi: 3.46, downlink_rssi: 3.45, uplink_cnr: 3.43, downlink_cnr: 2.34, tx_power: 2.54, step_attenuator: 5.5, rf_result_set: "Predicted", radio_id:1).first_or_create
 RfPerformanceParameter.where(uplink_rssi: 2.46, downlink_rssi: 3.45, uplink_cnr: 1.43, downlink_cnr: 1.44, tx_power: 1.53, step_attenuator: 5.5, rf_result_set: "10-05-2013", radio_id:2).first_or_create
@@ -256,6 +228,4 @@ ClientLink.where(name: 'Blue Label Distribution 5', msad_number: "16.4", solutio
       ).first_or_create
     ).first_or_create
   ).first_or_create
-
-
 
