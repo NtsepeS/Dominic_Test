@@ -1,3 +1,4 @@
+@wip
 Feature: 21. Update or add data
 	As an authorised COPS user
     I need to update or add a Base Station Unit
@@ -10,20 +11,19 @@ Feature: 21. Update or add data
     	    Given I am on the base station unit page
     	    When  I click on the add base station unit button
     		And   I fill in "<information>"
-            <Information>:
-                | <> | 
-                | <> |
+              | Client              | Adcorp                |
+              | Branch              | Happy Branch          |
+              | Network Operator    | Internet Solutions    |
     		And   I And I press confirm
     		Then  I should see a message of "Base station unit added"	
 
-        #Scenario: A Field services partner can add a base station unit
+        Scenario: A Field services partner can add a base station unit
             Given I have entered "Field Service Partner"
             And   I am on the add sector page
             When  I click on the "Add base station unit" button
             And   I view only the base stations for my FS partner type
             And   I view and fill in "<Base station unit>"
-            <base station unit>:
-                | <Base station name> | 
+                | <Base station name> |
                 | <edit> |
             Then  I press "save"
             And   I should see a message of "base station unit added"
@@ -32,8 +32,7 @@ Feature: 21. Update or add data
             Given I am on the base station unit page
             When  I click on the "update base station unit" button
             And   I fill in "<Base station unit>"
-            <Base station unit>:
-                | <Base station name> | 
+                | <Base station name> |
                 |  <edit>   | 
             And   I press "save"
             Then  I should see a message of "Base station unit updated"   
@@ -42,8 +41,7 @@ Feature: 21. Update or add data
             Given I'm on the base station page
             When  I click on the "add base station" button
             And   I fill in "<base station unit>"
-            <base station unit>:
-                | <Base station name> | 
+                | <Base station name> |
                 | <edit> |
             And   I press "save"
             Then  I should see a message of "base station added"
@@ -52,8 +50,7 @@ Feature: 21. Update or add data
             Given I'm on the base station page
             When  I click on the "update base station unit" button
             And   I fill in "<base station unit>"
-            <base station unit>:
-                | <Base station name> | 
+                | <Base station name> |
                 | <edit> |
             And   I press "save"
             Then  I should see a message of "base station unit updated"

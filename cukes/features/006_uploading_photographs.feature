@@ -1,3 +1,4 @@
+@wip
 Feature: 1.6 Uploading photographs
 As a Field Engineer
 I want to take and upload the site photographs

@@ -1,0 +1,21 @@
+// Client links page
+
+.c-client-links-header {
+  margin-bottom: 32px;
+
+  &__text {
+    display: inline-block;
+  }
+
+  &__actions {
+    a {
+      margin: -17px 0 0 15px;
+    }
+  }
+}
+
+.c-client-link-list {
+  &__item {
+  }
+}
+

@@ -1,5 +1,8 @@
 {
   "predef": [
+    "withFeature",
+    "authenticateSession",
+    "invalidateSession",
     "document",
     "window",
     "location",
