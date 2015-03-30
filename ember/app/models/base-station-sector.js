@@ -5,5 +5,5 @@ export default DS.Model.extend({
   status:          DS.belongsTo('status', { async: true }),
   sector:          DS.attr('number'),
   baseStationUnit: DS.belongsTo('base-station-unit', { async: true }),
-  clientLinks:     DS.hasMany('client-link', { async: true }),
+  clientLinks:     DS.hasMany('client-link', { async: true })
 });

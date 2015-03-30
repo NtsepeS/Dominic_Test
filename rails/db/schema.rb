@@ -11,15 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150319195654) do
+ActiveRecord::Schema.define(version: 20150327173106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "albums", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "sub_group_classification_id"
+    t.integer  "client_link_id"
   end
+
+  add_index "albums", ["client_link_id"], name: "index_albums_on_client_link_id", using: :btree
+  add_index "albums", ["sub_group_classification_id"], name: "index_albums_on_sub_group_classification_id", using: :btree
 
   create_table "antenna_parameters", force: :cascade do |t|
     t.string   "polarization"
@@ -36,6 +41,16 @@ ActiveRecord::Schema.define(version: 20150319195654) do
   end
 
   add_index "antennas", ["location_id"], name: "index_antennas_on_location_id", using: :btree
+
+  create_table "authorizations", force: :cascade do |t|
+    t.string   "email",      null: false
+    t.string   "name",       null: false
+    t.string   "invited_by", null: false
+    t.string   "invite_id"
+    t.string   "role",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "base_station_sectors", force: :cascade do |t|
     t.string   "name"
@@ -308,25 +323,10 @@ ActiveRecord::Schema.define(version: 20150319195654) do
 
   add_index "sub_group_classifications", ["group_classification_id"], name: "index_sub_group_classifications_on_group_classification_id", using: :btree
 
-  create_table "sub_group_picture_sets", force: :cascade do |t|
-    t.integer  "album_id"
-    t.integer  "sub_group_classification_id"
-    t.integer  "client_link_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-  end
-
-  add_index "sub_group_picture_sets", ["album_id"], name: "index_sub_group_picture_sets_on_album_id", using: :btree
-  add_index "sub_group_picture_sets", ["client_link_id"], name: "index_sub_group_picture_sets_on_client_link_id", using: :btree
-  add_index "sub_group_picture_sets", ["sub_group_classification_id"], name: "index_sub_group_picture_sets_on_sub_group_classification_id", using: :btree
-
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
+    t.string   "email",               default: "", null: false
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",       default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -341,7 +341,6 @@ ActiveRecord::Schema.define(version: 20150319195654) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "versions", force: :cascade do |t|
     t.string   "item_type",      null: false
@@ -361,6 +360,8 @@ ActiveRecord::Schema.define(version: 20150319195654) do
     t.datetime "updated_at",       null: false
   end
 
+  add_foreign_key "albums", "client_links"
+  add_foreign_key "albums", "sub_group_classifications"
   add_foreign_key "equipment_containers", "containers"
   add_foreign_key "equipment_containers", "equipment"
   add_foreign_key "locations", "geometries"
@@ -368,7 +369,4 @@ ActiveRecord::Schema.define(version: 20150319195654) do
   add_foreign_key "operating_parameters", "locations"
   add_foreign_key "pictures", "albums"
   add_foreign_key "sub_group_classifications", "group_classifications"
-  add_foreign_key "sub_group_picture_sets", "albums"
-  add_foreign_key "sub_group_picture_sets", "client_links"
-  add_foreign_key "sub_group_picture_sets", "sub_group_classifications"
 end

@@ -27,29 +27,21 @@ module Api
       def create
         ap picture_params
 
-        #  create a subgroup picture set
-        sub_group_picture_set = SubGroupPictureSet.where(
+        #  create an album
+        album = Album.where(
           client_link_id: picture_params[:client_link_id],
           sub_group_classification_id: picture_params[:sub_group_classification_id]
         ).first_or_initialize
 
-       # create an album_id if it does not exist and add it to the sub group picture set
-        if sub_group_picture_set.album_id.nil?
-          sub_group_picture_set.album = Album.create
-        end
-
-        sub_group_picture_set.save
-
-        album = sub_group_picture_set.album
+        album.save
 
         # newly created records
-        puts "album_id: ", album.id
-        puts "sub_group_picture_set:", sub_group_picture_set.id
+        puts "album:", album.id
 
         picture = Picture.new(picture_data: picture_params["picture_data"], album: album)
 
         if picture.save
-          render json: sub_group_picture_set, status: :created
+          render json: album, status: :created
         else
           render json: picture.errors.to_json, status: :unprocessable_entity
         end

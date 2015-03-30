@@ -28,7 +28,6 @@ Router.map(function() {
   });
 
   this.resource('client-link', { path: 'client-links/:clientLinkId' }, function(){
-
     this.route('edit');
     this.route('audit');
 
@@ -36,20 +35,32 @@ Router.map(function() {
       this.route('edit');
     });
 
-    this.route('modulation', function() {
+    this.route('radio', function() {
       this.route('edit');
       this.route('new');
     });
 
-    this.route('rf-performance-parameters', { path: 'rf-performance'}, function() {
+    this.route('modulations', { path: 'radio/modulation'}, function() {
       this.route('new');
     });
 
-    this.resource('rf-performance-parameter', { path: 'rf-performance/:rf_performance_parameter_id' }, function() {
+    this.resource('modulation', { path: 'radio/modulation/:modulation_id' }, function() {
       this.route('edit');
     });
 
-    this.route('pictures', function() {
+    this.route('rf-performance-parameters', { path: 'radio/rf-performance' }, function() {
+      this.route('new');
+    });
+
+    this.resource('rf-performance-parameter', { path: 'radio/rf-performance/:rf_performance_parameter_id' }, function() {
+      this.route('edit');
+    });
+
+    this.route('albums', function(){
+      this.route('edit');
+    });
+
+    this.resource('album', {path: 'album/:album_id/pictures'}, function(){
       this.route('edit');
     });
 
@@ -90,6 +101,13 @@ Router.map(function() {
 
   this.resource('maps', { path: 'maps/core-nodes/' }, function() {
     this.route('view' , { path: ':coreNodeId' });
+  });
+
+  this.resource('admin', function(){
+    this.resource('authorizations', function() {
+      this.resource('authorization', { path: ':id' });
+      this.route('new');
+    });
   });
 
 });
