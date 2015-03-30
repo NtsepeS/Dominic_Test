@@ -4,7 +4,7 @@ class ClientLinkPage < SitePrism::Page
 
   element :client_select, "#client-select"
   element :branch_input, "#branch-input"
-  element :save_button, ".save"
+  element :save_button, ".qa-save"
 
   def site_information(data)
     client_select.select(data['Client']) if data.has_key? 'Client'
@@ -12,6 +12,6 @@ class ClientLinkPage < SitePrism::Page
   end
 
   def save
-    save_button.click
+    save_button.trigger('click')
   end
 end
