@@ -2,7 +2,7 @@ module Containable
   extend ActiveSupport::Concern
 
   included do
-    has_one :container, as: :containable
+    has_one :container, as: :containable, dependent: :destroy
 
     class_attribute :parent_container_type
   end
