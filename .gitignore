@@ -33,3 +33,4 @@ npm-debug.log
 testem.log
 rails/notebooks/.ipynb_checkpoints
 cukes/*.html
+cukes/*.json

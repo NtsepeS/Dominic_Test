@@ -5,11 +5,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model: function(){
     return this.store.createRecord('clientLink');
   },
-  renderTemplate: function(){
-    this.render('clientLink.edit', {
-      controller: 'client-links.new'
-    });
-  },
   setupController: function(controller, model) {
     controller.set('content', model);
     controller.set('linkTypes', this.store.find('link-type'));

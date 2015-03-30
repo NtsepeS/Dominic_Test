@@ -1,3 +1,4 @@
 class Radio < ActiveRecord::Base
-  has_one :equipment, as: :equipped
+  has_many :modulation
+  has_many :rf_performance_parameter
 end

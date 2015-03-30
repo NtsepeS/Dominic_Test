@@ -8,7 +8,7 @@
     "location",
     "setTimeout",
     "$",
-    "-Promise",
+    "Promise",
     "QUnit",
     "define",
     "console",

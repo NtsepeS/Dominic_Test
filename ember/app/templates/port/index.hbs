@@ -1,0 +1,37 @@
+<div class="container">
+  <section class="row">
+    <h2>Port</h2>
+    <div class="row c-service-fragment__add-button">
+      {{#link-to 'service'}}
+      <button type="button" class="btn btn-primary pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Service</button>
+      {{/link-to}}
+      {{#link-to 'client-link.client-side-ports'}}
+      <button type="button" class="btn btn-primary pull-right"> Client Side Ports <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+      {{/link-to}}
+    </div>
+    <div class="row show">
+    <label class="col-sm-2 control-label">VLAN Type:</label>
+      {{model.vlanType}}
+    </div>
+    <div class="row show">
+      <label class="col-sm-2 control-label">Acceptable Frame Type:</label>
+        {{model.acceptableFrameType}}
+    </div>
+    <div class="row show">
+      <label class="col-sm-2 control-label">Default VLAN:</label>
+        {{model.defaultVlan}}
+    </div>
+    <div class="row show">
+      <label class="col-sm-2 control-label">VLANs:</label>
+        {{model.service.vlan}}
+    </div>
+    <div class="row pull-right">
+      {{#link-to 'port.edit' model.id}}
+      <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit</button>
+      {{/link-to}}
+      <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#prompt-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button>
+    </div>
+  </section>
+</div>
+
+{{prompt-modal action="removePort"}}
