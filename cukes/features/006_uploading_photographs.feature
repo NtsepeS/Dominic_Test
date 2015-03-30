@@ -15,13 +15,24 @@ Background:
 	Scenario: Upload photograph
 		Given I have selected the type of photograph
 		And   I have taken a photograph
-		And   the photograph is acceptable quality
+		And   the photograph is saved
 		When  I click on "upload"
 		Then  The photograph is uploaded
 
 	Scenario: Delete photograph
 		Given I have selected the type of photograph
 		And   I take a photograph
-		And   the photograph is not of acceptable quality
+		And   the photograph is not suitable to upload
 		When  I click on "delete"
-		Then  I Should be able to take another photograph
+		And   the photograph is deleted
+		Then  I Should be able selected the type of photograph
+
+Background:
+	Given  I have selected the "upload photograph" button
+	And    I have selected the type of photograph
+
+	Scenario: Take photograph using photo icon button
+		Given I have selected the type of photograph
+		When  I press the photograph icon button
+		And   I take the photo
+		Then  I should be see the photograph uploaded directly into the folder
