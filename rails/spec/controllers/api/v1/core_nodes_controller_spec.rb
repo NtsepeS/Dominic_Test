@@ -33,9 +33,18 @@ RSpec.describe Api::V1::CoreNodesController do
   end
 
   describe 'POST /api/v1/core_nodes' do
+    let (:status)   { FactoryGirl.create(:status) }
+    let (:city)     { FactoryGirl.create(:city) }
+    let (:location) { FactoryGirl.create(:location) }
 
+    # FactoryGirl 'attributes_for' does not build
+    # associations so we have to set them manually
     let(:hash) {
       attrs = FactoryGirl.attributes_for(:core_node)
+      attrs[:status_id]   = status.id
+      attrs[:city_id]     = city.id
+      attrs[:location_id] = location.id
+
       attrs
     }
 
