@@ -49,7 +49,7 @@ module Api
       private
 
       def base_station_unit_params
-        params.require(:base_station_unit).permit(:name, :status)
+        params.require(:base_station_unit).permit(:name, :status_id, :core_node_id)
       end
 
     end
