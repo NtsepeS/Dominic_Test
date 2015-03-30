@@ -15,6 +15,16 @@ $ brew install watchman
 
 * Please upgrade Sass locally to the latest version or a version > 3.4.4
 
+* IRuby Notebook (Optional: Install it if you want to run the project's iruby notebooks)
+``` bash
+$ brew install zeromq
+$ pip install "ipython[notebook]"
+$ gem install iruby
+
+# to run iruby notebook
+$ iruby notebook
+```
+
 ## Setup
 
 COPS relies on the `cops.dev` development domain. To run this, install pow from `get.pow.cx`
@@ -43,3 +53,27 @@ The backend and frontend have their own testing frameworks setup. Run both of th
 $ bin/test
 ```
 
+##Docker
+To create and run a docker container suitable for local usage, you will need docker installed
+and you will need to install decking globally.
+
+`npm install -g decking`
+`decking build all`
+`decking create main`
+`decking start main`
+
+Now you should be able to navigate to your IP or the boot2docker VM's IP and view COPS
+
+##Environment variables
+Check the .env file,  if you want to ignore the changes in your .env, use `git update-index --assume-unchanged .env`
+
+* DB_HOST
+* DB_DB
+* SECRET_KEY_BASE
+* SSO_CONSUMER_KEY
+* SSO_CONSUMER_SECRET
+* SIAUTH_KEY
+* SENTRY_DSN
+* API_PORT
+* EMBER_PORT
+* PROXY_PORT
