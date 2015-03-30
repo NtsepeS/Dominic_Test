@@ -49,7 +49,7 @@ module Api
       private
 
       def base_station_sector_params
-        params.require(:base_station_sector).permit(:name, :status, :sector)
+        params.require(:base_station_sector).permit(:name, :status_id, :sector)
       end
 
     end
