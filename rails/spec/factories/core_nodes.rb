@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :core_node do
     name "Bryanston Towers"
-    status nil
-    city nil
-    location nil
+    status
+    city
+    location
   end
 end
