@@ -8,9 +8,18 @@ require_relative '../../config/cukes'
 require 'site_prism'
 require 'capybara/cucumber'
 require 'capybara/poltergeist'
+
 Capybara.default_driver = Cukes.config.browser
 Capybara.app_host = Cukes.config.host
 Capybara.default_wait_time = Cukes.config.startup_timeout
+
+options = {
+  :window_size => [1920, 6000]
+}
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, options)
+end
+
 
 # Require Models
 ActiveSupport::Dependencies.autoload_paths += Dir.glob File.join(Cukes.config.rails_root, "app/models")
