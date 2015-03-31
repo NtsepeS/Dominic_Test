@@ -21,7 +21,7 @@
     <tbody>
     {{#each unit in model}}
     {{#link-to 'base-station-unit' unit tagName='tr' classNames="base-station-list-item"}}
-      <td>{{unit.name}}</td>
+      <td class="base-station-list-item__name">{{unit.name}}</td>
 
       <td>{{unit.status.name}}</td>
       <td>{{unit.coreNode.name}}</td>
