@@ -1,7 +1,9 @@
 <h1>
   Client Link
   <small>
-    {{model.name}}
+    <span class="clientlink__name">
+      {{model.name}}
+    </span>
     {{#link-to 'client-link.audit'}}
       <span class="glyphicon glyphicon-list-alt js-actions audit pull-right" aria-hidden="true"></span>
     {{/link-to}}

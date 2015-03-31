@@ -8,7 +8,7 @@
       <div class="col-md-3">
         {{view "select"
           contentBinding="clients"
-          optionValuePath="content"
+          optionValuePath="content.id"
           optionLabelPath="content.name"
           selectionBinding="client.content"
           prompt="Please Select"
@@ -33,7 +33,7 @@
       <div class="col-md-3">
         {{view "select"
           contentBinding="statuses"
-          optionValuePath="content"
+          optionValuePath="content.id"
           optionLabelPath="content.name"
           selectionBinding="status.content"
           prompt="Please Select"
@@ -57,7 +57,7 @@
       <div class="col-md-3">
         {{view "select"
           contentBinding="networkOperators"
-          optionValuePath="content"
+          optionValuePath="content.id"
           optionLabelPath="content.name"
           selectionBinding="networkOperator.content"
           prompt="Please Select"
@@ -81,7 +81,7 @@
       <div class="col-md-3">
         {{view "select"
           contentBinding="linkTypes"
-          optionValuePath="content"
+          optionValuePath="content.id"
           optionLabelPath="content.name"
           selectionBinding="linkType.content"
           prompt="Please Select"
@@ -106,7 +106,7 @@
       <div class="col-md-3">
         {{view "select"
           contentBinding="baseStationSectors"
-          optionValuePath="content"
+          optionValuePath="content.id"
           optionLabelPath="content.name"
           selectionBinding="baseStationSector.content"
           prompt="Please Select"
@@ -130,7 +130,7 @@
       <div class="col-md-3">
         {{view "select"
           contentBinding="antennas"
-          optionValuePath="content"
+          optionValuePath="content.id"
           optionLabelPath="content.size"
           selectionBinding="antenna.content"
           prompt="Please Select"
