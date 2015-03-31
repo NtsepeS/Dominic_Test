@@ -6,13 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Antenna.where(size: "30cm", serial_number: 1234, is_asset_tag: 5678, latitude: "-26.150553", longitude: "28.202592").first_or_create
-Antenna.where(size: "30cm", serial_number: 110720023, is_asset_tag: 116034, latitude: "-26.042568", longitude: "28.018240").first_or_create
-City.where(name: "Johannesburg").first_or_create
-City.where(name: "Cape Town").first_or_create
-City.where(name: "Durban").first_or_create
-Client.where(name: "Bridgestone").first_or_create
-Client.where(name: "Adcorp").first_or_create
 LinkType.where(name: "Normal").first_or_create
 LinkType.where(name: "Multi-Tenant").first_or_create
 LinkType.where(name: "Layer 2 Wholesale").first_or_create

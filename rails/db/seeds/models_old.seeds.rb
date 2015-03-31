@@ -8,9 +8,7 @@
 
 Antenna.where(size: "30cm", item_code: 'abc', location_id: 1).first_or_create
 Antenna.where(size: "30cm",  item_code: 'def', location_id: 2).first_or_create
-City.where(name: "Johannesburg").first_or_create
-City.where(name: "Cape Town").first_or_create
-City.where(name: "Durban").first_or_create
+
 Client.where(name: "Bridgestone").first_or_create
 Client.where(name: "Adcorp").first_or_create
 LinkType.where(name: "Normal").first_or_create
