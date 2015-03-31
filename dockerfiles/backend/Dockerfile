@@ -28,7 +28,7 @@ RUN gem install --no-rdoc --no-ri bundler sass
 # ========================================
 
 # Create user
-RUN adduser --system --group cops-api
+RUN adduser --system --group cops
 
 # ========================================
 # App specific dependancies
@@ -40,22 +40,22 @@ RUN adduser --system --group cops-api
 # Make sure bower uses https instead of ssh
 RUN git config --global url."https://".insteadOf git://
 
-COPY ./ember/package.json /srv/cops-frontend/package.json
-COPY ./ember/bower.json /srv/cops-frontend/bower.json
+COPY ./ember/package.json /srv/cops/ember/package.json
+COPY ./ember/bower.json /srv/cops/ember/bower.json
 
-RUN cd /srv/cops-frontend && \
+RUN cd /srv/cops/ember && \
   npm install
 
-RUN cd /srv/cops-frontend && \
+RUN cd /srv/cops/ember && \
   bower --allow-root install
 
 # Install Dependancies for Backend
 # ******************************
-COPY ./rails/Gemfile /srv/cops-api/Gemfile
-COPY ./rails/Gemfile.lock /srv/cops-api/Gemfile.lock
-RUN chown -R cops-api:cops-api /srv/cops-api
-RUN cd /srv/cops-api && \
-  /sbin/setuser cops-api bundle install \
+COPY ./rails/Gemfile /srv/cops/rails/Gemfile
+COPY ./rails/Gemfile.lock /srv/cops/rails/Gemfile.lock
+RUN chown -R cops:cops /srv/cops
+RUN cd /srv/cops/rails && \
+  /sbin/setuser cops bundle install \
     --deployment \
     --without development:test
 
@@ -66,12 +66,12 @@ RUN cd /srv/cops-api && \
 # ========================================
 
 # Install the app
-COPY ./rails /srv/cops-api
-RUN chown -R cops-api:cops-api /srv/cops-api
+COPY . /srv/cops
+RUN chown -R cops:cops /srv/cops
 
 # Setup runit to run the app
-RUN mkdir /etc/service/cops-api
-ADD config/deploy/cops-api.sh /etc/service/cops-api/run
+RUN mkdir /etc/service/cops
+ADD config/deploy/cops.sh /etc/service/cops/run
 
 
 
@@ -79,13 +79,11 @@ ADD config/deploy/cops-api.sh /etc/service/cops-api/run
 # Ember frontend
 # ========================================
 
-# Install the app
-COPY ./ember /srv/cops-frontend
 
-RUN cd /srv/cops-frontend && \
+RUN cd /srv/cops/ember && \
   ember build
 
-RUN chown -R www-data:www-data /srv/cops-frontend/dist
+RUN chown -R www-data:www-data /srv/cops/ember/dist
 
 
 # ========================================
