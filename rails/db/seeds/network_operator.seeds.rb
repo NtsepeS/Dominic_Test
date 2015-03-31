@@ -1,0 +1,1 @@
+NetworkOperator.find_or_create_by(name: "Internet Solutions")
