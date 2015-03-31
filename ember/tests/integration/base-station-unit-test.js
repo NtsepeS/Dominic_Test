@@ -50,8 +50,9 @@ test('visiting /base-station-units/:id should show base station unit details', f
 });
 
 test('visiting /base-station-units/new should create a new base station unit', function(assert) {
-  visit('/base-station-units/new');
   var newName = "Some awesome base station unit name";
+
+  visit('/base-station-units/new');
 
   andThen(function() {
     fillIn('.base-station-unit__name', newName);
@@ -64,6 +65,39 @@ test('visiting /base-station-units/new should create a new base station unit', f
   andThen(function() {
     assert.equal(currentPath(), 'base-station-unit.index');
 
+    assert.equal(find('.base-station-unit__name').text().indexOf(newName) > -1, true);
+  });
+
+  visit('/base-station-units');
+});
+
+test('visiting /base-station-units/:id/edit should edit a new base station unit', function(assert) {
+  visit('/base-station-units');
+  var newName = "Some awesome base station unit name",
+      baseStationUnitName;
+
+  andThen(function() {
+    baseStationUnitName = find(".base-station-list-item__name:eq(0)").text();
+  });
+
+  click(".base-station-list-item__name:eq(0)");
+
+  andThen(function(){
+    assert.equal(currentPath(), 'base-station-unit.index');
+  });
+
+  click(".base-station-unit__edit");
+
+  andThen(function() {
+    fillIn('.base-station-unit__name', newName);
+    fillIn('.base-station-unit__status', 1);
+    fillIn('.base-station-unit__core-node', 1);
+  });
+
+  click('.qa-save');
+
+  andThen(function() {
+    assert.equal(currentPath(), 'base-station-unit.index');
     assert.equal(find('.base-station-unit__name').text().indexOf(newName) > -1, true);
   });
 });
