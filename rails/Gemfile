@@ -23,6 +23,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'processmaker', github: 'vmpj/processmaker_gem'
 gem 'sentry-raven'
 gem 'ci_reporter_rspec', '~> 1.0.0'
+gem 'seedbank'
 
 group :development do
   gem 'guard-rspec', require: false
