@@ -1,13 +1,14 @@
 @wip
-Feature: Change status
-    As a Field Engineer
-    I have completed the installation on site
+Feature: 1.8 Change status
+	As a Field Engineer
+	I have completed the installation on site
 
-    Background: 
-    Given the Field Engineer has completed the installation sucessfully
-    And the Field Engineer has submitted the required information
+Background: 
+	Given I have filled in the installation information
+	And   I have uploaded the photographs
+	And   I have uploaded the sign off
 
-    Scenario: Change status to complete
-        Given the IS Field Engineer has completed the installation
-        And has sucessfully uploaded the information
-        Then the status changes to "Installed"
+	Scenario: Change status to complete
+		Given I am on the task
+		And I press "update"
+		Then I should see "status updated" to "installed"
