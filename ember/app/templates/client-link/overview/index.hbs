@@ -4,7 +4,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <span class="panel-title">Site Information</span>
-        {{#link-to 'client-link.overview.edit' model.id}}
+        {{#link-to 'client-link.overview.edit' model.id class="clientlink__edit"}}
           <span class="glyphicon glyphicon-edit pull-right" aria-hidden="true"></span>
         {{/link-to}}
       </div>
@@ -13,7 +13,7 @@
           <div class="col-md-2">
             <strong>Client:</strong>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 clientlink__client">
             {{client.name}}
           </div>
           <div class="col-md-2"></div>
@@ -21,7 +21,7 @@
           <div class="col-md-2">
             <strong>Branch Name:</strong>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 clientlink__branch">
             {{branch}}
           </div>
         </div>
@@ -30,7 +30,7 @@
           <div class="col-md-2">
             <strong>Status:</strong>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 clientlink__status">
               {{status.name}}
           </div>
           <div class="col-md-2"></div>
@@ -46,7 +46,7 @@
           <div class="col-md-2">
             <strong>Network Operator:</strong>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 clientlink__network-operator">
             {{networkOperator.name}}
           </div>
           <div class="col-md-2"></div>
@@ -62,7 +62,7 @@
           <div class="col-md-2">
             <strong>Link Type:</strong>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 clientlink__link-type">
             {{linkType.name}}
           </div>
           <div class="col-md-2"></div>
@@ -79,7 +79,7 @@
           <div class="col-md-2">
             <strong>Sector Name:</strong>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 clientlink__sector-name">
             {{baseStationSector.name}}
           </div>
           <div class="col-md-2"></div>
@@ -95,7 +95,7 @@
           <div class="col-md-2">
             <strong>Antenna Size:</strong>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 clientlink__antenna">
             {{antenna.size}}
           </div>
           <div class="col-md-2"></div>

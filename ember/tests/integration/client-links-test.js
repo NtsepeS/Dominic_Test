@@ -38,7 +38,7 @@ test('visiting /client-links should show a list of links', function(assert) {
   });
 });
 
-test('clicking on an entry in the client links table should navigate to the details', function(assert) {
+test('Read client link', function(assert) {
   visit('/client-links');
   var name = undefined;
 
@@ -115,5 +115,43 @@ test('Create new client link', function(assert) {
     assert.equal(find('.clientlink__service-account').val(), serviceAcount);
     assert.equal(find('.clientlink__service-account-site').val(), serviceAccountSite);
   });
+});
+
+test('Update client link', function(assert) {
+  visit('/client-links');
+  var new_branch = 'New Branch Name';
+
+  click(".c-client-link-list-item__name:eq(0)");
+
+  andThen(function(){
+    assert.equal(currentPath(), 'client-link.overview.index', "Should navigate to overview index");
+  });
+
+  click(".clientlink__edit");
+
+  andThen(function() {
+    fillIn('.clientlink__branch', new_branch);
+
+    fillIn('.clientlink__client ', 1);
+    fillIn('.clientlink__status', 1);
+    fillIn('.clientlink__network-operator', 1);
+    fillIn('.clientlink__link-type', 1);
+    fillIn('.clientlink__sector-name', 1);
+    fillIn('.clientlink__antenna', 1);
+  });
+
+  click('.qa-save');
+
+  andThen(function() {
+    assert.equal(find('.clientlink__branch').text().indexOf(new_branch) > -1, true, "Branch");
+    assert.equal(find('.clientlink__client').text().indexOf('Bridgestone') > -1 , true,'Client');
+    assert.equal(find('.clientlink__status').text().indexOf('Operational') > -1 , true,'Status');
+    assert.equal(find('.clientlink__network-operator').text().indexOf('Internet Solutions') > -1 , true, 'Network Operator');
+    assert.equal(find('.clientlink__link-type').text().indexOf('Normal') > -1 , true, "Link Type");
+    assert.equal(find('.clientlink__sector-name').text().indexOf('Sector 1') > -1 , true, "Sector");
+    assert.equal(find('.clientlink__antenna').text().indexOf('30cm') > -1 , true, "Antenna");
+
+  });
+
 });
 
