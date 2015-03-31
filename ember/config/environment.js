@@ -32,7 +32,8 @@ module.exports = function(environment) {
 
     // Our feature flags
     featureFlags: {
-      'manage-authorizations': false
+      'manage-authorizations': false,
+      'integration-tests': false
     }
   };
 

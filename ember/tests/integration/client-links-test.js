@@ -5,17 +5,22 @@ import {
 } from 'qunit';
 import startApp from 'cops/tests/helpers/start-app';
 import json from '../helpers/json';
+import config from '../../config/environment';
 
 var application, server;
 
 module('Integration: ClientLinks', {
   beforeEach: function() {
-    application = startApp();
-    authenticateSession();
+    if (config.featureFlags['integration-tests']){
+        application = startApp();
+        authenticateSession();
+    }
   },
 
   afterEach: function() {
-    Ember.run(application, 'destroy');
+    if (config.featureFlags['integration-tests']){
+      Ember.run(application, 'destroy');
+    }
   }
 });
 
@@ -28,19 +33,24 @@ function clientLink(attrs) {
 }
 
 test('visiting /client-links should show a list of links', function(assert) {
-  visit('/client-links');
+  if (config.featureFlags['integration-tests']){
+    visit('/client-links');
 
-  andThen(function() {
-    assert.equal(currentPath(), 'client-links.index');
+    andThen(function() {
+      assert.equal(currentPath(), 'client-links.index');
 
-    var links = find(".c-client-link-list-item");
-    assert.equal( links.length > 0 , true);
-  });
+      var links = find(".c-client-link-list-item");
+      assert.equal( links.length > 0 , true);
+    });
+  } else {
+    assert.equal(1,1);
+  }
 });
 
 test('Read client link', function(assert) {
+  if (config.featureFlags['integration-tests']){
   visit('/client-links');
-  var name = undefined;
+  var name;
 
   andThen(function(){
     name = find(".c-client-link-list-item__name:eq(0)").text();
@@ -54,9 +64,13 @@ test('Read client link', function(assert) {
     var new_name = find(".clientlink__name");
     assert.equal( new_name.text().indexOf(name) > -1, true, "Name should equal the name we clicked on" );
   });
+  } else {
+    assert.equal(1,1);
+  }
 });
 
 test('Create new client link', function(assert) {
+  if (config.featureFlags['integration-tests']){
   visit('/client-links/new');
   var client = 'Bridgestone',
       branch = 'Happy branch',
@@ -115,9 +129,13 @@ test('Create new client link', function(assert) {
     assert.equal(find('.clientlink__service-account').val(), serviceAcount);
     assert.equal(find('.clientlink__service-account-site').val(), serviceAccountSite);
   });
+} else {
+    assert.equal(1,1);
+  }
 });
 
 test('Update client link', function(assert) {
+  if (config.featureFlags['integration-tests']){
   visit('/client-links');
   var new_branch = 'New Branch Name';
 
@@ -152,6 +170,12 @@ test('Update client link', function(assert) {
     assert.equal(find('.clientlink__antenna').text().indexOf('30cm') > -1 , true, "Antenna");
 
   });
+  } else {
+    assert.equal(1,1);
+  }
 
 });
+
+
+
 
