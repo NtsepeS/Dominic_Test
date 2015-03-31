@@ -101,3 +101,24 @@ test('visiting /base-station-units/:id/edit should edit a new base station unit'
     assert.equal(find('.base-station-unit__name').text().indexOf(newName) > -1, true);
   });
 });
+
+test('clicking delete on a base-station-unit should remove the record', function(assert) {
+  visit('/base-station-units');
+  var baseStationUnitName;
+
+  andThen(function() {
+    baseStationUnitName = find(".base-station-list-item__name:eq(0)").text();
+  });
+
+  click(".base-station-list-item__name:eq(0)");
+
+  andThen(function(){
+    assert.equal(currentPath(), 'base-station-unit.index');
+  });
+
+  click(".base-station-unit__delete");
+
+  andThen(function() {
+    assert.equal(currentPath(), 'base-station-unit.index');
+  });
+});
