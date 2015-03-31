@@ -5,7 +5,7 @@
       <div class="form-group">
         <label class="col-sm-2 control-label">Name:</label>
         <div class="col-sm-10">
-          {{input value=model.name class="form-control"}}
+          {{input value=model.name class="form-control base-station-unit__name"}}
         </div>
       </div>
       <div class="form-group">
@@ -13,10 +13,10 @@
         <div class="col-sm-10">
         {{view "select"
           contentBinding="statuses"
-          optionValuePath="content"
+          optionValuePath="content.id"
           optionLabelPath="content.name"
           selection=model.status.content
-          class="form-control"
+          class="form-control base-station-unit__status"
           prompt="Please Select"
         }}
         </div>
@@ -26,16 +26,16 @@
         <div class="col-sm-10">
         {{view "select"
           contentBinding="coreNodes"
-          optionValuePath="content"
+          optionValuePath="content.id"
           optionLabelPath="content.name"
           selection=model.coreNode.content
-          class="form-control"
+          class="form-control base-station-unit__core-node"
           prompt="Please Select"
         }}
         </div>
       </div>
     </form>
 
-    <button type="button" class="btn btn-primary pull-right" {{action "saveBaseStationUnit"}}>Save</button>
+    <button type="button" class="btn btn-primary pull-right qa-save" {{action "saveBaseStationUnit"}}>Save</button>
   </section>
 </div>
