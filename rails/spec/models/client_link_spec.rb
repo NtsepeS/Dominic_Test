@@ -78,4 +78,18 @@ RSpec.describe ClientLink, :type => :model do
       expect(cl.modem).to eq(m)
     end
   end
+
+  context 'destroying' do
+    before :each do
+      cl.save
+    end
+
+    it 'destroys client link' do
+      expect{ cl.destroy }.to change { ClientLink.count }.by( -1 )
+    end
+
+    it 'destroys associated container' do
+      expect{ cl.destroy }.to change { Container.count }.by( -1 )
+    end
+  end
 end
