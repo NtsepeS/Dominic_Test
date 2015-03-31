@@ -20,4 +20,14 @@ module('Integration: BaseStationUnits', {
   }
 });
 
+test('visiting /base-station-units should show a list of links', function(assert) {
+  visit('/base-station-units');
+
+  andThen(function() {
+    assert.equal(currentPath(), 'base-station-units.index');
+
+    var links = find(".base-station-list-item");
+    assert.equal( links.length > 0 , true);
+  });
+});
 
