@@ -2,14 +2,6 @@ Given(/^I have a client "(.*?)"$/) do |client_name|
   FactoryGirl.create :client, :name => client_name
 end
 
-Given(/^I'm on the client links page$/) do
-  @app.client_links.load
-end
-
-When(/^I create a new client link$/) do
-  @app.client_links.new_client_link
-end
-
 When(/^I populate the Site Information as follows:$/) do |table|
   data = table.rows_hash
 
