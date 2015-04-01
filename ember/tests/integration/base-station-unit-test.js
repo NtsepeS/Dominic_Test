@@ -20,7 +20,7 @@ module('Integration: BaseStationUnits', {
   }
 });
 
-test('visiting /base-station-units should show a list of links', function(assert) {
+test('visiting /base-station-units should show a list of units', function(assert) {
   visit('/base-station-units');
 
   andThen(function() {
@@ -50,7 +50,7 @@ test('visiting /base-station-units/:id should show base station unit details', f
 });
 
 test('visiting /base-station-units/new should create a new base station unit', function(assert) {
-  var newName = "Some awesome base station unit name";
+  var newName = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
 
   visit('/base-station-units/new');
 
@@ -73,7 +73,7 @@ test('visiting /base-station-units/new should create a new base station unit', f
 
 test('visiting /base-station-units/:id/edit should edit a new base station unit', function(assert) {
   visit('/base-station-units');
-  var newName = "Some awesome base station unit name",
+  var newName = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5),
       baseStationUnitName;
 
   andThen(function() {
@@ -119,6 +119,20 @@ test('clicking delete on a base-station-unit should remove the record', function
   click(".base-station-unit__delete");
 
   andThen(function() {
-    assert.equal(currentPath(), 'base-station-unit.index');
+    click('.modal__yes');
   });
+
+  andThen(function() {
+    assert.equal(currentPath(), 'base-station-units.index');
+  });
+
+  visit('/base-station-units');
+
+  andThen(function() {
+    console.log('NEW: ' +find(".base-station-list-item__name:eq(0)").text());
+    console.log('OLD: ' + baseStationUnitName);
+    assert.equal(baseStationUnitName.indexOf(find(".base-station-list-item__name:eq(0)").text())  == -1 , true);
+  });
+
+
 });
