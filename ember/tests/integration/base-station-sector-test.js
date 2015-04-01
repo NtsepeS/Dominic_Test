@@ -110,7 +110,7 @@ test('clicking delete on a base-station-sector should remove the record', functi
   click(".base-station-list-item__name:eq(0)");
 
   andThen(function(){
-    assert.equal(currentPath(), 'base-station-sector.index');
+    assert.equal(currentPath(), 'base-station-sector.index', "Should be on the specific BSS index page");
   });
 
   click(".base-station-sector__delete");
@@ -120,13 +120,13 @@ test('clicking delete on a base-station-sector should remove the record', functi
   });
 
   andThen(function() {
-    assert.equal(currentPath(), 'base-station-sectors.index');
+    assert.equal(currentPath(), 'base-station-sectors.index', "Should see index with all BSS");
   });
 
   visit('/base-station-sectors');
 
   andThen(function() {
-    assert.equal(baseStationUnitName.indexOf(find(".base-station-list-item__name:eq(0)").text())  == -1 , true);
+    assert.equal(baseStationUnitName.indexOf(find(".base-station-list-item__name:eq(0)").text()) < 0, true, "The deleted item should not be in the list");
   });
 
 

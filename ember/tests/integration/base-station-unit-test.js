@@ -131,7 +131,7 @@ test('clicking delete on a base-station-unit should remove the record', function
   andThen(function() {
     console.log('NEW: ' +find(".base-station-list-item__name:eq(0)").text());
     console.log('OLD: ' + baseStationUnitName);
-    assert.equal(baseStationUnitName.indexOf(find(".base-station-list-item__name:eq(0)").text())  == -1 , true);
+    assert.equal(baseStationUnitName.indexOf(find(".base-station-list-item__name:eq(0)").text()) < 0 , true);
   });
 
 
