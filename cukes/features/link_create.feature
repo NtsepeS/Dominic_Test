@@ -1,8 +1,7 @@
 Feature: Create client link
 
   Background:
-    Given I have a client "Adcorp"
-    And I'm logged in as a user
+    Given I'm logged in as a user
 
   Scenario: I can create a new client link
     Given I'm on the client links page
