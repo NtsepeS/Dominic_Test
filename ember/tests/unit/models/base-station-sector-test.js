@@ -5,7 +5,9 @@ import {
 
 moduleForModel('base-station-sector', 'BaseStationSector', {
   // Specify the other units that are required for this test.
-  needs: ['model:status', 'model:base-station-unit', 'model:client-link', 'model:core-node', 'model:link-type', 'model:antenna', 'model:network-operator', 'model:client', 'model:sub-group-picture-set']
+  needs: ['model:status', 'model:base-station-unit', 'model:client-link', 'model:core-node',
+   'model:link-type', 'model:antenna', 'model:network-operator', 'model:client',
+   'model:album', 'model:radio', 'model:service-fragment']
 });
 
 test('it exists', function() {

@@ -73,6 +73,7 @@ module Api
           :status_id,
           :link_type_id,
           :antenna_id,
+          :radio_id,
           :network_operator_id,
           :base_station_sector_id,
           :solution_identifier,

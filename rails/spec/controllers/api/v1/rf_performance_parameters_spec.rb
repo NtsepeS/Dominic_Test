@@ -20,7 +20,7 @@ RSpec.describe Api::V1::RfPerformanceParametersController do
 
   describe 'PUT /api/v1/rf_performance_parameters/:id' do
     let(:amendable_key) { :uplink_rssi }
-    let(:amendable_value) { "1337" }
+    let(:amendable_value) { 1337.0 }
     let(:id) { @rf_performance_parameter.id }
 
     it_should_behave_like "an amendable resource"

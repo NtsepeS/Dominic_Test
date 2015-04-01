@@ -1,0 +1,99 @@
+<div class="container">
+  <section class="row">
+    <h2>Service Fragment</h2>
+    <div class="row c-service-fragment__add-button">
+      {{#link-to 'client-link.service-fragments'}}
+      <button type="button" class="btn btn-primary pull-left"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Service Fragments</button>
+      {{/link-to}}
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <span class="panel-title service-fragment-title text-uppercase">{{model.workOrderNumber}}</span>
+        {{#link-to 'service-fragment.edit' model.id}}
+          <span class="glyphicon glyphicon-edit pull-right" aria-hidden="true"></span>
+        {{/link-to}}
+      </div>
+        <div class="panel-body">
+          <div class="col-md-6 col-md-offset-0">
+            <div class="row show">
+              <label class="control-label">Work Order #:</label>
+                {{model.workOrderNumber}}
+            </div>
+            <div class="row show">
+              <label class="control-label">Line Speed:</label>
+                {{model.lineSpeed}} Mbps
+            </div>
+          </div>
+
+          <div class="col-md-6 .col-md-offset-7">
+            <div class="row show">
+            <label class="control-label">Service Type:</label>
+              {{model.serviceType}}
+          </div>
+            <div class="row show">
+              <label class="control-label">Physical Mode:</label>
+                {{model.physicalMode}}
+            </div>
+          </div>
+
+
+        <div class="center col-md-12">
+          <h3 class="c-service-fragment__service-heading">Services</h3>
+          <div class="row c-model-add-button__no-margin">
+            {{#link-to 'service-fragment.services.new' model.id }}
+            <button type="button" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Service</button>
+            {{/link-to}}
+          </div>
+        </div>
+      </div>
+
+
+      <table class="table c-service-fragment__service-table table-hover table-striped c-number-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Line Tag</th>
+            <th>Line Speed</th>
+            <th>VLAN</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+      {{#if model.services.length}}
+      {{#each service in model.services}}
+        {{#link-to 'service' service.id tagName="tr" class="c-number-row"}}
+          <td class="c-number-data-column"></td>
+          <td>{{service.linetag}}</td>
+          <td>{{service.lineSpeed}}</td>
+          <td>{{service.vlan}}</td>
+          <td>
+            {{#link-to 'service.edit' service.id}}
+              <span class="glyphicon glyphicon-edit pull-right" aria-hidden="true"></span>
+            {{/link-to}}
+          </td>
+        {{/link-to}}
+      {{/each}}
+      {{else}}
+        <tr>
+          <td colspan="6">
+            {{alert-message alertType="alert-warning" message="There's no services configured on this service fragment."}}
+          </td>
+        </tr>
+      {{/if}}
+        </tbody>
+      </table>
+      <div class="panel-footer">
+        <div class="row c-service-fragment__footer">
+          <div class="pull-right"><strong>Total Line Speed: </strong>{{model.totalLineSpeed}} Mbps</div>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <div class="row c-service-fragment__footer">
+          <button type="button" class="btn btn-danger pull-right" data-toggle="modal" data-target="#prompt-modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+{{prompt-modal action="removeServiceFragment"}}

@@ -1,10 +1,12 @@
 import DS from 'ember-data';
 
 var Pictures = DS.Model.extend({
-  mechanism:    DS.attr('string'),
-  picture_data: DS.attr('string'),
-  date_taken:   DS.attr('date'),
-  album:        DS.belongsTo('album', {async: true})
+  mechanism: DS.attr('string'),
+  url:       DS.attr('string'),
+  dateTaken: DS.attr('date'),
+  width:     DS.attr('string'),
+  height:    DS.attr('string'),
+  album:     DS.belongsTo('album', {async: true})
 });
 
 export default Pictures;

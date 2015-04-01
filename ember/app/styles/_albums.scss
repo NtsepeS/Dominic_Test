@@ -1,0 +1,36 @@
+ul.thumbnails {
+    padding: 0;
+    list-style-type: none;
+
+  li {
+    display: inline;
+    margin: 20px;
+  }
+}
+
+.thumbnail {
+  display: inline-block;
+  max-width: 100%;
+  max-height: auto;
+}
+
+.thumbnail > img {
+  display: inline;
+}
+
+.thumbnail{
+  display: inline-block;
+}
+
+.thumbnail img {
+  max-width: 300px;
+  max-height: 300px;
+  margin : 10px 10px;
+
+}
+
+.picture-edit {
+  text-align: right;
+  padding: 10px;
+}
+

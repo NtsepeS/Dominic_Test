@@ -1,0 +1,102 @@
+<div class="container">
+  <section class="row">
+  <h2>Service Fragments</h2>
+  {{#if model.serviceFragments.length}}
+  <div class="row c-service-fragment__add-button">
+    {{#link-to 'client-link.service-fragments.new' }}
+    <button type="button" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Service Fragment</button>
+    {{/link-to}}
+  </div>
+    {{#each serviceFragment in model.serviceFragments}}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        {{#link-to 'service-fragment' serviceFragment.id}}
+        <span class="panel-title service-fragment-title text-uppercase">{{serviceFragment.workOrderNumber}}</span>
+        {{/link-to}}
+        {{#link-to 'service-fragment.edit' serviceFragment.id}}
+          <span class="glyphicon glyphicon-edit pull-right" aria-hidden="true"></span>
+        {{/link-to}}
+      </div>
+      <div class="panel-body">
+        <div class="col-md-6 col-md-offset-0">
+          <div class="row show">
+            <label class="control-label">Work Order #:</label>
+              {{serviceFragment.workOrderNumber}}
+          </div>
+          <div class="row show">
+            <label class="control-label">Line Speed:</label>
+              {{serviceFragment.lineSpeed}} Mbps
+          </div>
+        </div>
+
+        <div class="col-md-6 .col-md-offset-7">
+          <div class="row show">
+          <label class="control-label">Service Type:</label>
+            {{serviceFragment.serviceType}}
+        </div>
+          <div class="row">
+            <label class="control-label">Physical Mode:</label>
+              {{serviceFragment.physicalMode}}
+          </div>
+        </div>
+        <div class="center col-md-12">
+          <h3 class="c-service-fragment__service-heading">Services</h3>
+          <div class="row c-new-service__add-button">
+            {{#link-to 'service-fragment.services.new' serviceFragment.id}}
+            <button type="button" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Service</button>
+            {{/link-to}}
+          </div>
+        </div>
+      </div>
+      <table class="table c-service-fragment__service-table table-hover c-number-table ">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Line Tag</th>
+            <th>Line Speed</th>
+            <th>VLAN</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        {{#if serviceFragment.services.length}}
+          {{#each service in serviceFragment.services}}
+            {{#link-to 'service' serviceFragment.id service.id tagName="tr" class="c-number-row"}}
+              <td class="c-number-data-column"></td>
+              <td>{{service.linetag}}</td>
+              <td>{{service.lineSpeed}} Mbps</td>
+              <td>{{service.vlan}}</td>
+              <td>
+                {{#link-to 'service.edit' serviceFragment.id service.id}}
+                  <span class="glyphicon glyphicon-edit pull-right" aria-hidden="true"></span>
+                {{/link-to}}
+              </td>
+            {{/link-to}}
+          {{/each}}
+        {{else}}
+          <tr>
+            <td colspan="6">
+              {{alert-message alertType="alert-warning" message="There's no services configured on this service fragment."}}
+            </td>
+          </tr>
+        {{/if}}
+        </tbody>
+      </table>
+      <div class="panel-footer">
+        <div class="row c-service-fragment__footer">
+          <div class="pull-right"><strong>Total Line Speed: </strong>{{serviceFragment.totalLineSpeed}} Mbps</div>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+    {{else}}
+      {{alert-message alertType="alert-warning" message="There's no services fragments configured on this Client Link."}}
+      {{#link-to 'client-link.service-fragments.new' }}
+      <button type="button" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> New Service Fragment</button>
+      {{/link-to}}
+    {{/if}}
+  </section>
+</div>
+
+
+

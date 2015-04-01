@@ -36,7 +36,7 @@ module Api
       private
 
       def port_params
-        params.require(:port).permit(:vlan_type, :acceptable_frame_type, :default_vlan, :service)
+        params.require(:port).permit(:vlan_type, :acceptable_frame_type, :default_vlan, :service_id)
       end
 
     end

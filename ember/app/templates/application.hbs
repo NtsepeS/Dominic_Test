@@ -59,6 +59,9 @@
 </div>
 
 <div class="container main-content">
+  {{#each flashes.queue as |flash|}}
+    {{flash-message flash=flash}}
+  {{/each}}
   {{outlet}}
 </div>
 
@@ -75,3 +78,6 @@
     </div>
   </div>
 </div>
+
+{{partial "photoswipe"}}
+

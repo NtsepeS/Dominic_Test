@@ -27,7 +27,7 @@ module Api
       private
 
       def album_params
-        params.fetch(:album, params).permit(:name)
+        params.fetch(:album, params).permit(:sub_group_classification_id, :client_link_id)
       end
 
     end
