@@ -21,7 +21,7 @@ export default Ember.Controller.extend({
     _this.get('model').set('status', _this.get('model.status'));
 
     return new Ember.RSVP.Promise(function(resolve) {
-      if (_this.get('model.status.id') == undefined) {
+      if (_this.get('model.status.id') === undefined) {
         return resolve(undefined);
       } else {
         var promise = _this.store.find('status', _this.get('model.status.id'));
@@ -38,7 +38,7 @@ export default Ember.Controller.extend({
     _this.get('model').set('coreNode', _this.get('model.coreNode'));
 
     return new Ember.RSVP.Promise(function(resolve) {
-      if (_this.get('model.coreNode.id') == undefined) {
+      if (_this.get('model.coreNode.id') === undefined) {
         return resolve(undefined);
       } else {
         var promise = _this.store.find('core-node', _this.get('model.coreNode.id'));
