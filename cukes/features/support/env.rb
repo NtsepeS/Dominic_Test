@@ -13,13 +13,19 @@ Capybara.default_driver = Cukes.config.browser
 Capybara.app_host = Cukes.config.host
 Capybara.default_wait_time = Cukes.config.startup_timeout
 
+# Silence paper_trail deprecation warning
+current_behavior = ActiveSupport::Deprecation.behavior
+ActiveSupport::Deprecation.behavior = lambda do |message, callstack|
+  return if message =~ /`serialized_attributes` is deprecated without replacement/ && callstack.any? { |m| m =~ /paper_trail/ }
+  Array.wrap(current_behavior).each { |behavior| behavior.call(message, callstack) }
+end
+
 options = {
   :window_size => [1920, 6000]
 }
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, options)
 end
-
 
 # Require Models
 ActiveSupport::Dependencies.autoload_paths += Dir.glob File.join(Cukes.config.rails_root, "app/models")
@@ -50,9 +56,12 @@ AfterStep do
   sleep (ENV['PAUSE'] || 0).to_i
 end
 
+# Require Seeds to init db
+Dir["#{Cukes.config.rails_root}/db/seeds/*.seeds.rb"].each { |f| require f }
+
 # Database Cleaner to clear out the test DB between tests
 require 'database_cleaner/cucumber'
-DatabaseCleaner.strategy = :truncation
+DatabaseCleaner.strategy = :truncation,  {:except => %w[cities clients group_classifications sub_group_classifications link_types statuses]}
 Around do |scenario, block|
   DatabaseCleaner.cleaning(&block)
 end
@@ -60,9 +69,4 @@ end
 # Shorthand FactoryGirl
 include FactoryGirl::Syntax::Methods
 
-# Silence paper_trail deprecation warning
-current_behavior = ActiveSupport::Deprecation.behavior
-ActiveSupport::Deprecation.behavior = lambda do |message, callstack|
-  return if message =~ /`serialized_attributes` is deprecated without replacement/ && callstack.any? { |m| m =~ /paper_trail/ }
-  Array.wrap(current_behavior).each { |behavior| behavior.call(message, callstack) }
-end
+
