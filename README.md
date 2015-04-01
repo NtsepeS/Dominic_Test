@@ -77,3 +77,6 @@ Check the .env file,  if you want to ignore the changes in your .env, use `git u
 * API_PORT
 * EMBER_PORT
 * PROXY_PORT
+* PM_WSDL
+* PM_ADMIN_USER
+* PM_ADMIN_PASSWORD
