@@ -21,8 +21,8 @@
     </thead>
     <tbody>
     {{#each sector in model}}
-    {{#link-to 'base-station-sector' sector tagName='tr'}}
-      <td class="c-base-station-sectors-list-item__name">{{sector.name}}</td>
+    {{#link-to 'base-station-sector' sector classNames="base-station-list-item" tagName='tr'}}
+      <td class="base-station-list-item__name">{{sector.name}}</td>
       <td>{{sector.status.name}}</td>
       <td>{{sector.sector}}</td>
       <td>{{sector.baseStationUnit.id}}</td>
