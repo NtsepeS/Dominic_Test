@@ -16,6 +16,7 @@ Feature: 25. Capacity Request
 			And   I fill in "<Point to Point wireless capacity request form>"
 				| <Client Name> | <Branch> | <Work Order Number> | <Bandwidth> | <Request Date> |
 			And   I click on "attach documentation"
+			And   I fill in the "due by date"
 			When  I press "Submit"
 			Then  I should be see a message "Your request has been sent"	
 		
