@@ -10,6 +10,23 @@ Router.map(function() {
   this.resource('client-links', function(){
     this.route('new');
   });
+
+  this.resource('base-station-sector' , { path: 'base-station-sectors/:base_station_sector_id' },function(){
+    this.route('edit');
+  });
+
+  this.resource('base-station-sectors' ,function() {
+    this.route('new');
+  });
+
+  this.resource('base-station-unit' , { path: 'base-station-units/:base_station_unit_id' },function(){
+    this.route('edit');
+  });
+
+  this.resource('base-station-units' ,function() {
+    this.route('new');
+  });
+
   this.resource('client-link', { path: 'client-links/:clientLinkId' }, function(){
     this.route('edit');
     this.route('audit');
